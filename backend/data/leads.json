@@ -1,0 +1,98 @@
+{
+  "status_checks": [],
+  "contact_submissions": [
+    {
+      "id": "demo-contact-1",
+      "name": "Suresh Varma",
+      "email": "suresh.varma@example.com",
+      "phone": "+91 98480 12345",
+      "company": "Varma Infotech",
+      "service": "Turnkey Construction",
+      "message": "Looking to build a 3-floor villa (G+2) in Madhurawada, Visakhapatnam. Plot size 240 sq yards. Need quotation for Premium package.",
+      "status": "new",
+      "timestamp": "2026-10-14T12:27:43.748Z"
+    },
+    {
+      "id": "demo-contact-2",
+      "name": "Ananya Reddy",
+      "email": "ananya.r@example.com",
+      "phone": "+91 99890 54321",
+      "company": "",
+      "service": "Architectural 3D Design",
+      "message": "Need contemporary architectural plan and 3D elevation for our upcoming east-facing residential plot in Yendada.",
+      "status": "contacted",
+      "timestamp": "2026-10-13T16:27:43.749Z"
+    }
+  ],
+  "site_visit_bookings": [
+    {
+      "id": "demo-visit-1",
+      "name": "Ravi Kumar Patnaik",
+      "phone": "+91 94400 98765",
+      "email": "ravi.patnaik@example.com",
+      "plotLocation": "Sheela Nagar, Visakhapatnam",
+      "plotSize": "200 sq.yds",
+      "packageInterest": "Luxury Package (₹2,250/sqft)",
+      "preferredDate": "2026-10-18",
+      "preferredTime": "11:00 AM",
+      "message": "Site is cleared. Please bring engineer for soil inspection and layout feasibility.",
+      "status": "pending",
+      "timestamp": "2026-10-14T10:27:43.749Z"
+    },
+    {
+      "id": "demo-visit-2",
+      "name": "Pooja Sharma",
+      "phone": "+91 98765 43210",
+      "email": "pooja.sharma@example.com",
+      "plotLocation": "Rushikonda Beach Road, Vizag",
+      "plotSize": "300 sq.yds",
+      "packageInterest": "Royal Package (₹2,550/sqft)",
+      "preferredDate": "2026-10-20",
+      "preferredTime": "04:30 PM",
+      "message": "Planning a sea-facing duplex villa. Want to discuss floor plans and structural warranty.",
+      "status": "in-progress",
+      "timestamp": "2026-10-12T16:27:43.749Z"
+    }
+  ],
+  "newsletter_subscribers": [
+    {
+      "id": "demo-sub-1",
+      "email": "venkat.m@gmail.com",
+      "source": "website-footer",
+      "status": "active",
+      "subscribedAt": "2026-10-14T04:27:43.749Z"
+    },
+    {
+      "id": "demo-sub-2",
+      "email": "priya.k@outlook.com",
+      "source": "blog-popup",
+      "status": "active",
+      "subscribedAt": "2026-10-11T16:27:43.749Z"
+    }
+  ],
+  "chatbot_leads": [
+    {
+      "id": "demo-chat-1",
+      "projectType": "Independent House (G+1)",
+      "projectSize": "2200 sq.ft",
+      "serviceRequired": "Turnkey Construction",
+      "timeline": "Within 3 Months",
+      "contact": "+91 91234 56789",
+      "source": "chatbot",
+      "status": "new",
+      "timestamp": "2026-10-14T14:27:43.749Z"
+    }
+  ],
+  "lead_magnets": [
+    {
+      "id": "demo-magnet-1",
+      "name": "Karthik Naidu",
+      "email": "karthik.naidu@gmail.com",
+      "phone": "+91 98888 77777",
+      "source": "Cost Estimation Checklist PDF",
+      "type": "lead_magnet",
+      "status": "new",
+      "timestamp": "2026-10-13T22:27:43.749Z"
+    }
+  ]
+}

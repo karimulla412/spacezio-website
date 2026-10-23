@@ -1,0 +1,47 @@
+# robots.txt for Spacexio - Architectural Design & Turnkey Construction
+# Optimized for Traditional Search Engines (SEO) & AI Answer Engines (GEO/AEO)
+
+User-agent: *
+Allow: /
+Disallow: /admin
+Disallow: /api/
+
+# OpenAI / ChatGPT Search
+User-agent: GPTBot
+Allow: /
+Disallow: /admin
+Disallow: /api/
+
+User-agent: ChatGPT-User
+Allow: /
+
+# Perplexity AI Search
+User-agent: PerplexityBot
+Allow: /
+
+# Anthropic Claude Search
+User-agent: ClaudeBot
+User-agent: anthropic-ai
+Allow: /
+
+# Google Search & Google-Extended (Gemini / AI Overviews)
+User-agent: Googlebot
+User-agent: Google-Extended
+Allow: /
+
+# Microsoft Bing & Copilot
+User-agent: Bingbot
+Allow: /
+
+# Apple Intelligence
+User-agent: Applebot
+User-agent: Applebot-Extended
+Allow: /
+
+# Meta / Facebook AI
+User-agent: FacebookBot
+User-agent: Meta-ExternalAgent
+Allow: /
+
+# XML Sitemaps
+Sitemap: https://www.spacexio.com/sitemap.xml

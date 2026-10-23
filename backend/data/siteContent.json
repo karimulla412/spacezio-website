@@ -1,0 +1,163 @@
+{
+  "heroData": {
+    "title": "Let's Build Your Dream Home Together",
+    "subtitle": "Modern Construction. Transparent Process. Fixed Pricing.",
+    "description": "From foundation to finish. Fixed-price packages, transparent process, and guaranteed quality. Starting at ₹1,850/sq.ft in Visakhapatnam.",
+    "cta": {
+      "primary": "Start Your Project",
+      "secondary": "Book Free Consultation"
+    },
+    "features": [
+      "3D Design Visualization",
+      "Transparent Pricing",
+      "On-Time Delivery",
+      "10-Year Warranty"
+    ],
+    "image": "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1200&q=80"
+  },
+  "statsData": [
+    { "value": "₹1850", "label": "Starting Price/Sq.ft" },
+    { "value": "6-8", "label": "Months Avg. Timeline" },
+    { "value": "10 Yr", "label": "Warranty" },
+    { "value": "100%", "label": "Satisfaction Focus" }
+  ],
+  "constructionPackagesData": [
+    {
+      "id": 1,
+      "name": "Essential",
+      "tagline": "Budget-Friendly Quality",
+      "pricePerSqft": "1,850",
+      "popular": false,
+      "features": [
+        "2D Floor Plans + 3D Elevation",
+        "Standard JSW Steel & Cement",
+        "Vitrified Tiles (₹50/sqft)",
+        "Standard Bathroom Fittings",
+        "Emulsion Paint",
+        "Basic Electrical & Plumbing",
+        "10' Ceiling Height"
+      ],
+      "idealFor": "30-50 Lakhs Budget"
+    },
+    {
+      "id": 2,
+      "name": "Premium",
+      "tagline": "Most Popular Choice",
+      "pricePerSqft": "2,150",
+      "popular": true,
+      "features": [
+        "Full BIM Modeling + 3D Walkthrough",
+        "Premium JSW Steel & Cement",
+        "Designer Tiles (₹100/sqft)",
+        "Branded Bathroom Fittings (Jaquar)",
+        "Premium Paint Finish",
+        "Modular Kitchen Basic",
+        "False Ceiling in Living",
+        "10.5' Ceiling Height"
+      ],
+      "idealFor": "50-80 Lakhs Budget"
+    },
+    {
+      "id": 3,
+      "name": "Luxury",
+      "tagline": "Premium Living",
+      "pricePerSqft": "2,650",
+      "popular": false,
+      "features": [
+        "Advanced BIM + VR Walkthrough",
+        "Premium Materials Throughout",
+        "Imported Tiles & Marble (₹140/sqft)",
+        "High-End Sanitaryware (Kohler)",
+        "Luxury Paint (Asian Royale)",
+        "Full Modular Kitchen",
+        "Complete Interior Design",
+        "Smart Home Integration",
+        "11' Ceiling Height"
+      ],
+      "idealFor": "80 Lakhs - 1.5 Cr+"
+    }
+  ],
+  "projectsData": [
+    {
+      "id": 1,
+      "title": "Modern Villa - MVP Colony",
+      "category": "Residential",
+      "location": "MVP Colony, Visakhapatnam",
+      "area": "2,400 sq.ft",
+      "budget": "65 Lakhs",
+      "package": "Premium",
+      "year": "2024",
+      "image": "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800&q=80",
+      "description": "3BHK villa with premium finishes, modular kitchen, and landscaping."
+    },
+    {
+      "id": 2,
+      "title": "Contemporary Duplex - Madhurawada",
+      "category": "Residential",
+      "location": "Madhurawada, Visakhapatnam",
+      "area": "3,200 sq.ft",
+      "budget": "95 Lakhs",
+      "package": "Luxury",
+      "year": "2024",
+      "image": "https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?w=800&q=80",
+      "description": "Luxury duplex with smart home integration and complete interior design."
+    },
+    {
+      "id": 3,
+      "title": "Individual House - Gajuwaka",
+      "category": "Residential",
+      "location": "Gajuwaka, Visakhapatnam",
+      "area": "1,200 sq.ft",
+      "budget": "28 Lakhs",
+      "package": "Essential",
+      "year": "2024",
+      "image": "https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?w=800&q=80",
+      "description": "Affordable 2BHK home with quality construction and smart space utilization."
+    },
+    {
+      "id": 4,
+      "title": "BIM Engineered Commercial Space",
+      "category": "Commercial",
+      "location": "Siripuram, Visakhapatnam",
+      "area": "5,500 sq.ft",
+      "budget": "1.4 Cr",
+      "package": "Luxury",
+      "year": "2024",
+      "image": "https://images.unsplash.com/photo-1541888946425-d0fbb186c5f7?w=800&q=80",
+      "description": "Multi-tier corporate studio designed with full BIM coordination and structural precision."
+    }
+  ],
+  "testimonialsData": [
+    {
+      "id": 1,
+      "name": "Rajesh Kumar",
+      "project": "3BHK Villa, MVP Colony",
+      "location": "Visakhapatnam",
+      "content": "Spacexio delivered exactly what they promised. The 3D model helped us visualize everything before construction. Project completed in 7 months without any delays.",
+      "rating": 5
+    },
+    {
+      "id": 2,
+      "name": "Priya & Srinivas",
+      "project": "4BHK Duplex, Madhurawada",
+      "location": "Visakhapatnam",
+      "content": "Their technology-driven approach impressed us. We could track progress daily. The BIM modeling eliminated all construction errors.",
+      "rating": 5
+    },
+    {
+      "id": 3,
+      "name": "Venkat Rao",
+      "project": "2BHK Home, Gajuwaka",
+      "location": "Visakhapatnam",
+      "content": "Built my home within budget using the Essential package. Quality was not compromised. Very transparent pricing and payment process.",
+      "rating": 5
+    }
+  ],
+  "locationsData": {
+    "city": "Visakhapatnam",
+    "address": "Near Abid Nagar Road, Abidnagar Park, Akkayyapalem, Visakhapatnam - 530016, Andhra Pradesh",
+    "phone": "+91 96865 11132",
+    "email": "hellospacexio@gmail.com",
+    "hours": "9:00 AM - 7:00 PM (Mon-Sat)"
+  }
+}
