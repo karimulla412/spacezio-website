@@ -8,10 +8,10 @@ import { Card, CardContent } from '../ui/card';
 import { Button } from '../ui/button';
 import { useContent } from '../../context/ContentContext';
 import { toast } from 'sonner';
+import { API_URL } from '../../config/api';
 
 const CmsEditor = () => {
   const { content, refreshContent } = useContent();
-  const API_URL = process.env.REACT_APP_API_URL || 'http://localhost:8080';
 
   const [activeSection, setActiveSection] = useState('hero');
   const [saving, setSaving] = useState(false);

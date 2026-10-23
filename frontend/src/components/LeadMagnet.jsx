@@ -4,6 +4,7 @@ import { Button } from './ui/button';
 import { Input } from './ui/input';
 import { toast } from 'sonner';
 import axios from 'axios';
+import { API_URL } from '../config/api';
 
 const LeadMagnet = ({ isOpen, onClose }) => {
   const [formData, setFormData] = useState({
@@ -19,7 +20,6 @@ const LeadMagnet = ({ isOpen, onClose }) => {
     setIsLoading(true);
 
     try {
-      const API_URL = process.env.REACT_APP_BACKEND_URL;
       await axios.post(`${API_URL}/api/lead-magnet`, {
         ...formData,
         source: 'lead_magnet_popup'

@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Button } from './ui/button';
 import { toast } from 'sonner';
 import axios from 'axios';
+import { API_URL } from '../config/api';
 
 const NewsletterForm = () => {
   const [email, setEmail] = useState('');
@@ -20,7 +21,6 @@ const NewsletterForm = () => {
     setIsSubmitting(true);
 
     try {
-      const API_URL = process.env.REACT_APP_BACKEND_URL;
       const response = await axios.post(`${API_URL}/api/newsletter/subscribe`, {
         email,
         source: 'website',

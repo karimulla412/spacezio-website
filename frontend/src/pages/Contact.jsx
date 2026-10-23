@@ -7,6 +7,7 @@ import { Textarea } from '../components/ui/textarea';
 import { toast } from 'sonner';
 import axios from 'axios';
 import SEO from '../components/SEO';
+import { API_URL } from '../config/api';
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -34,7 +35,6 @@ const Contact = () => {
     setIsSubmitting(true);
 
     try {
-      const API_URL = process.env.REACT_APP_BACKEND_URL || process.env.REACT_APP_API_URL || 'http://localhost:8080';
       const response = await axios.post(`${API_URL}/api/contact`, formData);
       
       if (response.status === 200) {

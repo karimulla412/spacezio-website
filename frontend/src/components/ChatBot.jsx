@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { X, Send, MessageCircle, Minimize2 } from 'lucide-react';
 import { toast } from 'sonner';
 import axios from 'axios';
+import { API_URL } from '../config/api';
 
 const ChatBot = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -234,7 +235,6 @@ const ChatBot = () => {
     }
 
     try {
-      const API_URL = process.env.REACT_APP_BACKEND_URL;
       await axios.post(`${API_URL}/api/chatbot/lead`, {
         ...leadData,
         contact,

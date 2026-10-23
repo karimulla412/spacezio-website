@@ -1,4 +1,5 @@
 import React, { createContext, useContext, useState, useEffect } from 'react';
+import { API_URL } from '../config/api';
 import { 
   heroData as defaultHero,
   statsData as defaultStats,
@@ -24,7 +25,6 @@ export const ContentProvider = ({ children }) => {
 
   const fetchContent = async () => {
     try {
-      const API_URL = process.env.REACT_APP_API_URL || 'http://localhost:8080';
       const res = await fetch(`${API_URL}/api/content`);
       if (res.ok) {
         const json = await res.json();

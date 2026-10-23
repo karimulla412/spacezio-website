@@ -12,7 +12,7 @@ const {
 } = require('./emailService');
 
 const app = express();
-const port = process.env.PORT || 8000;
+const port = process.env.PORT || 8080;
 
 // Middleware
 app.use(cors({
@@ -435,6 +435,25 @@ apiRouter.delete('/content/testimonials/:id', (req, res) => {
 });
 
 app.use('/api', apiRouter);
+
+// Serve static build in production
+const frontendBuildPaths = [
+  path.join(__dirname, '../frontend/build'),
+  path.join(__dirname, 'frontend/build'),
+  path.join(__dirname, '../../public_html')
+];
+
+const buildDir = frontendBuildPaths.find(p => fs.existsSync(p));
+if (buildDir) {
+  console.log(`Serving static files from: ${buildDir}`);
+  app.use(express.static(buildDir));
+  app.get('*', (req, res, next) => {
+    if (req.path.startsWith('/api')) {
+      return next();
+    }
+    res.sendFile(path.join(buildDir, 'index.html'));
+  });
+}
 
 // Initialize DB and start server
 db.initDB().then(() => {

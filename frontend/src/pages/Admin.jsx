@@ -10,6 +10,7 @@ import {
 import { Card, CardContent } from '../components/ui/card';
 import { toast } from 'sonner';
 import CmsEditor from '../components/admin/CmsEditor';
+import { API_URL } from '../config/api';
 
 const Admin = () => {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
@@ -40,8 +41,6 @@ const Admin = () => {
   // Settings
   const [newPassword, setNewPassword] = useState('');
 
-  const API_URL = process.env.REACT_APP_API_URL || 'http://localhost:8080';
-
   useEffect(() => {
     if (localStorage.getItem('adminAuth') === 'true') {
       setIsAuthenticated(true);
@@ -58,7 +57,7 @@ const Admin = () => {
     } catch (err) {
       console.warn('Overview fetch error:', err);
     }
-  }, [API_URL]);
+  }, []);
 
   const fetchData = useCallback(async () => {
     setLoading(true);
@@ -87,7 +86,7 @@ const Admin = () => {
     } finally {
       setLoading(false);
     }
-  }, [activeTab, API_URL, fetchOverview]);
+  }, [activeTab, fetchOverview]);
 
   useEffect(() => {
     if (isAuthenticated) {

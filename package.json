@@ -1,0 +1,21 @@
+{
+  "name": "spacezio-website",
+  "version": "1.0.0",
+  "description": "SPACEXIO Construction & Architectural Design",
+  "main": "backend/server.js",
+  "scripts": {
+    "start": "node backend/server.js",
+    "server": "node backend/server.js",
+    "client": "npm start --prefix frontend",
+    "build": "cd frontend && npm install && npm run build",
+    "postinstall": "cd backend && npm install --omit=dev"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "express": "^4.21.0",
+    "pg": "^8.13.0",
+    "resend": "^4.0.0",
+    "zod": "^3.23.8"
+  }
+}

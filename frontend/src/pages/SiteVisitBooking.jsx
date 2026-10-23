@@ -9,6 +9,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '.
 import { toast } from 'sonner';
 import axios from 'axios';
 import SEO from '../components/SEO';
+import { API_URL } from '../config/api';
 
 const SiteVisitBooking = () => {
   const [formData, setFormData] = useState({
@@ -38,7 +39,6 @@ const SiteVisitBooking = () => {
     setIsSubmitting(true);
 
     try {
-      const API_URL = process.env.REACT_APP_BACKEND_URL || process.env.REACT_APP_API_URL || 'http://localhost:8080';
       const cleanedData = Object.fromEntries(
         Object.entries(formData).filter(([_, value]) => value !== '')
       );
