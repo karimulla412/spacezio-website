@@ -85,7 +85,11 @@ const ChatBot = () => {
     addMessage('user', buttonText);
 
     // Route based on button
-    if (buttonText.includes('Start') || buttonText.includes('Project')) {
+    if (buttonText.includes('WhatsApp')) {
+      const whatsappMsg = `Hi Spacexio team! I submitted a project inquiry via your website assistant. Please connect with me regarding architectural design and construction packages.`;
+      const url = `https://wa.me/919686511132?text=${encodeURIComponent(whatsappMsg)}`;
+      window.open(url, '_blank');
+    } else if (buttonText.includes('Start') || buttonText.includes('Project')) {
       startProjectFlow();
     } else if (buttonText.includes('Estimate')) {
       startProjectFlow();
@@ -278,9 +282,9 @@ const ChatBot = () => {
       toast.success('Your inquiry has been submitted successfully!');
       
       setTimeout(() => {
-        addMessage('bot', 'Is there anything else I can help you with?', 
-          ['New Project', 'Explore Services', 'Close Chat']);
-      }, 2000);
+        addMessage('bot', 'You can also connect with our lead structural engineer directly on WhatsApp for instant drawings review:', 
+          ['💬 Open WhatsApp Chat', '🏗️ New Project', 'Close Chat']);
+      }, 1500);
       
       setConversationState('complete');
     } catch (primaryErr) {
@@ -295,9 +299,9 @@ const ChatBot = () => {
           addMessage('bot', 'Thank you! Our engineering team will review your requirement and get back within 24 hours.\n\n📧 hellospacexio@gmail.com\n📞 +91 96865 11132');
           toast.success('Your inquiry has been submitted successfully!');
           setTimeout(() => {
-            addMessage('bot', 'Is there anything else I can help you with?', 
-              ['New Project', 'Explore Services', 'Close Chat']);
-          }, 2000);
+            addMessage('bot', 'You can also connect with our lead structural engineer directly on WhatsApp for instant drawings review:', 
+              ['💬 Open WhatsApp Chat', '🏗️ New Project', 'Close Chat']);
+          }, 1500);
           setConversationState('complete');
           return;
         }
