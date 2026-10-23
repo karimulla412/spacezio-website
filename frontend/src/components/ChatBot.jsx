@@ -277,11 +277,11 @@ const ChatBot = () => {
     return (
       <button
         onClick={toggleChat}
-        className="fixed bottom-6 right-6 bg-orange-600 hover:bg-orange-700 text-white p-4 rounded-full shadow-2xl transition-all duration-300 hover:scale-110 z-50 group"
-        aria-label="Open chat"
+        className="fixed bottom-20 right-4 sm:bottom-6 sm:right-6 bg-gradient-to-tr from-orange-600 to-amber-500 hover:from-orange-500 hover:to-amber-400 text-white p-3.5 sm:p-4 rounded-full shadow-2xl transition-all duration-300 hover:scale-110 z-50 group cursor-pointer border border-orange-400/30"
+        aria-label="Open Spacexio Assistant"
       >
-        <MessageCircle className="h-6 w-6" />
-        <span className="absolute -top-1 -right-1 bg-red-500 text-white text-xs rounded-full h-5 w-5 flex items-center justify-center animate-pulse">
+        <MessageCircle className="h-6 w-6 sm:h-7 sm:w-7" />
+        <span className="absolute -top-1 -right-1 bg-red-500 text-white text-[10px] font-bold rounded-full h-5 w-5 flex items-center justify-center animate-pulse border-2 border-zinc-950">
           1
         </span>
       </button>
@@ -289,7 +289,7 @@ const ChatBot = () => {
   }
 
   return (
-    <div className={`fixed bottom-6 right-6 w-96 max-w-[calc(100vw-3rem)] ${isMinimized ? 'h-14' : 'h-[600px]'} bg-white rounded-2xl shadow-2xl flex flex-col z-50 transition-all duration-300`}>
+    <div className={`fixed bottom-20 right-4 sm:bottom-6 sm:right-6 w-96 max-w-[calc(100vw-2rem)] ${isMinimized ? 'h-14' : 'h-[580px] max-h-[80vh]'} bg-zinc-950 border border-zinc-800 rounded-3xl shadow-2xl flex flex-col z-50 transition-all duration-300 overflow-hidden text-zinc-100`}>
       {/* Header */}
       <div className="bg-gradient-to-r from-orange-600 to-orange-700 text-white p-4 rounded-t-2xl flex items-center justify-between">
         <div className="flex items-center gap-3">

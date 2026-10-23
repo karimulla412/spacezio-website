@@ -247,7 +247,7 @@ const Header = () => {
       {showBackToTop && (
         <button
           onClick={scrollToTop}
-          className="fixed bottom-16 sm:bottom-6 right-6 z-40 w-11 h-11 rounded-2xl bg-zinc-900/90 hover:bg-orange-600 border border-zinc-800 text-zinc-300 hover:text-white flex items-center justify-center shadow-xl backdrop-blur-md transition-all duration-300 hover:-translate-y-1 group cursor-pointer"
+          className="fixed bottom-36 sm:bottom-24 right-4 sm:right-6 z-40 w-10 h-10 sm:w-11 sm:h-11 rounded-2xl bg-zinc-900/90 hover:bg-orange-600 border border-zinc-800 text-zinc-300 hover:text-white flex items-center justify-center shadow-xl backdrop-blur-md transition-all duration-300 hover:-translate-y-1 group cursor-pointer"
           title="Scroll to top"
           aria-label="Scroll to top"
         >
