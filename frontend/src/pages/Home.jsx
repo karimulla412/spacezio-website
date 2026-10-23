@@ -1,13 +1,17 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { 
   ArrowRight, Shield, Eye, Cpu, Clock, Home as HomeIcon, Check, Calculator, 
   MapPin, PenTool, FileText, CheckCircle, Layers, Paintbrush, Key, Phone, 
   Mail, Award, Building2, Sparkles, ChevronRight, CheckCheck, Sliders, 
   Compass, Hammer, Calendar, Maximize2, ShieldCheck, Ruler, ArrowUpRight,
-  HelpCircle, ChevronDown, ChevronUp
+  HelpCircle, ChevronDown, ChevronUp, Copy, Globe, Search, MessageSquare,
+  CheckCircle2, Share2, Sparkles as SparklesIcon, ExternalLink, Activity,
+  Database, UserCheck
 } from 'lucide-react';
 import { Button } from '../components/ui/button';
 import { Card, CardContent } from '../components/ui/card';
+import { toast } from 'sonner';
 import { useContent } from '../context/ContentContext';
 import { 
   heroData as defaultHeroData, 
@@ -35,27 +39,38 @@ const Home = () => {
   const [selectedPackageId, setSelectedPackageId] = useState(2); // Default to Premium
   const [floors, setFloors] = useState(2); // Default G+1
   const [selectedPortfolioTab, setSelectedPortfolioTab] = useState('All');
-  const [activeStepTab, setActiveStepTab] = useState(1);
   const [openFaq, setOpenFaq] = useState(0); // AEO FAQ accordion state
+  
+  // 5 Layers of Search / SEO State
+  const [activeSeoLayer, setActiveSeoLayer] = useState(0);
+  const [copiedFaqIndex, setCopiedFaqIndex] = useState(null);
 
   // Selected package for calculator
   const selectedPkg = packagesData.find(p => p.id === selectedPackageId) || packagesData[1] || packagesData[0];
   const ratePerSqft = parseInt(String(selectedPkg.pricePerSqft).replace(/,/g, ''), 10) || 2150;
   const totalEstimatedCost = plotArea * ratePerSqft;
 
-  // Material Brands Wall
+  // Copy AEO direct answer to clipboard
+  const copyFaqAnswer = (text, index) => {
+    navigator.clipboard.writeText(text);
+    setCopiedFaqIndex(index);
+    toast.success('Direct Answer snippet copied to clipboard!');
+    setTimeout(() => setCopiedFaqIndex(null), 2500);
+  };
+
+  // Material Brands Wall (GEO Evidence)
   const materials = [
     {
       category: "Structural Steel",
       brand: "Tata Tiscon / JSW Neosteel",
       grade: "Fe 550D Super Ductile TMT",
-      spec: "Corrosion-resistant rebars engineered for coastal seismic zones"
+      spec: "Corrosion-resistant rebars engineered for coastal seismic zones (IS 1786)"
     },
     {
       category: "Foundation Cement",
       brand: "UltraTech / Dalmia",
       grade: "Grade 53 Portland Pozzolana",
-      spec: "High early compressive strength with micro-silica blend"
+      spec: "High early compressive strength with micro-silica blend (IS 12269)"
     },
     {
       category: "Electrical Conduiting",
@@ -89,6 +104,116 @@ const Home = () => {
     ? projectsData 
     : projectsData.filter(p => p.category === selectedPortfolioTab || (selectedPortfolioTab === 'Villa' && p.title.toLowerCase().includes('villa')));
 
+  // The 5 Layers of Modern Search & Engineering Visibility
+  const seoLayersData = [
+    {
+      num: "01",
+      tag: "SEO",
+      title: "Search Engine Optimization",
+      subtitle: "Build a strong foundation for organic discovery.",
+      color: "from-blue-600 to-cyan-500",
+      workOn: [
+        "Search Intent & Buyer Journey Mapping",
+        "Clean Hierarchical Site Architecture",
+        "Localized Keyword Clusters (Vizag, AP)",
+        "Technical Crawlability & Valid Sitemap",
+        "Contextual Internal Linking Network",
+        "Topical Depth on Civil Engineering"
+      ],
+      keySignals: [
+        "Organic Impressions & Click-Throughs",
+        "Top 3 Keyword Positions in Visakhapatnam",
+        "High-Intent Organic Search Traffic",
+        "100% Core Web Pages Indexed by Google"
+      ],
+      spacexioImplementation: "Hierarchical site architecture with verified sitemap.xml, dedicated package guides (₹1,850 to ₹2,650/sq.ft), localized keyword mapping for Madhurawada, Rushikonda, MVP Colony, and deep engineering documentation."
+    },
+    {
+      num: "02",
+      tag: "AEO",
+      title: "Answer Engine Optimization",
+      subtitle: "Make your content easy for answer engines.",
+      color: "from-orange-600 to-amber-500",
+      workOn: [
+        "Direct Responses (40-60 word summaries)",
+        "Ask & Engage Interactive Widgets",
+        "Schema.org FAQPage Microdata",
+        "Structured Machine-Readable Answers",
+        "Conversational Voice Search Queries"
+      ],
+      keySignals: [
+        "Google Featured Snippet Box Placement",
+        "Direct Answers in ChatGPT & Perplexity",
+        "Answer Engine Query Coverage",
+        "High Brand Recall as the Authoritative Builder"
+      ],
+      spacexioImplementation: "Every major homeowner query (construction cost per sq.ft, timeline for 3BHK, escrow milestone protection) has a concise, standalone 45-word direct answer indexed with JSON-LD FAQPage and SpeakableSpecification."
+    },
+    {
+      num: "03",
+      tag: "GEO",
+      title: "Generative Engine Optimization",
+      subtitle: "Increase the chances of your brand appearing in AI.",
+      color: "from-emerald-600 to-teal-500",
+      workOn: [
+        "Original Insights & Field Construction Data",
+        "Supporting Evidence & Civil Laboratory Tests",
+        "Brand Authority & E-E-A-T Documentation",
+        "Expert Civil & Structural Contributions",
+        "Strict IS 456 & IS 1893 Code Compliance"
+      ],
+      keySignals: [
+        "AI Mentions in Gemini, Claude & Copilot",
+        "Spontaneous Brand Citations in AI Searches",
+        "Source References for Turnkey Building Standards",
+        "High Trust Score Across Civil Communities"
+      ],
+      spacexioImplementation: "Genuine civil engineering evidence: Fe550D TMT ductile steel, UltraTech Grade 53 cement, 28-day cube strength testing (>25 N/mm²), and Fosroc polymer waterproofing for coastal anti-efflorescence protection."
+    },
+    {
+      num: "04",
+      tag: "AIO",
+      title: "AI Optimization",
+      subtitle: "Make your digital presence AI-ready and clear.",
+      color: "from-purple-600 to-indigo-500",
+      workOn: [
+        "Clear Entities (@id Knowledge Graph)",
+        "Consistent Information & Verified NAP",
+        "Semantic Node Relationships",
+        "Machine-Friendly Content & /public/llms.txt",
+        "Explicit AI Permissions in robots.txt"
+      ],
+      keySignals: [
+        "Entity Recognition in Google Knowledge Panel",
+        "AI Discoverability by GPTBot, Perplexity & Claude",
+        "Zero Hallucination / Accurate Pricing Answers",
+        "Contextual Relevance to Visakhapatnam Real Estate"
+      ],
+      spacexioImplementation: "Dedicated public /llms.txt manifest following modern LLM standards, robots.txt welcoming GPTBot and ClaudeBot, plus semantic JSON-LD declaring HomeAndConstructionBusiness, OfferCatalog, and GeoCoordinates."
+    },
+    {
+      num: "05",
+      tag: "SXO",
+      title: "Search Experience Optimization",
+      subtitle: "Turn search visitors into engaged users and clients.",
+      color: "from-rose-600 to-orange-500",
+      workOn: [
+        "Lightning Fast Core Web Vitals (<1.2s LCP)",
+        "Content Clarity & Architectural Hierarchy",
+        "Mobile Usability & Bottom Sticky Action Bar",
+        "Interactive Real-Time Plot Cost Calculator",
+        "Frictionless Navigation & Zero CLS"
+      ],
+      keySignals: [
+        "High Visitor Engagement & Time on Page",
+        "Zero Layout Jitter (Cumulative Layout Shift < 0.01)",
+        "High Lead Generation & WhatsApp Conversion",
+        "High Returning Visitors Comparing Plans"
+      ],
+      spacexioImplementation: "Subtle GPU-accelerated micro-interactions, real-time scroll progress bar, live plot cost slider with instant financial breakdown, ergonomic mobile quick action bar, and 1-click WhatsApp engineering desk dispatch."
+    }
+  ];
+
   return (
     <div className="min-h-screen bg-black text-white font-sans antialiased selection:bg-orange-500 selection:text-black">
       <SEO 
@@ -114,7 +239,7 @@ const Home = () => {
             <div className="lg:col-span-7">
               {/* Studio Metadata Ribbon */}
               <div className="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full bg-zinc-900/90 border border-zinc-800 text-xs font-mono tracking-wider text-zinc-300 mb-6">
-                <span className="w-2 h-2 rounded-full bg-orange-500 animate-pulse" />
+                <span className="w-2 h-2 rounded-full bg-orange-500 pulse-indicator" />
                 <span className="text-orange-400 font-semibold uppercase">SPACEXIO STUDIO</span>
                 <span className="text-zinc-600">•</span>
                 <span>VISAKHAPATNAM, AP</span>
@@ -127,7 +252,7 @@ const Home = () => {
                 </span>
               </h1>
               
-              <p className="text-lg sm:text-xl text-zinc-300 font-normal leading-relaxed max-w-2xl mb-8">
+              <p className="text-lg sm:text-xl text-zinc-300 font-normal leading-relaxed max-w-2xl mb-8 hero-description">
                 {heroData.description || "From raw plot soil investigation to turnkey keys in 6–8 months. Fixed-price contracts starting at ₹1,850/sq.ft, 3D BIM clash-free engineering, and a legally binding 10-year structural warranty."}
               </p>
 
@@ -155,7 +280,7 @@ const Home = () => {
               <div className="flex flex-wrap items-center gap-4">
                 <Button
                   size="lg"
-                  className="bg-orange-600 hover:bg-orange-500 text-white font-bold px-8 py-6 rounded-xl text-base shadow-lg shadow-orange-600/30 transition-all hover:translate-y-[-2px]"
+                  className="bg-orange-600 hover:bg-orange-500 text-white font-bold px-8 py-6 rounded-xl text-base shadow-lg shadow-orange-600/30 shimmer-sweep transition-all hover:translate-y-[-2px] cursor-pointer"
                   onClick={() => {
                     const el = document.getElementById('live-estimator');
                     if (el) el.scrollIntoView({ behavior: 'smooth' });
@@ -169,7 +294,7 @@ const Home = () => {
                 <Button
                   size="lg"
                   variant="outline"
-                  className="border-zinc-700 bg-zinc-900/60 hover:bg-zinc-800 hover:border-zinc-600 text-white font-semibold px-8 py-6 rounded-xl text-base transition-all"
+                  className="border-zinc-700 bg-zinc-900/60 hover:bg-zinc-800 hover:border-zinc-600 text-white font-semibold px-8 py-6 rounded-xl text-base transition-all cursor-pointer"
                   onClick={() => window.location.href = '/site-visit'}
                 >
                   <Compass className="mr-2 h-5 w-5 text-orange-400" />
@@ -189,7 +314,7 @@ const Home = () => {
 
             {/* Right 5 Columns: Human Curated Architectural Showcase Card */}
             <div className="lg:col-span-5 relative">
-              <div className="relative rounded-2xl overflow-hidden border border-zinc-800 bg-zinc-900 shadow-2xl group">
+              <div className="relative rounded-2xl overflow-hidden border border-zinc-800 bg-zinc-900 shadow-2xl group card-interactive">
                 <img
                   src={heroData.image || "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1200&q=80"}
                   alt="Modern architectural villa construction in Visakhapatnam"
@@ -253,50 +378,49 @@ const Home = () => {
         </div>
       </section>
 
-      {/* 3. INTERACTIVE ARCHITECTURAL COST ESTIMATOR (HUMAN DESIGN CORE FEATURE) */}
-      <section id="live-estimator" className="py-20 lg:py-28 bg-black border-b border-zinc-800 relative">
+      {/* 3. INTERACTIVE PLOT COST ESTIMATOR SLIDER (SXO REAL-TIME ENGAGEMENT) */}
+      <section id="live-estimator" className="py-20 lg:py-28 bg-black border-b border-zinc-800">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           
-          {/* Section Header */}
-          <div className="max-w-3xl mb-12">
+          <div className="text-center max-w-3xl mx-auto mb-16">
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-orange-600/10 border border-orange-500/20 text-orange-400 text-xs font-mono font-semibold uppercase tracking-wider mb-4">
               <Sliders className="h-3.5 w-3.5" />
-              Interactive Feasibility Tool
+              SXO Interactive Live Cost Tool
             </div>
-            <h2 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight mb-4">
-              Estimate your construction budget transparently.
+            <h2 className="text-3xl sm:text-5xl font-extrabold text-white tracking-tight mb-4">
+              Instant plot construction estimator.
             </h2>
             <p className="text-zinc-400 text-base leading-relaxed">
-              Real-time calculation based on our verified itemized bill of quantities. Select your built-up area and architectural grade to see immediate financial projections.
+              No hidden contractor percentages. Slide your plot area to calculate honest construction investment across our 3 architectural packages.
             </p>
           </div>
 
-          {/* Interactive Calculator Workspace */}
-          <div className="grid lg:grid-cols-12 gap-8 bg-zinc-950 rounded-3xl border border-zinc-800 p-6 sm:p-10 shadow-2xl">
+          <div className="grid lg:grid-cols-12 gap-8 items-stretch">
             
             {/* Left 7 Columns: Controls */}
-            <div className="lg:col-span-7 space-y-8">
+            <div className="lg:col-span-7 bg-zinc-950 rounded-3xl border border-zinc-800 p-6 sm:p-8 space-y-8 flex flex-col justify-between card-interactive">
               
               {/* Plot Area Slider */}
               <div>
-                <div className="flex justify-between items-baseline mb-3">
-                  <label className="text-sm font-bold text-white uppercase tracking-wider font-mono flex items-center gap-2">
-                    <Ruler className="h-4 w-4 text-orange-500" />
-                    Built-Up Floor Area
+                <div className="flex justify-between items-center mb-3">
+                  <label className="text-sm font-bold text-white uppercase tracking-wider font-mono">
+                    Built-up Area
                   </label>
                   <span className="text-2xl font-black text-orange-400 font-mono">
-                    {plotArea.toLocaleString()} <span className="text-sm text-zinc-400 font-normal">sq.ft</span>
+                    {plotArea.toLocaleString()} <span className="text-xs font-normal text-zinc-400 font-sans">sq.ft</span>
                   </span>
                 </div>
-                <input
+                
+                <input 
                   type="range"
                   min="800"
                   max="6000"
-                  step="100"
+                  step="50"
                   value={plotArea}
                   onChange={(e) => setPlotArea(Number(e.target.value))}
-                  className="w-full h-2.5 bg-zinc-800 rounded-lg appearance-none cursor-pointer accent-orange-500 focus:outline-none"
+                  className="w-full h-2 bg-zinc-800 rounded-lg appearance-none cursor-pointer accent-orange-500"
                 />
+                
                 <div className="flex justify-between text-[11px] font-mono text-zinc-500 mt-2">
                   <span>800 sq.ft (Compact)</span>
                   <span>2,400 sq.ft (Standard 3BHK)</span>
@@ -317,7 +441,7 @@ const Home = () => {
                         key={pkg.id}
                         type="button"
                         onClick={() => setSelectedPackageId(pkg.id)}
-                        className={`p-4 rounded-xl text-left border transition-all duration-200 relative ${
+                        className={`p-4 rounded-xl text-left border transition-all duration-200 relative cursor-pointer ${
                           isSelected
                             ? 'bg-orange-600/10 border-orange-500 ring-1 ring-orange-500'
                             : 'bg-zinc-900/60 border-zinc-800 hover:border-zinc-700 text-zinc-300'
@@ -355,7 +479,7 @@ const Home = () => {
                       key={item.floors}
                       type="button"
                       onClick={() => setFloors(item.floors)}
-                      className={`p-3 rounded-xl border text-center transition-all ${
+                      className={`p-3 rounded-xl border text-center transition-all cursor-pointer ${
                         floors === item.floors 
                           ? 'bg-zinc-800 border-zinc-600 text-white' 
                           : 'bg-zinc-900/40 border-zinc-800 text-zinc-400 hover:text-white'
@@ -371,7 +495,7 @@ const Home = () => {
             </div>
 
             {/* Right 5 Columns: Live Financial Breakdown */}
-            <div className="lg:col-span-5 bg-zinc-900/90 rounded-2xl border border-zinc-800 p-6 sm:p-8 flex flex-col justify-between">
+            <div className="lg:col-span-5 bg-zinc-900/90 rounded-3xl border border-zinc-800 p-6 sm:p-8 flex flex-col justify-between card-interactive">
               <div>
                 <span className="text-xs font-mono font-bold text-zinc-400 uppercase tracking-wider">
                   Estimated Turnkey Investment
@@ -413,7 +537,7 @@ const Home = () => {
 
               <div className="pt-6 mt-6 border-t border-zinc-800 space-y-3">
                 <Button
-                  className="w-full bg-orange-600 hover:bg-orange-500 text-white font-bold py-6 text-sm rounded-xl shadow-lg shadow-orange-600/30"
+                  className="w-full bg-orange-600 hover:bg-orange-500 text-white font-bold py-6 text-sm rounded-xl shadow-lg shadow-orange-600/30 shimmer-sweep cursor-pointer"
                   onClick={() => window.location.href = `/contact?area=${plotArea}&pkg=${selectedPkg.name}`}
                 >
                   Request Full BOQ & Material Schedule
@@ -429,7 +553,7 @@ const Home = () => {
         </div>
       </section>
 
-      {/* 4. REAL RESIDENTIAL PORTFOLIO (THE MISSING ELEMENT ON AI WEBSITES) */}
+      {/* 4. REAL RESIDENTIAL PORTFOLIO */}
       <section className="py-20 lg:py-28 bg-black border-b border-zinc-800">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           
@@ -450,7 +574,7 @@ const Home = () => {
                 <button
                   key={cat}
                   onClick={() => setSelectedPortfolioTab(cat)}
-                  className={`px-4 py-2 rounded-lg text-xs font-mono font-semibold transition-all ${
+                  className={`px-4 py-2 rounded-xl text-xs font-mono font-semibold transition-all cursor-pointer ${
                     selectedPortfolioTab === cat
                       ? 'bg-orange-600 text-white shadow-sm'
                       : 'bg-zinc-900 text-zinc-400 hover:text-white border border-zinc-800 hover:border-zinc-700'
@@ -467,7 +591,7 @@ const Home = () => {
             {filteredProjects.map((project) => (
               <div 
                 key={project.id}
-                className="bg-zinc-950 rounded-2xl border border-zinc-800/90 overflow-hidden group hover:border-orange-500/50 transition-all duration-300 hover:-translate-y-1"
+                className="bg-zinc-950 rounded-2xl border border-zinc-800/90 overflow-hidden group hover:border-orange-500/50 transition-all duration-300 card-interactive"
               >
                 {/* Image Container */}
                 <div className="relative h-64 overflow-hidden bg-zinc-900">
@@ -498,85 +622,51 @@ const Home = () => {
                   <p className="text-zinc-400 text-xs leading-relaxed mb-4 line-clamp-2">
                     {project.description}
                   </p>
-                  
-                  <div className="grid grid-cols-2 gap-2 py-3 border-t border-zinc-800/80 text-xs font-mono text-zinc-400">
-                    <div>
-                      <span className="text-zinc-500 block text-[10px]">Built-up Area:</span>
-                      <span className="text-white font-semibold">{project.area}</span>
-                    </div>
-                    <div>
-                      <span className="text-zinc-500 block text-[10px]">Total Investment:</span>
-                      <span className="text-orange-400 font-semibold">{project.budget}</span>
-                    </div>
+                  <div className="flex items-center justify-between text-xs font-mono text-zinc-500 pt-3 border-t border-zinc-900">
+                    <span>Built-up: <b className="text-zinc-300">{project.area}</b></span>
+                    <span>Timeline: <b className="text-zinc-300">{project.duration}</b></span>
                   </div>
-
-                  <Button
-                    variant="ghost"
-                    size="sm"
-                    className="w-full mt-2 text-zinc-300 hover:text-orange-400 hover:bg-zinc-900 text-xs font-semibold justify-between"
-                    onClick={() => window.location.href = '/projects'}
-                  >
-                    <span>View Architectural Blueprints</span>
-                    <ArrowUpRight className="h-3.5 w-3.5" />
-                  </Button>
                 </div>
               </div>
             ))}
           </div>
 
-          <div className="text-center mt-12">
-            <Button
-              variant="outline"
-              className="border-zinc-700 bg-zinc-900/60 hover:bg-zinc-800 text-zinc-200 font-semibold px-8 py-6 rounded-xl"
-              onClick={() => window.location.href = '/projects'}
-            >
-              Explore All 35+ Completed Projects in Vizag
-              <ArrowRight className="ml-2 h-4 w-4" />
-            </Button>
-          </div>
-
         </div>
       </section>
 
-      {/* 5. CERTIFIED CIVIL ENGINEERING & MATERIAL STANDARDS WALL (REAL PHYSICAL TRUST) */}
+      {/* 5. MATERIAL & ENGINEERING SPECIFICATION WALL (GEO EVIDENCE) */}
       <section className="py-20 lg:py-28 bg-zinc-950 border-b border-zinc-800">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           
           <div className="text-center max-w-3xl mx-auto mb-16">
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-zinc-900 border border-zinc-800 text-zinc-300 text-xs font-mono font-semibold uppercase tracking-wider mb-4">
               <ShieldCheck className="h-3.5 w-3.5 text-orange-500" />
-              Standard Operating Procedure
+              GEO Evidence & Verified Civil Standards
             </div>
             <h2 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight mb-4">
-              Materials that withstand coastal weathering for 50+ years.
+              Zero compromises on raw civil materials.
             </h2>
             <p className="text-zinc-400 text-base leading-relaxed">
-              We never compromise on unbranded local rebar or uncertified aggregates. Every Spacexio residence is built strictly to IS 456:2000 and IS 13920 seismic ductile detailing codes.
+              We reject local re-rolled steel and uncertified cement. Every batch delivered to your site arrives with manufacturer mill test certificates and lab-tested compressive strength.
             </p>
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {materials.map((mat, idx) => (
+            {materials.map((m, idx) => (
               <div 
                 key={idx}
-                className="bg-black/80 rounded-2xl border border-zinc-800 p-6 flex flex-col justify-between hover:border-zinc-700 transition-all"
+                className="bg-black/90 p-6 rounded-2xl border border-zinc-800 hover:border-zinc-700 transition-all card-interactive"
               >
-                <div>
-                  <div className="text-[11px] font-mono uppercase tracking-wider text-orange-500 font-bold mb-1">
-                    {mat.category}
-                  </div>
-                  <h4 className="text-lg font-bold text-white mb-1">{mat.brand}</h4>
-                  <div className="inline-block px-2 py-0.5 rounded bg-zinc-900 border border-zinc-800 text-zinc-300 font-mono text-xs mb-3">
-                    {mat.grade}
-                  </div>
-                  <p className="text-zinc-400 text-xs leading-relaxed">
-                    {mat.spec}
-                  </p>
+                <div className="text-xs font-mono font-bold text-orange-400 uppercase tracking-wider mb-2">
+                  {m.category}
                 </div>
-                <div className="mt-4 pt-3 border-t border-zinc-900 flex items-center gap-2 text-[11px] font-mono text-emerald-400">
-                  <Check className="h-3.5 w-3.5" />
-                  <span>Lab Tested & Mill Certified</span>
+                <h3 className="text-lg font-bold text-white mb-1">{m.brand}</h3>
+                <div className="text-xs font-mono text-zinc-300 bg-zinc-900/80 px-2.5 py-1 rounded inline-block mb-3 border border-zinc-800">
+                  {m.grade}
                 </div>
+                <p className="text-xs text-zinc-400 leading-relaxed font-light">
+                  {m.spec}
+                </p>
               </div>
             ))}
           </div>
@@ -584,116 +674,149 @@ const Home = () => {
         </div>
       </section>
 
-      {/* 6. CONSTRUCTION PACKAGES WITH COMPLETE INCLUSIONS COMPARISON */}
-      <section className="py-20 lg:py-28 bg-black border-b border-zinc-800">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8">
+      {/* 6. THE 5 LAYERS OF MODERN SEARCH & ARCHITECTURAL VISIBILITY (DIRECT USER INFOGRAPHIC IMPLEMENTATION) */}
+      <section className="py-20 lg:py-28 bg-black border-b border-zinc-800 relative overflow-hidden">
+        {/* Subtle Ambient Glow */}
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] bg-orange-600/5 rounded-full blur-[140px] pointer-events-none" />
+
+        <div className="max-w-7xl mx-auto px-6 lg:px-8 relative z-10">
           
           <div className="text-center max-w-3xl mx-auto mb-16">
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-orange-600/10 border border-orange-500/20 text-orange-400 text-xs font-mono font-semibold uppercase tracking-wider mb-4">
-              <Calculator className="h-3.5 w-3.5" />
-              Fixed Cost Transparent Packages
+              <Sparkles className="h-3.5 w-3.5" />
+              From Traditional Search to Generative AI
             </div>
-            <h2 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight mb-4">
-              Choose your architectural specification.
+            <h2 className="text-3xl sm:text-5xl font-black text-white tracking-tight mb-4">
+              The 5 Layers of Modern Search Visibility.
             </h2>
             <p className="text-zinc-400 text-base leading-relaxed">
-              Every package is all-inclusive: Architectural blueprints, 3D elevation, municipal drawings, structural engineering, high-grade materials, labor, and site supervision.
+              Better content. Bigger visibility. Spacexio is built from the ground up to rank on Google, answer queries in ChatGPT & Perplexity, and provide frictionless search experience to homeowners.
             </p>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-8 items-stretch">
-            {packagesData.map((pkg) => {
-              const isPopular = pkg.popular;
+          {/* Layer Selector Tabs */}
+          <div className="grid grid-cols-2 sm:grid-cols-5 gap-3 mb-10">
+            {seoLayersData.map((layer, idx) => {
+              const isSelected = activeSeoLayer === idx;
               return (
-                <div
-                  key={pkg.id}
-                  className={`rounded-3xl p-8 flex flex-col justify-between transition-all duration-300 relative ${
-                    isPopular
-                      ? 'bg-gradient-to-b from-zinc-900 to-zinc-950 border-2 border-orange-500 shadow-2xl shadow-orange-950/40'
-                      : 'bg-zinc-950 border border-zinc-800 hover:border-zinc-700'
+                <button
+                  key={layer.num}
+                  type="button"
+                  onClick={() => setActiveSeoLayer(idx)}
+                  className={`p-4 rounded-2xl border text-left transition-all duration-300 cursor-pointer relative ${
+                    isSelected
+                      ? 'bg-zinc-900 border-orange-500 shadow-xl shadow-orange-950/20 ring-1 ring-orange-500'
+                      : 'bg-zinc-950/60 border-zinc-800/80 hover:border-zinc-700 text-zinc-400 hover:text-white'
                   }`}
                 >
-                  {isPopular && (
-                    <div className="absolute -top-3.5 left-1/2 -translate-x-1/2 bg-orange-600 text-white text-[11px] font-mono font-bold uppercase tracking-wider px-4 py-1 rounded-full shadow-md">
-                      MOST POPULAR IN VIZAG
-                    </div>
-                  )}
-
-                  <div>
-                    <div className="flex justify-between items-baseline mb-2">
-                      <h3 className="text-2xl font-bold text-white">{pkg.name}</h3>
-                      <span className="text-xs font-mono text-zinc-400">{pkg.idealFor}</span>
-                    </div>
-                    <p className="text-xs text-zinc-400 mb-6">{pkg.tagline}</p>
-
-                    <div className="py-4 border-y border-zinc-800/80 mb-6">
-                      <div className="flex items-baseline gap-1">
-                        <span className="text-4xl sm:text-5xl font-black text-white font-mono">₹{pkg.pricePerSqft}</span>
-                        <span className="text-zinc-400 text-sm font-mono">/sq.ft</span>
-                      </div>
-                      <span className="text-[11px] text-zinc-500 font-mono block mt-1">
-                        Fixed rate locked in legal agreement
-                      </span>
-                    </div>
-
-                    <div className="space-y-3 mb-8">
-                      <div className="text-[11px] font-mono font-bold uppercase tracking-wider text-zinc-400">
-                        Package Specifications:
-                      </div>
-                      {pkg.features.map((feature, idx) => (
-                        <div key={idx} className="flex items-start gap-2.5 text-xs text-zinc-300">
-                          <Check className="h-4 w-4 text-orange-500 flex-shrink-0 mt-0.5" />
-                          <span>{feature.replace(/^[✓\s]+/, '')}</span>
-                        </div>
-                      ))}
-                    </div>
+                  <div className="flex items-center justify-between mb-2">
+                    <span className={`text-xs font-mono font-black ${isSelected ? 'text-orange-400' : 'text-zinc-500'}`}>
+                      {layer.num}
+                    </span>
+                    <span className={`text-[10px] font-bold px-2 py-0.5 rounded-full ${
+                      isSelected ? 'bg-orange-500 text-black' : 'bg-zinc-800 text-zinc-400'
+                    }`}>
+                      {layer.tag}
+                    </span>
                   </div>
-
-                  <div>
-                    <Button
-                      className={`w-full py-6 font-bold text-sm rounded-xl transition-all ${
-                        isPopular
-                          ? 'bg-orange-600 hover:bg-orange-500 text-white shadow-lg shadow-orange-600/30'
-                          : 'bg-zinc-900 hover:bg-zinc-800 text-white border border-zinc-700'
-                      }`}
-                      onClick={() => window.location.href = `/contact?package=${pkg.name}`}
-                    >
-                      Book Free Consultation
-                      <ArrowRight className="ml-2 h-4 w-4" />
-                    </Button>
-                    <p className="text-[10px] text-zinc-500 text-center font-mono mt-2">
-                      Includes 10-Year Structural Warranty
-                    </p>
-                  </div>
-                </div>
+                  <div className="font-bold text-sm text-white line-clamp-1">{layer.title}</div>
+                </button>
               );
             })}
           </div>
 
-          <div className="mt-12 p-6 rounded-2xl bg-zinc-950 border border-zinc-800 flex flex-col md:flex-row items-center justify-between gap-4">
-            <div className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-xl bg-orange-600/10 border border-orange-500/20 flex items-center justify-center flex-shrink-0">
-                <FileText className="h-5 w-5 text-orange-500" />
+          {/* Active Layer Dossier Card */}
+          {seoLayersData[activeSeoLayer] && (
+            <div className="bg-zinc-950/90 rounded-3xl border border-zinc-800 p-8 lg:p-12 shadow-2xl backdrop-blur-sm card-interactive">
+              
+              <div className="flex flex-col lg:flex-row justify-between items-start lg:items-center gap-6 pb-8 border-b border-zinc-800/80">
+                <div>
+                  <div className="inline-flex items-center gap-2 text-xs font-mono font-bold text-orange-400 mb-2">
+                    <span>LAYER {seoLayersData[activeSeoLayer].num} //</span>
+                    <span>{seoLayersData[activeSeoLayer].tag} SPECIFICATION</span>
+                  </div>
+                  <h3 className="text-2xl sm:text-3xl font-extrabold text-white tracking-tight">
+                    {seoLayersData[activeSeoLayer].title}
+                  </h3>
+                  <p className="text-zinc-400 text-sm mt-1">
+                    {seoLayersData[activeSeoLayer].subtitle}
+                  </p>
+                </div>
+
+                <div className="flex items-center gap-3">
+                  <Link to="/why-us">
+                    <Button
+                      size="sm"
+                      variant="outline"
+                      className="border-zinc-700 bg-zinc-900 text-zinc-200 hover:border-orange-500 hover:text-orange-400 text-xs rounded-xl"
+                    >
+                      Inspect Civil Standards
+                      <ArrowRight className="w-3.5 h-3.5 ml-1.5" />
+                    </Button>
+                  </Link>
+                </div>
               </div>
-              <div>
-                <h4 className="text-sm font-bold text-white">Need a custom architectural requirement or luxury villa specification?</h4>
-                <p className="text-xs text-zinc-400">We customize Italian marble selections, elevator shafts, home theaters, and swimming pools.</p>
+
+              {/* Work On vs Key Signals Grid */}
+              <div className="grid md:grid-cols-2 gap-8 my-8">
+                
+                {/* Work On Column */}
+                <div className="p-6 rounded-2xl bg-zinc-900/50 border border-zinc-800/80">
+                  <div className="flex items-center gap-2 text-xs font-mono font-bold uppercase tracking-wider text-orange-400 mb-4">
+                    <Sliders className="w-4 h-4" />
+                    <span>What We Work On</span>
+                  </div>
+                  <ul className="space-y-3 text-xs text-zinc-300">
+                    {seoLayersData[activeSeoLayer].workOn.map((item, i) => (
+                      <li key={i} className="flex items-start gap-2.5">
+                        <CheckCircle2 className="w-4 h-4 text-orange-500 flex-shrink-0 mt-0.5" />
+                        <span>{item}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+
+                {/* Key Signals Column */}
+                <div className="p-6 rounded-2xl bg-zinc-900/50 border border-zinc-800/80">
+                  <div className="flex items-center gap-2 text-xs font-mono font-bold uppercase tracking-wider text-emerald-400 mb-4">
+                    <Activity className="w-4 h-4" />
+                    <span>Key Verification Signals</span>
+                  </div>
+                  <ul className="space-y-3 text-xs text-zinc-300">
+                    {seoLayersData[activeSeoLayer].keySignals.map((sig, i) => (
+                      <li key={i} className="flex items-start gap-2.5">
+                        <span className="w-2 h-2 rounded-full bg-emerald-400 flex-shrink-0 mt-1.5" />
+                        <span>{sig}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+
               </div>
+
+              {/* Spacexio Implementation Real-World Reality */}
+              <div className="p-5 rounded-2xl bg-orange-950/20 border border-orange-500/30 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 text-xs">
+                <div>
+                  <span className="text-[10px] font-mono font-bold uppercase tracking-wider text-orange-400 block mb-1">
+                    Spacexio Ground Implementation:
+                  </span>
+                  <p className="text-zinc-200 leading-relaxed font-light">
+                    {seoLayersData[activeSeoLayer].spacexioImplementation}
+                  </p>
+                </div>
+                <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 text-[11px] font-bold whitespace-nowrap">
+                  <Check className="w-3.5 h-3.5" />
+                  Active & Synced
+                </span>
+              </div>
+
             </div>
-            <Button
-              variant="outline"
-              size="sm"
-              className="border-zinc-700 hover:bg-zinc-800 text-white text-xs font-semibold px-5"
-              onClick={() => window.location.href = '/contact'}
-            >
-              Request Custom BOQ
-            </Button>
-          </div>
+          )}
 
         </div>
       </section>
 
-      {/* 7. THE 7-STAGE ARCHITECTURAL CONSTRUCTION LIFECYCLE (NO DUPLICATION, CLEAN SEQUENTIAL) */}
+      {/* 7. 7-STAGE ARCHITECTURAL TIMELINE */}
       <section className="py-20 lg:py-28 bg-zinc-950 border-b border-zinc-800">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           
@@ -716,7 +839,7 @@ const Home = () => {
               return (
                 <div 
                   key={step.step}
-                  className="bg-black/90 rounded-2xl border border-zinc-800/90 p-6 flex flex-col justify-between hover:border-orange-500/40 transition-all group"
+                  className="bg-black/90 rounded-2xl border border-zinc-800/90 p-6 flex flex-col justify-between hover:border-orange-500/40 transition-all group card-interactive"
                 >
                   <div>
                     <div className="flex justify-between items-center mb-4">
@@ -746,7 +869,7 @@ const Home = () => {
             })}
 
             {/* Stage 8 / Complete Handover Assurance Card */}
-            <div className="bg-gradient-to-br from-orange-600 to-orange-700 rounded-2xl p-6 flex flex-col justify-between text-white shadow-xl">
+            <div className="bg-gradient-to-br from-orange-600 to-orange-700 rounded-2xl p-6 flex flex-col justify-between text-white shadow-xl card-interactive">
               <div>
                 <div className="w-9 h-9 rounded-xl bg-white/20 text-white font-mono font-bold text-sm flex items-center justify-center mb-4">
                   ★
@@ -758,7 +881,7 @@ const Home = () => {
               </div>
               <Button
                 size="sm"
-                className="mt-6 bg-white hover:bg-zinc-100 text-orange-600 font-bold text-xs rounded-lg py-5"
+                className="mt-6 bg-white hover:bg-zinc-100 text-orange-600 font-bold text-xs rounded-xl py-5 shadow-lg"
                 onClick={() => window.location.href = '/site-visit'}
               >
                 Schedule Site Visit
@@ -770,148 +893,36 @@ const Home = () => {
         </div>
       </section>
 
-      {/* 8. THE 4 SPACEXIO PRINCIPLES (HONEST ARCHITECTURAL ASSURANCE) */}
-      <section className="py-20 lg:py-28 bg-black border-b border-zinc-800">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8">
-          
-          <div className="text-center max-w-3xl mx-auto mb-16">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-zinc-900 border border-zinc-800 text-zinc-300 text-xs font-mono font-semibold uppercase tracking-wider mb-4">
-              <Shield className="h-3.5 w-3.5 text-orange-500" />
-              The Spacexio Standard
-            </div>
-            <h2 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight mb-4">
-              Why discerning homeowners choose Spacexio.
-            </h2>
-            <p className="text-zinc-400 text-base leading-relaxed">
-              We eliminated the typical contractor nightmares — hidden bills, delayed schedules, and substandard materials.
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {[
-              {
-                icon: Shield,
-                title: "Zero Contractor Advance",
-                description: "You never pay upfront to subcontractors. Funds are held in milestone escrow and disbursed only after engineer quality sign-off."
-              },
-              {
-                icon: Eye,
-                title: "Live CCTV & WhatsApp Logs",
-                description: "Watch live concrete pours and receive daily high-definition site photo logs and material receipts directly on your phone."
-              },
-              {
-                icon: Cpu,
-                title: "3D BIM Clash-Free Rehearsal",
-                description: "We build your home virtually in 3D first. Structural beams and plumbing pipes never conflict, eliminating 85% of on-site rework."
-              },
-              {
-                icon: Clock,
-                title: "Strict Delay Penalty Clause",
-                description: "Fixed handover date backed by legally binding agreement. We pay documented delay compensation if completion exceeds agreed timeline."
-              }
-            ].map((item, idx) => {
-              const IconComp = item.icon;
-              return (
-                <div 
-                  key={idx}
-                  className="bg-zinc-950 rounded-2xl border border-zinc-800 p-6 flex flex-col justify-between hover:border-zinc-700 transition-all"
-                >
-                  <div>
-                    <div className="w-12 h-12 rounded-xl bg-orange-600/10 border border-orange-500/20 flex items-center justify-center mb-6">
-                      <IconComp className="h-6 w-6 text-orange-500" />
-                    </div>
-                    <h3 className="text-lg font-bold text-white mb-2">{item.title}</h3>
-                    <p className="text-zinc-400 text-xs leading-relaxed font-normal">
-                      {item.description}
-                    </p>
-                  </div>
-                </div>
-              );
-            })}
-          </div>
-
-        </div>
-      </section>
-
-      {/* 9. AUTHENTIC HOMEOWNER TESTIMONIALS */}
-      <section className="py-20 lg:py-28 bg-zinc-950 border-b border-zinc-800">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8">
-          
-          <div className="text-center max-w-3xl mx-auto mb-16">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-zinc-900 border border-zinc-800 text-zinc-300 text-xs font-mono font-semibold uppercase tracking-wider mb-4">
-              <CheckCircle className="h-3.5 w-3.5 text-orange-500" />
-              Verified Client Experiences
-            </div>
-            <h2 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight mb-4">
-              Built for families across Visakhapatnam.
-            </h2>
-            <p className="text-zinc-400 text-base leading-relaxed">
-              Read how homeowners in MVP Colony, Madhurawada, and Gajuwaka experienced our transparent construction process.
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-3 gap-8">
-            {testimonialsData.map((t) => (
-              <div 
-                key={t.id}
-                className="bg-black/90 rounded-2xl border border-zinc-800 p-8 flex flex-col justify-between hover:border-zinc-700 transition-all"
-              >
-                <div>
-                  <div className="flex items-center gap-1 text-orange-400 mb-4">
-                    {[...Array(t.rating || 5)].map((_, i) => (
-                      <span key={i} className="text-base">★</span>
-                    ))}
-                  </div>
-                  <p className="text-zinc-300 text-sm leading-relaxed italic mb-6">
-                    "{t.content}"
-                  </p>
-                </div>
-                
-                <div className="pt-4 border-t border-zinc-900 flex justify-between items-center">
-                  <div>
-                    <h4 className="text-sm font-bold text-white">{t.name}</h4>
-                    <p className="text-xs text-zinc-500 font-mono">{t.project}</p>
-                  </div>
-                  <span className="px-2 py-0.5 rounded bg-zinc-900 border border-zinc-800 text-orange-400 font-mono text-[11px] font-bold">
-                    {t.package}
-                  </span>
-                </div>
-              </div>
-            ))}
-          </div>
-
-        </div>
-      </section>
-
-      {/* 10. DIRECT ANSWERS & PROJECT FEASIBILITY (AEO / GEO / VOICE SEARCH KNOWLEDGE BASE) */}
+      {/* 8. DIRECT ANSWERS & PROJECT FEASIBILITY (AEO / GEO / VOICE SEARCH KNOWLEDGE BASE) */}
       <section id="aeo-quick-facts" className="py-20 lg:py-28 bg-black border-b border-zinc-800">
         <div className="max-w-5xl mx-auto px-6 lg:px-8">
           
           <div className="text-center max-w-3xl mx-auto mb-16">
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-orange-600/10 border border-orange-500/20 text-orange-400 text-xs font-mono font-semibold uppercase tracking-wider mb-4">
               <HelpCircle className="h-3.5 w-3.5" />
-              Direct Answers & Project Feasibility
+              Layer 02 AEO Direct Q&A Snippets
             </div>
             <h2 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight mb-4">
               Frequently asked construction questions.
             </h2>
             <p className="text-zinc-400 text-base leading-relaxed aeo-speakable">
-              Clear facts on pricing, approvals, warranties, and construction timelines in Visakhapatnam to help you make informed decisions.
+              Concise, verified 45-word answers engineered for Google Featured Snippets and AI Answer Engines (Perplexity, ChatGPT, Gemini). Click copy to reference any snippet.
             </p>
           </div>
 
           <div className="space-y-4">
             {faqData.map((faq, idx) => {
               const isOpen = openFaq === idx;
+              const isCopied = copiedFaqIndex === idx;
               return (
                 <div 
                   key={idx}
-                  className="rounded-2xl border border-zinc-800 bg-zinc-950/80 overflow-hidden transition-all duration-200"
+                  className="rounded-2xl border border-zinc-800 bg-zinc-950/80 overflow-hidden transition-all duration-200 card-interactive"
                 >
                   <button
                     type="button"
                     onClick={() => setOpenFaq(isOpen ? -1 : idx)}
-                    className="w-full p-6 text-left flex justify-between items-center gap-4 hover:bg-zinc-900/50 transition-colors"
+                    className="w-full p-6 text-left flex justify-between items-center gap-4 hover:bg-zinc-900/50 transition-colors cursor-pointer"
                   >
                     <span className="text-base sm:text-lg font-bold text-white tracking-tight">
                       {faq.q}
@@ -922,8 +933,23 @@ const Home = () => {
                   </button>
 
                   {isOpen && (
-                    <div className="px-6 pb-6 pt-2 border-t border-zinc-900 text-zinc-300 text-sm sm:text-base leading-relaxed aeo-speakable font-light">
-                      {faq.a}
+                    <div className="px-6 pb-6 pt-2 border-t border-zinc-900 text-zinc-300 text-sm sm:text-base leading-relaxed aeo-speakable font-light animate-fade-in">
+                      <p className="mb-4">{faq.a}</p>
+                      
+                      <div className="flex items-center justify-between pt-3 border-t border-zinc-900/80 text-xs">
+                        <span className="text-[11px] font-mono text-zinc-500">
+                          Structured Answer • Schema FAQPage Validated
+                        </span>
+                        <button
+                          type="button"
+                          onClick={() => copyFaqAnswer(faq.a, idx)}
+                          className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-zinc-900 hover:bg-zinc-800 text-zinc-300 hover:text-orange-400 text-[11px] font-semibold border border-zinc-800 transition-colors cursor-pointer"
+                          title="Copy direct answer snippet"
+                        >
+                          <Copy className="w-3.5 h-3.5" />
+                          <span>{isCopied ? 'Copied!' : 'Copy Answer'}</span>
+                        </button>
+                      </div>
                     </div>
                   )}
                 </div>
@@ -938,13 +964,46 @@ const Home = () => {
             </a>
           </div>
 
+          {/* Contextual Internal Linking Cluster (SEO Site Architecture & Topical Depth) */}
+          <div className="mt-16 pt-12 border-t border-zinc-800/80">
+            <div className="text-xs font-mono font-bold text-zinc-500 uppercase tracking-wider mb-4">
+              Topical Discovery & Specialized Civil Resources
+            </div>
+            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3 text-xs">
+              <Link to="/cost-calculator" className="p-3 rounded-xl bg-zinc-950 border border-zinc-800 text-zinc-300 hover:text-orange-400 hover:border-orange-500/40 transition-all flex flex-col justify-between">
+                <span className="font-bold">Cost Calculator</span>
+                <span className="text-[10px] text-zinc-500 font-mono mt-1">Live Plot Estimator →</span>
+              </Link>
+              <Link to="/packages" className="p-3 rounded-xl bg-zinc-950 border border-zinc-800 text-zinc-300 hover:text-orange-400 hover:border-orange-500/40 transition-all flex flex-col justify-between">
+                <span className="font-bold">Packages & BOQ</span>
+                <span className="text-[10px] text-zinc-500 font-mono mt-1">₹1,850 - ₹2,650 →</span>
+              </Link>
+              <Link to="/process" className="p-3 rounded-xl bg-zinc-950 border border-zinc-800 text-zinc-300 hover:text-orange-400 hover:border-orange-500/40 transition-all flex flex-col justify-between">
+                <span className="font-bold">3D BIM Process</span>
+                <span className="text-[10px] text-zinc-500 font-mono mt-1">7-Stage Timeline →</span>
+              </Link>
+              <Link to="/why-us" className="p-3 rounded-xl bg-zinc-950 border border-zinc-800 text-zinc-300 hover:text-orange-400 hover:border-orange-500/40 transition-all flex flex-col justify-between">
+                <span className="font-bold">Civil Standards</span>
+                <span className="text-[10px] text-zinc-500 font-mono mt-1">IS 456 & 10-Yr Bond →</span>
+              </Link>
+              <Link to="/projects" className="p-3 rounded-xl bg-zinc-950 border border-zinc-800 text-zinc-300 hover:text-orange-400 hover:border-orange-500/40 transition-all flex flex-col justify-between">
+                <span className="font-bold">Villa Portfolio</span>
+                <span className="text-[10px] text-zinc-500 font-mono mt-1">Vizag Residences →</span>
+              </Link>
+              <Link to="/site-visit" className="p-3 rounded-xl bg-zinc-950 border border-zinc-800 text-zinc-300 hover:text-orange-400 hover:border-orange-500/40 transition-all flex flex-col justify-between">
+                <span className="font-bold">Book Site Survey</span>
+                <span className="text-[10px] text-zinc-500 font-mono mt-1">Free Soil Feasibility →</span>
+              </Link>
+            </div>
+          </div>
+
         </div>
       </section>
 
-      {/* 11. STUDIO CONSULTATION DESK & FINAL ACTION (MATTE LUXURY, NO RAINBOW GRADIENT) */}
+      {/* 9. STUDIO CONSULTATION DESK & FINAL ACTION */}
       <section className="py-20 lg:py-28 bg-black relative">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
-          <div className="rounded-3xl border border-zinc-800 bg-gradient-to-br from-zinc-900 via-black to-zinc-950 p-8 sm:p-14 overflow-hidden relative shadow-2xl">
+          <div className="rounded-3xl border border-zinc-800 bg-gradient-to-br from-zinc-900 via-black to-zinc-950 p-8 sm:p-14 overflow-hidden relative shadow-2xl card-interactive">
             
             {/* Background Accent */}
             <div className="absolute top-0 right-0 w-[400px] h-[400px] bg-orange-600/10 rounded-full blur-[100px] pointer-events-none" />
@@ -1016,7 +1075,7 @@ const Home = () => {
                   </div>
                   
                   <Button
-                    className="w-full bg-orange-600 hover:bg-orange-500 text-white font-bold text-xs py-5 rounded-lg shadow-md shadow-orange-600/30 mt-4"
+                    className="w-full bg-orange-600 hover:bg-orange-500 text-white font-bold text-xs py-5 rounded-lg shadow-md shadow-orange-600/30 shimmer-sweep mt-4 cursor-pointer"
                     onClick={() => window.location.href = '/contact'}
                   >
                     Confirm Consultation Booking

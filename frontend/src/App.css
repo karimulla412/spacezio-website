@@ -1,48 +1,57 @@
-/* Global Premium Styles */
-* {
+/* Global Architectural Luxury Styles */
+html {
     scroll-behavior: smooth;
 }
 
 /* Premium Selection Colors */
 ::selection {
-    background-color: #FF8C42;
-    color: white;
+    background-color: #ea580c;
+    color: #ffffff;
 }
 
-/* Custom Premium Scrollbar */
+/* Custom Architectural Scrollbar */
 ::-webkit-scrollbar {
-    width: 12px;
+    width: 8px;
+    height: 8px;
 }
 
 ::-webkit-scrollbar-track {
-    background: #0a0a0a;
+    background: #09090b;
 }
 
 ::-webkit-scrollbar-thumb {
-    background: linear-gradient(180deg, #FF8C42 0%, #FFA500 100%);
-    border-radius: 6px;
+    background: #27272a;
+    border-radius: 4px;
+    border: 1px solid #18181b;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-    background: linear-gradient(180deg, #FFA500 0%, #FFB84D 100%);
+    background: #ea580c;
 }
 
-/* Premium transitions for interactive elements */
-button, a, input, textarea, select {
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+/* Base transitions for interactive interactive elements */
+button, a {
+    transition: color 0.2s cubic-bezier(0.4, 0, 0.2, 1), 
+                background-color 0.2s cubic-bezier(0.4, 0, 0.2, 1), 
+                border-color 0.2s cubic-bezier(0.4, 0, 0.2, 1), 
+                box-shadow 0.2s cubic-bezier(0.4, 0, 0.2, 1), 
+                transform 0.2s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-button:hover, a:hover {
-    transform: translateY(-2px);
-}
-
-/* Image optimization */
+/* Image optimization & crisp rendering */
 img {
     image-rendering: -webkit-optimize-contrast;
     image-rendering: crisp-edges;
 }
 
-/* Line clamping utility */
+/* Line clamping utilities */
+.line-clamp-1 {
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
 .line-clamp-2 {
     display: -webkit-box;
     -webkit-line-clamp: 2;
@@ -57,82 +66,67 @@ img {
     overflow: hidden;
 }
 
-/* Premium Card Hover Effects */
-.card-hover {
-    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+/* ==========================================================================
+   ADVANCED ARCHITECTURAL TRANSITIONS & SXO MICRO-INTERACTIONS
+   ========================================================================== */
+
+/* 1. Interactive Card Elevation & Glow */
+.card-interactive {
+    transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), 
+                border-color 0.35s cubic-bezier(0.16, 1, 0.3, 1), 
+                box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.card-hover:hover {
-    transform: translateY(-10px) scale(1.02);
-    box-shadow: 0 25px 50px -12px rgba(255, 140, 66, 0.25);
+.card-interactive:hover {
+    transform: translateY(-4px);
+    border-color: rgba(234, 88, 12, 0.45);
+    box-shadow: 0 20px 40px -15px rgba(234, 88, 12, 0.18), 0 0 20px 0 rgba(234, 88, 12, 0.08);
 }
 
-/* Orange Glow Effect */
-.orange-glow {
-    box-shadow: 0 0 30px rgba(255, 140, 66, 0.4);
-}
-
-/* Glass Morphism */
-.glass-card {
-    background: rgba(20, 20, 20, 0.6);
+/* 2. Glassmorphism Surface */
+.glass-surface {
+    background: rgba(18, 18, 20, 0.7);
     backdrop-filter: blur(16px);
     -webkit-backdrop-filter: blur(16px);
-    border: 1px solid rgba(255, 140, 66, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.08);
 }
 
-/* Premium Gradient Backgrounds */
-.gradient-orange {
-    background: linear-gradient(135deg, #FF8C42 0%, #FFA500 50%, #FFB84D 100%);
+/* 3. Subtle Orange Ambient Glow */
+.glow-orange {
+    box-shadow: 0 0 35px -5px rgba(234, 88, 12, 0.3);
 }
 
-.gradient-dark-orange {
-    background: linear-gradient(135deg, #1a0a00 0%, #2d1810 50%, #1a0a00 100%);
+.glow-orange-sm {
+    box-shadow: 0 0 15px -2px rgba(234, 88, 12, 0.25);
 }
 
-/* Animated Gradient Border */
-@keyframes gradient-border {
-    0%, 100% {
-        border-color: #FF8C42;
-    }
-    50% {
-        border-color: #FFA500;
-    }
-}
-
-.animated-border {
-    animation: gradient-border 3s ease-in-out infinite;
-}
-
-/* Premium Button Styles */
-.btn-premium {
+/* 4. Shimmer Effect on CTA Buttons */
+.shimmer-sweep {
     position: relative;
     overflow: hidden;
 }
 
-.btn-premium::before {
+.shimmer-sweep::after {
     content: '';
     position: absolute;
     top: 0;
-    left: -100%;
-    width: 100%;
+    left: -120%;
+    width: 60%;
     height: 100%;
     background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-    transition: left 0.5s;
+    transform: skewX(-20deg);
+    transition: left 0.75s ease;
 }
 
-.btn-premium:hover::before {
-    left: 100%;
+.shimmer-sweep:hover::after {
+    left: 180%;
 }
 
-/* Smooth Page Transitions */
-.page-transition {
-    animation: fadeIn 0.5s ease-in-out;
-}
-
-@keyframes fadeIn {
+/* 5. Entrance Fade Animations (GPU accelerated) */
+@keyframes fadeInUp {
     from {
         opacity: 0;
-        transform: translateY(20px);
+        transform: translateY(18px);
     }
     to {
         opacity: 1;
@@ -140,25 +134,62 @@ img {
     }
 }
 
-/* Focus Styles */
+.animate-fade-in-up {
+    animation: fadeInUp 0.45s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    will-change: transform, opacity;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.animate-fade-in {
+    animation: fadeIn 0.35s ease forwards;
+    will-change: opacity;
+}
+
+/* 6. Subtle Pulse Indicator */
+@keyframes pulseSubtle {
+    0%, 100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+    50% {
+        opacity: 0.65;
+        transform: scale(1.15);
+    }
+}
+
+.pulse-indicator {
+    animation: pulseSubtle 2.2s infinite ease-in-out;
+}
+
+/* 7. Scroll Progress Bar at Top */
+.scroll-progress-line {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, #ea580c 0%, #f97316 50%, #fbbf24 100%);
+    transform-origin: 0 50%;
+    z-index: 100;
+    transition: transform 0.1s ease-out;
+    will-change: transform;
+}
+
+/* 8. Accordion Transition */
+.accordion-transition {
+    transition: max-height 0.35s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.35s ease;
+}
+
+/* 9. Focus Accessibility Styles (SXO best practice) */
 button:focus-visible,
 a:focus-visible,
 input:focus-visible,
-textarea:focus-visible {
-    outline: 2px solid #FF8C42;
+textarea:focus-visible,
+select:focus-visible {
+    outline: 2px solid #ea580c;
     outline-offset: 2px;
-}
-
-/* Premium Loading Animation */
-.loading-spinner {
-    border: 3px solid rgba(255, 140, 66, 0.2);
-    border-top-color: #FF8C42;
-    border-radius: 50%;
-    animation: spin 0.8s linear infinite;
-}
-
-@keyframes spin {
-    to {
-        transform: rotate(360deg);
-    }
 }
