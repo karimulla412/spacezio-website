@@ -198,9 +198,63 @@ const sendLeadMagnetEmail = async (email, name) => {
   }
 };
 
+const sendChatbotNotification = async (leadData) => {
+  const subject = `🤖 New Spacexio Assistant Inquiry from ${leadData.contact}`;
+  
+  const htmlContent = `
+  <html>
+      <body style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
+          <div style="background: linear-gradient(135deg, #ea580c 0%, #c2410c 100%); padding: 30px; text-align: center;">
+              <h1 style="color: white; margin: 0;">🤖 New Chatbot Project Lead</h1>
+          </div>
+          <div style="padding: 30px; background-color: #f9fafb;">
+              <h2 style="color: #1f2937;">Lead Details</h2>
+              <table style="width: 100%; border-collapse: collapse;">
+                  <tr>
+                      <td style="padding: 10px; font-weight: bold; color: #4b5563;">Contact:</td>
+                      <td style="padding: 10px; color: #1f2937;"><strong>${leadData.contact}</strong></td>
+                  </tr>
+                  <tr>
+                      <td style="padding: 10px; font-weight: bold; color: #4b5563;">Project Type:</td>
+                      <td style="padding: 10px; color: #1f2937;">${leadData.projectType || 'Not specified'}</td>
+                  </tr>
+                  <tr>
+                      <td style="padding: 10px; font-weight: bold; color: #4b5563;">Project Size:</td>
+                      <td style="padding: 10px; color: #1f2937;">${leadData.projectSize || 'Not specified'}</td>
+                  </tr>
+                  <tr>
+                      <td style="padding: 10px; font-weight: bold; color: #4b5563;">Service Required:</td>
+                      <td style="padding: 10px; color: #1f2937;">${leadData.serviceRequired || 'Not specified'}</td>
+                  </tr>
+                  <tr>
+                      <td style="padding: 10px; font-weight: bold; color: #4b5563;">Timeline:</td>
+                      <td style="padding: 10px; color: #1f2937;">${leadData.timeline || 'Not specified'}</td>
+                  </tr>
+                  <tr>
+                      <td style="padding: 10px; font-weight: bold; color: #4b5563;">Captured At:</td>
+                      <td style="padding: 10px; color: #1f2937;">${new Date().toLocaleString()}</td>
+                  </tr>
+              </table>
+              <div style="margin-top: 20px; padding: 15px; background-color: #fef3c7; border-left: 4px solid #f59e0b;">
+                  <p style="margin: 0; color: #92400e;"><strong>Action Required:</strong> Contact this lead within 24 hours.</p>
+              </div>
+          </div>
+          <div style="padding: 20px; text-align: center; background-color: #111827; color: #9ca3af; font-size: 12px;">
+              <p>© 2026 Spacexio. All rights reserved.</p>
+          </div>
+      </body>
+  </html>
+  `;
+  
+  for (const adminEmail of ADMIN_EMAILS) {
+    await sendEmailAsync(adminEmail, subject, htmlContent);
+  }
+};
+
 module.exports = {
   sendContactNotification,
   sendSiteVisitNotification,
   sendNewsletterWelcome,
-  sendLeadMagnetEmail
+  sendLeadMagnetEmail,
+  sendChatbotNotification
 };

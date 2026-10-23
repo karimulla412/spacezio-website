@@ -8,7 +8,8 @@ const {
   sendContactNotification,
   sendSiteVisitNotification,
   sendNewsletterWelcome,
-  sendLeadMagnetEmail
+  sendLeadMagnetEmail,
+  sendChatbotNotification
 } = require('./emailService');
 
 const app = express();
@@ -157,6 +158,8 @@ apiRouter.post('/chatbot/lead', async (req, res) => {
        VALUES ($1, $2, $3, $4, $5, $6) RETURNING *`,
       [projectType, projectSize, serviceRequired, timeline, contact, source]
     );
+
+    sendChatbotNotification(req.body).catch(console.error);
 
     res.json({ message: 'Lead captured successfully', leadId: result.rows[0].id });
   } catch (error) {
