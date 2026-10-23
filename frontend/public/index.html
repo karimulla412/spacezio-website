@@ -31,19 +31,108 @@
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
         <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
-        <!--
-        manifest.json provides metadata used when your web app is installed on a
-        user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
-        -->
-        <!--
-        Notice the use of %PUBLIC_URL% in the tags above.
-        It will be replaced with the URL of the `public` folder during the build.
-        Only files inside the `public` folder can be referenced from the HTML.
 
-        Unlike "/favicon.ico" or "favicon.ico", "%PUBLIC_URL%/favicon.ico" will
-        work correctly both with client-side routing and a non-root public URL.
-        Learn how to configure a non-root public URL by running `npm run build`.
-        -->
+        <!-- 1. Schema.org LocalBusiness & GeneralContractor (GEO & Local SEO) -->
+        <script type="application/ld+json">
+        {
+          "@context": "https://schema.org",
+          "@type": ["HomeAndConstructionBusiness", "GeneralContractor", "ProfessionalService"],
+          "@id": "https://www.spacexio.com/#organization",
+          "name": "SPACEXIO",
+          "alternateName": ["SPACEXIO Construction", "SPACEXIO Architectural Studio", "Spacexio Builders Vizag"],
+          "url": "https://www.spacexio.com",
+          "logo": "https://www.spacexio.com/logo.png",
+          "image": "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1200&q=80",
+          "description": "Premier architectural studio & turnkey home builder in Visakhapatnam. Fixed-price packages from ₹1,850/sq.ft, 3D BIM clash-free engineering, milestone escrow payments & 10-year warranty.",
+          "telephone": "+91 96865 11132",
+          "email": "hellospacexio@gmail.com",
+          "priceRange": "₹1,850 - ₹2,650 / sq.ft",
+          "currenciesAccepted": "INR",
+          "paymentAccepted": "Milestone Escrow, Bank Transfer, Cheque, Digital Payment",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Near Abid Nagar Road, Abidnagar Park, Akkayyapalem",
+            "addressLocality": "Visakhapatnam",
+            "addressRegion": "Andhra Pradesh",
+            "postalCode": "530016",
+            "addressCountry": "IN"
+          },
+          "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": 17.7215,
+            "longitude": 83.3060
+          },
+          "hasMap": "https://maps.google.com/?q=17.7215,83.3060",
+          "openingHoursSpecification": [
+            {
+              "@type": "OpeningHoursSpecification",
+              "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+              "opens": "09:00",
+              "closes": "19:00"
+            }
+          ],
+          "areaServed": [
+            { "@type": "City", "name": "Visakhapatnam", "sameAs": "https://en.wikipedia.org/wiki/Visakhapatnam" },
+            { "@type": "Place", "name": "MVP Colony" },
+            { "@type": "Place", "name": "Madhurawada" },
+            { "@type": "Place", "name": "Akkayyapalem" },
+            { "@type": "Place", "name": "Rushikonda" },
+            { "@type": "Place", "name": "Yendada" },
+            { "@type": "Place", "name": "Gajuwaka" },
+            { "@type": "Place", "name": "Seethammadhara" }
+          ],
+          "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": "4.9",
+            "reviewCount": "87",
+            "bestRating": "5",
+            "worstRating": "1"
+          }
+        }
+        </script>
+
+        <!-- 2. Schema.org FAQPage (AEO / Answer Engine Optimization for Gemini, ChatGPT & Perplexity) -->
+        <script type="application/ld+json">
+        {
+          "@context": "https://schema.org",
+          "@type": "FAQPage",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "How much does house construction cost per sqft in Visakhapatnam?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "SPACEXIO offers three transparent, fixed-price turnkey construction packages in Visakhapatnam: Essential Package at ₹1,850/sq.ft, Premium Package at ₹2,150/sq.ft (our most popular choice with full 3D BIM modeling), and Luxury Package at ₹2,650/sq.ft (smart home automation, Italian marble, and Kohler fittings)."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "What is included in turnkey house construction by SPACEXIO?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "SPACEXIO turnkey construction includes architectural 2D floor plans, 3D elevation renders, structural engineering drawings, municipal plan approval assistance, foundation excavation, Fe 550D TMT steel and Grade 53 cement civil construction, complete plumbing, electrical, tiling, painting, modular kitchen, and a 10-year certified structural warranty."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "How long does it take to construct a house in Visakhapatnam?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "A standard 2,000 to 3,000 sq.ft residential house or villa takes 6 to 8 months from foundation excavation to final handover. Clients receive a milestone-based construction schedule with real-time site updates."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "What areas in Visakhapatnam does SPACEXIO service?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "SPACEXIO operates across Greater Visakhapatnam including Akkayyapalem, MVP Colony, Madhurawada, Rushikonda, Yendada, Seethammadhara, Gajuwaka, Sheela Nagar, and Bheemunipatnam."
+              }
+            }
+          ]
+        }
+        </script>
+
         <title>SPACEXIO - Home Design & Construction | Visakhapatnam</title>
         <script>window.addEventListener("error",function(e){if(e.error instanceof DOMException&&e.error.name==="DataCloneError"&&e.message&&e.message.includes("PerformanceServerTiming")){e.stopImmediatePropagation();e.preventDefault()}},true);</script>
     </head>

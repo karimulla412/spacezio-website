@@ -25,8 +25,10 @@ import {
   faqData 
 } from '../data/mock';
 import SEO from '../components/SEO';
+import { useScrollReveal } from '../hooks/useScrollReveal';
 
 const Home = () => {
+  useScrollReveal();
   const { content } = useContent();
   const heroData = content?.heroData || defaultHeroData;
   const statsData = content?.statsData || defaultStatsData;
@@ -227,7 +229,7 @@ const Home = () => {
       {/* 1. ARCHITECTURAL HERO SECTION - EDITORIAL STUDIO CRAFT */}
       <section className="relative pt-32 pb-20 lg:pt-44 lg:pb-32 bg-black border-b border-zinc-800 overflow-hidden">
         {/* Subtle Architectural Blueprint Grid */}
-        <div className="absolute inset-0 bg-[radial-gradient(#27272a_1px,transparent_1px)] [background-size:28px_28px] opacity-40 pointer-events-none" />
+        <div className="absolute inset-0 bg-[radial-gradient(#27272a_1px,transparent_1px)] [background-size:28px_28px] opacity-40 blueprint-grid-animated pointer-events-none" />
         
         {/* Subtle Warm Amber Studio Glow */}
         <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[700px] h-[350px] bg-orange-600/10 rounded-full blur-[140px] pointer-events-none" />
@@ -238,7 +240,7 @@ const Home = () => {
             {/* Left 7 Columns: Editorial Headline & Value Authority */}
             <div className="lg:col-span-7">
               {/* Studio Metadata Ribbon */}
-              <div className="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full bg-zinc-900/90 border border-zinc-800 text-xs font-mono tracking-wider text-zinc-300 mb-6">
+              <div className="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full bg-zinc-900/90 border border-zinc-800 text-xs font-mono tracking-wider text-zinc-300 mb-6 animate-float-slow shadow-lg shadow-black/40">
                 <span className="w-2 h-2 rounded-full bg-orange-500 pulse-indicator" />
                 <span className="text-orange-400 font-semibold uppercase">SPACEXIO STUDIO</span>
                 <span className="text-zinc-600">•</span>
@@ -247,7 +249,7 @@ const Home = () => {
               
               <h1 className="text-4xl sm:text-6xl lg:text-7xl font-extrabold text-white tracking-tight leading-[1.08] mb-6">
                 Architectural design. <br />
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 via-orange-500 to-amber-500">
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 via-amber-400 to-orange-500 animate-gradient-flow">
                   Fixed-price execution.
                 </span>
               </h1>
@@ -364,7 +366,10 @@ const Home = () => {
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 divide-y lg:divide-y-0 lg:divide-x divide-zinc-800/80">
             {statsData.map((stat, index) => (
-              <div key={index} className={`flex flex-col justify-center ${index > 0 ? 'lg:pl-8' : ''} ${index > 1 ? 'pt-6 lg:pt-0' : ''}`}>
+              <div 
+                key={index} 
+                className={`reveal-on-scroll delay-${(index + 1) * 100} p-3 rounded-xl hover-lift-pro transition-all flex flex-col justify-center ${index > 0 ? 'lg:pl-8' : ''} ${index > 1 ? 'pt-6 lg:pt-0' : ''}`}
+              >
                 <div className="text-3xl sm:text-4xl lg:text-5xl font-black text-white tracking-tight flex items-baseline gap-1 mb-1">
                   <span>{stat.value}</span>
                   {stat.value.includes('1850') && <span className="text-sm font-normal text-zinc-400 font-mono">/sq.ft</span>}
@@ -382,8 +387,8 @@ const Home = () => {
       <section id="live-estimator" className="py-20 lg:py-28 bg-black border-b border-zinc-800">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           
-          <div className="text-center max-w-3xl mx-auto mb-16">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-orange-600/10 border border-orange-500/20 text-orange-400 text-xs font-mono font-semibold uppercase tracking-wider mb-4">
+          <div className="text-center max-w-3xl mx-auto mb-16 reveal-on-scroll">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-orange-600/10 border border-orange-500/20 text-orange-400 text-xs font-mono font-semibold uppercase tracking-wider mb-4 animate-float-slow">
               <Sliders className="h-3.5 w-3.5" />
               SXO Interactive Live Cost Tool
             </div>
@@ -398,7 +403,7 @@ const Home = () => {
           <div className="grid lg:grid-cols-12 gap-8 items-stretch">
             
             {/* Left 7 Columns: Controls */}
-            <div className="lg:col-span-7 bg-zinc-950 rounded-3xl border border-zinc-800 p-6 sm:p-8 space-y-8 flex flex-col justify-between card-interactive">
+            <div className="lg:col-span-7 bg-zinc-950 rounded-3xl border border-zinc-800 p-6 sm:p-8 space-y-8 flex flex-col justify-between card-interactive hover-lift-pro reveal-on-scroll delay-100">
               
               {/* Plot Area Slider */}
               <div>
@@ -441,10 +446,10 @@ const Home = () => {
                         key={pkg.id}
                         type="button"
                         onClick={() => setSelectedPackageId(pkg.id)}
-                        className={`p-4 rounded-xl text-left border transition-all duration-200 relative cursor-pointer ${
+                        className={`p-4 rounded-xl text-left border transition-all duration-300 relative cursor-pointer ${
                           isSelected
-                            ? 'bg-orange-600/10 border-orange-500 ring-1 ring-orange-500'
-                            : 'bg-zinc-900/60 border-zinc-800 hover:border-zinc-700 text-zinc-300'
+                            ? 'bg-orange-600/10 border-orange-500 ring-1 ring-orange-500 active-package-glow'
+                            : 'bg-zinc-900/60 border-zinc-800 hover:border-zinc-700 text-zinc-300 hover:scale-[1.02]'
                         }`}
                       >
                         {pkg.popular && (
@@ -495,7 +500,7 @@ const Home = () => {
             </div>
 
             {/* Right 5 Columns: Live Financial Breakdown */}
-            <div className="lg:col-span-5 bg-zinc-900/90 rounded-3xl border border-zinc-800 p-6 sm:p-8 flex flex-col justify-between card-interactive">
+            <div className="lg:col-span-5 bg-zinc-900/90 rounded-3xl border border-zinc-800 p-6 sm:p-8 flex flex-col justify-between card-interactive hover-lift-pro reveal-on-scroll delay-200">
               <div>
                 <span className="text-xs font-mono font-bold text-zinc-400 uppercase tracking-wider">
                   Estimated Turnkey Investment
@@ -557,9 +562,9 @@ const Home = () => {
       <section className="py-20 lg:py-28 bg-black border-b border-zinc-800">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           
-          <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
+          <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6 reveal-on-scroll">
             <div>
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-zinc-900 border border-zinc-800 text-zinc-300 text-xs font-mono font-semibold uppercase tracking-wider mb-4">
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-zinc-900 border border-zinc-800 text-zinc-300 text-xs font-mono font-semibold uppercase tracking-wider mb-4 animate-float-slow">
                 <Building2 className="h-3.5 w-3.5 text-orange-500" />
                 Ground Reality Showcase
               </div>
@@ -588,10 +593,10 @@ const Home = () => {
 
           {/* Project Grid */}
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {filteredProjects.map((project) => (
+            {filteredProjects.map((project, pIdx) => (
               <div 
                 key={project.id}
-                className="bg-zinc-950 rounded-2xl border border-zinc-800/90 overflow-hidden group hover:border-orange-500/50 transition-all duration-300 card-interactive"
+                className={`bg-zinc-950 rounded-2xl border border-zinc-800/90 overflow-hidden group hover:border-orange-500/50 transition-all duration-300 card-interactive hover-lift-pro reveal-on-scroll delay-${(pIdx % 3 + 1) * 100}`}
               >
                 {/* Image Container */}
                 <div className="relative h-64 overflow-hidden bg-zinc-900">
@@ -638,8 +643,8 @@ const Home = () => {
       <section className="py-20 lg:py-28 bg-zinc-950 border-b border-zinc-800">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           
-          <div className="text-center max-w-3xl mx-auto mb-16">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-zinc-900 border border-zinc-800 text-zinc-300 text-xs font-mono font-semibold uppercase tracking-wider mb-4">
+          <div className="text-center max-w-3xl mx-auto mb-16 reveal-on-scroll">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-zinc-900 border border-zinc-800 text-zinc-300 text-xs font-mono font-semibold uppercase tracking-wider mb-4 animate-float-slow">
               <ShieldCheck className="h-3.5 w-3.5 text-orange-500" />
               GEO Evidence & Verified Civil Standards
             </div>
@@ -655,7 +660,7 @@ const Home = () => {
             {materials.map((m, idx) => (
               <div 
                 key={idx}
-                className="bg-black/90 p-6 rounded-2xl border border-zinc-800 hover:border-zinc-700 transition-all card-interactive"
+                className={`bg-black/90 p-6 rounded-2xl border border-zinc-800 hover:border-zinc-700 transition-all card-interactive hover-lift-pro reveal-on-scroll delay-${(idx % 3 + 1) * 100}`}
               >
                 <div className="text-xs font-mono font-bold text-orange-400 uppercase tracking-wider mb-2">
                   {m.category}
@@ -681,8 +686,8 @@ const Home = () => {
 
         <div className="max-w-7xl mx-auto px-6 lg:px-8 relative z-10">
           
-          <div className="text-center max-w-3xl mx-auto mb-16">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-orange-600/10 border border-orange-500/20 text-orange-400 text-xs font-mono font-semibold uppercase tracking-wider mb-4">
+          <div className="text-center max-w-3xl mx-auto mb-16 reveal-on-scroll">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-orange-600/10 border border-orange-500/20 text-orange-400 text-xs font-mono font-semibold uppercase tracking-wider mb-4 animate-float-slow">
               <Sparkles className="h-3.5 w-3.5" />
               From Traditional Search to Generative AI
             </div>
@@ -695,7 +700,7 @@ const Home = () => {
           </div>
 
           {/* Layer Selector Tabs */}
-          <div className="grid grid-cols-2 sm:grid-cols-5 gap-3 mb-10">
+          <div className="grid grid-cols-2 sm:grid-cols-5 gap-3 mb-10 reveal-on-scroll delay-100">
             {seoLayersData.map((layer, idx) => {
               const isSelected = activeSeoLayer === idx;
               return (
@@ -703,9 +708,9 @@ const Home = () => {
                   key={layer.num}
                   type="button"
                   onClick={() => setActiveSeoLayer(idx)}
-                  className={`p-4 rounded-2xl border text-left transition-all duration-300 cursor-pointer relative ${
+                  className={`p-4 rounded-2xl border text-left transition-all duration-300 cursor-pointer relative hover:scale-[1.03] ${
                     isSelected
-                      ? 'bg-zinc-900 border-orange-500 shadow-xl shadow-orange-950/20 ring-1 ring-orange-500'
+                      ? 'bg-zinc-900 border-orange-500 shadow-xl shadow-orange-950/20 ring-1 ring-orange-500 active-package-glow'
                       : 'bg-zinc-950/60 border-zinc-800/80 hover:border-zinc-700 text-zinc-400 hover:text-white'
                   }`}
                 >
@@ -727,7 +732,7 @@ const Home = () => {
 
           {/* Active Layer Dossier Card */}
           {seoLayersData[activeSeoLayer] && (
-            <div className="bg-zinc-950/90 rounded-3xl border border-zinc-800 p-8 lg:p-12 shadow-2xl backdrop-blur-sm card-interactive">
+            <div className="bg-zinc-950/90 rounded-3xl border border-zinc-800 p-8 lg:p-12 shadow-2xl backdrop-blur-sm card-interactive hover-lift-pro animate-fade-in">
               
               <div className="flex flex-col lg:flex-row justify-between items-start lg:items-center gap-6 pb-8 border-b border-zinc-800/80">
                 <div>
@@ -820,8 +825,8 @@ const Home = () => {
       <section className="py-20 lg:py-28 bg-zinc-950 border-b border-zinc-800">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           
-          <div className="text-center max-w-3xl mx-auto mb-16">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-zinc-900 border border-zinc-800 text-zinc-300 text-xs font-mono font-semibold uppercase tracking-wider mb-4">
+          <div className="text-center max-w-3xl mx-auto mb-16 reveal-on-scroll">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-zinc-900 border border-zinc-800 text-zinc-300 text-xs font-mono font-semibold uppercase tracking-wider mb-4 animate-float-slow">
               <Clock className="h-3.5 w-3.5 text-orange-500" />
               Structured Milestone Workflow
             </div>
@@ -839,7 +844,7 @@ const Home = () => {
               return (
                 <div 
                   key={step.step}
-                  className="bg-black/90 rounded-2xl border border-zinc-800/90 p-6 flex flex-col justify-between hover:border-orange-500/40 transition-all group card-interactive"
+                  className={`bg-black/90 rounded-2xl border border-zinc-800/90 p-6 flex flex-col justify-between hover:border-orange-500/40 transition-all group card-interactive hover-lift-pro reveal-on-scroll delay-${(step.step % 4 + 1) * 100}`}
                 >
                   <div>
                     <div className="flex justify-between items-center mb-4">
@@ -897,8 +902,8 @@ const Home = () => {
       <section id="aeo-quick-facts" className="py-20 lg:py-28 bg-black border-b border-zinc-800">
         <div className="max-w-5xl mx-auto px-6 lg:px-8">
           
-          <div className="text-center max-w-3xl mx-auto mb-16">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-orange-600/10 border border-orange-500/20 text-orange-400 text-xs font-mono font-semibold uppercase tracking-wider mb-4">
+          <div className="text-center max-w-3xl mx-auto mb-16 reveal-on-scroll">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-orange-600/10 border border-orange-500/20 text-orange-400 text-xs font-mono font-semibold uppercase tracking-wider mb-4 animate-float-slow">
               <HelpCircle className="h-3.5 w-3.5" />
               Layer 02 AEO Direct Q&A Snippets
             </div>
@@ -917,7 +922,7 @@ const Home = () => {
               return (
                 <div 
                   key={idx}
-                  className="rounded-2xl border border-zinc-800 bg-zinc-950/80 overflow-hidden transition-all duration-200 card-interactive"
+                  className={`rounded-2xl border border-zinc-800 bg-zinc-950/80 overflow-hidden transition-all duration-300 card-interactive hover-lift-pro reveal-on-scroll delay-${(idx % 4 + 1) * 100}`}
                 >
                   <button
                     type="button"
@@ -1003,7 +1008,7 @@ const Home = () => {
       {/* 9. STUDIO CONSULTATION DESK & FINAL ACTION */}
       <section className="py-20 lg:py-28 bg-black relative">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
-          <div className="rounded-3xl border border-zinc-800 bg-gradient-to-br from-zinc-900 via-black to-zinc-950 p-8 sm:p-14 overflow-hidden relative shadow-2xl card-interactive">
+          <div className="rounded-3xl border border-zinc-800 bg-gradient-to-br from-zinc-900 via-black to-zinc-950 p-8 sm:p-14 overflow-hidden relative shadow-2xl card-interactive hover-lift-pro reveal-on-scroll">
             
             {/* Background Accent */}
             <div className="absolute top-0 right-0 w-[400px] h-[400px] bg-orange-600/10 rounded-full blur-[100px] pointer-events-none" />
