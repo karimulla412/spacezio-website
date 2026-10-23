@@ -213,36 +213,68 @@ const ChatBot = () => {
 
   const handleInputSubmit = async (e) => {
     e.preventDefault();
-    if (!userInput.trim()) return;
+    const text = userInput.trim();
+    if (!text) return;
 
-    addMessage('user', userInput);
-    
-    if (conversationState === 'leadCapture') {
-      await submitLead(userInput);
-    }
-    
+    addMessage('user', text);
     setUserInput('');
+
+    if (conversationState === 'leadCapture') {
+      await submitLead(text);
+      return;
+    }
+
+    // Check if user submitted contact information at any stage
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    const phoneRegex = /^[\d\s\+\-\(\)]{10,}$/;
+    if (emailRegex.test(text) || phoneRegex.test(text)) {
+      await submitLead(text);
+      return;
+    }
+
+    // Conversational fallback responses for common queries
+    const lower = text.toLowerCase();
+    if (lower.includes('price') || lower.includes('cost') || lower.includes('rate') || lower.includes('estimate') || lower.includes('budget')) {
+      addMessage('bot', 'Our construction packages in Visakhapatnam start from ₹1,850/sq.ft (Essential), ₹2,150/sq.ft (Premium), and ₹2,650/sq.ft (Luxury Turnkey) with complete material guarantees.\n\nWould you like an instant project estimate?', ['💰 Get Cost Estimate', '🏗️ Start My Project', '📞 Book Consultation']);
+    } else if (lower.includes('service') || lower.includes('bim') || lower.includes('architect') || lower.includes('interior')) {
+      addMessage('bot', 'We offer Architectural Design, BIM 3D Modeling, Structural Engineering, and Turnkey Home Construction.\n\nWhich service are you interested in?', ['Architectural Design', 'BIM Services', 'Execution', 'Interiors']);
+    } else if (lower.includes('hi') || lower.includes('hello') || lower.includes('hey')) {
+      addMessage('bot', 'Hello! Welcome to Spacexio. How can we help you plan your dream project today?', ['🏗️ Start My Project', '💰 Get Cost Estimate', '📞 Book Consultation']);
+    } else {
+      addMessage('bot', 'Thank you! To help you best, would you like to plan a project, get an instant cost estimate, or speak with our engineers?', ['🏗️ Start My Project', '💰 Get Cost Estimate', '📞 Book Consultation']);
+    }
   };
 
   const submitLead = async (contact) => {
+    const cleanedContact = (contact || '').trim();
     // Validate email or phone
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     const phoneRegex = /^[\d\s\+\-\(\)]{10,}$/;
     
-    if (!emailRegex.test(contact) && !phoneRegex.test(contact)) {
-      addMessage('bot', 'Please provide a valid email address or phone number.', [], true);
+    if (!emailRegex.test(cleanedContact) && !phoneRegex.test(cleanedContact)) {
+      addMessage('bot', 'Please provide a valid 10-digit mobile number or email address.', [], true);
       return;
     }
 
+    const leadPayload = {
+      ...leadData,
+      contact: cleanedContact,
+      source: 'chatbot',
+      timestamp: new Date().toISOString()
+    };
+
+    // Resilient endpoint resolution: prefer relative /api/chatbot/lead in production
+    const endpoint = (typeof window !== 'undefined' && window.location.hostname !== 'localhost' && window.location.hostname !== '127.0.0.1')
+      ? '/api/chatbot/lead'
+      : (API_URL ? `${API_URL}/api/chatbot/lead` : '/api/chatbot/lead');
+
     try {
-      await axios.post(`${API_URL}/api/chatbot/lead`, {
-        ...leadData,
-        contact,
-        timestamp: new Date().toISOString()
+      await axios.post(endpoint, leadPayload, {
+        headers: { 'Content-Type': 'application/json' },
+        timeout: 10000
       });
 
-      addMessage('bot', 'Thank you. Our team will review your requirement and get back within 24 hours.\n\n📧 You can also reach us at hellospacexio@gmail.com\n📞 +91 96865 11132');
-      
+      addMessage('bot', 'Thank you! Our engineering team will review your requirement and get back within 24 hours.\n\n📧 hellospacexio@gmail.com\n📞 +91 96865 11132');
       toast.success('Your inquiry has been submitted successfully!');
       
       setTimeout(() => {
@@ -251,10 +283,29 @@ const ChatBot = () => {
       }, 2000);
       
       setConversationState('complete');
-      
-    } catch (error) {
-      console.error('Lead submission error:', error);
-      addMessage('bot', 'Something went wrong. Please try again or call us directly at +91 96865 11132.');
+    } catch (primaryErr) {
+      console.warn('Axios chatbot post failed, attempting raw fetch fallback:', primaryErr);
+      try {
+        const response = await fetch('/api/chatbot/lead', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(leadPayload)
+        });
+        if (response.ok) {
+          addMessage('bot', 'Thank you! Our engineering team will review your requirement and get back within 24 hours.\n\n📧 hellospacexio@gmail.com\n📞 +91 96865 11132');
+          toast.success('Your inquiry has been submitted successfully!');
+          setTimeout(() => {
+            addMessage('bot', 'Is there anything else I can help you with?', 
+              ['New Project', 'Explore Services', 'Close Chat']);
+          }, 2000);
+          setConversationState('complete');
+          return;
+        }
+      } catch (fallbackErr) {
+        console.error('All chatbot lead submission attempts failed:', fallbackErr);
+      }
+
+      addMessage('bot', 'We noticed a brief network hiccup, but our team is on standby! You can also connect with us directly at:\n\n📞 +91 96865 11132\n📧 hellospacexio@gmail.com');
     }
   };
 
