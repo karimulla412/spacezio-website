@@ -6,7 +6,7 @@ import {
   Mail, Award, Building2, Sparkles, ChevronRight, CheckCheck, Sliders, 
   Compass, Hammer, Calendar, Maximize2, ShieldCheck, Ruler, ArrowUpRight,
   HelpCircle, ChevronDown, ChevronUp, Copy, Globe, Search, MessageSquare,
-  CheckCircle2, Share2, Sparkles as SparklesIcon, ExternalLink, Activity,
+  CheckCircle2, Share2, Sparkles as SparklesIcon, ExternalLink,
   Database, UserCheck
 } from 'lucide-react';
 import { Button } from '../components/ui/button';
@@ -41,10 +41,7 @@ const Home = () => {
   const [selectedPackageId, setSelectedPackageId] = useState(2); // Default to Premium
   const [floors, setFloors] = useState(2); // Default G+1
   const [selectedPortfolioTab, setSelectedPortfolioTab] = useState('All');
-  const [openFaq, setOpenFaq] = useState(0); // AEO FAQ accordion state
-  
-  // 5 Layers of Search / SEO State
-  const [activeSeoLayer, setActiveSeoLayer] = useState(0);
+  const [openFaq, setOpenFaq] = useState(0); // FAQ accordion state
   const [copiedFaqIndex, setCopiedFaqIndex] = useState(null);
 
   // Selected package for calculator
@@ -106,115 +103,7 @@ const Home = () => {
     ? projectsData 
     : projectsData.filter(p => p.category === selectedPortfolioTab || (selectedPortfolioTab === 'Villa' && p.title.toLowerCase().includes('villa')));
 
-  // The 5 Layers of Modern Search & Engineering Visibility
-  const seoLayersData = [
-    {
-      num: "01",
-      tag: "SEO",
-      title: "Search Engine Optimization",
-      subtitle: "Build a strong foundation for organic discovery.",
-      color: "from-blue-600 to-cyan-500",
-      workOn: [
-        "Search Intent & Buyer Journey Mapping",
-        "Clean Hierarchical Site Architecture",
-        "Localized Keyword Clusters (Vizag, AP)",
-        "Technical Crawlability & Valid Sitemap",
-        "Contextual Internal Linking Network",
-        "Topical Depth on Civil Engineering"
-      ],
-      keySignals: [
-        "Organic Impressions & Click-Throughs",
-        "Top 3 Keyword Positions in Visakhapatnam",
-        "High-Intent Organic Search Traffic",
-        "100% Core Web Pages Indexed by Google"
-      ],
-      spacexioImplementation: "Hierarchical site architecture with verified sitemap.xml, dedicated package guides (₹1,850 to ₹2,650/sq.ft), localized keyword mapping for Madhurawada, Rushikonda, MVP Colony, and deep engineering documentation."
-    },
-    {
-      num: "02",
-      tag: "AEO",
-      title: "Answer Engine Optimization",
-      subtitle: "Make your content easy for answer engines.",
-      color: "from-orange-600 to-amber-500",
-      workOn: [
-        "Direct Responses (40-60 word summaries)",
-        "Ask & Engage Interactive Widgets",
-        "Schema.org FAQPage Microdata",
-        "Structured Machine-Readable Answers",
-        "Conversational Voice Search Queries"
-      ],
-      keySignals: [
-        "Google Featured Snippet Box Placement",
-        "Direct Answers in ChatGPT & Perplexity",
-        "Answer Engine Query Coverage",
-        "High Brand Recall as the Authoritative Builder"
-      ],
-      spacexioImplementation: "Every major homeowner query (construction cost per sq.ft, timeline for 3BHK, escrow milestone protection) has a concise, standalone 45-word direct answer indexed with JSON-LD FAQPage and SpeakableSpecification."
-    },
-    {
-      num: "03",
-      tag: "GEO",
-      title: "Generative Engine Optimization",
-      subtitle: "Increase the chances of your brand appearing in AI.",
-      color: "from-emerald-600 to-teal-500",
-      workOn: [
-        "Original Insights & Field Construction Data",
-        "Supporting Evidence & Civil Laboratory Tests",
-        "Brand Authority & E-E-A-T Documentation",
-        "Expert Civil & Structural Contributions",
-        "Strict IS 456 & IS 1893 Code Compliance"
-      ],
-      keySignals: [
-        "AI Mentions in Gemini, Claude & Copilot",
-        "Spontaneous Brand Citations in AI Searches",
-        "Source References for Turnkey Building Standards",
-        "High Trust Score Across Civil Communities"
-      ],
-      spacexioImplementation: "Genuine civil engineering evidence: Fe550D TMT ductile steel, UltraTech Grade 53 cement, 28-day cube strength testing (>25 N/mm²), and Fosroc polymer waterproofing for coastal anti-efflorescence protection."
-    },
-    {
-      num: "04",
-      tag: "AIO",
-      title: "AI Optimization",
-      subtitle: "Make your digital presence AI-ready and clear.",
-      color: "from-purple-600 to-indigo-500",
-      workOn: [
-        "Clear Entities (@id Knowledge Graph)",
-        "Consistent Information & Verified NAP",
-        "Semantic Node Relationships",
-        "Machine-Friendly Content & /public/llms.txt",
-        "Explicit AI Permissions in robots.txt"
-      ],
-      keySignals: [
-        "Entity Recognition in Google Knowledge Panel",
-        "AI Discoverability by GPTBot, Perplexity & Claude",
-        "Zero Hallucination / Accurate Pricing Answers",
-        "Contextual Relevance to Visakhapatnam Real Estate"
-      ],
-      spacexioImplementation: "Dedicated public /llms.txt manifest following modern LLM standards, robots.txt welcoming GPTBot and ClaudeBot, plus semantic JSON-LD declaring HomeAndConstructionBusiness, OfferCatalog, and GeoCoordinates."
-    },
-    {
-      num: "05",
-      tag: "SXO",
-      title: "Search Experience Optimization",
-      subtitle: "Turn search visitors into engaged users and clients.",
-      color: "from-rose-600 to-orange-500",
-      workOn: [
-        "Lightning Fast Core Web Vitals (<1.2s LCP)",
-        "Content Clarity & Architectural Hierarchy",
-        "Mobile Usability & Bottom Sticky Action Bar",
-        "Interactive Real-Time Plot Cost Calculator",
-        "Frictionless Navigation & Zero CLS"
-      ],
-      keySignals: [
-        "High Visitor Engagement & Time on Page",
-        "Zero Layout Jitter (Cumulative Layout Shift < 0.01)",
-        "High Lead Generation & WhatsApp Conversion",
-        "High Returning Visitors Comparing Plans"
-      ],
-      spacexioImplementation: "Subtle GPU-accelerated micro-interactions, real-time scroll progress bar, live plot cost slider with instant financial breakdown, ergonomic mobile quick action bar, and 1-click WhatsApp engineering desk dispatch."
-    }
-  ];
+
 
   return (
     <div className="min-h-screen bg-black text-white font-sans antialiased selection:bg-orange-500 selection:text-black">
@@ -679,147 +568,6 @@ const Home = () => {
         </div>
       </section>
 
-      {/* 6. THE 5 LAYERS OF MODERN SEARCH & ARCHITECTURAL VISIBILITY (DIRECT USER INFOGRAPHIC IMPLEMENTATION) */}
-      <section className="py-20 lg:py-28 bg-black border-b border-zinc-800 relative overflow-hidden">
-        {/* Subtle Ambient Glow */}
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] bg-orange-600/5 rounded-full blur-[140px] pointer-events-none" />
-
-        <div className="max-w-7xl mx-auto px-6 lg:px-8 relative z-10">
-          
-          <div className="text-center max-w-3xl mx-auto mb-16 reveal-on-scroll">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-orange-600/10 border border-orange-500/20 text-orange-400 text-xs font-mono font-semibold uppercase tracking-wider mb-4 animate-float-slow">
-              <Sparkles className="h-3.5 w-3.5" />
-              From Traditional Search to Generative AI
-            </div>
-            <h2 className="text-3xl sm:text-5xl font-black text-white tracking-tight mb-4">
-              The 5 Layers of Modern Search Visibility.
-            </h2>
-            <p className="text-zinc-400 text-base leading-relaxed">
-              Better content. Bigger visibility. Spacexio is built from the ground up to rank on Google, answer queries in ChatGPT & Perplexity, and provide frictionless search experience to homeowners.
-            </p>
-          </div>
-
-          {/* Layer Selector Tabs */}
-          <div className="grid grid-cols-2 sm:grid-cols-5 gap-3 mb-10 reveal-on-scroll delay-100">
-            {seoLayersData.map((layer, idx) => {
-              const isSelected = activeSeoLayer === idx;
-              return (
-                <button
-                  key={layer.num}
-                  type="button"
-                  onClick={() => setActiveSeoLayer(idx)}
-                  className={`p-4 rounded-2xl border text-left transition-all duration-300 cursor-pointer relative hover:scale-[1.03] ${
-                    isSelected
-                      ? 'bg-zinc-900 border-orange-500 shadow-xl shadow-orange-950/20 ring-1 ring-orange-500 active-package-glow'
-                      : 'bg-zinc-950/60 border-zinc-800/80 hover:border-zinc-700 text-zinc-400 hover:text-white'
-                  }`}
-                >
-                  <div className="flex items-center justify-between mb-2">
-                    <span className={`text-xs font-mono font-black ${isSelected ? 'text-orange-400' : 'text-zinc-500'}`}>
-                      {layer.num}
-                    </span>
-                    <span className={`text-[10px] font-bold px-2 py-0.5 rounded-full ${
-                      isSelected ? 'bg-orange-500 text-black' : 'bg-zinc-800 text-zinc-400'
-                    }`}>
-                      {layer.tag}
-                    </span>
-                  </div>
-                  <div className="font-bold text-sm text-white line-clamp-1">{layer.title}</div>
-                </button>
-              );
-            })}
-          </div>
-
-          {/* Active Layer Dossier Card */}
-          {seoLayersData[activeSeoLayer] && (
-            <div className="bg-zinc-950/90 rounded-3xl border border-zinc-800 p-8 lg:p-12 shadow-2xl backdrop-blur-sm card-interactive hover-lift-pro animate-fade-in">
-              
-              <div className="flex flex-col lg:flex-row justify-between items-start lg:items-center gap-6 pb-8 border-b border-zinc-800/80">
-                <div>
-                  <div className="inline-flex items-center gap-2 text-xs font-mono font-bold text-orange-400 mb-2">
-                    <span>LAYER {seoLayersData[activeSeoLayer].num} //</span>
-                    <span>{seoLayersData[activeSeoLayer].tag} SPECIFICATION</span>
-                  </div>
-                  <h3 className="text-2xl sm:text-3xl font-extrabold text-white tracking-tight">
-                    {seoLayersData[activeSeoLayer].title}
-                  </h3>
-                  <p className="text-zinc-400 text-sm mt-1">
-                    {seoLayersData[activeSeoLayer].subtitle}
-                  </p>
-                </div>
-
-                <div className="flex items-center gap-3">
-                  <Link to="/why-us">
-                    <Button
-                      size="sm"
-                      variant="outline"
-                      className="border-zinc-700 bg-zinc-900 text-zinc-200 hover:border-orange-500 hover:text-orange-400 text-xs rounded-xl"
-                    >
-                      Inspect Civil Standards
-                      <ArrowRight className="w-3.5 h-3.5 ml-1.5" />
-                    </Button>
-                  </Link>
-                </div>
-              </div>
-
-              {/* Work On vs Key Signals Grid */}
-              <div className="grid md:grid-cols-2 gap-8 my-8">
-                
-                {/* Work On Column */}
-                <div className="p-6 rounded-2xl bg-zinc-900/50 border border-zinc-800/80">
-                  <div className="flex items-center gap-2 text-xs font-mono font-bold uppercase tracking-wider text-orange-400 mb-4">
-                    <Sliders className="w-4 h-4" />
-                    <span>What We Work On</span>
-                  </div>
-                  <ul className="space-y-3 text-xs text-zinc-300">
-                    {seoLayersData[activeSeoLayer].workOn.map((item, i) => (
-                      <li key={i} className="flex items-start gap-2.5">
-                        <CheckCircle2 className="w-4 h-4 text-orange-500 flex-shrink-0 mt-0.5" />
-                        <span>{item}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-
-                {/* Key Signals Column */}
-                <div className="p-6 rounded-2xl bg-zinc-900/50 border border-zinc-800/80">
-                  <div className="flex items-center gap-2 text-xs font-mono font-bold uppercase tracking-wider text-emerald-400 mb-4">
-                    <Activity className="w-4 h-4" />
-                    <span>Key Verification Signals</span>
-                  </div>
-                  <ul className="space-y-3 text-xs text-zinc-300">
-                    {seoLayersData[activeSeoLayer].keySignals.map((sig, i) => (
-                      <li key={i} className="flex items-start gap-2.5">
-                        <span className="w-2 h-2 rounded-full bg-emerald-400 flex-shrink-0 mt-1.5" />
-                        <span>{sig}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-
-              </div>
-
-              {/* Spacexio Implementation Real-World Reality */}
-              <div className="p-5 rounded-2xl bg-orange-950/20 border border-orange-500/30 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 text-xs">
-                <div>
-                  <span className="text-[10px] font-mono font-bold uppercase tracking-wider text-orange-400 block mb-1">
-                    Spacexio Ground Implementation:
-                  </span>
-                  <p className="text-zinc-200 leading-relaxed font-light">
-                    {seoLayersData[activeSeoLayer].spacexioImplementation}
-                  </p>
-                </div>
-                <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 text-[11px] font-bold whitespace-nowrap">
-                  <Check className="w-3.5 h-3.5" />
-                  Active & Synced
-                </span>
-              </div>
-
-            </div>
-          )}
-
-        </div>
-      </section>
 
       {/* 7. 7-STAGE ARCHITECTURAL TIMELINE */}
       <section className="py-20 lg:py-28 bg-zinc-950 border-b border-zinc-800">
