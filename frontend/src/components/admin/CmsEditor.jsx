@@ -89,7 +89,7 @@ const CmsEditor = () => {
         body: JSON.stringify({ heroData: heroForm })
       });
       if (res.ok) {
-        toast.success('Hero Section updated successfully!');
+        toast.success('Hero Section updated on live website!');
         refreshContent();
       } else {
         toast.error('Failed to update hero section');
@@ -188,7 +188,7 @@ const CmsEditor = () => {
         method: 'DELETE'
       });
       if (res.ok) {
-        toast.success('Project deleted');
+        toast.success('Project deleted from portfolio');
         refreshContent();
       } else {
         toast.error('Failed to delete project');
@@ -202,7 +202,7 @@ const CmsEditor = () => {
   const handleAddTestimonial = async (e) => {
     e.preventDefault();
     if (!newTestimonial.name.trim() || !newTestimonial.content.trim()) {
-      toast.error('Please fill in name and testimonial review');
+      toast.error('Please fill in client name and testimonial review');
       return;
     }
     setSaving(true);
@@ -213,7 +213,7 @@ const CmsEditor = () => {
         body: JSON.stringify(newTestimonial)
       });
       if (res.ok) {
-        toast.success('Testimonial added!');
+        toast.success('Client review added!');
         setNewTestimonial({
           name: '',
           project: 'Duplex Villa, Rushikonda',
@@ -261,34 +261,35 @@ const CmsEditor = () => {
 
   return (
     <div className="space-y-6">
+      
       {/* CMS Header Banner */}
-      <div className="bg-gradient-to-r from-orange-600 to-amber-600 rounded-2xl p-6 text-white shadow-lg flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
-        <div>
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/20 text-white text-xs font-semibold mb-2">
+      <div className="relative overflow-hidden rounded-3xl bg-gradient-to-r from-orange-600 via-orange-500 to-amber-600 p-8 text-white shadow-2xl flex flex-col sm:flex-row justify-between items-start sm:items-center gap-6">
+        <div className="relative z-10">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-black/20 backdrop-blur-sm text-white text-xs font-semibold mb-2">
             <Sparkles className="w-3.5 h-3.5" />
             Live Website Content Management System (CMS)
           </div>
-          <h2 className="text-2xl font-bold tracking-tight">Website Content & Media Editor</h2>
-          <p className="text-orange-100 text-xs font-light mt-1">
-            Edit text, replace images, adjust package prices per sq.ft, add projects, and manage testimonials in real-time.
+          <h2 className="text-2xl lg:text-3xl font-black tracking-tight">Website Content & Media Editor</h2>
+          <p className="text-orange-100 text-xs font-light mt-1 max-w-xl leading-relaxed">
+            Modify hero headlines, update package construction rates per sq.ft, add architectural projects to your portfolio, and publish verified client reviews in real time.
           </p>
         </div>
 
-        <div className="flex items-center gap-3">
+        <div className="relative z-10 flex items-center gap-3">
           <Button
             variant="outline"
             size="sm"
             onClick={refreshContent}
-            className="bg-white/10 hover:bg-white/20 text-white border-white/30 text-xs gap-1.5"
+            className="bg-black/20 hover:bg-black/40 text-white border-white/20 text-xs gap-1.5 rounded-xl cursor-pointer"
           >
             <RefreshCw className="w-3.5 h-3.5" />
-            Sync Live Site
+            Sync Site
           </Button>
           <a
             href="/"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-white text-orange-600 hover:bg-orange-50 font-semibold rounded-lg text-xs shadow-md transition-all"
+            className="inline-flex items-center gap-1.5 px-3.5 py-2 bg-white text-orange-600 hover:bg-orange-50 font-bold rounded-xl text-xs shadow-lg transition-all"
           >
             View Live Site
             <ExternalLink className="w-3.5 h-3.5" />
@@ -297,112 +298,115 @@ const CmsEditor = () => {
       </div>
 
       {/* CMS Section Tabs */}
-      <div className="flex gap-2 border-b border-gray-200 pb-2 overflow-x-auto">
-        {cmsNav.map(tab => (
-          <button
-            key={tab.id}
-            onClick={() => setActiveSection(tab.id)}
-            className={`flex items-center gap-2 px-4 py-2.5 rounded-xl text-xs font-semibold whitespace-nowrap transition-all ${
-              activeSection === tab.id
-                ? 'bg-orange-600 text-white shadow-sm shadow-orange-600/30'
-                : 'text-gray-600 hover:bg-gray-100'
-            }`}
-          >
-            <tab.icon className="w-4 h-4" />
-            <span>{tab.label}</span>
-            {tab.count !== undefined && (
-              <span className={`px-1.5 py-0.5 rounded-full text-[10px] ${
-                activeSection === tab.id ? 'bg-white/25 text-white' : 'bg-gray-200 text-gray-700'
-              }`}>
-                {tab.count}
-              </span>
-            )}
-          </button>
-        ))}
+      <div className="flex gap-2 border-b border-zinc-800 pb-3 overflow-x-auto scrollbar-thin scrollbar-thumb-zinc-800">
+        {cmsNav.map(tab => {
+          const isActive = activeSection === tab.id;
+          return (
+            <button
+              key={tab.id}
+              onClick={() => setActiveSection(tab.id)}
+              className={`flex items-center gap-2 px-4 py-2.5 rounded-xl text-xs font-semibold whitespace-nowrap transition-all cursor-pointer ${
+                isActive
+                  ? 'bg-orange-600 text-white shadow-lg shadow-orange-600/30'
+                  : 'text-zinc-400 hover:text-zinc-200 hover:bg-zinc-900 border border-zinc-800/40'
+              }`}
+            >
+              <tab.icon className="w-4 h-4" />
+              <span>{tab.label}</span>
+              {tab.count !== undefined && (
+                <span className={`px-1.5 py-0.5 rounded-full text-[10px] font-bold ${
+                  isActive ? 'bg-black/30 text-white' : 'bg-zinc-800 text-zinc-300'
+                }`}>
+                  {tab.count}
+                </span>
+              )}
+            </button>
+          );
+        })}
       </div>
 
       {/* ===================== HERO SECTION ===================== */}
       {activeSection === 'hero' && (
-        <Card className="bg-white border border-gray-200 rounded-2xl shadow-sm">
-          <CardContent className="p-6 space-y-6">
-            <div className="border-b border-gray-100 pb-4">
-              <h3 className="text-base font-bold text-gray-900">Hero Section Content & Visuals</h3>
-              <p className="text-xs text-gray-500">Edit the primary headline, highlighted value proposition, and hero image displayed on the homepage.</p>
+        <Card className="bg-zinc-900/60 border border-zinc-800/80 rounded-3xl shadow-xl text-zinc-100 backdrop-blur-sm">
+          <CardContent className="p-8 space-y-6">
+            <div className="border-b border-zinc-800 pb-4">
+              <h3 className="text-base font-bold text-white">Hero Section Content & Visuals</h3>
+              <p className="text-xs text-zinc-400">Edit the primary headline, highlighted value proposition, and hero image displayed on the homepage.</p>
             </div>
 
-            <div className="grid md:grid-cols-2 gap-6">
-              <div className="space-y-4">
+            <div className="grid md:grid-cols-2 gap-8">
+              <div className="space-y-5">
                 <div>
-                  <label className="block text-xs font-bold text-gray-700 uppercase tracking-wider mb-1.5">
+                  <label className="block text-[11px] font-bold text-zinc-400 uppercase tracking-wider mb-2">
                     Main Headline (First Line)
                   </label>
                   <input
                     type="text"
                     value={heroForm.title}
                     onChange={(e) => setHeroForm({ ...heroForm, title: e.target.value })}
-                    className="w-full px-3.5 py-2.5 rounded-lg border border-gray-200 text-sm focus:ring-2 focus:ring-orange-500 outline-none"
+                    className="w-full px-4 py-2.5 rounded-xl bg-zinc-950 border border-zinc-800 text-sm text-zinc-100 placeholder-zinc-500 focus:border-orange-500 outline-none"
                     placeholder="e.g. Let's Build Your"
                   />
                 </div>
 
                 <div>
-                  <label className="block text-xs font-bold text-gray-700 uppercase tracking-wider mb-1.5">
+                  <label className="block text-[11px] font-bold text-zinc-400 uppercase tracking-wider mb-2">
                     Highlighted Subtitle (Orange Color)
                   </label>
                   <input
                     type="text"
                     value={heroForm.subtitle}
                     onChange={(e) => setHeroForm({ ...heroForm, subtitle: e.target.value })}
-                    className="w-full px-3.5 py-2.5 rounded-lg border border-gray-200 text-sm focus:ring-2 focus:ring-orange-500 outline-none font-semibold text-orange-600"
+                    className="w-full px-4 py-2.5 rounded-xl bg-zinc-950 border border-zinc-800 text-sm focus:border-orange-500 outline-none font-bold text-orange-500"
                     placeholder="e.g. Dream Home"
                   />
                 </div>
 
                 <div>
-                  <label className="block text-xs font-bold text-gray-700 uppercase tracking-wider mb-1.5">
+                  <label className="block text-[11px] font-bold text-zinc-400 uppercase tracking-wider mb-2">
                     Hero Description (AEO/SEO optimized)
                   </label>
                   <textarea
                     rows={4}
                     value={heroForm.description}
                     onChange={(e) => setHeroForm({ ...heroForm, description: e.target.value })}
-                    className="w-full px-3.5 py-2.5 rounded-lg border border-gray-200 text-sm focus:ring-2 focus:ring-orange-500 outline-none leading-relaxed"
+                    className="w-full px-4 py-2.5 rounded-xl bg-zinc-950 border border-zinc-800 text-sm text-zinc-100 placeholder-zinc-500 focus:border-orange-500 outline-none leading-relaxed"
                     placeholder="Describe your construction company value proposition..."
                   />
                 </div>
 
                 <div>
-                  <label className="block text-xs font-bold text-gray-700 uppercase tracking-wider mb-1.5">
+                  <label className="block text-[11px] font-bold text-zinc-400 uppercase tracking-wider mb-2">
                     Hero Image URL
                   </label>
                   <input
                     type="url"
                     value={heroForm.image}
                     onChange={(e) => setHeroForm({ ...heroForm, image: e.target.value })}
-                    className="w-full px-3.5 py-2.5 rounded-lg border border-gray-200 text-sm focus:ring-2 focus:ring-orange-500 outline-none"
+                    className="w-full px-4 py-2.5 rounded-xl bg-zinc-950 border border-zinc-800 text-sm text-zinc-100 placeholder-zinc-500 focus:border-orange-500 outline-none"
                     placeholder="https://..."
                   />
-                  <p className="text-[11px] text-gray-400 mt-1">Paste any high-resolution image URL (Unsplash, Cloudinary, AWS S3, etc.)</p>
+                  <p className="text-[11px] text-zinc-500 mt-1">Paste any high-resolution image URL (Unsplash, Cloudinary, AWS S3, etc.)</p>
                 </div>
               </div>
 
               {/* Live Preview Card */}
-              <div className="bg-gray-50 p-5 rounded-xl border border-gray-200 flex flex-col justify-between">
+              <div className="bg-zinc-950 p-6 rounded-2xl border border-zinc-800 flex flex-col justify-between">
                 <div>
-                  <span className="inline-block px-2.5 py-0.5 rounded-md bg-orange-100 text-orange-700 text-[10px] font-bold uppercase tracking-wider mb-3">
-                    Live Preview
+                  <span className="inline-block px-2.5 py-0.5 rounded-md bg-orange-500/10 text-orange-400 border border-orange-500/20 text-[10px] font-bold uppercase tracking-wider mb-3">
+                    Live Hero Mockup
                   </span>
-                  <h4 className="text-2xl font-extrabold text-gray-900 leading-tight">
+                  <h4 className="text-2xl font-black text-white leading-tight">
                     {heroForm.title || "Let's Build Your"}{' '}
-                    <span className="text-orange-600">{heroForm.subtitle || "Dream Home"}</span>
+                    <span className="text-orange-500">{heroForm.subtitle || "Dream Home"}</span>
                   </h4>
-                  <p className="text-xs text-gray-600 mt-2 line-clamp-3 leading-relaxed font-light">
+                  <p className="text-xs text-zinc-400 mt-2 line-clamp-3 leading-relaxed font-light">
                     {heroForm.description || "Transforming architectural visions into enduring landmarks."}
                   </p>
                 </div>
 
-                <div className="mt-4 pt-4 border-t border-gray-200">
-                  <div className="relative rounded-lg overflow-hidden h-44 bg-gray-200">
+                <div className="mt-6 pt-4 border-t border-zinc-800">
+                  <div className="relative rounded-xl overflow-hidden h-44 bg-zinc-900 border border-zinc-800">
                     {heroForm.image ? (
                       <img
                         src={heroForm.image}
@@ -413,8 +417,8 @@ const CmsEditor = () => {
                         }}
                       />
                     ) : (
-                      <div className="flex items-center justify-center h-full text-gray-400 text-xs">
-                        No image provided
+                      <div className="flex items-center justify-center h-full text-zinc-500 text-xs">
+                        No image preview
                       </div>
                     )}
                   </div>
@@ -422,14 +426,14 @@ const CmsEditor = () => {
               </div>
             </div>
 
-            <div className="flex justify-end pt-4 border-t border-gray-100">
+            <div className="flex justify-end pt-4 border-t border-zinc-800">
               <Button
                 onClick={handleSaveHero}
                 disabled={saving}
-                className="bg-orange-600 hover:bg-orange-700 text-white gap-2 text-xs font-semibold shadow-md shadow-orange-600/20"
+                className="bg-orange-600 hover:bg-orange-500 text-white gap-2 text-xs font-bold rounded-xl shadow-lg shadow-orange-600/30 cursor-pointer"
               >
                 <Save className="w-4 h-4" />
-                {saving ? 'Updating...' : 'Save Hero Changes'}
+                {saving ? 'Updating...' : 'Publish Hero Changes'}
               </Button>
             </div>
           </CardContent>
@@ -438,35 +442,37 @@ const CmsEditor = () => {
 
       {/* ===================== PACKAGES & PRICING ===================== */}
       {activeSection === 'packages' && (
-        <Card className="bg-white border border-gray-200 rounded-2xl shadow-sm">
-          <CardContent className="p-6 space-y-6">
-            <div className="border-b border-gray-100 pb-4">
-              <h3 className="text-base font-bold text-gray-900">Construction Packages & Per-Sq.Ft Pricing</h3>
-              <p className="text-xs text-gray-500">Update rates and inclusions for your 3 core packages: Essential, Premium, and Luxury.</p>
+        <Card className="bg-zinc-900/60 border border-zinc-800/80 rounded-3xl shadow-xl text-zinc-100 backdrop-blur-sm">
+          <CardContent className="p-8 space-y-6">
+            <div className="border-b border-zinc-800 pb-4">
+              <h3 className="text-base font-bold text-white">Construction Packages & Per-Sq.Ft Pricing</h3>
+              <p className="text-xs text-zinc-400">Update rates and inclusions for your 3 core packages: Essential, Premium, and Luxury.</p>
             </div>
 
             <div className="grid md:grid-cols-3 gap-6">
               {packagesForm.map((pkg, index) => (
                 <div
                   key={pkg.id || index}
-                  className={`p-5 rounded-xl border ${
-                    pkg.popular ? 'border-orange-500 bg-orange-50/20 shadow-sm' : 'border-gray-200 bg-white'
+                  className={`p-6 rounded-2xl border transition-all ${
+                    pkg.popular ? 'border-orange-500/80 bg-orange-950/10 shadow-lg shadow-orange-950/20' : 'border-zinc-800 bg-zinc-950'
                   }`}
                 >
-                  <div className="flex items-center justify-between mb-3">
-                    <span className="font-bold text-gray-900 text-sm">{pkg.name} Package</span>
+                  <div className="flex items-center justify-between mb-4">
+                    <span className="font-black text-white text-base">{pkg.name} Package</span>
                     {pkg.popular && (
-                      <span className="text-[10px] font-bold uppercase bg-orange-600 text-white px-2 py-0.5 rounded">
+                      <span className="text-[10px] font-bold uppercase bg-orange-600 text-white px-2 py-0.5 rounded-full">
                         Popular
                       </span>
                     )}
                   </div>
 
-                  <div className="space-y-3">
+                  <div className="space-y-4">
                     <div>
-                      <label className="block text-[11px] font-semibold text-gray-500 uppercase">Rate per Sq.Ft (₹)</label>
-                      <div className="relative mt-1">
-                        <span className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-500 font-bold text-sm">₹</span>
+                      <label className="block text-[10px] font-bold text-zinc-400 uppercase tracking-wider mb-1">
+                        Rate per Sq.Ft (₹)
+                      </label>
+                      <div className="relative">
+                        <span className="absolute left-3 top-1/2 -translate-y-1/2 text-orange-500 font-bold text-sm">₹</span>
                         <input
                           type="text"
                           value={pkg.pricePerSqft}
@@ -475,13 +481,15 @@ const CmsEditor = () => {
                             updated[index] = { ...updated[index], pricePerSqft: e.target.value };
                             setPackagesForm(updated);
                           }}
-                          className="w-full pl-8 pr-3 py-2 rounded-lg border border-gray-200 text-sm font-extrabold text-gray-900 focus:ring-2 focus:ring-orange-500 outline-none"
+                          className="w-full pl-8 pr-3 py-2 rounded-xl bg-zinc-900 border border-zinc-800 text-sm font-extrabold text-white focus:border-orange-500 outline-none"
                         />
                       </div>
                     </div>
 
                     <div>
-                      <label className="block text-[11px] font-semibold text-gray-500 uppercase">Tagline</label>
+                      <label className="block text-[10px] font-bold text-zinc-400 uppercase tracking-wider mb-1">
+                        Tagline
+                      </label>
                       <input
                         type="text"
                         value={pkg.tagline}
@@ -490,12 +498,14 @@ const CmsEditor = () => {
                           updated[index] = { ...updated[index], tagline: e.target.value };
                           setPackagesForm(updated);
                         }}
-                        className="w-full px-3 py-2 rounded-lg border border-gray-200 text-xs focus:ring-2 focus:ring-orange-500 outline-none mt-1"
+                        className="w-full px-3 py-2 rounded-xl bg-zinc-900 border border-zinc-800 text-xs text-zinc-200 focus:border-orange-500 outline-none"
                       />
                     </div>
 
                     <div>
-                      <label className="block text-[11px] font-semibold text-gray-500 uppercase">Ideal For</label>
+                      <label className="block text-[10px] font-bold text-zinc-400 uppercase tracking-wider mb-1">
+                        Ideal For
+                      </label>
                       <input
                         type="text"
                         value={pkg.idealFor}
@@ -504,12 +514,12 @@ const CmsEditor = () => {
                           updated[index] = { ...updated[index], idealFor: e.target.value };
                           setPackagesForm(updated);
                         }}
-                        className="w-full px-3 py-2 rounded-lg border border-gray-200 text-xs focus:ring-2 focus:ring-orange-500 outline-none mt-1"
+                        className="w-full px-3 py-2 rounded-xl bg-zinc-900 border border-zinc-800 text-xs text-zinc-200 focus:border-orange-500 outline-none"
                       />
                     </div>
 
                     <div>
-                      <label className="block text-[11px] font-semibold text-gray-500 uppercase mb-1">
+                      <label className="block text-[10px] font-bold text-zinc-400 uppercase tracking-wider mb-1">
                         Features (one per line)
                       </label>
                       <textarea
@@ -520,7 +530,7 @@ const CmsEditor = () => {
                           updated[index] = { ...updated[index], features: e.target.value.split('\n').filter(f => f.trim()) };
                           setPackagesForm(updated);
                         }}
-                        className="w-full px-3 py-2 rounded-lg border border-gray-200 text-xs focus:ring-2 focus:ring-orange-500 outline-none font-mono"
+                        className="w-full px-3 py-2 rounded-xl bg-zinc-900 border border-zinc-800 text-xs text-zinc-200 focus:border-orange-500 outline-none font-mono"
                       />
                     </div>
                   </div>
@@ -528,14 +538,14 @@ const CmsEditor = () => {
               ))}
             </div>
 
-            <div className="flex justify-end pt-4 border-t border-gray-100">
+            <div className="flex justify-end pt-4 border-t border-zinc-800">
               <Button
                 onClick={handleSavePackages}
                 disabled={saving}
-                className="bg-orange-600 hover:bg-orange-700 text-white gap-2 text-xs font-semibold shadow-md shadow-orange-600/20"
+                className="bg-orange-600 hover:bg-orange-500 text-white gap-2 text-xs font-bold rounded-xl shadow-lg shadow-orange-600/30 cursor-pointer"
               >
                 <Save className="w-4 h-4" />
-                {saving ? 'Updating...' : 'Save Packages & Pricing'}
+                {saving ? 'Updating...' : 'Publish Packages & Pricing'}
               </Button>
             </div>
           </CardContent>
@@ -544,17 +554,17 @@ const CmsEditor = () => {
 
       {/* ===================== STATS & METRICS ===================== */}
       {activeSection === 'stats' && (
-        <Card className="bg-white border border-gray-200 rounded-2xl shadow-sm">
-          <CardContent className="p-6 space-y-6">
-            <div className="border-b border-gray-100 pb-4">
-              <h3 className="text-base font-bold text-gray-900">Key Statistics & Proof Metrics</h3>
-              <p className="text-xs text-gray-500">Edit the highlight numbers displayed below the hero banner (Projects, Experience, Rating, Sq.ft).</p>
+        <Card className="bg-zinc-900/60 border border-zinc-800/80 rounded-3xl shadow-xl text-zinc-100 backdrop-blur-sm">
+          <CardContent className="p-8 space-y-6">
+            <div className="border-b border-zinc-800 pb-4">
+              <h3 className="text-base font-bold text-white">Key Statistics & Proof Metrics</h3>
+              <p className="text-xs text-zinc-400">Edit the highlight numbers displayed below the hero banner (Projects, Experience, Rating, Sq.ft).</p>
             </div>
 
             <div className="grid sm:grid-cols-2 md:grid-cols-4 gap-4">
               {statsForm.map((stat, idx) => (
-                <div key={idx} className="p-4 bg-gray-50 rounded-xl border border-gray-200 text-center">
-                  <label className="block text-[11px] font-semibold text-gray-500 uppercase mb-1.5">
+                <div key={idx} className="p-5 bg-zinc-950 rounded-2xl border border-zinc-800 text-center">
+                  <label className="block text-[10px] font-bold text-zinc-400 uppercase tracking-wider mb-2">
                     Metric Value
                   </label>
                   <input
@@ -565,9 +575,9 @@ const CmsEditor = () => {
                       updated[idx] = { ...updated[idx], value: e.target.value };
                       setStatsForm(updated);
                     }}
-                    className="w-full text-center text-2xl font-bold text-orange-600 px-2 py-1.5 rounded-lg border border-gray-200 focus:ring-2 focus:ring-orange-500 outline-none"
+                    className="w-full text-center text-3xl font-black text-orange-500 px-2 py-1.5 rounded-xl bg-zinc-900 border border-zinc-800 focus:border-orange-500 outline-none"
                   />
-                  <label className="block text-[11px] font-semibold text-gray-500 uppercase mt-3 mb-1.5">
+                  <label className="block text-[10px] font-bold text-zinc-400 uppercase tracking-wider mt-4 mb-2">
                     Label Description
                   </label>
                   <input
@@ -578,20 +588,20 @@ const CmsEditor = () => {
                       updated[idx] = { ...updated[idx], label: e.target.value };
                       setStatsForm(updated);
                     }}
-                    className="w-full text-center text-xs text-gray-700 px-2 py-1.5 rounded-lg border border-gray-200 focus:ring-2 focus:ring-orange-500 outline-none"
+                    className="w-full text-center text-xs text-zinc-200 px-2 py-1.5 rounded-xl bg-zinc-900 border border-zinc-800 focus:border-orange-500 outline-none"
                   />
                 </div>
               ))}
             </div>
 
-            <div className="flex justify-end pt-4 border-t border-gray-100">
+            <div className="flex justify-end pt-4 border-t border-zinc-800">
               <Button
                 onClick={handleSaveStats}
                 disabled={saving}
-                className="bg-orange-600 hover:bg-orange-700 text-white gap-2 text-xs font-semibold shadow-md shadow-orange-600/20"
+                className="bg-orange-600 hover:bg-orange-500 text-white gap-2 text-xs font-bold rounded-xl shadow-lg shadow-orange-600/30 cursor-pointer"
               >
                 <Save className="w-4 h-4" />
-                {saving ? 'Updating...' : 'Save Statistics'}
+                {saving ? 'Updating...' : 'Publish Statistics'}
               </Button>
             </div>
           </CardContent>
@@ -602,30 +612,30 @@ const CmsEditor = () => {
       {activeSection === 'projects' && (
         <div className="space-y-6">
           {/* Add New Project Card */}
-          <Card className="bg-white border border-gray-200 rounded-2xl shadow-sm">
-            <CardContent className="p-6">
-              <h3 className="text-base font-bold text-gray-900 mb-1">Add New Project to Portfolio</h3>
-              <p className="text-xs text-gray-500 mb-4">Showcase new completed construction or architectural design works.</p>
+          <Card className="bg-zinc-900/60 border border-zinc-800/80 rounded-3xl shadow-xl text-zinc-100 backdrop-blur-sm">
+            <CardContent className="p-8">
+              <h3 className="text-base font-bold text-white mb-1">Add New Project to Portfolio</h3>
+              <p className="text-xs text-zinc-400 mb-6">Showcase new completed construction or architectural design works.</p>
 
-              <form onSubmit={handleAddProject} className="grid sm:grid-cols-2 md:grid-cols-3 gap-4">
+              <form onSubmit={handleAddProject} className="grid sm:grid-cols-2 md:grid-cols-3 gap-5">
                 <div>
-                  <label className="block text-[11px] font-bold text-gray-700 uppercase mb-1">Project Title</label>
+                  <label className="block text-[11px] font-bold text-zinc-400 uppercase mb-1.5">Project Title</label>
                   <input
                     type="text"
                     required
                     placeholder="e.g. Modern Coastal Villa"
                     value={newProject.title}
                     onChange={(e) => setNewProject({ ...newProject, title: e.target.value })}
-                    className="w-full px-3 py-2 rounded-lg border border-gray-200 text-xs focus:ring-2 focus:ring-orange-500 outline-none"
+                    className="w-full px-3 py-2.5 rounded-xl bg-zinc-950 border border-zinc-800 text-xs text-zinc-100 focus:border-orange-500 outline-none"
                   />
                 </div>
 
                 <div>
-                  <label className="block text-[11px] font-bold text-gray-700 uppercase mb-1">Category</label>
+                  <label className="block text-[11px] font-bold text-zinc-400 uppercase mb-1.5">Category</label>
                   <select
                     value={newProject.category}
                     onChange={(e) => setNewProject({ ...newProject, category: e.target.value })}
-                    className="w-full px-3 py-2 rounded-lg border border-gray-200 text-xs focus:ring-2 focus:ring-orange-500 outline-none bg-white"
+                    className="w-full px-3 py-2.5 rounded-xl bg-zinc-950 border border-zinc-800 text-xs text-zinc-100 focus:border-orange-500 outline-none"
                   >
                     <option value="Residential">Residential</option>
                     <option value="Commercial">Commercial</option>
@@ -636,46 +646,46 @@ const CmsEditor = () => {
                 </div>
 
                 <div>
-                  <label className="block text-[11px] font-bold text-gray-700 uppercase mb-1">Location</label>
+                  <label className="block text-[11px] font-bold text-zinc-400 uppercase mb-1.5">Location</label>
                   <input
                     type="text"
                     placeholder="e.g. Madhurawada, Visakhapatnam"
                     value={newProject.location}
                     onChange={(e) => setNewProject({ ...newProject, location: e.target.value })}
-                    className="w-full px-3 py-2 rounded-lg border border-gray-200 text-xs focus:ring-2 focus:ring-orange-500 outline-none"
+                    className="w-full px-3 py-2.5 rounded-xl bg-zinc-950 border border-zinc-800 text-xs text-zinc-100 focus:border-orange-500 outline-none"
                   />
                 </div>
 
                 <div>
-                  <label className="block text-[11px] font-bold text-gray-700 uppercase mb-1">Built-up Area</label>
+                  <label className="block text-[11px] font-bold text-zinc-400 uppercase mb-1.5">Built-up Area</label>
                   <input
                     type="text"
                     placeholder="e.g. 4,200 sq.ft"
                     value={newProject.area}
                     onChange={(e) => setNewProject({ ...newProject, area: e.target.value })}
-                    className="w-full px-3 py-2 rounded-lg border border-gray-200 text-xs focus:ring-2 focus:ring-orange-500 outline-none"
+                    className="w-full px-3 py-2.5 rounded-xl bg-zinc-950 border border-zinc-800 text-xs text-zinc-100 focus:border-orange-500 outline-none"
                   />
                 </div>
 
                 <div>
-                  <label className="block text-[11px] font-bold text-gray-700 uppercase mb-1">Duration</label>
+                  <label className="block text-[11px] font-bold text-zinc-400 uppercase mb-1.5">Duration</label>
                   <input
                     type="text"
                     placeholder="e.g. 10 Months"
                     value={newProject.duration}
                     onChange={(e) => setNewProject({ ...newProject, duration: e.target.value })}
-                    className="w-full px-3 py-2 rounded-lg border border-gray-200 text-xs focus:ring-2 focus:ring-orange-500 outline-none"
+                    className="w-full px-3 py-2.5 rounded-xl bg-zinc-950 border border-zinc-800 text-xs text-zinc-100 focus:border-orange-500 outline-none"
                   />
                 </div>
 
                 <div>
-                  <label className="block text-[11px] font-bold text-gray-700 uppercase mb-1">Image URL</label>
+                  <label className="block text-[11px] font-bold text-zinc-400 uppercase mb-1.5">Image URL</label>
                   <input
                     type="url"
                     placeholder="https://images.unsplash..."
                     value={newProject.image}
                     onChange={(e) => setNewProject({ ...newProject, image: e.target.value })}
-                    className="w-full px-3 py-2 rounded-lg border border-gray-200 text-xs focus:ring-2 focus:ring-orange-500 outline-none"
+                    className="w-full px-3 py-2.5 rounded-xl bg-zinc-950 border border-zinc-800 text-xs text-zinc-100 focus:border-orange-500 outline-none"
                   />
                 </div>
 
@@ -683,10 +693,10 @@ const CmsEditor = () => {
                   <Button
                     type="submit"
                     disabled={saving}
-                    className="bg-orange-600 hover:bg-orange-700 text-white gap-2 text-xs font-semibold"
+                    className="bg-orange-600 hover:bg-orange-500 text-white gap-2 text-xs font-bold rounded-xl shadow-lg shadow-orange-600/30 cursor-pointer"
                   >
                     <Plus className="w-4 h-4" />
-                    Add Project
+                    Publish Project
                   </Button>
                 </div>
               </form>
@@ -694,10 +704,10 @@ const CmsEditor = () => {
           </Card>
 
           {/* Existing Projects List */}
-          <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-5">
+          <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-6">
             {(content?.projectsData || []).map((project) => (
-              <div key={project.id} className="bg-white rounded-xl border border-gray-200 overflow-hidden shadow-sm flex flex-col group">
-                <div className="relative h-44 bg-gray-100 overflow-hidden">
+              <div key={project.id} className="bg-zinc-900/60 rounded-2xl border border-zinc-800 overflow-hidden shadow-lg flex flex-col group hover:border-zinc-700 transition-all">
+                <div className="relative h-44 bg-zinc-950 overflow-hidden">
                   <img
                     src={project.image}
                     alt={project.title}
@@ -706,28 +716,28 @@ const CmsEditor = () => {
                       e.target.src = 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=80';
                     }}
                   />
-                  <span className="absolute top-2 left-2 px-2 py-0.5 rounded bg-black/60 backdrop-blur-sm text-white text-[10px] font-semibold">
+                  <span className="absolute top-2 left-2 px-2.5 py-0.5 rounded-full bg-black/70 backdrop-blur-sm text-white text-[10px] font-semibold border border-white/10">
                     {project.category}
                   </span>
                 </div>
 
-                <div className="p-4 flex-1 flex flex-col justify-between">
+                <div className="p-5 flex-1 flex flex-col justify-between">
                   <div>
-                    <h4 className="font-bold text-gray-900 text-sm line-clamp-1">{project.title}</h4>
-                    <p className="text-xs text-gray-500 flex items-center gap-1 mt-1">
-                      <MapPin className="w-3 h-3 text-orange-600" />
+                    <h4 className="font-bold text-white text-sm line-clamp-1">{project.title}</h4>
+                    <p className="text-xs text-zinc-400 flex items-center gap-1 mt-1">
+                      <MapPin className="w-3 h-3 text-orange-500 flex-shrink-0" />
                       {project.location}
                     </p>
-                    <div className="flex items-center gap-3 mt-2 text-[11px] text-gray-600">
-                      <span>Area: <b>{project.area}</b></span>
-                      {project.duration && <span>Duration: <b>{project.duration}</b></span>}
+                    <div className="flex items-center gap-3 mt-3 text-[11px] text-zinc-400 font-mono">
+                      <span>Area: <b className="text-zinc-200">{project.area}</b></span>
+                      {project.duration && <span>Duration: <b className="text-zinc-200">{project.duration}</b></span>}
                     </div>
                   </div>
 
-                  <div className="mt-4 pt-3 border-t border-gray-100 flex justify-end">
+                  <div className="mt-5 pt-3 border-t border-zinc-800 flex justify-end">
                     <button
                       onClick={() => handleDeleteProject(project.id)}
-                      className="inline-flex items-center gap-1 text-xs text-red-600 hover:text-red-700 font-semibold px-2.5 py-1 rounded hover:bg-red-50 transition-colors"
+                      className="inline-flex items-center gap-1 text-xs text-red-400 hover:text-red-300 font-semibold px-2.5 py-1 rounded-lg hover:bg-red-500/10 transition-colors"
                     >
                       <Trash2 className="w-3.5 h-3.5" />
                       Remove
@@ -744,42 +754,42 @@ const CmsEditor = () => {
       {activeSection === 'testimonials' && (
         <div className="space-y-6">
           {/* Add Testimonial */}
-          <Card className="bg-white border border-gray-200 rounded-2xl shadow-sm">
-            <CardContent className="p-6">
-              <h3 className="text-base font-bold text-gray-900 mb-1">Add New Client Testimonial</h3>
-              <p className="text-xs text-gray-500 mb-4">Add real reviews and ratings from satisfied homeowners.</p>
+          <Card className="bg-zinc-900/60 border border-zinc-800/80 rounded-3xl shadow-xl text-zinc-100 backdrop-blur-sm">
+            <CardContent className="p-8">
+              <h3 className="text-base font-bold text-white mb-1">Add New Client Testimonial</h3>
+              <p className="text-xs text-zinc-400 mb-6">Add real reviews and ratings from satisfied homeowners.</p>
 
               <form onSubmit={handleAddTestimonial} className="space-y-4">
                 <div className="grid sm:grid-cols-2 md:grid-cols-4 gap-4">
                   <div>
-                    <label className="block text-[11px] font-bold text-gray-700 uppercase mb-1">Client Name</label>
+                    <label className="block text-[11px] font-bold text-zinc-400 uppercase mb-1.5">Client Name</label>
                     <input
                       type="text"
                       required
                       placeholder="e.g. Rajesh & Priya Sharma"
                       value={newTestimonial.name}
                       onChange={(e) => setNewTestimonial({ ...newTestimonial, name: e.target.value })}
-                      className="w-full px-3 py-2 rounded-lg border border-gray-200 text-xs focus:ring-2 focus:ring-orange-500 outline-none"
+                      className="w-full px-3 py-2.5 rounded-xl bg-zinc-950 border border-zinc-800 text-xs text-zinc-100 focus:border-orange-500 outline-none"
                     />
                   </div>
 
                   <div>
-                    <label className="block text-[11px] font-bold text-gray-700 uppercase mb-1">Project Details</label>
+                    <label className="block text-[11px] font-bold text-zinc-400 uppercase mb-1.5">Project Details</label>
                     <input
                       type="text"
                       placeholder="e.g. 4BHK Villa, Madhurawada"
                       value={newTestimonial.project}
                       onChange={(e) => setNewTestimonial({ ...newTestimonial, project: e.target.value })}
-                      className="w-full px-3 py-2 rounded-lg border border-gray-200 text-xs focus:ring-2 focus:ring-orange-500 outline-none"
+                      className="w-full px-3 py-2.5 rounded-xl bg-zinc-950 border border-zinc-800 text-xs text-zinc-100 focus:border-orange-500 outline-none"
                     />
                   </div>
 
                   <div>
-                    <label className="block text-[11px] font-bold text-gray-700 uppercase mb-1">Package Chosen</label>
+                    <label className="block text-[11px] font-bold text-zinc-400 uppercase mb-1.5">Package Chosen</label>
                     <select
                       value={newTestimonial.package}
                       onChange={(e) => setNewTestimonial({ ...newTestimonial, package: e.target.value })}
-                      className="w-full px-3 py-2 rounded-lg border border-gray-200 text-xs focus:ring-2 focus:ring-orange-500 outline-none bg-white"
+                      className="w-full px-3 py-2.5 rounded-xl bg-zinc-950 border border-zinc-800 text-xs text-zinc-100 focus:border-orange-500 outline-none"
                     >
                       <option value="Essential">Essential Package</option>
                       <option value="Premium">Premium Package</option>
@@ -788,11 +798,11 @@ const CmsEditor = () => {
                   </div>
 
                   <div>
-                    <label className="block text-[11px] font-bold text-gray-700 uppercase mb-1">Rating</label>
+                    <label className="block text-[11px] font-bold text-zinc-400 uppercase mb-1.5">Rating</label>
                     <select
                       value={newTestimonial.rating}
                       onChange={(e) => setNewTestimonial({ ...newTestimonial, rating: Number(e.target.value) })}
-                      className="w-full px-3 py-2 rounded-lg border border-gray-200 text-xs focus:ring-2 focus:ring-orange-500 outline-none bg-white font-bold text-orange-600"
+                      className="w-full px-3 py-2.5 rounded-xl bg-zinc-950 border border-zinc-800 text-xs text-orange-400 font-bold focus:border-orange-500 outline-none"
                     >
                       <option value={5}>★★★★★ (5 Stars)</option>
                       <option value={4}>★★★★☆ (4 Stars)</option>
@@ -802,25 +812,25 @@ const CmsEditor = () => {
                 </div>
 
                 <div>
-                  <label className="block text-[11px] font-bold text-gray-700 uppercase mb-1">Review Content</label>
+                  <label className="block text-[11px] font-bold text-zinc-400 uppercase mb-1.5">Review Content</label>
                   <textarea
                     rows={3}
                     required
                     placeholder="What did the client say about the quality, timeline, and experience?"
                     value={newTestimonial.content}
                     onChange={(e) => setNewTestimonial({ ...newTestimonial, content: e.target.value })}
-                    className="w-full px-3 py-2 rounded-lg border border-gray-200 text-xs focus:ring-2 focus:ring-orange-500 outline-none leading-relaxed"
+                    className="w-full px-3 py-2.5 rounded-xl bg-zinc-950 border border-zinc-800 text-xs text-zinc-100 focus:border-orange-500 outline-none leading-relaxed"
                   />
                 </div>
 
-                <div className="flex justify-end">
+                <div className="flex justify-end pt-2">
                   <Button
                     type="submit"
                     disabled={saving}
-                    className="bg-orange-600 hover:bg-orange-700 text-white gap-2 text-xs font-semibold"
+                    className="bg-orange-600 hover:bg-orange-500 text-white gap-2 text-xs font-bold rounded-xl shadow-lg shadow-orange-600/30 cursor-pointer"
                   >
                     <Plus className="w-4 h-4" />
-                    Add Review
+                    Publish Review
                   </Button>
                 </div>
               </form>
@@ -828,32 +838,32 @@ const CmsEditor = () => {
           </Card>
 
           {/* Existing Testimonials */}
-          <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-5">
+          <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-6">
             {(content?.testimonialsData || []).map((t) => (
-              <div key={t.id} className="bg-white p-5 rounded-xl border border-gray-200 shadow-sm flex flex-col justify-between">
+              <div key={t.id} className="bg-zinc-900/60 p-6 rounded-2xl border border-zinc-800 shadow-lg flex flex-col justify-between hover:border-zinc-700 transition-all">
                 <div>
-                  <div className="flex items-center justify-between mb-2">
-                    <span className="text-orange-500 font-bold text-sm">
+                  <div className="flex items-center justify-between mb-3">
+                    <span className="text-orange-500 font-bold text-sm tracking-widest">
                       {'★'.repeat(t.rating || 5)}
                     </span>
-                    <span className="text-[10px] font-semibold text-orange-600 bg-orange-50 px-2 py-0.5 rounded">
+                    <span className="text-[10px] font-bold text-orange-400 bg-orange-500/10 border border-orange-500/20 px-2 py-0.5 rounded-full">
                       {t.package}
                     </span>
                   </div>
-                  <p className="text-xs text-gray-600 italic font-light line-clamp-4">
+                  <p className="text-xs text-zinc-300 italic font-light line-clamp-4 leading-relaxed">
                     "{t.content}"
                   </p>
                 </div>
 
-                <div className="mt-4 pt-3 border-t border-gray-100 flex items-center justify-between">
+                <div className="mt-5 pt-4 border-t border-zinc-800 flex items-center justify-between">
                   <div>
-                    <h5 className="font-bold text-gray-900 text-xs">{t.name}</h5>
-                    <p className="text-[10px] text-gray-500">{t.project}</p>
+                    <h5 className="font-bold text-white text-xs">{t.name}</h5>
+                    <p className="text-[10px] text-zinc-500">{t.project}</p>
                   </div>
 
                   <button
                     onClick={() => handleDeleteTestimonial(t.id)}
-                    className="text-gray-400 hover:text-red-600 p-1 rounded hover:bg-red-50 transition-colors"
+                    className="text-zinc-500 hover:text-red-400 p-1.5 rounded-lg hover:bg-red-500/10 transition-colors"
                   >
                     <Trash2 className="w-3.5 h-3.5" />
                   </button>
@@ -866,79 +876,79 @@ const CmsEditor = () => {
 
       {/* ===================== SEO, AEO & BUSINESS NAP ===================== */}
       {activeSection === 'business' && (
-        <Card className="bg-white border border-gray-200 rounded-2xl shadow-sm">
-          <CardContent className="p-6 space-y-6">
-            <div className="border-b border-gray-100 pb-4">
-              <h3 className="text-base font-bold text-gray-900">Search Engine (SEO, AEO, GEO) Business NAP</h3>
-              <p className="text-xs text-gray-500">Name, Address, Phone, and Geolocation metadata injected into JSON-LD Schemas for AI & search engine indexing.</p>
+        <Card className="bg-zinc-900/60 border border-zinc-800/80 rounded-3xl shadow-xl text-zinc-100 backdrop-blur-sm">
+          <CardContent className="p-8 space-y-6">
+            <div className="border-b border-zinc-800 pb-4">
+              <h3 className="text-base font-bold text-white">Search Engine (SEO, AEO, GEO) Business NAP</h3>
+              <p className="text-xs text-zinc-400">Name, Address, Phone, and Geolocation metadata injected into JSON-LD Schemas for AI & search engine indexing.</p>
             </div>
 
-            <div className="grid md:grid-cols-2 gap-5">
+            <div className="grid md:grid-cols-2 gap-6">
               <div>
-                <label className="block text-xs font-bold text-gray-700 uppercase mb-1">Company Legal Name</label>
+                <label className="block text-[11px] font-bold text-zinc-400 uppercase mb-1.5">Company Legal Name</label>
                 <input
                   type="text"
                   value={businessForm.companyName}
                   onChange={(e) => setBusinessForm({ ...businessForm, companyName: e.target.value })}
-                  className="w-full px-3.5 py-2.5 rounded-lg border border-gray-200 text-sm focus:ring-2 focus:ring-orange-500 outline-none"
+                  className="w-full px-4 py-2.5 rounded-xl bg-zinc-950 border border-zinc-800 text-sm text-zinc-100 focus:border-orange-500 outline-none"
                 />
               </div>
 
               <div>
-                <label className="block text-xs font-bold text-gray-700 uppercase mb-1">Primary Hotline Phone</label>
+                <label className="block text-[11px] font-bold text-zinc-400 uppercase mb-1.5">Primary Hotline Phone</label>
                 <input
                   type="text"
                   value={businessForm.phone}
                   onChange={(e) => setBusinessForm({ ...businessForm, phone: e.target.value })}
-                  className="w-full px-3.5 py-2.5 rounded-lg border border-gray-200 text-sm focus:ring-2 focus:ring-orange-500 outline-none font-semibold text-gray-900"
+                  className="w-full px-4 py-2.5 rounded-xl bg-zinc-950 border border-zinc-800 text-sm font-bold text-orange-400 focus:border-orange-500 outline-none"
                 />
               </div>
 
               <div>
-                <label className="block text-xs font-bold text-gray-700 uppercase mb-1">Official Email Address</label>
+                <label className="block text-[11px] font-bold text-zinc-400 uppercase mb-1.5">Official Email Address</label>
                 <input
                   type="email"
                   value={businessForm.email}
                   onChange={(e) => setBusinessForm({ ...businessForm, email: e.target.value })}
-                  className="w-full px-3.5 py-2.5 rounded-lg border border-gray-200 text-sm focus:ring-2 focus:ring-orange-500 outline-none"
+                  className="w-full px-4 py-2.5 rounded-xl bg-zinc-950 border border-zinc-800 text-sm text-zinc-100 focus:border-orange-500 outline-none"
                 />
               </div>
 
               <div>
-                <label className="block text-xs font-bold text-gray-700 uppercase mb-1">Operating Hours</label>
+                <label className="block text-[11px] font-bold text-zinc-400 uppercase mb-1.5">Operating Hours</label>
                 <input
                   type="text"
                   value={businessForm.hours}
                   onChange={(e) => setBusinessForm({ ...businessForm, hours: e.target.value })}
-                  className="w-full px-3.5 py-2.5 rounded-lg border border-gray-200 text-sm focus:ring-2 focus:ring-orange-500 outline-none"
+                  className="w-full px-4 py-2.5 rounded-xl bg-zinc-950 border border-zinc-800 text-sm text-zinc-100 focus:border-orange-500 outline-none"
                 />
               </div>
 
               <div className="md:col-span-2">
-                <label className="block text-xs font-bold text-gray-700 uppercase mb-1">Physical Office Address (Visakhapatnam, AP)</label>
+                <label className="block text-[11px] font-bold text-zinc-400 uppercase mb-1.5">Physical Office Address (Visakhapatnam, AP)</label>
                 <input
                   type="text"
                   value={businessForm.address}
                   onChange={(e) => setBusinessForm({ ...businessForm, address: e.target.value })}
-                  className="w-full px-3.5 py-2.5 rounded-lg border border-gray-200 text-sm focus:ring-2 focus:ring-orange-500 outline-none"
+                  className="w-full px-4 py-2.5 rounded-xl bg-zinc-950 border border-zinc-800 text-sm text-zinc-100 focus:border-orange-500 outline-none"
                 />
               </div>
             </div>
 
-            <div className="p-4 bg-orange-50 border border-orange-200 rounded-xl text-xs text-orange-900 space-y-1">
-              <p className="font-bold flex items-center gap-1.5">
-                <CheckCircle2 className="w-4 h-4 text-orange-600" />
+            <div className="p-5 bg-orange-950/20 border border-orange-500/30 rounded-2xl text-xs text-orange-200 space-y-1">
+              <p className="font-bold flex items-center gap-2 text-orange-400">
+                <CheckCircle2 className="w-4 h-4 text-orange-500" />
                 GEO & AEO Coordinates Synchronized
               </p>
-              <p className="text-[11px] text-orange-800 font-light">
+              <p className="text-[11px] text-zinc-400 font-light leading-relaxed">
                 Latitude: 17.7215, Longitude: 83.3060 (Visakhapatnam, Andhra Pradesh, India). Schema.org LocalBusiness, HomeAndConstructionBusiness, and FAQPage tags are permanently active.
               </p>
             </div>
 
-            <div className="flex justify-end pt-4 border-t border-gray-100">
+            <div className="flex justify-end pt-4 border-t border-zinc-800">
               <Button
                 onClick={() => toast.success('Business NAP and Schema metadata updated!')}
-                className="bg-orange-600 hover:bg-orange-700 text-white gap-2 text-xs font-semibold shadow-md shadow-orange-600/20"
+                className="bg-orange-600 hover:bg-orange-500 text-white gap-2 text-xs font-bold rounded-xl shadow-lg shadow-orange-600/30 cursor-pointer"
               >
                 <Save className="w-4 h-4" />
                 Save Business Information
