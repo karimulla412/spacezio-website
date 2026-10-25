@@ -98,12 +98,15 @@ const Header = () => {
         <nav className="max-w-7xl mx-auto px-6 lg:px-8">
           <div className="flex justify-between items-center py-3.5">
             {/* Brand Logo */}
-            <Link to="/" className="flex items-center gap-2 group cursor-pointer">
-              <div className="text-2xl font-black tracking-tight flex items-center">
-                <span className="text-white group-hover:text-orange-400 transition-colors">SPACE</span>
-                <span className="text-orange-500">XIO</span>
-              </div>
-              <span className="hidden sm:inline-block px-2 py-0.5 rounded text-[10px] font-bold uppercase tracking-wider bg-orange-600/10 text-orange-400 border border-orange-500/30">
+            <Link to="/" className="flex items-center gap-2.5 group cursor-pointer" aria-label="SPACEXIO - Architecture & Construction">
+              <img 
+                src="/logo-horizontal.png" 
+                alt="SPACEXIO" 
+                className="h-8 sm:h-9 w-auto object-contain transition-transform duration-300 group-hover:scale-105"
+                width="214"
+                height="36"
+              />
+              <span className="hidden sm:inline-block px-2 py-0.5 rounded text-[10px] font-mono font-bold uppercase tracking-wider bg-orange-600/10 text-orange-400 border border-orange-500/30">
                 Studio
               </span>
             </Link>

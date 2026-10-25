@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { Mail, Phone, MapPin, Linkedin, Twitter, Facebook, ArrowRight } from 'lucide-react';
 import { Button } from '../components/ui/button';
 import NewsletterForm from './NewsletterForm';
@@ -30,10 +31,15 @@ const Footer = () => {
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-12">
           {/* Company Info */}
           <div>
-            <div className="text-2xl font-bold mb-6">
-              <span className="text-white">SPACE</span>
-              <span className="text-orange-500">XIO</span>
-            </div>
+            <Link to="/" className="inline-block mb-6 group cursor-pointer" aria-label="SPACEXIO Home">
+              <img 
+                src="/logo-horizontal.png" 
+                alt="SPACEXIO" 
+                className="h-9 sm:h-10 w-auto object-contain transition-transform duration-300 group-hover:scale-105"
+                width="238"
+                height="40"
+              />
+            </Link>
             <p className="text-gray-400 mb-6 leading-relaxed">
               Comprehensive design-to-execution solutions for residential and commercial projects. From architecture to interior design, construction to BIM services - we deliver excellence at every stage.
             </p>

@@ -348,8 +348,8 @@ const ChatBot = () => {
       {/* Header */}
       <div className="bg-gradient-to-r from-orange-600 to-orange-700 text-white p-4 rounded-t-2xl flex items-center justify-between">
         <div className="flex items-center gap-3">
-          <div className="w-10 h-10 bg-white rounded-full flex items-center justify-center">
-            <span className="text-orange-600 font-bold text-lg">S</span>
+          <div className="w-10 h-10 bg-zinc-950/40 rounded-full flex items-center justify-center p-1.5 border border-white/20 shadow-inner overflow-hidden">
+            <img src="/icon.png" alt="Spacexio" className="w-full h-full object-contain" width="40" height="40" />
           </div>
           <div>
             <h3 className="font-bold text-sm">Spacexio Assistant</h3>
