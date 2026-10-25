@@ -9,7 +9,8 @@ const {
   sendSiteVisitNotification,
   sendNewsletterWelcome,
   sendLeadMagnetEmail,
-  sendChatbotNotification
+  sendChatbotNotification,
+  sendStatusCheckNotification
 } = require('./emailService');
 
 const app = express();
@@ -36,6 +37,7 @@ apiRouter.post('/status', async (req, res) => {
       'INSERT INTO status_checks (client_name) VALUES ($1) RETURNING *',
       [client_name]
     );
+    sendStatusCheckNotification(req.body).catch(console.error);
     res.json(result.rows[0]);
   } catch (error) {
     console.error(error);
@@ -189,7 +191,7 @@ apiRouter.post('/lead-magnet', async (req, res) => {
       [name, email, phone, source]
     );
 
-    sendLeadMagnetEmail(email, name).catch(console.error);
+    sendLeadMagnetEmail(email, name, phone).catch(console.error);
 
     res.json({ message: 'Success! Check your email for the guide.', email });
   } catch (error) {
