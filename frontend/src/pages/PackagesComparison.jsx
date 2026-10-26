@@ -75,9 +75,9 @@ const PackagesComparison = () => {
   };
 
   const renderValue = (value) => {
-    if (value === true) return <Check className="h-5 w-5 text-green-500 mx-auto" />;
-    if (value === false) return <X className="h-4 w-4 text-gray-600 mx-auto" />;
-    if (typeof value === 'string') return <span className="text-xs font-semibold text-gray-200 bg-gray-800 px-2 py-1 rounded-md border border-gray-700">{value}</span>;
+    if (value === true) return <Check className="h-5 w-5 text-emerald-600 mx-auto" />;
+    if (value === false) return <X className="h-4 w-4 text-slate-300 mx-auto" />;
+    if (typeof value === 'string') return <span className="text-xs font-semibold text-slate-800 bg-slate-100 px-2.5 py-1 rounded-md border border-slate-200">{value}</span>;
     return value;
   };
 
@@ -93,7 +93,7 @@ const PackagesComparison = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-black text-white pt-28 pb-20">
+    <div className="min-h-screen bg-[#FCFCF7] text-slate-900 pt-28 pb-20">
       <SEO 
         title="House Construction Packages Comparison - Essential, Premium, Luxury"
         description="Compare Spacexio house construction packages in Visakhapatnam. Starting at ₹1,850/sq.ft with 10-year structural warranty, JSW steel, UltraTech cement, and Jaquar fittings."
@@ -105,30 +105,30 @@ const PackagesComparison = () => {
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         {/* Header */}
         <div className="text-center mb-12">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-orange-600/20 border border-orange-500/30 text-orange-400 text-xs font-semibold uppercase tracking-wider mb-4">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-orange-50 border border-orange-200 text-orange-600 text-xs font-semibold uppercase tracking-wider mb-4">
             <Sparkles className="h-4 w-4" />
             Transparent Pricing Comparison
           </div>
-          <h1 className="text-4xl md:text-5xl font-extrabold text-white tracking-tight mb-4">
+          <h1 className="text-4xl md:text-5xl font-extrabold text-slate-950 tracking-tight mb-4">
             Compare Construction Packages
           </h1>
-          <p className="text-lg text-gray-400 max-w-3xl mx-auto font-light">
+          <p className="text-lg text-slate-600 max-w-3xl mx-auto font-light">
             Review side-by-side specifications, materials, and warranty coverage for every budget.
           </p>
         </div>
 
         {/* Sticky Package Headers */}
-        <div className="grid md:grid-cols-4 gap-4 mb-8 sticky top-20 z-20 bg-black/95 backdrop-blur-md py-4">
+        <div className="grid md:grid-cols-4 gap-4 mb-8 sticky top-20 z-20 bg-[#FCFCF7]/95 backdrop-blur-md py-4">
           <div className="hidden md:flex items-end pb-4">
-            <p className="text-gray-400 text-xs font-bold uppercase tracking-wider">Feature Inclusions</p>
+            <p className="text-slate-500 text-xs font-bold uppercase tracking-wider">Feature Inclusions</p>
           </div>
           {packages.map((pkg) => (
             <Card
               key={pkg.name}
               className={`border transition-all duration-200 rounded-xl ${
                 pkg.popular
-                  ? 'border-2 border-orange-500 shadow-lg bg-gradient-to-br from-orange-950/40 to-gray-900 text-white'
-                  : 'border-gray-800 bg-gray-900 text-white shadow-sm'
+                  ? 'border-2 border-orange-500 shadow-xl bg-orange-50/50 text-slate-900'
+                  : 'border-slate-200 bg-white text-slate-900 shadow-sm'
               }`}
             >
               <CardContent className="p-4 text-center">
@@ -137,12 +137,12 @@ const PackagesComparison = () => {
                     Recommended
                   </span>
                 )}
-                <h3 className="text-lg font-bold text-white">{pkg.name}</h3>
+                <h3 className="text-lg font-bold text-slate-900">{pkg.name}</h3>
                 <div className="flex items-baseline justify-center gap-1 my-1">
-                  <span className="text-3xl font-extrabold text-orange-500">₹{pkg.price}</span>
-                  <span className="text-xs text-gray-400">/sq.ft</span>
+                  <span className="text-3xl font-extrabold text-orange-600">₹{pkg.price}</span>
+                  <span className="text-xs text-slate-500">/sq.ft</span>
                 </div>
-                <p className="text-xs text-gray-400 mt-1">{pkg.idealFor}</p>
+                <p className="text-xs text-slate-500 mt-1">{pkg.idealFor}</p>
               </CardContent>
             </Card>
           ))}
@@ -151,17 +151,17 @@ const PackagesComparison = () => {
         {/* Comparison Tables */}
         <div className="space-y-6">
           {Object.entries(comparisonData).map(([category, features]) => (
-            <Card key={category} className="bg-gray-900 border border-gray-800 shadow-md rounded-2xl overflow-hidden">
+            <Card key={category} className="bg-white border border-slate-200 shadow-sm rounded-2xl overflow-hidden">
               <CardContent className="p-0">
-                <div className="p-5 bg-gray-800/80 border-b border-gray-700 flex items-center justify-between">
-                  <h2 className="text-lg font-bold text-white">{category}</h2>
-                  <span className="text-xs font-medium text-gray-400">{features.length} Items Verified</span>
+                <div className="p-5 bg-slate-50 border-b border-slate-200 flex items-center justify-between">
+                  <h2 className="text-lg font-bold text-slate-900">{category}</h2>
+                  <span className="text-xs font-medium text-slate-500">{features.length} Items Verified</span>
                 </div>
-                <div className="divide-y divide-gray-800">
+                <div className="divide-y divide-slate-100">
                   {features.map((item, idx) => (
-                    <div key={idx} className="grid md:grid-cols-4 gap-4 p-4 items-center hover:bg-gray-800/40 transition-colors">
+                    <div key={idx} className="grid md:grid-cols-4 gap-4 p-4 items-center hover:bg-slate-50/80 transition-colors">
                       <div className="md:col-span-1">
-                        <p className="text-gray-200 text-sm font-medium">{item.feature}</p>
+                        <p className="text-slate-800 text-sm font-medium">{item.feature}</p>
                       </div>
                       <div className="text-center">
                         {renderValue(item.essential)}
@@ -181,36 +181,36 @@ const PackagesComparison = () => {
         </div>
 
         {/* Inclusions Notes */}
-        <div className="mt-12 bg-gray-900 border border-gray-800 rounded-2xl p-8 shadow-md">
+        <div className="mt-12 bg-white border border-slate-200 rounded-2xl p-8 shadow-sm">
           <div className="flex items-start gap-4">
-            <div className="p-3 bg-orange-600/20 rounded-xl text-orange-400 border border-orange-500/30 flex-shrink-0">
+            <div className="p-3 bg-orange-50 rounded-xl text-orange-600 border border-orange-200 flex-shrink-0">
               <Shield className="h-6 w-6" />
             </div>
             <div>
-              <h3 className="text-lg font-bold text-white mb-2">Every Package Includes:</h3>
-              <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-4 text-xs text-gray-300 mt-4 font-light">
+              <h3 className="text-lg font-bold text-slate-900 mb-2">Every Package Includes:</h3>
+              <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-4 text-xs text-slate-600 mt-4 font-normal">
                 <div className="flex items-center gap-2">
-                  <Check className="h-4 w-4 text-green-500 flex-shrink-0" />
+                  <Check className="h-4 w-4 text-emerald-600 flex-shrink-0" />
                   <span>Soil Testing & Certified Structural Drawing</span>
                 </div>
                 <div className="flex items-center gap-2">
-                  <Check className="h-4 w-4 text-green-500 flex-shrink-0" />
+                  <Check className="h-4 w-4 text-emerald-600 flex-shrink-0" />
                   <span>Full Architectural 2D Plans & 3D Elevations</span>
                 </div>
                 <div className="flex items-center gap-2">
-                  <Check className="h-4 w-4 text-green-500 flex-shrink-0" />
+                  <Check className="h-4 w-4 text-emerald-600 flex-shrink-0" />
                   <span>10-Year Comprehensive Structural Warranty</span>
                 </div>
                 <div className="flex items-center gap-2">
-                  <Check className="h-4 w-4 text-green-500 flex-shrink-0" />
+                  <Check className="h-4 w-4 text-emerald-600 flex-shrink-0" />
                   <span>Dedicated Project Manager On-Site</span>
                 </div>
                 <div className="flex items-center gap-2">
-                  <Check className="h-4 w-4 text-green-500 flex-shrink-0" />
+                  <Check className="h-4 w-4 text-emerald-600 flex-shrink-0" />
                   <span>No Escalation Fixed-Price Agreement</span>
                 </div>
                 <div className="flex items-center gap-2">
-                  <Check className="h-4 w-4 text-green-500 flex-shrink-0" />
+                  <Check className="h-4 w-4 text-emerald-600 flex-shrink-0" />
                   <span>Milestone-Based Transparent Invoicing</span>
                 </div>
               </div>
@@ -219,17 +219,17 @@ const PackagesComparison = () => {
         </div>
 
         {/* CTA Section */}
-        <div className="mt-16 text-center bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900 border border-gray-800 rounded-3xl p-10 shadow-2xl">
-          <h3 className="text-2xl md:text-3xl font-extrabold text-white mb-4 tracking-tight">
+        <div className="mt-16 text-center bg-white border border-slate-200 rounded-3xl p-10 shadow-lg">
+          <h3 className="text-2xl md:text-3xl font-extrabold text-slate-950 mb-4 tracking-tight">
             Ready to Choose or Customize Your Package?
           </h3>
-          <p className="text-gray-400 mb-8 max-w-xl mx-auto font-light">
+          <p className="text-slate-600 mb-8 max-w-xl mx-auto font-light">
             Book a site inspection with our senior engineer to get an exact quotation tailored to your plot dimensions.
           </p>
           <div className="flex flex-wrap justify-center gap-4">
             <Button
               size="lg"
-              className="bg-orange-600 hover:bg-orange-700 text-white px-8 py-6 text-base font-semibold rounded-lg shadow-lg shadow-orange-600/30"
+              className="bg-orange-600 hover:bg-orange-700 text-white px-8 py-6 text-base font-semibold rounded-lg shadow-md hover:shadow-lg"
               onClick={() => window.location.href = '/site-visit'}
             >
               Book Free Site Visit
@@ -238,7 +238,7 @@ const PackagesComparison = () => {
             <Button
               size="lg"
               variant="outline"
-              className="border-2 border-gray-700 text-white hover:bg-gray-800 px-8 py-6 text-base font-semibold rounded-lg"
+              className="border-2 border-slate-300 text-slate-800 hover:bg-slate-50 px-8 py-6 text-base font-semibold rounded-lg"
               onClick={() => window.location.href = '/cost-calculator'}
             >
               Calculate Construction Cost

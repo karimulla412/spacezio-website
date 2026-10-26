@@ -30,7 +30,7 @@ const About = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-black pt-28 text-white">
+    <div className="min-h-screen bg-[#FCFCF7] pt-28 text-slate-900">
       <SEO 
         title="About Spacexio - Premium Construction & Architectural Studio in Vizag"
         description="Learn about Spacexio's mission to bring transparent, high-precision house construction to Visakhapatnam. Discover our leadership, civil engineers, and core values."
@@ -39,27 +39,27 @@ const About = () => {
       />
 
       {/* Hero Section */}
-      <section className="py-16 md:py-20 bg-black border-b border-gray-800">
+      <section className="py-16 md:py-20 bg-[#FCFCF7] border-b border-slate-200/80">
         <div className="max-w-7xl mx-auto px-6 lg:px-8 text-center">
-          <div className="inline-block px-3 py-1 rounded-full bg-orange-600/10 border border-orange-500/20 text-orange-400 text-xs font-semibold uppercase tracking-wider mb-4">
+          <div className="inline-block px-3 py-1 rounded-full bg-orange-50 border border-orange-200 text-orange-600 text-xs font-semibold uppercase tracking-wider mb-4">
             Who We Are
           </div>
-          <h1 className="text-4xl md:text-5xl font-extrabold text-white mb-4 tracking-tight">
+          <h1 className="text-4xl md:text-5xl font-extrabold text-slate-950 mb-4 tracking-tight">
             Building Quality Homes in Visakhapatnam
           </h1>
-          <p className="text-lg text-gray-400 max-w-2xl mx-auto font-light leading-relaxed">
+          <p className="text-lg text-slate-600 max-w-2xl mx-auto font-light leading-relaxed">
             Spacexio is a modern architectural design and turnkey home construction studio dedicated to honest pricing, milestone execution, and lasting craftsmanship.
           </p>
         </div>
       </section>
 
       {/* Story Section */}
-      <section className="py-16 bg-gradient-to-b from-black to-gray-900 border-b border-gray-800">
+      <section className="py-16 bg-[#F6F5EF] border-b border-slate-200">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
-              <h2 className="text-3xl font-extrabold text-white mb-6 tracking-tight">Our Mission & Philosophy</h2>
-              <div className="space-y-4 text-gray-300 font-light leading-relaxed text-base">
+              <h2 className="text-3xl font-extrabold text-slate-950 mb-6 tracking-tight">Our Mission & Philosophy</h2>
+              <div className="space-y-4 text-slate-700 font-light leading-relaxed text-base">
                 <p>
                   We established Spacexio in Visakhapatnam to resolve the biggest frustrations homeowners face: unpredictable contractor costs, delayed schedules, and poor material transparency.
                 </p>
@@ -72,11 +72,11 @@ const About = () => {
               </div>
             </div>
             <div className="relative">
-              <div className="absolute inset-0 bg-orange-600/20 rounded-2xl transform translate-x-3 translate-y-3"></div>
+              <div className="absolute inset-0 bg-orange-500/10 rounded-2xl transform translate-x-3 translate-y-3"></div>
               <img
                 src="https://images.unsplash.com/photo-1581092162384-8987c1d64718?crop=entropy&cs=srgb&fm=jpg&w=800&q=80"
                 alt="Engineers planning construction"
-                className="relative rounded-2xl shadow-2xl w-full h-[380px] object-cover border border-gray-700"
+                className="relative rounded-2xl shadow-xl w-full h-[380px] object-cover border border-slate-200"
               />
             </div>
           </div>
@@ -84,11 +84,11 @@ const About = () => {
       </section>
 
       {/* Values Section */}
-      <section className="py-16 bg-black border-b border-gray-800">
+      <section className="py-16 bg-[#FCFCF7] border-b border-slate-200">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-extrabold text-white mb-2 tracking-tight">Our Core Values</h2>
-            <p className="text-gray-400 text-sm font-light">
+            <h2 className="text-3xl font-extrabold text-slate-950 mb-2 tracking-tight">Our Core Values</h2>
+            <p className="text-slate-600 text-sm font-light">
               Principles guiding every architectural blueprint and site delivery
             </p>
           </div>
@@ -99,14 +99,14 @@ const About = () => {
               return (
                 <Card
                   key={index}
-                  className="bg-gradient-to-br from-gray-900 to-gray-800 border border-gray-700 hover:border-orange-500/50 hover:shadow-xl transition-all text-center rounded-xl"
+                  className="bg-white border-slate-200 hover:border-orange-500/50 hover:shadow-xl transition-all text-center rounded-xl"
                 >
                   <CardContent className="p-6">
-                    <div className="inline-block p-3.5 bg-orange-600/10 text-orange-400 border border-orange-500/20 rounded-full mb-4">
+                    <div className="inline-block p-3.5 bg-orange-50 text-orange-600 border border-orange-200 rounded-full mb-4">
                       <IconComponent className="h-6 w-6" />
                     </div>
-                    <h3 className="text-base font-bold text-white mb-2">{value.title}</h3>
-                    <p className="text-gray-400 text-xs leading-relaxed font-light">{value.description}</p>
+                    <h3 className="text-base font-bold text-slate-900 mb-2">{value.title}</h3>
+                    <p className="text-slate-600 text-xs leading-relaxed font-light">{value.description}</p>
                   </CardContent>
                 </Card>
               );
@@ -116,11 +116,11 @@ const About = () => {
       </section>
 
       {/* Team Section */}
-      <section className="py-16 bg-gradient-to-b from-black to-gray-900 border-b border-gray-800">
+      <section className="py-16 bg-[#F6F5EF] border-b border-slate-200">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-extrabold text-white mb-2 tracking-tight">Our Leadership Team</h2>
-            <p className="text-gray-400 text-sm font-light">
+            <h2 className="text-3xl font-extrabold text-slate-950 mb-2 tracking-tight">Our Leadership Team</h2>
+            <p className="text-slate-600 text-sm font-light">
               Engineers and architects driving construction excellence
             </p>
           </div>
@@ -129,16 +129,16 @@ const About = () => {
             {teamData.map((member) => (
               <Card
                 key={member.id}
-                className="bg-gradient-to-br from-gray-900 to-gray-800 border border-gray-700 hover:border-orange-500 shadow-xl transition-all rounded-xl overflow-hidden"
+                className="bg-white border-slate-200 hover:border-orange-500 shadow-md transition-all rounded-xl overflow-hidden"
               >
                 <CardContent className="p-6 text-center">
-                  <div className="w-20 h-20 rounded-full bg-gradient-to-br from-orange-500 to-orange-600 mx-auto mb-4 flex items-center justify-center text-white text-xl font-bold shadow-lg">
+                  <div className="w-20 h-20 rounded-full bg-gradient-to-br from-orange-500 to-orange-600 mx-auto mb-4 flex items-center justify-center text-white text-xl font-bold shadow-md">
                     {member.name.split(' ').map(n => n[0]).join('')}
                   </div>
-                  <h3 className="text-base font-bold text-white mb-1">{member.name}</h3>
-                  <p className="text-orange-400 text-xs font-semibold mb-2">{member.position}</p>
-                  <p className="text-gray-300 text-xs font-light">{member.expertise}</p>
-                  <p className="text-gray-500 text-[11px] mt-1">{member.experience}</p>
+                  <h3 className="text-base font-bold text-slate-900 mb-1">{member.name}</h3>
+                  <p className="text-orange-600 text-xs font-semibold mb-2">{member.position}</p>
+                  <p className="text-slate-600 text-xs font-light">{member.expertise}</p>
+                  <p className="text-slate-400 text-[11px] mt-1">{member.experience}</p>
                 </CardContent>
               </Card>
             ))}
@@ -147,11 +147,11 @@ const About = () => {
       </section>
 
       {/* Certifications */}
-      <section className="py-16 bg-black border-b border-gray-800">
+      <section className="py-16 bg-[#FCFCF7] border-b border-slate-200">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <div className="text-center mb-10">
-            <h2 className="text-2xl font-extrabold text-white mb-2 tracking-tight">Certifications & Accreditations</h2>
-            <p className="text-gray-400 text-xs font-light">
+            <h2 className="text-2xl font-extrabold text-slate-950 mb-2 tracking-tight">Certifications & Accreditations</h2>
+            <p className="text-slate-600 text-xs font-light">
               Adhering to Indian Standards (IS Codes) and ISO construction safety benchmarks
             </p>
           </div>
@@ -160,10 +160,10 @@ const About = () => {
             {certificationsData.map((cert, index) => (
               <div
                 key={index}
-                className="p-4 bg-gradient-to-br from-gray-900 to-gray-800 border border-gray-700 rounded-xl text-center shadow-lg"
+                className="p-4 bg-white border border-slate-200 rounded-xl text-center shadow-sm"
               >
-                <Award className="h-6 w-6 text-orange-400 mx-auto mb-2" />
-                <p className="text-white text-xs font-semibold">{cert}</p>
+                <Award className="h-6 w-6 text-orange-600 mx-auto mb-2" />
+                <p className="text-slate-900 text-xs font-semibold">{cert}</p>
               </div>
             ))}
           </div>
@@ -182,7 +182,7 @@ const About = () => {
           <div className="flex flex-wrap justify-center gap-4">
             <Button
               size="lg"
-              className="bg-black hover:bg-gray-900 text-white px-8 py-6 text-base font-semibold rounded-lg shadow-xl border border-orange-400"
+              className="bg-slate-950 hover:bg-slate-900 text-white px-8 py-6 text-base font-semibold rounded-lg shadow-xl border border-orange-400"
               onClick={() => window.location.href = '/site-visit'}
             >
               Book Site Visit
@@ -191,7 +191,7 @@ const About = () => {
             <Button
               size="lg"
               variant="outline"
-              className="border-white/30 text-white hover:bg-white/10 px-8 py-6 text-base font-semibold rounded-lg bg-transparent"
+              className="border-white/50 text-white hover:bg-white/10 px-8 py-6 text-base font-semibold rounded-lg bg-transparent"
               onClick={() => window.location.href = '/contact'}
             >
               Contact Our Studio

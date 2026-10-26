@@ -77,7 +77,7 @@ const Contact = () => {
   };
 
   return (
-    <div className="min-h-screen bg-black pt-24 text-white">
+    <div className="min-h-screen bg-[#FCFCF7] pt-24 text-slate-900">
       <SEO 
         title="Contact Us - Start Your Home Construction Project"
         description="Get in touch with Spacexio for home construction, architectural design, and 3D elevation in Visakhapatnam. Call +91 96865 11132 or visit our Akkayyapalem office."
@@ -85,25 +85,25 @@ const Contact = () => {
         url="https://spacexio.com/contact"
       />
       {/* Hero Lead Generation Section */}
-      <section className="py-16 md:py-24 bg-black border-b border-gray-800">
+      <section className="py-16 md:py-24 bg-[#FCFCF7] border-b border-slate-200/80">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-12 items-start">
             
             {/* Left Side - Content */}
             <div className="space-y-8">
               <div>
-                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-orange-600/10 border border-orange-500/20 text-orange-400 text-xs font-mono font-semibold uppercase tracking-wider mb-4">
+                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-orange-50 border border-orange-200 text-orange-600 text-xs font-mono font-semibold uppercase tracking-wider mb-4">
                   Direct Studio Inquiry // Visakhapatnam
                 </div>
-                <h1 className="text-4xl md:text-5xl font-extrabold text-white mb-4 leading-tight">
-                  Start Your Project with <span className="text-orange-500">SPACEXIO</span>
+                <h1 className="text-4xl md:text-5xl font-extrabold text-slate-950 mb-4 leading-tight">
+                  Start Your Project with <span className="text-orange-600">SPACEXIO</span>
                 </h1>
-                <p className="text-xl text-gray-400">
+                <p className="text-xl text-slate-600 font-light">
                   Smart, BIM-driven solutions to design and build efficiently.
                 </p>
               </div>
 
-              <div className="space-y-5 text-gray-300">
+              <div className="space-y-5 text-slate-700">
                 <div className="flex items-start gap-3">
                   <div className="w-2.5 h-2.5 bg-orange-500 rounded-full mt-2 flex-shrink-0"></div>
                   <p className="text-lg">BIM-driven planning & 3D clash coordination</p>
@@ -123,12 +123,12 @@ const Contact = () => {
               </div>
             </div>
 
-            {/* Right Side - Premium Dark Form */}
-            <div className="bg-gradient-to-br from-gray-900 to-gray-800 border border-gray-700 rounded-2xl shadow-2xl p-8 lg:p-10">
+            {/* Right Side - Classic Form */}
+            <div className="bg-white border border-slate-200 rounded-2xl shadow-xl p-8 lg:p-10">
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div>
-                  <label htmlFor="name" className="block text-sm font-medium text-gray-300 mb-2">
-                    Full Name <span className="text-orange-400">*</span>
+                  <label htmlFor="name" className="block text-sm font-medium text-slate-700 mb-2">
+                    Full Name <span className="text-orange-600">*</span>
                   </label>
                   <Input
                     id="name"
@@ -137,14 +137,14 @@ const Contact = () => {
                     required
                     value={formData.name}
                     onChange={handleChange}
-                    className="w-full bg-gray-800 border-gray-700 text-white placeholder-gray-500 focus:border-orange-500 h-12 rounded-lg"
+                    className="w-full bg-slate-50 border-slate-300 text-slate-900 placeholder-slate-400 focus:border-orange-500 focus:bg-white h-12 rounded-lg"
                     placeholder="Enter your name"
                   />
                 </div>
 
                 <div>
-                  <label htmlFor="phone" className="block text-sm font-medium text-gray-300 mb-2">
-                    Phone Number <span className="text-orange-400">*</span>
+                  <label htmlFor="phone" className="block text-sm font-medium text-slate-700 mb-2">
+                    Phone Number <span className="text-orange-600">*</span>
                   </label>
                   <Input
                     id="phone"
@@ -153,14 +153,14 @@ const Contact = () => {
                     required
                     value={formData.phone}
                     onChange={handleChange}
-                    className="w-full bg-gray-800 border-gray-700 text-white placeholder-gray-500 focus:border-orange-500 h-12 rounded-lg"
+                    className="w-full bg-slate-50 border-slate-300 text-slate-900 placeholder-slate-400 focus:border-orange-500 focus:bg-white h-12 rounded-lg"
                     placeholder="+91 98765 43210"
                   />
                 </div>
 
                 <div>
-                  <label htmlFor="email" className="block text-sm font-medium text-gray-300 mb-2">
-                    Email <span className="text-orange-400">*</span>
+                  <label htmlFor="email" className="block text-sm font-medium text-slate-700 mb-2">
+                    Email <span className="text-orange-600">*</span>
                   </label>
                   <Input
                     id="email"
@@ -169,14 +169,14 @@ const Contact = () => {
                     required
                     value={formData.email}
                     onChange={handleChange}
-                    className="w-full bg-gray-800 border-gray-700 text-white placeholder-gray-500 focus:border-orange-500 h-12 rounded-lg"
+                    className="w-full bg-slate-50 border-slate-300 text-slate-900 placeholder-slate-400 focus:border-orange-500 focus:bg-white h-12 rounded-lg"
                     placeholder="your@email.com"
                   />
                 </div>
 
                 <div>
-                  <label htmlFor="service" className="block text-sm font-medium text-gray-300 mb-2">
-                    Project Type <span className="text-orange-400">*</span>
+                  <label htmlFor="service" className="block text-sm font-medium text-slate-700 mb-2">
+                    Project Type <span className="text-orange-600">*</span>
                   </label>
                   <select
                     id="service"
@@ -184,21 +184,21 @@ const Contact = () => {
                     required
                     value={formData.service}
                     onChange={handleChange}
-                    className="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg text-white focus:outline-none focus:border-orange-500 focus:ring-2 focus:ring-orange-500/20 transition-colors h-12"
+                    className="w-full px-4 py-3 bg-slate-50 border border-slate-300 rounded-lg text-slate-900 focus:outline-none focus:border-orange-500 focus:bg-white focus:ring-2 focus:ring-orange-500/20 transition-colors h-12"
                   >
-                    <option value="" className="bg-gray-900">Select project type</option>
-                    <option value="New Home Construction" className="bg-gray-900">New Home Construction</option>
-                    <option value="Renovation" className="bg-gray-900">Renovation</option>
-                    <option value="Interior Design" className="bg-gray-900">Interior Design</option>
-                    <option value="Architecture Planning" className="bg-gray-900">Architecture Planning</option>
-                    <option value="BIM Services" className="bg-gray-900">BIM Services</option>
-                    <option value="Other" className="bg-gray-900">Other</option>
+                    <option value="">Select project type</option>
+                    <option value="New Home Construction">New Home Construction</option>
+                    <option value="Renovation">Renovation</option>
+                    <option value="Interior Design">Interior Design</option>
+                    <option value="Architecture Planning">Architecture Planning</option>
+                    <option value="BIM Services">BIM Services</option>
+                    <option value="Other">Other</option>
                   </select>
                 </div>
 
                 <div>
-                  <label htmlFor="message" className="block text-sm font-medium text-gray-300 mb-2">
-                    Message <span className="text-gray-500">(Optional)</span>
+                  <label htmlFor="message" className="block text-sm font-medium text-slate-700 mb-2">
+                    Message <span className="text-slate-400">(Optional)</span>
                   </label>
                   <Textarea
                     id="message"
@@ -206,35 +206,35 @@ const Contact = () => {
                     rows={4}
                     value={formData.message}
                     onChange={handleChange}
-                    className="w-full bg-gray-800 border-gray-700 text-white placeholder-gray-500 focus:border-orange-500 resize-none rounded-lg"
+                    className="w-full bg-slate-50 border-slate-300 text-slate-900 placeholder-slate-400 focus:border-orange-500 focus:bg-white resize-none rounded-lg"
                     placeholder="Tell us about your project..."
                   />
                 </div>
 
                 <div>
-                  <label htmlFor="hearAboutUs" className="block text-sm font-medium text-gray-300 mb-2">
-                    How did you hear about us? <span className="text-gray-500">(Optional)</span>
+                  <label htmlFor="hearAboutUs" className="block text-sm font-medium text-slate-700 mb-2">
+                    How did you hear about us? <span className="text-slate-400">(Optional)</span>
                   </label>
                   <select
                     id="hearAboutUs"
                     name="hearAboutUs"
                     value={formData.hearAboutUs}
                     onChange={handleChange}
-                    className="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg text-white focus:outline-none focus:border-orange-500 focus:ring-2 focus:ring-orange-500/20 transition-colors h-12"
+                    className="w-full px-4 py-3 bg-slate-50 border border-slate-300 rounded-lg text-slate-900 focus:outline-none focus:border-orange-500 focus:bg-white focus:ring-2 focus:ring-orange-500/20 transition-colors h-12"
                   >
-                    <option value="" className="bg-gray-900">Select an option</option>
-                    <option value="Google Search" className="bg-gray-900">Google Search</option>
-                    <option value="Social Media" className="bg-gray-900">Social Media (Facebook, Instagram)</option>
-                    <option value="Friend/Family Referral" className="bg-gray-900">Friend or Family Referral</option>
-                    <option value="Advertisement" className="bg-gray-900">Advertisement</option>
-                    <option value="Website" className="bg-gray-900">Direct Website Visit</option>
-                    <option value="Other" className="bg-gray-900">Other</option>
+                    <option value="">Select an option</option>
+                    <option value="Google Search">Google Search</option>
+                    <option value="Social Media">Social Media (Facebook, Instagram)</option>
+                    <option value="Friend/Family Referral">Friend or Family Referral</option>
+                    <option value="Advertisement">Advertisement</option>
+                    <option value="Website">Direct Website Visit</option>
+                    <option value="Other">Other</option>
                   </select>
                 </div>
 
                 <div>
-                  <label htmlFor="referralCode" className="block text-sm font-medium text-gray-300 mb-2">
-                    Referral Code <span className="text-gray-500">(Optional)</span>
+                  <label htmlFor="referralCode" className="block text-sm font-medium text-slate-700 mb-2">
+                    Referral Code <span className="text-slate-400">(Optional)</span>
                   </label>
                   <Input
                     id="referralCode"
@@ -242,10 +242,10 @@ const Contact = () => {
                     type="text"
                     value={formData.referralCode}
                     onChange={handleChange}
-                    className="w-full bg-gray-800 border-gray-700 text-white placeholder-gray-500 focus:border-orange-500 h-12 rounded-lg"
+                    className="w-full bg-slate-50 border-slate-300 text-slate-900 placeholder-slate-400 focus:border-orange-500 focus:bg-white h-12 rounded-lg"
                     placeholder="Enter referral code if you have one"
                   />
-                  <p className="text-xs text-gray-400 mt-1">
+                  <p className="text-xs text-slate-500 mt-1">
                     Have a referral code? Enter it to get special benefits
                   </p>
                 </div>
@@ -253,12 +253,12 @@ const Contact = () => {
                 <Button
                   type="submit"
                   disabled={isSubmitting}
-                  className="w-full bg-orange-600 hover:bg-orange-700 text-white font-semibold py-4 text-lg rounded-lg transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed shadow-lg hover:shadow-xl"
+                  className="w-full bg-orange-600 hover:bg-orange-700 text-white font-semibold py-4 text-lg rounded-lg transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed shadow-md hover:shadow-lg"
                 >
                   {isSubmitting ? 'Submitting...' : 'Start Your Project'}
                 </Button>
 
-                <p className="text-sm text-gray-400 text-center">
+                <p className="text-sm text-slate-500 text-center">
                   We'll get back to you within 24 hours.
                 </p>
               </form>
@@ -268,18 +268,18 @@ const Contact = () => {
       </section>
 
       {/* Contact Information Section */}
-      <section className="py-20 bg-gradient-to-b from-black to-gray-900 border-b border-gray-800">
+      <section className="py-20 bg-[#F6F5EF] border-b border-slate-200">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <div className="grid md:grid-cols-3 gap-8">
-            <Card className="bg-gradient-to-br from-gray-900 to-gray-800 border-gray-700 hover:border-orange-500/50 hover:shadow-xl transition-all duration-300">
+            <Card className="bg-white border-slate-200 hover:border-orange-500/50 hover:shadow-xl transition-all duration-300">
               <CardContent className="p-6">
                 <div className="flex items-start gap-4">
-                  <div className="p-3 bg-orange-600/10 border border-orange-500/20 rounded-lg">
-                    <MapPin className="h-6 w-6 text-orange-400" />
+                  <div className="p-3 bg-orange-50 border border-orange-200 rounded-lg">
+                    <MapPin className="h-6 w-6 text-orange-600" />
                   </div>
                   <div>
-                    <h3 className="text-white font-semibold mb-2">Office Address</h3>
-                    <p className="text-gray-400 text-sm leading-relaxed">
+                    <h3 className="text-slate-900 font-semibold mb-2">Office Address</h3>
+                    <p className="text-slate-600 text-sm leading-relaxed">
                       Near Abid Nagar Road,<br />
                       Abidnagar Park, Akkayyapalem,<br />
                       Visakhapatnam - 530016,<br />
@@ -290,17 +290,17 @@ const Contact = () => {
               </CardContent>
             </Card>
 
-            <Card className="bg-gradient-to-br from-gray-900 to-gray-800 border-gray-700 hover:border-orange-500/50 hover:shadow-xl transition-all duration-300">
+            <Card className="bg-white border-slate-200 hover:border-orange-500/50 hover:shadow-xl transition-all duration-300">
               <CardContent className="p-6">
                 <div className="flex items-start gap-4">
-                  <div className="p-3 bg-orange-600/10 border border-orange-500/20 rounded-lg">
-                    <Phone className="h-6 w-6 text-orange-400" />
+                  <div className="p-3 bg-orange-50 border border-orange-200 rounded-lg">
+                    <Phone className="h-6 w-6 text-orange-600" />
                   </div>
                   <div>
-                    <h3 className="text-white font-semibold mb-2">Phone</h3>
+                    <h3 className="text-slate-900 font-semibold mb-2">Phone</h3>
                     <a
                       href="tel:+919686511132"
-                      className="text-gray-400 hover:text-orange-400 transition-colors"
+                      className="text-slate-600 hover:text-orange-600 transition-colors font-medium"
                     >
                       +91 96865 11132
                     </a>
@@ -309,17 +309,17 @@ const Contact = () => {
               </CardContent>
             </Card>
 
-            <Card className="bg-gradient-to-br from-gray-900 to-gray-800 border-gray-700 hover:border-orange-500/50 hover:shadow-xl transition-all duration-300">
+            <Card className="bg-white border-slate-200 hover:border-orange-500/50 hover:shadow-xl transition-all duration-300">
               <CardContent className="p-6">
                 <div className="flex items-start gap-4">
-                  <div className="p-3 bg-orange-600/10 border border-orange-500/20 rounded-lg">
-                    <Mail className="h-6 w-6 text-orange-400" />
+                  <div className="p-3 bg-orange-50 border border-orange-200 rounded-lg">
+                    <Mail className="h-6 w-6 text-orange-600" />
                   </div>
                   <div>
-                    <h3 className="text-white font-semibold mb-2">Email</h3>
+                    <h3 className="text-slate-900 font-semibold mb-2">Email</h3>
                     <a
                       href="mailto:hellospacexio@gmail.com"
-                      className="text-gray-400 hover:text-orange-400 transition-colors"
+                      className="text-slate-600 hover:text-orange-600 transition-colors font-medium"
                     >
                       hellospacexio@gmail.com
                     </a>
@@ -330,9 +330,9 @@ const Contact = () => {
           </div>
 
           {/* Business Hours */}
-          <div className="mt-12 text-center bg-gradient-to-br from-gray-900 to-gray-800 border border-gray-700 rounded-xl p-8 max-w-2xl mx-auto">
-            <h3 className="text-white font-bold text-xl mb-4">Business Hours</h3>
-            <div className="text-gray-400 space-y-2">
+          <div className="mt-12 text-center bg-white border border-slate-200 shadow-sm rounded-xl p-8 max-w-2xl mx-auto">
+            <h3 className="text-slate-900 font-bold text-xl mb-4">Business Hours</h3>
+            <div className="text-slate-600 space-y-2">
               <p>Monday - Friday: 9:00 AM - 6:00 PM</p>
               <p>Saturday: 10:00 AM - 4:00 PM</p>
               <p>Sunday: Closed</p>
@@ -347,12 +347,12 @@ const Contact = () => {
           <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
             Prefer to Talk Directly?
           </h2>
-          <p className="text-lg text-orange-100 mb-8">
-            Call us now for immediate assistance
+          <p className="text-lg text-orange-100 mb-8 font-light">
+            Call us now for immediate assistance with your architectural & construction needs.
           </p>
           <Button
             size="lg"
-            className="bg-black text-white hover:bg-gray-900 border border-orange-400 px-8 py-6 text-lg font-semibold shadow-xl"
+            className="bg-slate-950 text-white hover:bg-slate-900 border border-orange-400 px-8 py-6 text-lg font-semibold shadow-xl"
             onClick={() => window.location.href = 'tel:+919686511132'}
           >
             Call +91 96865 11132
