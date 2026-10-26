@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Menu, X, Phone, Mail, ArrowRight, Calculator, ArrowUp, MessageCircle, Calendar } from 'lucide-react';
+import { Menu, X, Phone, Mail, ArrowRight, Calculator, ArrowUp, MessageCircle, Calendar, MapPin, ChevronDown } from 'lucide-react';
 import { Button } from '../components/ui/button';
 
 const Header = () => {
@@ -10,12 +10,25 @@ const Header = () => {
   const [showBackToTop, setShowBackToTop] = useState(false);
   const location = useLocation();
 
+  const [cityDropdownOpen, setCityDropdownOpen] = useState(false);
+  const [selectedCity, setSelectedCity] = useState('Visakhapatnam (HQ)');
+
+  const cities = [
+    'Visakhapatnam (HQ)',
+    'Hyderabad',
+    'Vijayawada',
+    'Rajahmundry',
+    'Kakinada',
+    'Bengaluru'
+  ];
+
   const navigation = [
     { name: 'Home', href: '/' },
-    { name: 'About', href: '/about' },
-    { name: 'Services', href: '/services' },
+    { name: 'Packages', href: '/packages' },
+    { name: 'How It Works', href: '/process' },
+    { name: 'Cost Estimator', href: '/cost-calculator' },
+    { name: 'Projects', href: '/projects' },
     { name: 'Why Us', href: '/why-us' },
-    { name: 'Insights', href: '/insights' },
     { name: 'Contact', href: '/contact' }
   ];
 
@@ -82,13 +95,50 @@ const Header = () => {
                   info@spacexio.com
                 </a>
               </div>
-              <div className="text-zinc-400 flex items-center gap-3">
-                <span className="flex items-center gap-1.5">
+              <div className="text-zinc-400 flex items-center gap-4">
+                {/* City Selector (Inspired by JSW One Homes & Brick & Bolt) */}
+                <div className="relative">
+                  <button
+                    type="button"
+                    onClick={() => setCityDropdownOpen(!cityDropdownOpen)}
+                    className="flex items-center gap-1.5 text-orange-400 hover:text-orange-300 font-semibold bg-zinc-900/90 border border-zinc-800 hover:border-orange-500/40 px-2.5 py-1 rounded-full transition-all cursor-pointer"
+                  >
+                    <MapPin className="h-3 w-3 text-orange-500" />
+                    <span>{selectedCity}</span>
+                    <ChevronDown className="h-3 w-3 text-zinc-400" />
+                  </button>
+                  {cityDropdownOpen && (
+                    <div className="absolute right-0 mt-1.5 w-48 bg-zinc-950 border border-zinc-800 rounded-xl shadow-2xl py-1 z-50 animate-fade-in">
+                      <div className="px-3 py-1 text-[10px] font-mono text-zinc-500 uppercase tracking-wider">
+                        Operational Hubs
+                      </div>
+                      {cities.map((city) => (
+                        <button
+                          key={city}
+                          type="button"
+                          onClick={() => {
+                            setSelectedCity(city);
+                            setCityDropdownOpen(false);
+                          }}
+                          className={`w-full text-left px-3 py-1.5 text-xs flex items-center justify-between hover:bg-zinc-900 transition-colors ${
+                            selectedCity === city ? 'text-orange-400 font-bold bg-orange-500/10' : 'text-zinc-300'
+                          }`}
+                        >
+                          <span>{city}</span>
+                          {selectedCity === city && <span className="w-1.5 h-1.5 rounded-full bg-orange-500"></span>}
+                        </button>
+                      ))}
+                    </div>
+                  )}
+                </div>
+
+                <span>•</span>
+                <span className="text-zinc-200 font-semibold flex items-center gap-1">
                   <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
-                  Visakhapatnam, Andhra Pradesh
+                  10-Year Structural Warranty
                 </span>
                 <span>•</span>
-                <span className="text-zinc-200 font-semibold">10-Year Structural Warranty</span>
+                <span className="text-zinc-400 font-mono hidden md:inline">430+ QA Checks</span>
               </div>
             </div>
           </div>
