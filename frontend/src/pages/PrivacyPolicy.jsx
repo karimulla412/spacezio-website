@@ -115,8 +115,8 @@ const PrivacyPolicy = () => {
             </p>
             <div className="bg-gradient-to-br from-gray-900 to-gray-800 border border-gray-700 p-6 rounded-xl">
               <p className="mb-2"><strong className="text-white">SPACEXIO</strong></p>
-              <p className="mb-2">Email: <a href="mailto:hellospacexio@gmail.com" className="text-orange-400 hover:text-orange-300">hellospacexio@gmail.com</a></p>
-              <p className="mb-2">Phone: <a href="tel:+919686511132" className="text-orange-400 hover:text-orange-300">+91 96865 11132</a></p>
+              <p className="mb-2">Email: <a href="mailto:hellospacexio@gmail.com" className="text-[#01B3D1] hover:underline">hellospacexio@gmail.com</a></p>
+              <p className="mb-2">Phone: <a href="tel:+919686511132" className="text-[#01B3D1] hover:underline">+91 96865 11132</a></p>
               <p>Address: Near Abid Nagar Road, Akkayyapalem, Visakhapatnam - 530016, Andhra Pradesh, India</p>
             </div>
           </section>

@@ -105,7 +105,7 @@ const PackagesComparison = () => {
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         {/* Header */}
         <div className="text-center mb-12">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-orange-50 border border-orange-200 text-orange-600 text-xs font-semibold uppercase tracking-wider mb-4">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#FDF2F3] border border-[#FCA5A9] text-[#F35A61] text-xs font-semibold uppercase tracking-wider mb-4">
             <Sparkles className="h-4 w-4" />
             Transparent Pricing Comparison
           </div>
@@ -127,19 +127,19 @@ const PackagesComparison = () => {
               key={pkg.name}
               className={`border transition-all duration-200 rounded-xl ${
                 pkg.popular
-                  ? 'border-2 border-orange-500 shadow-xl bg-orange-50/50 text-slate-900'
+                  ? 'border-2 border-[#F35A61] shadow-xl bg-[#FDF2F3]/40 text-slate-900 ring-2 ring-[#F35A61]/20'
                   : 'border-slate-200 bg-white text-slate-900 shadow-sm'
               }`}
             >
               <CardContent className="p-4 text-center">
                 {pkg.popular && (
-                  <span className="inline-block px-2.5 py-0.5 bg-orange-600 text-white text-[10px] font-bold rounded-full uppercase tracking-wider mb-2">
+                  <span className="inline-block px-2.5 py-0.5 bg-[#F35A61] text-white text-[10px] font-bold rounded-full uppercase tracking-wider mb-2">
                     Recommended
                   </span>
                 )}
                 <h3 className="text-lg font-bold text-slate-900">{pkg.name}</h3>
                 <div className="flex items-baseline justify-center gap-1 my-1">
-                  <span className="text-3xl font-extrabold text-orange-600">₹{pkg.price}</span>
+                  <span className="text-3xl font-extrabold text-[#F35A61]">₹{pkg.price}</span>
                   <span className="text-xs text-slate-500">/sq.ft</span>
                 </div>
                 <p className="text-xs text-slate-500 mt-1">{pkg.idealFor}</p>
@@ -183,7 +183,7 @@ const PackagesComparison = () => {
         {/* Inclusions Notes */}
         <div className="mt-12 bg-white border border-slate-200 rounded-2xl p-8 shadow-sm">
           <div className="flex items-start gap-4">
-            <div className="p-3 bg-orange-50 rounded-xl text-orange-600 border border-orange-200 flex-shrink-0">
+            <div className="p-3 bg-[#FDF2F3] rounded-xl text-[#F35A61] border border-[#FCA5A9]/50 flex-shrink-0">
               <Shield className="h-6 w-6" />
             </div>
             <div>
@@ -229,7 +229,7 @@ const PackagesComparison = () => {
           <div className="flex flex-wrap justify-center gap-4">
             <Button
               size="lg"
-              className="bg-orange-600 hover:bg-orange-700 text-white px-8 py-6 text-base font-semibold rounded-lg shadow-md hover:shadow-lg"
+              className="bg-[#F35A61] hover:bg-[#E04850] text-white px-8 py-6 text-base font-semibold rounded-lg shadow-lg shadow-[#F35A61]/25 transition-all hover:scale-105"
               onClick={() => window.location.href = '/site-visit'}
             >
               Book Free Site Visit
@@ -238,7 +238,7 @@ const PackagesComparison = () => {
             <Button
               size="lg"
               variant="outline"
-              className="border-2 border-slate-300 text-slate-800 hover:bg-slate-50 px-8 py-6 text-base font-semibold rounded-lg"
+              className="border-2 border-slate-300 text-slate-800 hover:border-[#01B3D1] hover:text-[#01B3D1] hover:bg-[#EFFBFC] px-8 py-6 text-base font-semibold rounded-lg transition-colors"
               onClick={() => window.location.href = '/cost-calculator'}
             >
               Calculate Construction Cost

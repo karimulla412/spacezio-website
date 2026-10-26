@@ -5,7 +5,7 @@ html {
 
 /* Premium Selection Colors */
 ::selection {
-    background-color: #ea580c;
+    background-color: #F35A61;
     color: #ffffff;
 }
 
@@ -26,7 +26,7 @@ html {
 }
 
 ::-webkit-scrollbar-thumb:hover {
-    background: #ea580c;
+    background: #F35A61;
 }
 
 /* Base transitions for interactive interactive elements */
@@ -79,8 +79,8 @@ img {
 
 .card-interactive:hover {
     transform: translateY(-4px);
-    border-color: rgba(234, 88, 12, 0.35);
-    box-shadow: 0 16px 32px -8px rgba(15, 23, 42, 0.08), 0 0 12px 0 rgba(234, 88, 12, 0.06);
+    border-color: rgba(243, 90, 97, 0.4);
+    box-shadow: 0 16px 32px -8px rgba(15, 23, 42, 0.08), 0 0 14px 0 rgba(1, 179, 209, 0.1);
 }
 
 /* 2. Glassmorphism Surface */
@@ -91,13 +91,21 @@ img {
     border: 1px solid rgba(226, 232, 240, 0.8);
 }
 
-/* 3. Subtle Orange Ambient Glow */
-.glow-orange {
-    box-shadow: 0 0 35px -5px rgba(234, 88, 12, 0.3);
+/* 3. Subtle Logo Coral & Cyan Ambient Glow */
+.glow-coral {
+    box-shadow: 0 0 35px -5px rgba(243, 90, 97, 0.3);
 }
 
-.glow-orange-sm {
-    box-shadow: 0 0 15px -2px rgba(234, 88, 12, 0.25);
+.glow-coral-sm {
+    box-shadow: 0 0 15px -2px rgba(243, 90, 97, 0.25);
+}
+
+.glow-cyan {
+    box-shadow: 0 0 35px -5px rgba(1, 179, 209, 0.3);
+}
+
+.glow-cyan-sm {
+    box-shadow: 0 0 15px -2px rgba(1, 179, 209, 0.25);
 }
 
 /* 4. Shimmer Effect on CTA Buttons */
@@ -172,7 +180,7 @@ img {
     left: 0;
     right: 0;
     height: 3px;
-    background: linear-gradient(90deg, #ea580c 0%, #f97316 50%, #fbbf24 100%);
+    background: linear-gradient(90deg, #F35A61 0%, #B85C8D 50%, #01B3D1 100%);
     transform-origin: 0 50%;
     z-index: 100;
     transition: transform 0.1s ease-out;
@@ -190,7 +198,7 @@ a:focus-visible,
 input:focus-visible,
 textarea:focus-visible,
 select:focus-visible {
-    outline: 2px solid #ea580c;
+    outline: 2px solid #F35A61;
     outline-offset: 2px;
 }
 
@@ -226,12 +234,12 @@ select:focus-visible {
 /* 12. Radiant Border Pulse for Selected Cards */
 @keyframes activeBorderPulse {
     0%, 100% {
-        border-color: rgba(234, 88, 12, 0.6);
-        box-shadow: 0 0 25px rgba(234, 88, 12, 0.25), inset 0 0 15px rgba(234, 88, 12, 0.08);
+        border-color: rgba(243, 90, 97, 0.65);
+        box-shadow: 0 0 25px rgba(243, 90, 97, 0.25), inset 0 0 15px rgba(1, 179, 209, 0.08);
     }
     50% {
-        border-color: rgba(249, 115, 22, 1);
-        box-shadow: 0 0 40px rgba(234, 88, 12, 0.45), inset 0 0 25px rgba(234, 88, 12, 0.15);
+        border-color: rgba(1, 179, 209, 0.9);
+        box-shadow: 0 0 35px rgba(1, 179, 209, 0.35), inset 0 0 20px rgba(243, 90, 97, 0.12);
     }
 }
 

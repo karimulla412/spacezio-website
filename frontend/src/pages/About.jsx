@@ -41,7 +41,7 @@ const About = () => {
       {/* Hero Section */}
       <section className="py-16 md:py-20 bg-[#FCFCF7] border-b border-slate-200/80">
         <div className="max-w-7xl mx-auto px-6 lg:px-8 text-center">
-          <div className="inline-block px-3 py-1 rounded-full bg-orange-50 border border-orange-200 text-orange-600 text-xs font-semibold uppercase tracking-wider mb-4">
+          <div className="inline-block px-3 py-1 rounded-full bg-[#FDF2F3] border border-[#FCA5A9] text-[#F35A61] text-xs font-semibold uppercase tracking-wider mb-4">
             Who We Are
           </div>
           <h1 className="text-4xl md:text-5xl font-extrabold text-slate-950 mb-4 tracking-tight">
@@ -72,7 +72,7 @@ const About = () => {
               </div>
             </div>
             <div className="relative">
-              <div className="absolute inset-0 bg-orange-500/10 rounded-2xl transform translate-x-3 translate-y-3"></div>
+              <div className="absolute inset-0 bg-[#01B3D1]/15 rounded-2xl transform translate-x-3 translate-y-3"></div>
               <img
                 src="https://images.unsplash.com/photo-1581092162384-8987c1d64718?crop=entropy&cs=srgb&fm=jpg&w=800&q=80"
                 alt="Engineers planning construction"
@@ -99,10 +99,10 @@ const About = () => {
               return (
                 <Card
                   key={index}
-                  className="bg-white border-slate-200 hover:border-orange-500/50 hover:shadow-xl transition-all text-center rounded-xl"
+                  className="bg-white border-slate-200 hover:border-[#F35A61]/40 hover:shadow-xl transition-all text-center rounded-xl"
                 >
                   <CardContent className="p-6">
-                    <div className="inline-block p-3.5 bg-orange-50 text-orange-600 border border-orange-200 rounded-full mb-4">
+                    <div className="inline-block p-3.5 bg-[#FDF2F3] text-[#F35A61] border border-[#FCA5A9]/50 rounded-full mb-4">
                       <IconComponent className="h-6 w-6" />
                     </div>
                     <h3 className="text-base font-bold text-slate-900 mb-2">{value.title}</h3>
@@ -129,14 +129,14 @@ const About = () => {
             {teamData.map((member) => (
               <Card
                 key={member.id}
-                className="bg-white border-slate-200 hover:border-orange-500 shadow-md transition-all rounded-xl overflow-hidden"
+                className="bg-white border-slate-200 hover:border-[#01B3D1] shadow-md transition-all rounded-xl overflow-hidden"
               >
                 <CardContent className="p-6 text-center">
-                  <div className="w-20 h-20 rounded-full bg-gradient-to-br from-orange-500 to-orange-600 mx-auto mb-4 flex items-center justify-center text-white text-xl font-bold shadow-md">
+                  <div className="w-20 h-20 rounded-full bg-gradient-to-tr from-[#F35A61] via-[#B85C8D] to-[#01B3D1] mx-auto mb-4 flex items-center justify-center text-white text-xl font-bold shadow-md">
                     {member.name.split(' ').map(n => n[0]).join('')}
                   </div>
                   <h3 className="text-base font-bold text-slate-900 mb-1">{member.name}</h3>
-                  <p className="text-orange-600 text-xs font-semibold mb-2">{member.position}</p>
+                  <p className="text-[#F35A61] text-xs font-semibold mb-2">{member.position}</p>
                   <p className="text-slate-600 text-xs font-light">{member.expertise}</p>
                   <p className="text-slate-400 text-[11px] mt-1">{member.experience}</p>
                 </CardContent>
@@ -162,7 +162,7 @@ const About = () => {
                 key={index}
                 className="p-4 bg-white border border-slate-200 rounded-xl text-center shadow-sm"
               >
-                <Award className="h-6 w-6 text-orange-600 mx-auto mb-2" />
+                <Award className="h-6 w-6 text-[#01B3D1] mx-auto mb-2" />
                 <p className="text-slate-900 text-xs font-semibold">{cert}</p>
               </div>
             ))}
@@ -171,27 +171,27 @@ const About = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-gradient-to-r from-orange-600 to-orange-700">
+      <section className="py-20 bg-gradient-to-r from-[#F35A61] via-[#B85C8D] to-[#01B3D1] shadow-xl">
         <div className="max-w-4xl mx-auto px-6 lg:px-8 text-center">
           <h2 className="text-3xl md:text-4xl font-extrabold text-white mb-4 tracking-tight">
             Ready to Plan Your Construction Project?
           </h2>
-          <p className="text-orange-100 mb-8 max-w-xl mx-auto font-light">
+          <p className="text-white/90 mb-8 max-w-xl mx-auto font-light">
             Meet our team for a free on-site consultation or check out our transparent packages.
           </p>
           <div className="flex flex-wrap justify-center gap-4">
             <Button
               size="lg"
-              className="bg-slate-950 hover:bg-slate-900 text-white px-8 py-6 text-base font-semibold rounded-lg shadow-xl border border-orange-400"
+              className="bg-white hover:bg-slate-100 text-slate-950 px-8 py-6 text-base font-bold rounded-lg shadow-2xl transition-all hover:scale-105"
               onClick={() => window.location.href = '/site-visit'}
             >
               Book Site Visit
-              <ArrowRight className="ml-2 h-5 w-5" />
+              <ArrowRight className="ml-2 h-5 w-5 text-[#F35A61]" />
             </Button>
             <Button
               size="lg"
               variant="outline"
-              className="border-white/50 text-white hover:bg-white/10 px-8 py-6 text-base font-semibold rounded-lg bg-transparent"
+              className="border-white/60 text-white hover:bg-white/15 px-8 py-6 text-base font-semibold rounded-lg bg-transparent"
               onClick={() => window.location.href = '/contact'}
             >
               Contact Our Studio

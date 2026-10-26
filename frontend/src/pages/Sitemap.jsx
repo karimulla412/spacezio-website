@@ -62,9 +62,9 @@ const Sitemap = () => {
         {/* Sitemap Grid */}
         <div className="grid md:grid-cols-2 gap-8">
           {siteLinks.map((section, idx) => (
-            <div key={idx} className="bg-gradient-to-br from-gray-900 to-gray-800 rounded-2xl p-8 border border-gray-700 hover:border-orange-500/50 shadow-xl transition-all duration-300">
+            <div key={idx} className="bg-gradient-to-br from-gray-900 to-gray-800 rounded-2xl p-8 border border-gray-700 hover:border-[#01B3D1]/50 shadow-xl transition-all duration-300">
               <div className="flex items-center gap-3 mb-6 pb-4 border-b border-gray-700">
-                <div className="p-3 bg-orange-600/10 border border-orange-500/20 rounded-lg text-orange-400">
+                <div className="p-3 bg-[#EFFBFC]/10 border border-[#01B3D1]/30 rounded-lg text-[#01B3D1]">
                   {section.icon}
                 </div>
                 <h2 className="text-2xl font-bold text-white">{section.category}</h2>
@@ -77,7 +77,7 @@ const Sitemap = () => {
                       href={link.url}
                       className="block group p-2 rounded-lg hover:bg-gray-800 transition-colors"
                     >
-                      <h3 className="text-lg font-semibold text-gray-200 group-hover:text-orange-400 transition-colors mb-1">
+                      <h3 className="text-lg font-semibold text-gray-200 group-hover:text-[#F35A61] transition-colors mb-1">
                         {link.name} →
                       </h3>
                       <p className="text-sm text-gray-400">
@@ -92,24 +92,24 @@ const Sitemap = () => {
         </div>
 
         {/* Additional Info */}
-        <div className="mt-16 bg-gradient-to-r from-orange-600 to-orange-700 rounded-2xl p-8 shadow-2xl text-white">
+        <div className="mt-16 bg-gradient-to-r from-[#F35A61] via-[#B85C8D] to-[#01B3D1] rounded-2xl p-8 shadow-2xl text-white">
           <h2 className="text-2xl font-extrabold text-white mb-2">Need Immediate Guidance?</h2>
-          <p className="text-orange-100 mb-6 font-light">
+          <p className="text-white/90 mb-6 font-light">
             Can't find what you're looking for or need an architect consultation? We're here to help!
           </p>
           <div className="flex flex-wrap gap-4">
             <a
               href="/contact"
-              className="inline-flex items-center gap-2 bg-black hover:bg-gray-900 text-white px-6 py-3 rounded-lg font-semibold transition-all duration-300 shadow-lg border border-orange-400"
+              className="inline-flex items-center gap-2 bg-black hover:bg-gray-900 text-white px-6 py-3 rounded-lg font-semibold transition-all duration-300 shadow-lg border border-white/30"
             >
               <Mail className="h-5 w-5" />
               Contact Us
             </a>
             <a
               href="tel:+919686511132"
-              className="inline-flex items-center gap-2 bg-white text-orange-600 hover:bg-gray-100 px-6 py-3 rounded-lg font-semibold transition-all duration-300 shadow-lg"
+              className="inline-flex items-center gap-2 bg-white text-slate-950 hover:bg-gray-100 px-6 py-3 rounded-lg font-bold transition-all duration-300 shadow-lg"
             >
-              <MapPin className="h-5 w-5" />
+              <MapPin className="h-5 w-5 text-[#F35A61]" />
               Call +91 96865 11132
             </a>
           </div>

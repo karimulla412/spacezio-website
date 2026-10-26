@@ -332,11 +332,11 @@ const ChatBot = () => {
     return (
       <button
         onClick={toggleChat}
-        className="fixed bottom-20 right-4 sm:bottom-6 sm:right-6 bg-gradient-to-tr from-orange-600 to-amber-500 hover:from-orange-500 hover:to-amber-400 text-white p-3.5 sm:p-4 rounded-full shadow-2xl transition-all duration-300 hover:scale-110 z-50 group cursor-pointer border border-orange-400/30"
+        className="fixed bottom-20 right-4 sm:bottom-6 sm:right-6 bg-gradient-to-tr from-[#F35A61] via-[#B85C8D] to-[#01B3D1] hover:brightness-110 text-white p-3.5 sm:p-4 rounded-full shadow-2xl transition-all duration-300 hover:scale-110 z-50 group cursor-pointer border border-white/30"
         aria-label="Open Spacexio Assistant"
       >
         <MessageCircle className="h-6 w-6 sm:h-7 sm:w-7" />
-        <span className="absolute -top-1 -right-1 bg-red-500 text-white text-[10px] font-bold rounded-full h-5 w-5 flex items-center justify-center animate-pulse border-2 border-zinc-950">
+        <span className="absolute -top-1 -right-1 bg-[#F35A61] text-white text-[10px] font-bold rounded-full h-5 w-5 flex items-center justify-center animate-pulse border-2 border-white">
           1
         </span>
       </button>
@@ -344,16 +344,16 @@ const ChatBot = () => {
   }
 
   return (
-    <div className={`fixed bottom-20 right-4 sm:bottom-6 sm:right-6 w-96 max-w-[calc(100vw-2rem)] ${isMinimized ? 'h-14' : 'h-[580px] max-h-[80vh]'} bg-zinc-950 border border-zinc-800 rounded-3xl shadow-2xl flex flex-col z-50 transition-all duration-300 overflow-hidden text-zinc-100`}>
+    <div className={`fixed bottom-20 right-4 sm:bottom-6 sm:right-6 w-96 max-w-[calc(100vw-2rem)] ${isMinimized ? 'h-14' : 'h-[580px] max-h-[80vh]'} bg-white border border-slate-200 rounded-3xl shadow-2xl flex flex-col z-50 transition-all duration-300 overflow-hidden text-slate-900`}>
       {/* Header */}
-      <div className="bg-gradient-to-r from-orange-600 to-orange-700 text-white p-4 rounded-t-2xl flex items-center justify-between">
+      <div className="bg-gradient-to-r from-[#F35A61] via-[#B85C8D] to-[#01B3D1] text-white p-4 rounded-t-2xl flex items-center justify-between">
         <div className="flex items-center gap-3">
-          <div className="w-10 h-10 bg-zinc-950/40 rounded-full flex items-center justify-center p-1.5 border border-white/20 shadow-inner overflow-hidden">
+          <div className="w-10 h-10 bg-white/20 rounded-full flex items-center justify-center p-1.5 border border-white/30 shadow-inner overflow-hidden">
             <img src="/icon.png" alt="Spacexio" className="w-full h-full object-contain" width="40" height="40" />
           </div>
           <div>
             <h3 className="font-bold text-sm">Spacexio Assistant</h3>
-            <p className="text-xs text-orange-100">● Online</p>
+            <p className="text-xs text-white/90">● Online</p>
           </div>
         </div>
         <div className="flex items-center gap-2">
@@ -375,10 +375,10 @@ const ChatBot = () => {
       {!isMinimized && (
         <>
           {/* Messages */}
-          <div className="flex-1 overflow-y-auto p-4 space-y-4 bg-gray-50">
+          <div className="flex-1 overflow-y-auto p-4 space-y-4 bg-slate-50">
             {messages.map((msg) => (
               <div key={msg.id} className={`flex ${msg.sender === 'user' ? 'justify-end' : 'justify-start'}`}>
-                <div className={`max-w-[80%] ${msg.sender === 'user' ? 'bg-orange-600 text-white' : 'bg-white text-gray-900'} rounded-2xl p-3 shadow-sm`}>
+                <div className={`max-w-[80%] ${msg.sender === 'user' ? 'bg-gradient-to-r from-[#F35A61] to-[#E04850] text-white' : 'bg-white text-slate-900 border border-slate-200'} rounded-2xl p-3 shadow-xs`}>
                   <p className="text-sm whitespace-pre-line">{msg.text}</p>
                   {msg.buttons && msg.buttons.length > 0 && (
                     <div className="mt-3 flex flex-wrap gap-2">
@@ -386,7 +386,7 @@ const ChatBot = () => {
                         <button
                           key={idx}
                           onClick={() => handleButtonClick(btn)}
-                          className="bg-orange-50 hover:bg-orange-100 text-orange-700 px-4 py-2 rounded-lg text-xs font-semibold transition-colors border border-orange-200"
+                          className="bg-[#FDF2F3] hover:bg-[#FEE8EA] text-[#F35A61] px-4 py-2 rounded-lg text-xs font-semibold transition-colors border border-[#FCA5A9]"
                         >
                           {btn}
                         </button>
@@ -402,41 +402,41 @@ const ChatBot = () => {
 
           {/* Input */}
           {conversationState === 'leadCapture' || messages.some(m => m.showInput) ? (
-            <form onSubmit={handleInputSubmit} className="p-4 bg-white border-t border-gray-200">
+            <form onSubmit={handleInputSubmit} className="p-4 bg-white border-t border-slate-200">
               <div className="flex gap-2">
                 <input
                   type="text"
                   value={userInput}
                   onChange={(e) => setUserInput(e.target.value)}
                   placeholder="Type your email or phone..."
-                  className="flex-1 px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-orange-500 text-sm"
+                  className="flex-1 px-4 py-3 border border-slate-300 rounded-lg focus:outline-none focus:border-[#F35A61] text-sm"
                 />
                 <button
                   type="submit"
-                  className="bg-orange-600 hover:bg-orange-700 text-white p-3 rounded-lg transition-colors"
+                  className="bg-[#F35A61] hover:bg-[#E04850] text-white p-3 rounded-lg transition-colors"
                 >
                   <Send className="h-5 w-5" />
                 </button>
               </div>
             </form>
           ) : (
-            <div className="p-4 bg-white border-t border-gray-200">
+            <div className="p-4 bg-white border-t border-slate-200">
               <div className="flex gap-2 justify-center">
                 <button
                   onClick={() => handleButtonClick('Get Estimate')}
-                  className="flex-1 bg-orange-50 hover:bg-orange-100 text-orange-700 px-3 py-2 rounded-lg text-xs font-semibold transition-colors"
+                  className="flex-1 bg-[#FDF2F3] hover:bg-[#FEE8EA] text-[#F35A61] border border-[#FCA5A9] px-3 py-2 rounded-lg text-xs font-semibold transition-colors"
                 >
                   💰 Estimate
                 </button>
                 <button
                   onClick={() => handleButtonClick('Start My Project')}
-                  className="flex-1 bg-orange-50 hover:bg-orange-100 text-orange-700 px-3 py-2 rounded-lg text-xs font-semibold transition-colors"
+                  className="flex-1 bg-[#FDF2F3] hover:bg-[#FEE8EA] text-[#F35A61] border border-[#FCA5A9] px-3 py-2 rounded-lg text-xs font-semibold transition-colors"
                 >
                   🏗️ Start
                 </button>
                 <button
                   onClick={() => handleButtonClick('Book Consultation')}
-                  className="flex-1 bg-orange-50 hover:bg-orange-100 text-orange-700 px-3 py-2 rounded-lg text-xs font-semibold transition-colors"
+                  className="flex-1 bg-[#EFFBFC] hover:bg-[#E0F7FA] text-[#01B3D1] border border-[#99E7EF] px-3 py-2 rounded-lg text-xs font-semibold transition-colors"
                 >
                   📞 Talk
                 </button>

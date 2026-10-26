@@ -18,7 +18,7 @@ const Industries = () => {
       {/* Hero Section */}
       <section className="py-16 bg-black border-b border-gray-800">
         <div className="max-w-7xl mx-auto px-6 lg:px-8 text-center">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-orange-600/10 border border-orange-500/20 text-orange-400 text-xs font-semibold uppercase tracking-wider mb-4">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#FDF2F3]/10 border border-[#F35A61]/30 text-[#F35A61] text-xs font-semibold uppercase tracking-wider mb-4">
             <Building2 className="h-3.5 w-3.5" />
             Sectors We Specialize In
           </div>
@@ -56,7 +56,7 @@ const Industries = () => {
                       <div className="space-y-2.5">
                         {industry.capabilities.map((capability, idx) => (
                           <div key={idx} className="flex items-start">
-                            <Check className="h-5 w-5 text-orange-400 mr-2.5 flex-shrink-0 mt-0.5" />
+                            <Check className="h-5 w-5 text-[#01B3D1] mr-2.5 flex-shrink-0 mt-0.5" />
                             <span className="text-gray-300 text-sm font-medium">{capability}</span>
                           </div>
                         ))}
@@ -72,7 +72,7 @@ const Industries = () => {
 
                     <Button
                       size="lg"
-                      className="bg-orange-600 hover:bg-orange-700 text-white font-semibold text-sm rounded-lg"
+                      className="bg-gradient-to-r from-[#F35A61] to-[#E04850] hover:brightness-105 text-white font-semibold text-sm rounded-lg shadow-lg shadow-[#F35A61]/25 transition-all"
                       onClick={() => window.location.href = '/contact'}
                     >
                       Inquire for This Project Type
@@ -99,21 +99,21 @@ const Industries = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-gradient-to-r from-orange-600 to-orange-700">
+      <section className="py-20 bg-gradient-to-r from-[#F35A61] via-[#B85C8D] to-[#01B3D1] shadow-2xl">
         <div className="max-w-4xl mx-auto px-6 lg:px-8 text-center">
           <h2 className="text-3xl font-extrabold text-white mb-4 tracking-tight">
             Have a Specific Project in Mind?
           </h2>
-          <p className="text-orange-100 mb-8 max-w-xl mx-auto font-light">
+          <p className="text-white/90 mb-8 max-w-xl mx-auto font-light">
             Whether it's an individual plot in Visakhapatnam or a multi-story apartment, we provide turnkey delivery.
           </p>
           <Button
             size="lg"
-            className="bg-black hover:bg-gray-900 text-white px-8 py-6 text-base font-semibold rounded-lg shadow-xl border border-orange-400"
+            className="bg-white hover:bg-slate-100 text-slate-950 px-8 py-6 text-base font-bold rounded-lg shadow-2xl transition-all hover:scale-105"
             onClick={() => window.location.href = '/site-visit'}
           >
             Book Free Site Inspection
-            <ArrowRight className="ml-2 h-5 w-5" />
+            <ArrowRight className="ml-2 h-5 w-5 text-[#F35A61]" />
           </Button>
         </div>
       </section>

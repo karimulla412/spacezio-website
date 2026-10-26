@@ -92,11 +92,11 @@ const Contact = () => {
             {/* Left Side - Content */}
             <div className="space-y-8">
               <div>
-                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-orange-50 border border-orange-200 text-orange-600 text-xs font-mono font-semibold uppercase tracking-wider mb-4">
+                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#FDF2F3] border border-[#FCA5A9] text-[#F35A61] text-xs font-mono font-semibold uppercase tracking-wider mb-4">
                   Direct Studio Inquiry // Visakhapatnam
                 </div>
                 <h1 className="text-4xl md:text-5xl font-extrabold text-slate-950 mb-4 leading-tight">
-                  Start Your Project with <span className="text-orange-600">SPACEXIO</span>
+                  Start Your Project with <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#F35A61] via-[#B85C8D] to-[#01B3D1]">SPACEXIO</span>
                 </h1>
                 <p className="text-xl text-slate-600 font-light">
                   Smart, BIM-driven solutions to design and build efficiently.
@@ -105,19 +105,19 @@ const Contact = () => {
 
               <div className="space-y-5 text-slate-700">
                 <div className="flex items-start gap-3">
-                  <div className="w-2.5 h-2.5 bg-orange-500 rounded-full mt-2 flex-shrink-0"></div>
+                  <div className="w-2.5 h-2.5 bg-[#F35A61] rounded-full mt-2 flex-shrink-0"></div>
                   <p className="text-lg">BIM-driven planning & 3D clash coordination</p>
                 </div>
                 <div className="flex items-start gap-3">
-                  <div className="w-2.5 h-2.5 bg-orange-500 rounded-full mt-2 flex-shrink-0"></div>
+                  <div className="w-2.5 h-2.5 bg-[#01B3D1] rounded-full mt-2 flex-shrink-0"></div>
                   <p className="text-lg">Cost-efficient & optimized construction solutions</p>
                 </div>
                 <div className="flex items-start gap-3">
-                  <div className="w-2.5 h-2.5 bg-orange-500 rounded-full mt-2 flex-shrink-0"></div>
+                  <div className="w-2.5 h-2.5 bg-[#F35A61] rounded-full mt-2 flex-shrink-0"></div>
                   <p className="text-lg">Faster, accurate milestone-based execution</p>
                 </div>
                 <div className="flex items-start gap-3">
-                  <div className="w-2.5 h-2.5 bg-orange-500 rounded-full mt-2 flex-shrink-0"></div>
+                  <div className="w-2.5 h-2.5 bg-[#01B3D1] rounded-full mt-2 flex-shrink-0"></div>
                   <p className="text-lg">Transparent collaboration & 10-year warranty</p>
                 </div>
               </div>
@@ -128,7 +128,7 @@ const Contact = () => {
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div>
                   <label htmlFor="name" className="block text-sm font-medium text-slate-700 mb-2">
-                    Full Name <span className="text-orange-600">*</span>
+                    Full Name <span className="text-[#F35A61]">*</span>
                   </label>
                   <Input
                     id="name"
@@ -137,14 +137,14 @@ const Contact = () => {
                     required
                     value={formData.name}
                     onChange={handleChange}
-                    className="w-full bg-slate-50 border-slate-300 text-slate-900 placeholder-slate-400 focus:border-orange-500 focus:bg-white h-12 rounded-lg"
+                    className="w-full bg-slate-50 border-slate-300 text-slate-900 placeholder-slate-400 focus:border-[#F35A61] focus:bg-white h-12 rounded-lg"
                     placeholder="Enter your name"
                   />
                 </div>
 
                 <div>
                   <label htmlFor="phone" className="block text-sm font-medium text-slate-700 mb-2">
-                    Phone Number <span className="text-orange-600">*</span>
+                    Phone Number <span className="text-[#F35A61]">*</span>
                   </label>
                   <Input
                     id="phone"
@@ -153,14 +153,14 @@ const Contact = () => {
                     required
                     value={formData.phone}
                     onChange={handleChange}
-                    className="w-full bg-slate-50 border-slate-300 text-slate-900 placeholder-slate-400 focus:border-orange-500 focus:bg-white h-12 rounded-lg"
+                    className="w-full bg-slate-50 border-slate-300 text-slate-900 placeholder-slate-400 focus:border-[#F35A61] focus:bg-white h-12 rounded-lg"
                     placeholder="+91 98765 43210"
                   />
                 </div>
 
                 <div>
                   <label htmlFor="email" className="block text-sm font-medium text-slate-700 mb-2">
-                    Email <span className="text-orange-600">*</span>
+                    Email <span className="text-[#F35A61]">*</span>
                   </label>
                   <Input
                     id="email"
@@ -169,14 +169,14 @@ const Contact = () => {
                     required
                     value={formData.email}
                     onChange={handleChange}
-                    className="w-full bg-slate-50 border-slate-300 text-slate-900 placeholder-slate-400 focus:border-orange-500 focus:bg-white h-12 rounded-lg"
+                    className="w-full bg-slate-50 border-slate-300 text-slate-900 placeholder-slate-400 focus:border-[#F35A61] focus:bg-white h-12 rounded-lg"
                     placeholder="your@email.com"
                   />
                 </div>
 
                 <div>
                   <label htmlFor="service" className="block text-sm font-medium text-slate-700 mb-2">
-                    Project Type <span className="text-orange-600">*</span>
+                    Project Type <span className="text-[#F35A61]">*</span>
                   </label>
                   <select
                     id="service"
@@ -184,7 +184,7 @@ const Contact = () => {
                     required
                     value={formData.service}
                     onChange={handleChange}
-                    className="w-full px-4 py-3 bg-slate-50 border border-slate-300 rounded-lg text-slate-900 focus:outline-none focus:border-orange-500 focus:bg-white focus:ring-2 focus:ring-orange-500/20 transition-colors h-12"
+                    className="w-full px-4 py-3 bg-slate-50 border border-slate-300 rounded-lg text-slate-900 focus:outline-none focus:border-[#F35A61] focus:bg-white focus:ring-2 focus:ring-[#F35A61]/20 transition-colors h-12"
                   >
                     <option value="">Select project type</option>
                     <option value="New Home Construction">New Home Construction</option>
@@ -206,7 +206,7 @@ const Contact = () => {
                     rows={4}
                     value={formData.message}
                     onChange={handleChange}
-                    className="w-full bg-slate-50 border-slate-300 text-slate-900 placeholder-slate-400 focus:border-orange-500 focus:bg-white resize-none rounded-lg"
+                    className="w-full bg-slate-50 border-slate-300 text-slate-900 placeholder-slate-400 focus:border-[#F35A61] focus:bg-white resize-none rounded-lg"
                     placeholder="Tell us about your project..."
                   />
                 </div>
@@ -220,7 +220,7 @@ const Contact = () => {
                     name="hearAboutUs"
                     value={formData.hearAboutUs}
                     onChange={handleChange}
-                    className="w-full px-4 py-3 bg-slate-50 border border-slate-300 rounded-lg text-slate-900 focus:outline-none focus:border-orange-500 focus:bg-white focus:ring-2 focus:ring-orange-500/20 transition-colors h-12"
+                    className="w-full px-4 py-3 bg-slate-50 border border-slate-300 rounded-lg text-slate-900 focus:outline-none focus:border-[#F35A61] focus:bg-white focus:ring-2 focus:ring-[#F35A61]/20 transition-colors h-12"
                   >
                     <option value="">Select an option</option>
                     <option value="Google Search">Google Search</option>
@@ -242,7 +242,7 @@ const Contact = () => {
                     type="text"
                     value={formData.referralCode}
                     onChange={handleChange}
-                    className="w-full bg-slate-50 border-slate-300 text-slate-900 placeholder-slate-400 focus:border-orange-500 focus:bg-white h-12 rounded-lg"
+                    className="w-full bg-slate-50 border-slate-300 text-slate-900 placeholder-slate-400 focus:border-[#F35A61] focus:bg-white h-12 rounded-lg"
                     placeholder="Enter referral code if you have one"
                   />
                   <p className="text-xs text-slate-500 mt-1">
@@ -253,7 +253,7 @@ const Contact = () => {
                 <Button
                   type="submit"
                   disabled={isSubmitting}
-                  className="w-full bg-orange-600 hover:bg-orange-700 text-white font-semibold py-4 text-lg rounded-lg transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed shadow-md hover:shadow-lg"
+                  className="w-full bg-gradient-to-r from-[#F35A61] to-[#E04850] hover:brightness-105 text-white font-semibold py-4 text-lg rounded-lg transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed shadow-lg shadow-[#F35A61]/25"
                 >
                   {isSubmitting ? 'Submitting...' : 'Start Your Project'}
                 </Button>
@@ -271,11 +271,11 @@ const Contact = () => {
       <section className="py-20 bg-[#F6F5EF] border-b border-slate-200">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <div className="grid md:grid-cols-3 gap-8">
-            <Card className="bg-white border-slate-200 hover:border-orange-500/50 hover:shadow-xl transition-all duration-300">
+            <Card className="bg-white border-slate-200 hover:border-[#F35A61]/40 hover:shadow-xl transition-all duration-300">
               <CardContent className="p-6">
                 <div className="flex items-start gap-4">
-                  <div className="p-3 bg-orange-50 border border-orange-200 rounded-lg">
-                    <MapPin className="h-6 w-6 text-orange-600" />
+                  <div className="p-3 bg-[#FDF2F3] border border-[#FCA5A9]/50 rounded-lg">
+                    <MapPin className="h-6 w-6 text-[#F35A61]" />
                   </div>
                   <div>
                     <h3 className="text-slate-900 font-semibold mb-2">Office Address</h3>
@@ -290,17 +290,17 @@ const Contact = () => {
               </CardContent>
             </Card>
 
-            <Card className="bg-white border-slate-200 hover:border-orange-500/50 hover:shadow-xl transition-all duration-300">
+            <Card className="bg-white border-slate-200 hover:border-[#01B3D1]/40 hover:shadow-xl transition-all duration-300">
               <CardContent className="p-6">
                 <div className="flex items-start gap-4">
-                  <div className="p-3 bg-orange-50 border border-orange-200 rounded-lg">
-                    <Phone className="h-6 w-6 text-orange-600" />
+                  <div className="p-3 bg-[#EFFBFC] border border-[#99E7EF]/50 rounded-lg">
+                    <Phone className="h-6 w-6 text-[#01B3D1]" />
                   </div>
                   <div>
                     <h3 className="text-slate-900 font-semibold mb-2">Phone</h3>
                     <a
                       href="tel:+919686511132"
-                      className="text-slate-600 hover:text-orange-600 transition-colors font-medium"
+                      className="text-slate-600 hover:text-[#01B3D1] transition-colors font-medium"
                     >
                       +91 96865 11132
                     </a>
@@ -309,17 +309,17 @@ const Contact = () => {
               </CardContent>
             </Card>
 
-            <Card className="bg-white border-slate-200 hover:border-orange-500/50 hover:shadow-xl transition-all duration-300">
+            <Card className="bg-white border-slate-200 hover:border-[#F35A61]/40 hover:shadow-xl transition-all duration-300">
               <CardContent className="p-6">
                 <div className="flex items-start gap-4">
-                  <div className="p-3 bg-orange-50 border border-orange-200 rounded-lg">
-                    <Mail className="h-6 w-6 text-orange-600" />
+                  <div className="p-3 bg-[#FDF2F3] border border-[#FCA5A9]/50 rounded-lg">
+                    <Mail className="h-6 w-6 text-[#F35A61]" />
                   </div>
                   <div>
                     <h3 className="text-slate-900 font-semibold mb-2">Email</h3>
                     <a
                       href="mailto:hellospacexio@gmail.com"
-                      className="text-slate-600 hover:text-orange-600 transition-colors font-medium"
+                      className="text-slate-600 hover:text-[#F35A61] transition-colors font-medium"
                     >
                       hellospacexio@gmail.com
                     </a>
@@ -342,21 +342,21 @@ const Contact = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-16 bg-gradient-to-r from-orange-600 to-orange-700">
+      <section className="py-16 bg-gradient-to-r from-[#F35A61] via-[#B85C8D] to-[#01B3D1] shadow-xl">
         <div className="max-w-4xl mx-auto px-6 lg:px-8 text-center">
           <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
             Prefer to Talk Directly?
           </h2>
-          <p className="text-lg text-orange-100 mb-8 font-light">
+          <p className="text-lg text-white/90 mb-8 font-light">
             Call us now for immediate assistance with your architectural & construction needs.
           </p>
           <Button
             size="lg"
-            className="bg-slate-950 text-white hover:bg-slate-900 border border-orange-400 px-8 py-6 text-lg font-semibold shadow-xl"
+            className="bg-white text-slate-950 hover:bg-slate-100 px-8 py-6 text-lg font-bold shadow-2xl transition-all hover:scale-105"
             onClick={() => window.location.href = 'tel:+919686511132'}
           >
             Call +91 96865 11132
-            <ArrowRight className="ml-2 h-5 w-5" />
+            <ArrowRight className="ml-2 h-5 w-5 text-[#F35A61]" />
           </Button>
         </div>
       </section>

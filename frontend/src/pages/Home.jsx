@@ -243,7 +243,7 @@ const Home = () => {
     : projectsData.filter(p => p.category === selectedPortfolioTab || (selectedPortfolioTab === 'Villa' && p.title.toLowerCase().includes('villa')));
 
   return (
-    <div className="min-h-screen bg-[#FCFCF7] text-slate-900 font-sans antialiased selection:bg-orange-500 selection:text-white">
+    <div className="min-h-screen bg-[#FCFCF7] text-slate-900 font-sans antialiased selection:bg-[#FDF2F3]0 selection:text-white">
       <SEO 
         title="Spacexio | Turnkey Home Construction & Architectural Studio in Visakhapatnam & Hyderabad"
         description="Spacexio is India's leading tech-enabled home construction and architectural studio. Fixed-price turnkey packages from ₹1,850/sq.ft, milestone escrow payments, 430+ automated quality checks, and 10-year structural warranty."
@@ -258,7 +258,7 @@ const Home = () => {
         <div className="absolute inset-0 bg-[radial-gradient(#CBD5E1_1px,transparent_1px)] [background-size:28px_28px] opacity-40 pointer-events-none" />
         
         {/* Warm Subtle Ambient Glow */}
-        <div className="absolute top-1/4 left-1/3 -translate-x-1/2 w-[650px] h-[350px] bg-orange-100/50 rounded-full blur-[140px] pointer-events-none" />
+        <div className="absolute top-1/4 left-1/3 -translate-x-1/2 w-[650px] h-[350px] bg-[#F35A61]/10 rounded-full blur-[140px] pointer-events-none" />
 
         <div className="max-w-7xl mx-auto px-6 lg:px-8 relative z-10">
           <div className="grid lg:grid-cols-12 gap-10 lg:gap-8 items-center">
@@ -267,15 +267,15 @@ const Home = () => {
             <div className="lg:col-span-7">
               {/* Studio Metadata Ribbon */}
               <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white border border-slate-200 text-xs font-mono tracking-wider text-slate-700 mb-6 shadow-2xs">
-                <span className="w-2 h-2 rounded-full bg-orange-500 pulse-indicator" />
-                <span className="text-orange-600 font-bold uppercase">SPACEXIO ARCHITECTURAL STUDIO</span>
+                <span className="w-2 h-2 rounded-full bg-[#FDF2F3]0 pulse-indicator" />
+                <span className="text-[#F35A61] font-bold uppercase">SPACEXIO ARCHITECTURAL STUDIO</span>
                 <span className="text-slate-400">•</span>
                 <span className="font-semibold text-slate-600">AP & HYDERABAD</span>
               </div>
               
               <h1 className="text-4xl sm:text-6xl lg:text-[62px] font-extrabold text-slate-950 tracking-tight leading-[1.1] mb-6">
                 You dream. <br />
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-600 via-amber-600 to-orange-700">
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#F35A61] via-[#B85C8D] to-[#01B3D1]">
                   We build and deliver.
                 </span>
               </h1>
@@ -287,7 +287,7 @@ const Home = () => {
               {/* 4 Proof Metrics Strip (Inspired by JSW One Homes & Brick & Bolt) */}
               <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 py-4 px-4 bg-white border border-slate-200/90 rounded-2xl mb-8 shadow-sm">
                 <div className="border-r border-slate-200 pr-2">
-                  <div className="text-xl sm:text-2xl font-black text-orange-600 font-mono">+91 NPS</div>
+                  <div className="text-xl sm:text-2xl font-black text-[#F35A61] font-mono">+91 NPS</div>
                   <div className="text-[11px] font-mono text-slate-500 uppercase tracking-wider font-semibold">Client Trust</div>
                 </div>
                 <div className="border-r border-slate-200 sm:pr-2 pl-1">
@@ -308,7 +308,7 @@ const Home = () => {
               <div className="flex flex-wrap items-center gap-4">
                 <Button
                   size="lg"
-                  className="bg-orange-600 hover:bg-orange-500 text-white font-bold px-7 py-6 rounded-xl text-sm shadow-lg shadow-orange-600/20 shimmer-sweep transition-all hover:translate-y-[-2px] cursor-pointer"
+                  className="bg-[#F35A61] hover:bg-[#FDF2F3]0 text-white font-bold px-7 py-6 rounded-xl text-sm shadow-lg shadow-[#F35A61]/25 shimmer-sweep transition-all hover:translate-y-[-2px] cursor-pointer"
                   onClick={() => {
                     const el = document.getElementById('live-estimator');
                     if (el) el.scrollIntoView({ behavior: 'smooth' });
@@ -324,7 +324,7 @@ const Home = () => {
                     variant="outline"
                     className="border-slate-300 bg-white hover:bg-slate-50 text-slate-800 font-semibold px-7 py-6 rounded-xl text-sm transition-all cursor-pointer shadow-2xs"
                   >
-                    <Layers className="mr-2 h-4 w-4 text-orange-600" />
+                    <Layers className="mr-2 h-4 w-4 text-[#F35A61]" />
                     Compare Packages (₹1,850 - ₹2,650)
                   </Button>
                 </Link>
@@ -334,7 +334,7 @@ const Home = () => {
               <div className="mt-7 flex items-center gap-3 text-xs text-slate-600">
                 <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
                 <span>Speak directly with our Lead Structural Engineer: </span>
-                <a href="tel:+919686511132" className="text-slate-950 font-mono font-bold hover:text-orange-600 transition-colors">
+                <a href="tel:+919686511132" className="text-slate-950 font-mono font-bold hover:text-[#F35A61] transition-colors">
                   +91 96865 11132
                 </a>
               </div>
@@ -344,11 +344,11 @@ const Home = () => {
             <div className="lg:col-span-5 relative">
               <div className="bg-white border border-slate-200/90 rounded-3xl p-6 sm:p-8 shadow-xl shadow-slate-300/40 relative overflow-hidden">
                 {/* Decorative Soft Amber Corner Glow */}
-                <div className="absolute top-0 right-0 w-36 h-36 bg-orange-100 rounded-full blur-2xl pointer-events-none" />
+                <div className="absolute top-0 right-0 w-36 h-36 bg-[#FDF2F3] rounded-full blur-2xl pointer-events-none" />
 
                 <div className="mb-5">
-                  <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-orange-50 border border-orange-200 text-orange-700 text-[10px] font-mono font-bold uppercase tracking-wider mb-2">
-                    <Sparkles className="h-3 w-3 text-orange-600" />
+                  <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-[#FDF2F3] border border-[#FCA5A9] text-[#F35A61] text-[10px] font-mono font-bold uppercase tracking-wider mb-2">
+                    <Sparkles className="h-3 w-3 text-[#F35A61]" />
                     Free 3D Architectural Consultation
                   </div>
                   <h3 className="text-xl sm:text-2xl font-bold text-slate-900 tracking-tight">
@@ -392,7 +392,7 @@ const Home = () => {
                         placeholder="e.g. Anand Varma"
                         value={heroForm.name}
                         onChange={(e) => setHeroForm({...heroForm, name: e.target.value})}
-                        className="w-full bg-slate-50 border border-slate-200 rounded-xl px-3.5 py-2.5 text-xs text-slate-900 placeholder-slate-400 focus:bg-white focus:outline-none focus:border-orange-500 focus:ring-1 focus:ring-orange-500 transition-colors"
+                        className="w-full bg-slate-50 border border-slate-200 rounded-xl px-3.5 py-2.5 text-xs text-slate-900 placeholder-slate-400 focus:bg-white focus:outline-none focus:border-[#F35A61] focus:ring-1 focus:ring-[#F35A61] transition-colors"
                       />
                     </div>
 
@@ -411,7 +411,7 @@ const Home = () => {
                           placeholder="98765 43210"
                           value={heroForm.phone}
                           onChange={(e) => setHeroForm({...heroForm, phone: e.target.value.replace(/\D/g, '')})}
-                          className="w-full bg-slate-50 border border-slate-200 rounded-xl pl-12 pr-3.5 py-2.5 text-xs text-slate-900 placeholder-slate-400 focus:bg-white focus:outline-none focus:border-orange-500 focus:ring-1 focus:ring-orange-500 font-mono transition-colors"
+                          className="w-full bg-slate-50 border border-slate-200 rounded-xl pl-12 pr-3.5 py-2.5 text-xs text-slate-900 placeholder-slate-400 focus:bg-white focus:outline-none focus:border-[#F35A61] focus:ring-1 focus:ring-[#F35A61] font-mono transition-colors"
                         />
                       </div>
                     </div>
@@ -424,7 +424,7 @@ const Home = () => {
                         <select 
                           value={heroForm.location}
                           onChange={(e) => setHeroForm({...heroForm, location: e.target.value})}
-                          className="w-full bg-slate-50 border border-slate-200 rounded-xl px-3 py-2.5 text-xs text-slate-900 focus:bg-white focus:outline-none focus:border-orange-500 cursor-pointer"
+                          className="w-full bg-slate-50 border border-slate-200 rounded-xl px-3 py-2.5 text-xs text-slate-900 focus:bg-white focus:outline-none focus:border-[#F35A61] cursor-pointer"
                         >
                           <option value="Visakhapatnam">Visakhapatnam (HQ)</option>
                           <option value="Hyderabad">Hyderabad</option>
@@ -446,7 +446,7 @@ const Home = () => {
                           placeholder="e.g. 1800"
                           value={heroForm.plotArea}
                           onChange={(e) => setHeroForm({...heroForm, plotArea: e.target.value})}
-                          className="w-full bg-slate-50 border border-slate-200 rounded-xl px-3.5 py-2.5 text-xs text-slate-900 placeholder-slate-400 focus:bg-white focus:outline-none focus:border-orange-500 font-mono"
+                          className="w-full bg-slate-50 border border-slate-200 rounded-xl px-3.5 py-2.5 text-xs text-slate-900 placeholder-slate-400 focus:bg-white focus:outline-none focus:border-[#F35A61] font-mono"
                         />
                       </div>
                     </div>
@@ -458,7 +458,7 @@ const Home = () => {
                       <select 
                         value={heroForm.timeframe}
                         onChange={(e) => setHeroForm({...heroForm, timeframe: e.target.value})}
-                        className="w-full bg-slate-50 border border-slate-200 rounded-xl px-3 py-2.5 text-xs text-slate-900 focus:bg-white focus:outline-none focus:border-orange-500 cursor-pointer"
+                        className="w-full bg-slate-50 border border-slate-200 rounded-xl px-3 py-2.5 text-xs text-slate-900 focus:bg-white focus:outline-none focus:border-[#F35A61] cursor-pointer"
                       >
                         <option value="Immediately">Immediately (Within 30 Days)</option>
                         <option value="Within 1-3 Months">Within 1-3 Months</option>
@@ -470,7 +470,7 @@ const Home = () => {
                     <Button
                       type="submit"
                       disabled={heroSubmitting}
-                      className="w-full bg-gradient-to-r from-orange-600 via-orange-500 to-amber-500 hover:from-orange-500 hover:to-amber-500 text-white font-bold text-xs py-5 rounded-xl shadow-md shadow-orange-600/20 shimmer-sweep mt-2 cursor-pointer"
+                      className="w-full bg-gradient-to-r from-[#F35A61] via-[#B85C8D] to-[#01B3D1] hover:brightness-105 text-white font-bold text-xs py-5 rounded-xl shadow-md shadow-[#F35A61]/25 shimmer-sweep mt-2 cursor-pointer"
                     >
                       {heroSubmitting ? 'Submitting Details...' : 'Get 100% Accurate Estimate'}
                       <ArrowRight className="ml-2 h-4 w-4" />
@@ -494,8 +494,8 @@ const Home = () => {
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             
-            <div className="flex items-start gap-4 p-5 rounded-2xl bg-[#FAF9F5] border border-slate-200/80 hover:border-orange-500/40 hover:bg-white transition-all card-interactive">
-              <div className="w-12 h-12 rounded-xl bg-orange-100 text-orange-600 flex items-center justify-center flex-shrink-0">
+            <div className="flex items-start gap-4 p-5 rounded-2xl bg-[#FAF9F5] border border-slate-200/80 hover:border-[#F35A61]/40 hover:bg-white transition-all card-interactive">
+              <div className="w-12 h-12 rounded-xl bg-[#FDF2F3] text-[#F35A61] flex items-center justify-center flex-shrink-0">
                 <Shield className="h-6 w-6" />
               </div>
               <div>
@@ -506,8 +506,8 @@ const Home = () => {
               </div>
             </div>
 
-            <div className="flex items-start gap-4 p-5 rounded-2xl bg-[#FAF9F5] border border-slate-200/80 hover:border-orange-500/40 hover:bg-white transition-all card-interactive">
-              <div className="w-12 h-12 rounded-xl bg-orange-100 text-orange-600 flex items-center justify-center flex-shrink-0">
+            <div className="flex items-start gap-4 p-5 rounded-2xl bg-[#FAF9F5] border border-slate-200/80 hover:border-[#F35A61]/40 hover:bg-white transition-all card-interactive">
+              <div className="w-12 h-12 rounded-xl bg-[#FDF2F3] text-[#F35A61] flex items-center justify-center flex-shrink-0">
                 <Cpu className="h-6 w-6" />
               </div>
               <div>
@@ -518,8 +518,8 @@ const Home = () => {
               </div>
             </div>
 
-            <div className="flex items-start gap-4 p-5 rounded-2xl bg-[#FAF9F5] border border-slate-200/80 hover:border-orange-500/40 hover:bg-white transition-all card-interactive">
-              <div className="w-12 h-12 rounded-xl bg-orange-100 text-orange-600 flex items-center justify-center flex-shrink-0">
+            <div className="flex items-start gap-4 p-5 rounded-2xl bg-[#FAF9F5] border border-slate-200/80 hover:border-[#F35A61]/40 hover:bg-white transition-all card-interactive">
+              <div className="w-12 h-12 rounded-xl bg-[#FDF2F3] text-[#F35A61] flex items-center justify-center flex-shrink-0">
                 <Award className="h-6 w-6" />
               </div>
               <div>
@@ -530,8 +530,8 @@ const Home = () => {
               </div>
             </div>
 
-            <div className="flex items-start gap-4 p-5 rounded-2xl bg-[#FAF9F5] border border-slate-200/80 hover:border-orange-500/40 hover:bg-white transition-all card-interactive">
-              <div className="w-12 h-12 rounded-xl bg-orange-100 text-orange-600 flex items-center justify-center flex-shrink-0">
+            <div className="flex items-start gap-4 p-5 rounded-2xl bg-[#FAF9F5] border border-slate-200/80 hover:border-[#F35A61]/40 hover:bg-white transition-all card-interactive">
+              <div className="w-12 h-12 rounded-xl bg-[#FDF2F3] text-[#F35A61] flex items-center justify-center flex-shrink-0">
                 <Clock className="h-6 w-6" />
               </div>
               <div>
@@ -551,8 +551,8 @@ const Home = () => {
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           
           <div className="text-center max-w-3xl mx-auto mb-16">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-orange-100 border border-orange-200 text-orange-800 text-xs font-mono font-bold uppercase tracking-wider mb-4">
-              <Sliders className="h-3.5 w-3.5 text-orange-600" />
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#FDF2F3] border border-[#FCA5A9] text-[#E04850] text-xs font-mono font-bold uppercase tracking-wider mb-4">
+              <Sliders className="h-3.5 w-3.5 text-[#F35A61]" />
               Live Interactive Cost Estimator
             </div>
             <h2 className="text-3xl sm:text-5xl font-extrabold text-slate-950 tracking-tight mb-4">
@@ -581,7 +581,7 @@ const Home = () => {
                       onClick={() => setSelectedCity(city)}
                       className={`px-3 py-2 rounded-xl text-xs font-bold border transition-all cursor-pointer ${
                         selectedCity === city
-                          ? 'bg-orange-600 text-white border-orange-600 shadow-sm'
+                          ? 'bg-[#F35A61] text-white border-[#F35A61] shadow-sm'
                           : 'bg-slate-50 border-slate-200 text-slate-700 hover:bg-slate-100'
                       }`}
                     >
@@ -597,7 +597,7 @@ const Home = () => {
                   <label className="text-xs font-bold text-slate-700 uppercase tracking-wider font-mono">
                     2. Built-up Area
                   </label>
-                  <span className="text-2xl font-black text-orange-600 font-mono">
+                  <span className="text-2xl font-black text-[#F35A61] font-mono">
                     {plotArea.toLocaleString()} <span className="text-xs font-normal text-slate-500 font-sans">sq.ft</span>
                   </span>
                 </div>
@@ -609,7 +609,7 @@ const Home = () => {
                   step="50"
                   value={plotArea}
                   onChange={(e) => setPlotArea(Number(e.target.value))}
-                  className="w-full h-2.5 bg-slate-200 rounded-lg appearance-none cursor-pointer accent-orange-600"
+                  className="w-full h-2.5 bg-slate-200 rounded-lg appearance-none cursor-pointer accent-[#F35A61]"
                 />
                 
                 <div className="flex flex-wrap gap-2 mt-3">
@@ -626,7 +626,7 @@ const Home = () => {
                       onClick={() => setPlotArea(preset.val)}
                       className={`px-2.5 py-1 rounded-lg text-[11px] font-mono font-semibold transition-colors ${
                         plotArea === preset.val
-                          ? 'bg-orange-50 text-orange-700 border border-orange-300'
+                          ? 'bg-[#FDF2F3] text-[#F35A61] border border-[#FCA5A9]'
                           : 'bg-slate-100 text-slate-600 hover:bg-slate-200'
                       }`}
                     >
@@ -651,17 +651,17 @@ const Home = () => {
                         onClick={() => setSelectedPackageId(pkg.id)}
                         className={`p-4 rounded-2xl text-left border transition-all duration-300 relative cursor-pointer ${
                           isSelected
-                            ? 'bg-orange-50/70 border-orange-500 ring-2 ring-orange-500/80 shadow-md'
+                            ? 'bg-[#FDF2F3]/80 border-[#F35A61] ring-2 ring-[#F35A61]/80 shadow-md'
                             : 'bg-slate-50/60 border-slate-200 hover:border-slate-300 text-slate-700'
                         }`}
                       >
                         {pkg.popular && (
-                          <span className="absolute -top-2.5 right-3 bg-orange-600 text-white text-[9px] font-bold uppercase px-2 py-0.5 rounded-full shadow-2xs">
+                          <span className="absolute -top-2.5 right-3 bg-[#F35A61] text-white text-[9px] font-bold uppercase px-2 py-0.5 rounded-full shadow-2xs">
                             Most Popular
                           </span>
                         )}
                         <div className="font-bold text-slate-900 text-base mb-1">{pkg.name}</div>
-                        <div className="text-xl font-black text-orange-600 font-mono mb-1">
+                        <div className="text-xl font-black text-[#F35A61] font-mono mb-1">
                           ₹{pkg.pricePerSqft}
                           <span className="text-xs font-normal text-slate-500 font-sans">/sqft</span>
                         </div>
@@ -715,7 +715,7 @@ const Home = () => {
                 </div>
 
                 <div className="text-4xl sm:text-5xl font-black text-slate-950 tracking-tight font-mono my-3">
-                  ₹{(totalEstimatedCost / 100000).toFixed(2)} <span className="text-xl text-orange-600 font-bold font-sans">Lakhs</span>
+                  ₹{(totalEstimatedCost / 100000).toFixed(2)} <span className="text-xl text-[#F35A61] font-bold font-sans">Lakhs</span>
                 </div>
 
                 <p className="text-xs text-slate-600 mb-6">
@@ -726,7 +726,7 @@ const Home = () => {
                 <div className="space-y-3 pt-4 border-t border-slate-100 text-xs">
                   <div className="text-slate-700 font-mono uppercase font-bold text-[11px] mb-2 flex justify-between">
                     <span>Safe Escrow Milestone Schedule:</span>
-                    <span className="text-orange-600">Paid Post-Inspection</span>
+                    <span className="text-[#F35A61]">Paid Post-Inspection</span>
                   </div>
                   <div className="flex justify-between text-slate-700">
                     <span>1. Design, Soil Feasibility & Approvals (10%)</span>
@@ -770,11 +770,11 @@ const Home = () => {
                         placeholder="Enter 10-digit mobile number"
                         value={estimatorContact}
                         onChange={(e) => setEstimatorContact(e.target.value.replace(/\D/g, ''))}
-                        className="flex-1 bg-slate-50 border border-slate-300 rounded-xl px-3.5 py-2.5 text-xs text-slate-900 placeholder-slate-400 focus:bg-white focus:outline-none focus:border-orange-500 font-mono"
+                        className="flex-1 bg-slate-50 border border-slate-300 rounded-xl px-3.5 py-2.5 text-xs text-slate-900 placeholder-slate-400 focus:bg-white focus:outline-none focus:border-[#F35A61] font-mono"
                       />
                       <Button
                         type="submit"
-                        className="bg-orange-600 hover:bg-orange-500 text-white font-bold text-xs px-4 py-2.5 rounded-xl shimmer-sweep cursor-pointer flex-shrink-0"
+                        className="bg-[#F35A61] hover:bg-[#FDF2F3]0 text-white font-bold text-xs px-4 py-2.5 rounded-xl shimmer-sweep cursor-pointer flex-shrink-0"
                       >
                         Send BOQ
                       </Button>
@@ -799,7 +799,7 @@ const Home = () => {
           <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
             <div>
               <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-100 border border-slate-200 text-slate-800 text-xs font-mono font-bold uppercase tracking-wider mb-4">
-                <Layers className="h-3.5 w-3.5 text-orange-600" />
+                <Layers className="h-3.5 w-3.5 text-[#F35A61]" />
                 Transparent Material Specifications
               </div>
               <h2 className="text-3xl sm:text-5xl font-extrabold text-slate-950 tracking-tight">
@@ -816,7 +816,7 @@ const Home = () => {
                 type="button"
                 onClick={() => setActivePackageTab('cards')}
                 className={`px-4 py-2 rounded-xl text-xs font-bold transition-all cursor-pointer ${
-                  activePackageTab === 'cards' ? 'bg-orange-600 text-white shadow-sm' : 'text-slate-600 hover:text-slate-900'
+                  activePackageTab === 'cards' ? 'bg-[#F35A61] text-white shadow-sm' : 'text-slate-600 hover:text-slate-900'
                 }`}
               >
                 Package Cards
@@ -825,7 +825,7 @@ const Home = () => {
                 type="button"
                 onClick={() => setActivePackageTab('comparison')}
                 className={`px-4 py-2 rounded-xl text-xs font-bold transition-all cursor-pointer ${
-                  activePackageTab === 'comparison' ? 'bg-orange-600 text-white shadow-sm' : 'text-slate-600 hover:text-slate-900'
+                  activePackageTab === 'comparison' ? 'bg-[#F35A61] text-white shadow-sm' : 'text-slate-600 hover:text-slate-900'
                 }`}
               >
                 Detailed Spec Matrix
@@ -841,12 +841,12 @@ const Home = () => {
                   key={pkg.id}
                   className={`rounded-3xl p-8 flex flex-col justify-between border transition-all duration-300 card-interactive ${
                     pkg.popular
-                      ? 'bg-gradient-to-b from-orange-50/40 via-white to-white border-2 border-orange-500 shadow-xl shadow-orange-500/5 relative'
+                      ? 'bg-gradient-to-b from-[#FDF2F3]/50 via-white to-white border-2 border-[#F35A61] shadow-xl shadow-[#F35A61]/10 relative'
                       : 'bg-white border-slate-200 hover:border-slate-300 shadow-sm'
                   }`}
                 >
                   {pkg.popular && (
-                    <div className="absolute -top-3.5 left-1/2 -translate-x-1/2 bg-orange-600 text-white text-[10px] font-bold uppercase tracking-wider px-3.5 py-1 rounded-full shadow-md">
+                    <div className="absolute -top-3.5 left-1/2 -translate-x-1/2 bg-[#F35A61] text-white text-[10px] font-bold uppercase tracking-wider px-3.5 py-1 rounded-full shadow-md">
                       Most Popular Package
                     </div>
                   )}
@@ -860,14 +860,14 @@ const Home = () => {
                       <span className="text-sm font-normal text-slate-500 font-sans"> /sq.ft</span>
                     </div>
 
-                    <div className="text-xs font-mono text-orange-700 bg-orange-100/70 px-3 py-1.5 rounded-lg inline-block mb-6 border border-orange-200">
+                    <div className="text-xs font-mono text-[#F35A61] bg-[#FDF2F3]/70 px-3 py-1.5 rounded-lg inline-block mb-6 border border-[#FCA5A9]">
                       Ideal for: {pkg.idealFor}
                     </div>
 
                     <div className="space-y-3 pt-6 border-t border-slate-100 text-xs text-slate-700">
                       {pkg.features.map((feat, fIdx) => (
                         <div key={fIdx} className="flex items-start gap-2.5">
-                          <Check className="h-4 w-4 text-orange-600 flex-shrink-0 mt-0.5" />
+                          <Check className="h-4 w-4 text-[#F35A61] flex-shrink-0 mt-0.5" />
                           <span>{feat.replace('✓ ', '')}</span>
                         </div>
                       ))}
@@ -879,7 +879,7 @@ const Home = () => {
                       <Button
                         className={`w-full py-5 text-xs font-bold rounded-xl cursor-pointer ${
                           pkg.popular
-                            ? 'bg-orange-600 hover:bg-orange-500 text-white shadow-md shadow-orange-600/20 shimmer-sweep'
+                            ? 'bg-[#F35A61] hover:bg-[#FDF2F3]0 text-white shadow-md shadow-[#F35A61]/25 shimmer-sweep'
                             : 'bg-slate-900 hover:bg-slate-800 text-white'
                         }`}
                       >
@@ -903,16 +903,16 @@ const Home = () => {
                       </th>
                       <th className="p-5 text-center border-l border-slate-200">
                         <div className="font-bold text-slate-900 text-base">Essential</div>
-                        <div className="text-lg font-mono font-black text-orange-600">₹1,850<span className="text-xs font-normal text-slate-500 font-sans">/sqft</span></div>
+                        <div className="text-lg font-mono font-black text-[#F35A61]">₹1,850<span className="text-xs font-normal text-slate-500 font-sans">/sqft</span></div>
                       </th>
-                      <th className="p-5 text-center border-l border-slate-200 bg-orange-50/60">
-                        <span className="text-[10px] font-bold text-orange-600 uppercase tracking-wider block mb-1">Recommended</span>
+                      <th className="p-5 text-center border-l border-slate-200 bg-[#FDF2F3]/70">
+                        <span className="text-[10px] font-bold text-[#F35A61] uppercase tracking-wider block mb-1">Recommended</span>
                         <div className="font-bold text-slate-950 text-base">Premium</div>
-                        <div className="text-lg font-mono font-black text-orange-600">₹2,150<span className="text-xs font-normal text-slate-500 font-sans">/sqft</span></div>
+                        <div className="text-lg font-mono font-black text-[#F35A61]">₹2,150<span className="text-xs font-normal text-slate-500 font-sans">/sqft</span></div>
                       </th>
                       <th className="p-5 text-center border-l border-slate-200">
                         <div className="font-bold text-slate-900 text-base">Luxury Signature</div>
-                        <div className="text-lg font-mono font-black text-orange-600">₹2,650<span className="text-xs font-normal text-slate-500 font-sans">/sqft</span></div>
+                        <div className="text-lg font-mono font-black text-[#F35A61]">₹2,650<span className="text-xs font-normal text-slate-500 font-sans">/sqft</span></div>
                       </th>
                     </tr>
                   </thead>
@@ -920,7 +920,7 @@ const Home = () => {
                     {packageComparisonMatrix.map((section, sIdx) => (
                       <React.Fragment key={sIdx}>
                         <tr className="bg-slate-100/70 border-t border-b border-slate-200">
-                          <td colSpan="4" className="px-5 py-3 text-xs font-mono font-bold uppercase tracking-wider text-orange-700">
+                          <td colSpan="4" className="px-5 py-3 text-xs font-mono font-bold uppercase tracking-wider text-[#F35A61]">
                             {section.category}
                           </td>
                         </tr>
@@ -928,7 +928,7 @@ const Home = () => {
                           <tr key={rIdx} className="border-b border-slate-100 hover:bg-slate-50 transition-colors text-xs">
                             <td className="p-4 text-slate-800 font-medium">{row.label}</td>
                             <td className="p-4 text-center text-slate-600 border-l border-slate-100">{row.essential}</td>
-                            <td className="p-4 text-center text-slate-950 font-semibold border-l border-slate-100 bg-orange-50/20">{row.premium}</td>
+                            <td className="p-4 text-center text-slate-950 font-semibold border-l border-slate-100 bg-[#FDF2F3]/30">{row.premium}</td>
                             <td className="p-4 text-center text-slate-800 border-l border-slate-100">{row.luxury}</td>
                           </tr>
                         ))}
@@ -943,7 +943,7 @@ const Home = () => {
                   * All brands arrive with factory test certificates. Need custom branded upgrades?
                 </span>
                 <Link to="/packages">
-                  <Button size="sm" className="bg-orange-600 hover:bg-orange-500 text-white font-bold text-xs rounded-xl px-5 py-2.5">
+                  <Button size="sm" className="bg-[#F35A61] hover:bg-[#FDF2F3]0 text-white font-bold text-xs rounded-xl px-5 py-2.5">
                     View Full 150-Point Spec PDF
                     <ArrowRight className="ml-1.5 h-3.5 w-3.5" />
                   </Button>
@@ -961,7 +961,7 @@ const Home = () => {
           
           <div className="text-center max-w-3xl mx-auto mb-16">
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-100 border border-slate-200 text-slate-800 text-xs font-mono font-bold uppercase tracking-wider mb-4">
-              <ShieldCheck className="h-3.5 w-3.5 text-orange-600" />
+              <ShieldCheck className="h-3.5 w-3.5 text-[#F35A61]" />
               The Spacexio Difference
             </div>
             <h2 className="text-3xl sm:text-5xl font-extrabold text-slate-950 tracking-tight mb-4">
@@ -978,7 +978,7 @@ const Home = () => {
                 <thead>
                   <tr className="border-b border-slate-200 bg-slate-50">
                     <th className="p-5 text-xs font-mono font-bold uppercase text-slate-600 w-1/3">Key Evaluation Factor</th>
-                    <th className="p-5 text-center text-xs font-mono font-bold uppercase text-orange-700 bg-orange-50/80 border-l border-slate-200 w-1/3">
+                    <th className="p-5 text-center text-xs font-mono font-bold uppercase text-[#F35A61] bg-[#FDF2F3] border-l border-slate-200 w-1/3">
                       Spacexio Studio
                     </th>
                     <th className="p-5 text-center text-xs font-mono font-bold uppercase text-slate-600 border-l border-slate-200 w-1/3">
@@ -993,7 +993,7 @@ const Home = () => {
                       Price Escalation Risk
                       <p className="text-xs text-slate-500 font-normal mt-1">Protection against unexpected cost hikes</p>
                     </td>
-                    <td className="p-5 text-center text-emerald-800 font-semibold bg-orange-50/30 border-l border-slate-100">
+                    <td className="p-5 text-center text-emerald-800 font-semibold bg-[#FDF2F3]/40 border-l border-slate-100">
                       <div className="flex items-center justify-center gap-2">
                         <CheckCircle2 className="h-4 w-4 text-emerald-600 flex-shrink-0" />
                         <span>100% Fixed Price Contract with Zero Escalation</span>
@@ -1012,7 +1012,7 @@ const Home = () => {
                       Payment Safety
                       <p className="text-xs text-slate-500 font-normal mt-1">When money changes hands</p>
                     </td>
-                    <td className="p-5 text-center text-emerald-800 font-semibold bg-orange-50/30 border-l border-slate-100">
+                    <td className="p-5 text-center text-emerald-800 font-semibold bg-[#FDF2F3]/40 border-l border-slate-100">
                       <div className="flex items-center justify-center gap-2">
                         <CheckCircle2 className="h-4 w-4 text-emerald-600 flex-shrink-0" />
                         <span>Milestone Escrow — Pay only after site engineer sign-off</span>
@@ -1031,7 +1031,7 @@ const Home = () => {
                       Quality Control & Testing
                       <p className="text-xs text-slate-500 font-normal mt-1">Concrete, steel & waterproofing</p>
                     </td>
-                    <td className="p-5 text-center text-emerald-800 font-semibold bg-orange-50/30 border-l border-slate-100">
+                    <td className="p-5 text-center text-emerald-800 font-semibold bg-[#FDF2F3]/40 border-l border-slate-100">
                       <div className="flex items-center justify-center gap-2">
                         <CheckCircle2 className="h-4 w-4 text-emerald-600 flex-shrink-0" />
                         <span>430+ Digital Checks, Lab Cube Tests & Laser Alignment</span>
@@ -1050,7 +1050,7 @@ const Home = () => {
                       Design & Coordination
                       <p className="text-xs text-slate-500 font-normal mt-1">Architectural and structural engineering</p>
                     </td>
-                    <td className="p-5 text-center text-emerald-800 font-semibold bg-orange-50/30 border-l border-slate-100">
+                    <td className="p-5 text-center text-emerald-800 font-semibold bg-[#FDF2F3]/40 border-l border-slate-100">
                       <div className="flex items-center justify-center gap-2">
                         <CheckCircle2 className="h-4 w-4 text-emerald-600 flex-shrink-0" />
                         <span>3D BIM Level 2 Clash Detection & Vastu Alignment</span>
@@ -1069,7 +1069,7 @@ const Home = () => {
                       Daily Visibility & Tracking
                       <p className="text-xs text-slate-500 font-normal mt-1">Project tracking convenience</p>
                     </td>
-                    <td className="p-5 text-center text-emerald-800 font-semibold bg-orange-50/30 border-l border-slate-100">
+                    <td className="p-5 text-center text-emerald-800 font-semibold bg-[#FDF2F3]/40 border-l border-slate-100">
                       <div className="flex items-center justify-center gap-2">
                         <CheckCircle2 className="h-4 w-4 text-emerald-600 flex-shrink-0" />
                         <span>Live Mobile App Updates, Daily Photos & Milestone Logs</span>
@@ -1088,7 +1088,7 @@ const Home = () => {
                       Post-Handover Warranty
                       <p className="text-xs text-slate-500 font-normal mt-1">Long term peace of mind</p>
                     </td>
-                    <td className="p-5 text-center text-emerald-800 font-semibold bg-orange-50/30 border-l border-slate-100">
+                    <td className="p-5 text-center text-emerald-800 font-semibold bg-[#FDF2F3]/40 border-l border-slate-100">
                       <div className="flex items-center justify-center gap-2">
                         <CheckCircle2 className="h-4 w-4 text-emerald-600 flex-shrink-0" />
                         <span>Legally Certified 10-Year Structural Guarantee Bond</span>
@@ -1116,7 +1116,7 @@ const Home = () => {
           
           <div className="text-center max-w-3xl mx-auto mb-16">
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-100 border border-slate-200 text-slate-800 text-xs font-mono font-bold uppercase tracking-wider mb-4">
-              <Clock className="h-3.5 w-3.5 text-orange-600" />
+              <Clock className="h-3.5 w-3.5 text-[#F35A61]" />
               The Seamless 5-Stage Process
             </div>
             <h2 className="text-3xl sm:text-5xl font-extrabold text-slate-950 tracking-tight mb-4">
@@ -1129,9 +1129,9 @@ const Home = () => {
 
           <div className="grid md:grid-cols-5 gap-4">
             
-            <div className="bg-[#FAF9F5] rounded-2xl border border-slate-200/90 p-5 flex flex-col justify-between hover:border-orange-500/50 hover:bg-white transition-all card-interactive">
+            <div className="bg-[#FAF9F5] rounded-2xl border border-slate-200/90 p-5 flex flex-col justify-between hover:border-[#F35A61]/50 hover:bg-white transition-all card-interactive">
               <div>
-                <span className="w-9 h-9 rounded-xl bg-orange-100 border border-orange-200 text-orange-700 font-mono font-bold text-sm flex items-center justify-center mb-4">
+                <span className="w-9 h-9 rounded-xl bg-[#FDF2F3] border border-[#FCA5A9] text-[#F35A61] font-mono font-bold text-sm flex items-center justify-center mb-4">
                   01
                 </span>
                 <h3 className="text-base font-bold text-slate-900 mb-2">Soil Survey & Feasibility</h3>
@@ -1144,9 +1144,9 @@ const Home = () => {
               </div>
             </div>
 
-            <div className="bg-[#FAF9F5] rounded-2xl border border-slate-200/90 p-5 flex flex-col justify-between hover:border-orange-500/50 hover:bg-white transition-all card-interactive">
+            <div className="bg-[#FAF9F5] rounded-2xl border border-slate-200/90 p-5 flex flex-col justify-between hover:border-[#F35A61]/50 hover:bg-white transition-all card-interactive">
               <div>
-                <span className="w-9 h-9 rounded-xl bg-orange-100 border border-orange-200 text-orange-700 font-mono font-bold text-sm flex items-center justify-center mb-4">
+                <span className="w-9 h-9 rounded-xl bg-[#FDF2F3] border border-[#FCA5A9] text-[#F35A61] font-mono font-bold text-sm flex items-center justify-center mb-4">
                   02
                 </span>
                 <h3 className="text-base font-bold text-slate-900 mb-2">3D BIM & Vastu Approval</h3>
@@ -1159,9 +1159,9 @@ const Home = () => {
               </div>
             </div>
 
-            <div className="bg-[#FAF9F5] rounded-2xl border border-slate-200/90 p-5 flex flex-col justify-between hover:border-orange-500/50 hover:bg-white transition-all card-interactive">
+            <div className="bg-[#FAF9F5] rounded-2xl border border-slate-200/90 p-5 flex flex-col justify-between hover:border-[#F35A61]/50 hover:bg-white transition-all card-interactive">
               <div>
-                <span className="w-9 h-9 rounded-xl bg-orange-100 border border-orange-200 text-orange-700 font-mono font-bold text-sm flex items-center justify-center mb-4">
+                <span className="w-9 h-9 rounded-xl bg-[#FDF2F3] border border-[#FCA5A9] text-[#F35A61] font-mono font-bold text-sm flex items-center justify-center mb-4">
                   03
                 </span>
                 <h3 className="text-base font-bold text-slate-900 mb-2">BOQ & Escrow Setup</h3>
@@ -1174,9 +1174,9 @@ const Home = () => {
               </div>
             </div>
 
-            <div className="bg-[#FAF9F5] rounded-2xl border border-slate-200/90 p-5 flex flex-col justify-between hover:border-orange-500/50 hover:bg-white transition-all card-interactive">
+            <div className="bg-[#FAF9F5] rounded-2xl border border-slate-200/90 p-5 flex flex-col justify-between hover:border-[#F35A61]/50 hover:bg-white transition-all card-interactive">
               <div>
-                <span className="w-9 h-9 rounded-xl bg-orange-100 border border-orange-200 text-orange-700 font-mono font-bold text-sm flex items-center justify-center mb-4">
+                <span className="w-9 h-9 rounded-xl bg-[#FDF2F3] border border-[#FCA5A9] text-[#F35A61] font-mono font-bold text-sm flex items-center justify-center mb-4">
                   04
                 </span>
                 <h3 className="text-base font-bold text-slate-900 mb-2">430+ QA Construction</h3>
@@ -1189,17 +1189,17 @@ const Home = () => {
               </div>
             </div>
 
-            <div className="bg-gradient-to-br from-orange-600 to-amber-600 rounded-2xl p-5 flex flex-col justify-between text-white card-interactive shadow-md">
+            <div className="bg-gradient-to-br from-[#F35A61] via-[#B85C8D] to-[#01B3D1] rounded-2xl p-5 flex flex-col justify-between text-white card-interactive shadow-md">
               <div>
                 <span className="w-9 h-9 rounded-xl bg-white/20 text-white font-mono font-bold text-sm flex items-center justify-center mb-4">
                   05
                 </span>
                 <h3 className="text-base font-bold text-white mb-2">Move In & 10-Yr Bond</h3>
-                <p className="text-xs text-orange-100 leading-relaxed">
+                <p className="text-xs text-white/90 leading-relaxed">
                   200-point deep snag resolution, handover kit, and certified 10-year structural warranty certificate.
                 </p>
               </div>
-              <Link to="/site-visit" className="mt-4 pt-3 border-t border-orange-500/40">
+              <Link to="/site-visit" className="mt-4 pt-3 border-t border-[#F35A61]/40">
                 <span className="text-xs font-bold flex items-center gap-1 hover:underline text-white">
                   Schedule Survey →
                 </span>
@@ -1216,7 +1216,7 @@ const Home = () => {
           
           <div className="text-center max-w-3xl mx-auto mb-16">
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-200/70 border border-slate-300 text-slate-800 text-xs font-mono font-bold uppercase tracking-wider mb-4">
-              <ShieldCheck className="h-3.5 w-3.5 text-orange-600" />
+              <ShieldCheck className="h-3.5 w-3.5 text-[#F35A61]" />
               Certified Civil Standards
             </div>
             <h2 className="text-3xl sm:text-5xl font-extrabold text-slate-950 tracking-tight mb-4">
@@ -1231,9 +1231,9 @@ const Home = () => {
             {materials.map((m, idx) => (
               <div 
                 key={idx}
-                className="bg-white p-6 rounded-2xl border border-slate-200/90 hover:border-orange-500/40 transition-all card-interactive shadow-2xs"
+                className="bg-white p-6 rounded-2xl border border-slate-200/90 hover:border-[#F35A61]/40 transition-all card-interactive shadow-2xs"
               >
-                <div className="text-xs font-mono font-bold text-orange-600 uppercase tracking-wider mb-2">
+                <div className="text-xs font-mono font-bold text-[#F35A61] uppercase tracking-wider mb-2">
                   {m.category}
                 </div>
                 <h3 className="text-lg font-bold text-slate-900 mb-1">{m.brand}</h3>
@@ -1257,7 +1257,7 @@ const Home = () => {
           <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
             <div>
               <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-100 border border-slate-200 text-slate-800 text-xs font-mono font-bold uppercase tracking-wider mb-4">
-                <Building2 className="h-3.5 w-3.5 text-orange-600" />
+                <Building2 className="h-3.5 w-3.5 text-[#F35A61]" />
                 Real Project Gallery
               </div>
               <h2 className="text-3xl sm:text-5xl font-extrabold text-slate-950 tracking-tight">
@@ -1273,7 +1273,7 @@ const Home = () => {
                   onClick={() => setSelectedPortfolioTab(cat)}
                   className={`px-4 py-2 rounded-xl text-xs font-mono font-bold transition-all cursor-pointer ${
                     selectedPortfolioTab === cat
-                      ? 'bg-orange-600 text-white shadow-sm'
+                      ? 'bg-[#F35A61] text-white shadow-sm'
                       : 'bg-slate-100 text-slate-700 hover:text-slate-900 border border-slate-200 hover:border-slate-300'
                   }`}
                 >
@@ -1288,7 +1288,7 @@ const Home = () => {
             {filteredProjects.map((project) => (
               <div 
                 key={project.id}
-                className="bg-white rounded-3xl border border-slate-200 overflow-hidden group hover:border-orange-500/50 transition-all duration-300 card-interactive shadow-sm hover:shadow-md"
+                className="bg-white rounded-3xl border border-slate-200 overflow-hidden group hover:border-[#F35A61]/50 transition-all duration-300 card-interactive shadow-sm hover:shadow-md"
               >
                 {/* Image Container */}
                 <div className="relative h-64 overflow-hidden bg-slate-100">
@@ -1301,19 +1301,19 @@ const Home = () => {
                     }}
                   />
                   <div className="absolute top-3 right-3">
-                    <span className="px-3 py-1 bg-white/90 backdrop-blur-md text-orange-700 border border-orange-200 text-[11px] font-mono font-bold rounded-full shadow-2xs">
+                    <span className="px-3 py-1 bg-white/90 backdrop-blur-md text-[#F35A61] border border-[#FCA5A9] text-[11px] font-mono font-bold rounded-full shadow-2xs">
                       {project.package || 'Turnkey'} Package
                     </span>
                   </div>
                   <div className="absolute bottom-3 left-3 flex items-center gap-1.5 px-2.5 py-1 rounded bg-black/75 backdrop-blur-md text-[11px] font-mono text-white">
-                    <MapPin className="h-3 w-3 text-orange-400" />
+                    <MapPin className="h-3 w-3 text-[#F35A61]" />
                     <span>{project.location}</span>
                   </div>
                 </div>
 
                 {/* Project Specs */}
                 <div className="p-6">
-                  <h3 className="text-lg font-bold text-slate-900 mb-2 group-hover:text-orange-600 transition-colors">
+                  <h3 className="text-lg font-bold text-slate-900 mb-2 group-hover:text-[#F35A61] transition-colors">
                     {project.title}
                   </h3>
                   <p className="text-slate-600 text-xs leading-relaxed mb-4 line-clamp-2">
@@ -1321,7 +1321,7 @@ const Home = () => {
                   </p>
                   <div className="flex items-center justify-between text-xs font-mono text-slate-500 pt-3 border-t border-slate-100">
                     <span>Built-up: <b className="text-slate-900">{project.area}</b></span>
-                    <span>Budget: <b className="text-orange-600 font-bold">{project.budget}</b></span>
+                    <span>Budget: <b className="text-[#F35A61] font-bold">{project.budget}</b></span>
                   </div>
                 </div>
               </div>
@@ -1372,7 +1372,7 @@ const Home = () => {
                     <h4 className="text-sm font-bold text-slate-900">{t.name}</h4>
                     <p className="text-[11px] text-slate-500 font-mono">{t.project} • {t.location}</p>
                   </div>
-                  <span className="px-2.5 py-1 rounded-full bg-orange-50 border border-orange-200 text-orange-700 text-[10px] font-mono font-bold">
+                  <span className="px-2.5 py-1 rounded-full bg-[#FDF2F3] border border-[#FCA5A9] text-[#F35A61] text-[10px] font-mono font-bold">
                     {t.package}
                   </span>
                 </div>
@@ -1388,7 +1388,7 @@ const Home = () => {
         <div className="max-w-5xl mx-auto px-6 lg:px-8">
           
           <div className="text-center max-w-3xl mx-auto mb-16">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-orange-50 border border-orange-200 text-orange-700 text-xs font-mono font-bold uppercase tracking-wider mb-4">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#FDF2F3] border border-[#FCA5A9] text-[#F35A61] text-xs font-mono font-bold uppercase tracking-wider mb-4">
               <HelpCircle className="h-3.5 w-3.5" />
               Frequently Asked Questions
             </div>
@@ -1418,7 +1418,7 @@ const Home = () => {
                       {faq.q}
                     </span>
                     <span className="w-8 h-8 rounded-lg bg-white border border-slate-200 flex items-center justify-center flex-shrink-0 text-slate-500 shadow-2xs">
-                      {isOpen ? <ChevronUp className="h-4 w-4 text-orange-600" /> : <ChevronDown className="h-4 w-4" />}
+                      {isOpen ? <ChevronUp className="h-4 w-4 text-[#F35A61]" /> : <ChevronDown className="h-4 w-4" />}
                     </span>
                   </button>
 
@@ -1433,7 +1433,7 @@ const Home = () => {
                         <button
                           type="button"
                           onClick={() => copyFaqAnswer(faq.a, idx)}
-                          className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-slate-50 hover:bg-slate-100 text-slate-700 hover:text-orange-600 text-[11px] font-semibold border border-slate-200 transition-colors cursor-pointer"
+                          className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-slate-50 hover:bg-slate-100 text-slate-700 hover:text-[#F35A61] text-[11px] font-semibold border border-slate-200 transition-colors cursor-pointer"
                         >
                           <Copy className="w-3.5 h-3.5" />
                           <span>{isCopied ? 'Copied!' : 'Copy Answer'}</span>
@@ -1448,7 +1448,7 @@ const Home = () => {
 
           <div className="mt-12 text-center text-xs font-mono text-slate-500">
             Have a custom query about your plot or municipal approvals?{" "}
-            <a href="tel:+919686511132" className="text-orange-600 underline hover:text-orange-700 font-bold">
+            <a href="tel:+919686511132" className="text-[#F35A61] underline hover:text-[#F35A61] font-bold">
               Call our Engineering Desk (+91 96865 11132)
             </a>
           </div>
@@ -1461,14 +1461,14 @@ const Home = () => {
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <div className="rounded-3xl border border-slate-200 bg-white p-8 sm:p-14 overflow-hidden relative shadow-xl card-interactive">
             
-            <div className="absolute top-0 right-0 w-[400px] h-[400px] bg-orange-100/60 rounded-full blur-[100px] pointer-events-none" />
+            <div className="absolute top-0 right-0 w-[400px] h-[400px] bg-[#F35A61]/10 rounded-full blur-[100px] pointer-events-none" />
 
             <div className="grid lg:grid-cols-12 gap-10 items-center relative z-10">
               
               {/* Left 7 Columns: Physical Studio Context */}
               <div className="lg:col-span-7">
-                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-orange-50 border border-orange-200 text-orange-700 text-xs font-mono font-bold uppercase tracking-wider mb-4">
-                  <MapPin className="h-3.5 w-3.5 text-orange-600" />
+                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#FDF2F3] border border-[#FCA5A9] text-[#F35A61] text-xs font-mono font-bold uppercase tracking-wider mb-4">
+                  <MapPin className="h-3.5 w-3.5 text-[#F35A61]" />
                   Visakhapatnam Design Studio
                 </div>
                 
@@ -1482,16 +1482,16 @@ const Home = () => {
 
                 <div className="space-y-4 text-xs font-mono text-slate-700">
                   <div className="flex items-center gap-3">
-                    <MapPin className="h-4 w-4 text-orange-600 flex-shrink-0" />
+                    <MapPin className="h-4 w-4 text-[#F35A61] flex-shrink-0" />
                     <span>Near Abid Nagar Road, Abidnagar Park, Akkayyapalem, Visakhapatnam</span>
                   </div>
                   <div className="flex items-center gap-3">
-                    <Phone className="h-4 w-4 text-orange-600 flex-shrink-0" />
-                    <a href="tel:+919686511132" className="hover:text-orange-600 font-bold transition-colors">+91 96865 11132</a>
+                    <Phone className="h-4 w-4 text-[#F35A61] flex-shrink-0" />
+                    <a href="tel:+919686511132" className="hover:text-[#F35A61] font-bold transition-colors">+91 96865 11132</a>
                   </div>
                   <div className="flex items-center gap-3">
-                    <Mail className="h-4 w-4 text-orange-600 flex-shrink-0" />
-                    <a href="mailto:info@spacexio.com" className="hover:text-orange-600 font-bold transition-colors">info@spacexio.com</a>
+                    <Mail className="h-4 w-4 text-[#F35A61] flex-shrink-0" />
+                    <a href="mailto:info@spacexio.com" className="hover:text-[#F35A61] font-bold transition-colors">info@spacexio.com</a>
                   </div>
                 </div>
               </div>
@@ -1506,7 +1506,7 @@ const Home = () => {
                 <div className="space-y-3">
                   <Link to="/site-visit">
                     <Button
-                      className="w-full bg-orange-600 hover:bg-orange-500 text-white font-bold text-xs py-5 rounded-xl shadow-md shadow-orange-600/20 shimmer-sweep cursor-pointer"
+                      className="w-full bg-[#F35A61] hover:bg-[#FDF2F3]0 text-white font-bold text-xs py-5 rounded-xl shadow-md shadow-[#F35A61]/25 shimmer-sweep cursor-pointer"
                     >
                       Schedule In-Person Studio Visit
                       <ArrowRight className="ml-2 h-4 w-4" />
@@ -1515,7 +1515,7 @@ const Home = () => {
 
                   <a 
                     href="tel:+919686511132"
-                    className="block w-full text-center py-3 rounded-xl border border-slate-300 bg-white text-slate-800 hover:border-orange-500 hover:text-orange-600 text-xs font-bold transition-all shadow-2xs"
+                    className="block w-full text-center py-3 rounded-xl border border-slate-300 bg-white text-slate-800 hover:border-[#F35A61] hover:text-[#F35A61] text-xs font-bold transition-all shadow-2xs"
                   >
                     Call Senior Engineer (+91 96865 11132)
                   </a>
@@ -1536,9 +1536,9 @@ const Home = () => {
       <div className="fixed bottom-4 left-1/2 -translate-x-1/2 z-40 bg-white/95 backdrop-blur-xl border border-slate-300 shadow-2xl shadow-slate-900/10 rounded-full px-4 py-2.5 flex items-center gap-3 text-xs max-w-[92vw] sm:max-w-md">
         <a 
           href="tel:+919686511132" 
-          className="flex items-center gap-1.5 text-slate-800 hover:text-orange-600 font-bold transition-colors"
+          className="flex items-center gap-1.5 text-slate-800 hover:text-[#F35A61] font-bold transition-colors"
         >
-          <Phone className="h-3.5 w-3.5 text-orange-600" />
+          <Phone className="h-3.5 w-3.5 text-[#F35A61]" />
           <span className="hidden sm:inline">Call Expert</span>
         </a>
         <span className="text-slate-300">|</span>
@@ -1558,7 +1558,7 @@ const Home = () => {
             const el = document.getElementById('live-estimator');
             if (el) el.scrollIntoView({ behavior: 'smooth' });
           }}
-          className="flex items-center gap-1.5 text-orange-600 font-bold hover:text-orange-700 transition-colors cursor-pointer"
+          className="flex items-center gap-1.5 text-[#F35A61] font-bold hover:text-[#F35A61] transition-colors cursor-pointer"
         >
           <Calculator className="h-3.5 w-3.5" />
           <span>Cost Estimator</span>

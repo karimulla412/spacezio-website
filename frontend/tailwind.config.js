@@ -46,6 +46,21 @@ module.exports = {
   			border: 'hsl(var(--border))',
   			input: 'hsl(var(--input))',
   			ring: 'hsl(var(--ring))',
+  			brand: {
+  				DEFAULT: '#F35A61',
+  				coral: '#F35A61',
+  				'coral-hover': '#E04850',
+  				'coral-light': '#FDF2F3',
+  				'coral-border': '#FCA5A9',
+  				cyan: '#01B3D1',
+  				'cyan-hover': '#009AA8',
+  				'cyan-light': '#EFFBFC',
+  				'cyan-border': '#99E7EF',
+  				purple: '#955CA9',
+  				berry: '#B85C8D',
+  				emerald: '#62C290',
+  				navy: '#0B132B'
+  			},
   		},
   		keyframes: {
   			'accordion-down': {

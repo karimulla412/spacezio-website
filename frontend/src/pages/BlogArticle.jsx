@@ -35,7 +35,7 @@ const BlogArticle = () => {
       <div className="min-h-screen bg-black pt-32 flex items-center justify-center">
         <div className="text-center">
           <h2 className="text-3xl font-bold text-white mb-4">Article Not Found</h2>
-          <Button onClick={() => navigate('/insights')} className="bg-orange-600 hover:bg-orange-700">
+          <Button onClick={() => navigate('/insights')} className="bg-[#F35A61] hover:bg-[#E04850] text-white font-semibold">
             <ArrowLeft className="mr-2 h-4 w-4" />
             Back to Insights
           </Button>
@@ -110,7 +110,7 @@ const BlogArticle = () => {
       {/* Article Header */}
       <article className="max-w-4xl mx-auto px-6 lg:px-8">
         <div className="mb-8">
-          <span className="inline-block px-4 py-2 bg-orange-600 text-white text-sm font-semibold rounded-full mb-6">
+          <span className="inline-block px-4 py-2 bg-[#F35A61] text-white text-sm font-semibold rounded-full mb-6">
             {article.category}
           </span>
           <h1 className="text-4xl md:text-5xl font-bold text-white mb-6 leading-tight">
@@ -131,7 +131,7 @@ const BlogArticle = () => {
             </div>
             <button
               onClick={handleShare}
-              className="flex items-center hover:text-orange-500 transition-colors"
+              className="flex items-center hover:text-[#01B3D1] transition-colors"
             >
               <Share2 className="h-4 w-4 mr-2" />
               Share
@@ -156,22 +156,22 @@ const BlogArticle = () => {
             prose-ol:text-gray-300 prose-ol:my-6 prose-ol:space-y-2
             prose-li:leading-relaxed
             prose-strong:text-white prose-strong:font-semibold
-            prose-a:text-orange-500 prose-a:no-underline hover:prose-a:underline
+            prose-a:text-[#01B3D1] prose-a:no-underline hover:prose-a:underline
             prose-table:border-collapse prose-table:w-full prose-table:my-8
             prose-th:bg-gray-800 prose-th:text-white prose-th:p-4 prose-th:text-left
             prose-td:border prose-td:border-gray-700 prose-td:p-4 prose-td:text-gray-300
             [&_.lead-paragraph]:text-xl [&_.lead-paragraph]:text-gray-300 [&_.lead-paragraph]:leading-relaxed [&_.lead-paragraph]:mb-8
-            [&_.highlight-box]:bg-gradient-to-br [&_.highlight-box]:from-orange-900/20 [&_.highlight-box]:to-orange-800/10
-            [&_.highlight-box]:border [&_.highlight-box]:border-orange-500/30 [&_.highlight-box]:rounded-xl [&_.highlight-box]:p-6 [&_.highlight-box]:my-8
+            [&_.highlight-box]:bg-gradient-to-br [&_.highlight-box]:from-[#F35A61]/15 [&_.highlight-box]:to-[#F35A61]/5
+            [&_.highlight-box]:border [&_.highlight-box]:border-[#F35A61]/30 [&_.highlight-box]:rounded-xl [&_.highlight-box]:p-6 [&_.highlight-box]:my-8
             [&_.case-study-box]:bg-gradient-to-br [&_.case-study-box]:from-blue-900/20 [&_.case-study-box]:to-blue-800/10
             [&_.case-study-box]:border [&_.case-study-box]:border-blue-500/30 [&_.case-study-box]:rounded-xl [&_.case-study-box]:p-6 [&_.case-study-box]:my-8
             [&_.milestone-box]:bg-gradient-to-br [&_.milestone-box]:from-green-900/20 [&_.milestone-box]:to-green-800/10
             [&_.milestone-box]:border [&_.milestone-box]:border-green-500/30 [&_.milestone-box]:rounded-xl [&_.milestone-box]:p-6 [&_.milestone-box]:my-8
-            [&_.cta-box]:bg-gradient-to-r [&_.cta-box]:from-orange-600 [&_.cta-box]:to-orange-700
+            [&_.cta-box]:bg-gradient-to-r [&_.cta-box]:from-[#F35A61] [&_.cta-box]:via-[#B85C8D] [&_.cta-box]:to-[#01B3D1]
             [&_.cta-box]:rounded-2xl [&_.cta-box]:p-8 [&_.cta-box]:text-center [&_.cta-box]:my-12
             [&_.cta-box_h3]:text-white [&_.cta-box_h3]:text-2xl [&_.cta-box_h3]:mb-4
-            [&_.cta-box_p]:text-orange-100 [&_.cta-box_p]:mb-6
-            [&_.cta-button]:inline-block [&_.cta-button]:bg-white [&_.cta-button]:text-orange-600
+            [&_.cta-box_p]:text-white/90 [&_.cta-box_p]:mb-6
+            [&_.cta-button]:inline-block [&_.cta-button]:bg-white [&_.cta-button]:text-slate-950
             [&_.cta-button]:px-8 [&_.cta-button]:py-4 [&_.cta-button]:rounded-lg [&_.cta-button]:font-bold
             [&_.cta-button]:no-underline [&_.cta-button]:transition-all hover:[&_.cta-button]:bg-gray-100"
           dangerouslySetInnerHTML={{ __html: article.content }}
@@ -180,17 +180,17 @@ const BlogArticle = () => {
         <hr className="border-gray-800 my-12" />
 
         {/* CTA Section */}
-        <div className="bg-gradient-to-r from-orange-600 to-orange-700 rounded-2xl p-8 md:p-12 text-center my-12">
+        <div className="bg-gradient-to-r from-[#F35A61] via-[#B85C8D] to-[#01B3D1] rounded-2xl p-8 md:p-12 text-center my-12 shadow-2xl">
           <h3 className="text-3xl font-bold text-white mb-4">
             Planning a Construction Project?
           </h3>
-          <p className="text-xl text-orange-100 mb-8">
+          <p className="text-xl text-white/90 mb-8">
             Let's discuss how we can help you build your dream home with technology, transparency, and guaranteed quality.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button
               size="lg"
-              className="bg-white text-orange-600 hover:bg-gray-100 px-8 py-6 text-lg font-semibold"
+              className="bg-white text-slate-950 hover:bg-slate-100 font-bold shadow-2xl hover:scale-105 px-8 py-6 text-lg font-semibold"
               onClick={() => navigate('/contact')}
             >
               Schedule Free Consultation
@@ -216,7 +216,7 @@ const BlogArticle = () => {
                 <div
                   key={related.id}
                   onClick={() => navigate(`/insights/${related.id}`)}
-                  className="bg-gray-900 border border-gray-700 rounded-xl overflow-hidden hover:border-orange-500/50 transition-all duration-300 cursor-pointer group"
+                  className="bg-gray-900 border border-gray-700 rounded-xl overflow-hidden hover:border-[#01B3D1]/50 transition-all duration-300 cursor-pointer group"
                 >
                   <div className="relative h-48 overflow-hidden">
                     <img
@@ -227,10 +227,10 @@ const BlogArticle = () => {
                     <div className="absolute inset-0 bg-gradient-to-t from-gray-900 via-gray-900/50 to-transparent"></div>
                   </div>
                   <div className="p-6">
-                    <span className="inline-block px-3 py-1 bg-orange-600 text-white text-xs font-semibold rounded-full mb-3">
+                    <span className="inline-block px-3 py-1 bg-[#01B3D1] text-white text-xs font-semibold rounded-full mb-3">
                       {related.category}
                     </span>
-                    <h4 className="text-xl font-bold text-white mb-3 group-hover:text-orange-500 transition-colors">
+                    <h4 className="text-xl font-bold text-white mb-3 group-hover:text-[#F35A61] transition-colors">
                       {related.title}
                     </h4>
                     <p className="text-gray-400 mb-4 line-clamp-2">

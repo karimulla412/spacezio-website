@@ -69,8 +69,8 @@ const Services = () => {
                   }`}
                 >
                   <div className={isEven ? '' : 'lg:col-start-2'}>
-                    <div className="inline-block p-3 bg-orange-600/10 rounded-lg mb-6">
-                      <IconComponent className="h-10 w-10 text-orange-500" />
+                    <div className="inline-block p-3 bg-[#FDF2F3]/15 border border-[#F35A61]/30 rounded-lg mb-6">
+                      <IconComponent className="h-10 w-10 text-[#F35A61]" />
                     </div>
                     <h2 className="text-4xl font-bold text-white mb-4">{service.title}</h2>
                     <p className="text-lg text-gray-300 mb-6 leading-relaxed">
@@ -83,7 +83,7 @@ const Services = () => {
                       <div className="grid grid-cols-2 gap-3">
                         {service.features.map((feature, idx) => (
                           <div key={idx} className="flex items-center text-gray-300">
-                            <Check className="h-5 w-5 text-orange-500 mr-2 flex-shrink-0" />
+                            <Check className="h-5 w-5 text-[#01B3D1] mr-2 flex-shrink-0" />
                             <span>{feature}</span>
                           </div>
                         ))}
@@ -96,7 +96,7 @@ const Services = () => {
                       <div className="grid grid-cols-2 gap-3">
                         {details.benefits.map((benefit, idx) => (
                           <div key={idx} className="flex items-center text-gray-300">
-                            <div className="w-1.5 h-1.5 bg-blue-500 rounded-full mr-3"></div>
+                            <div className="w-1.5 h-1.5 bg-[#01B3D1] rounded-full mr-3"></div>
                             <span className="text-sm">{benefit}</span>
                           </div>
                         ))}
@@ -105,7 +105,7 @@ const Services = () => {
 
                     <Button
                       size="lg"
-                      className="bg-orange-600 hover:bg-orange-700 text-white font-semibold"
+                      className="bg-gradient-to-r from-[#F35A61] to-[#E04850] hover:brightness-105 text-white font-semibold shadow-lg shadow-[#F35A61]/25 transition-all"
                       onClick={() => window.location.href = '/contact'}
                     >
                       Request Consultation
@@ -146,21 +146,21 @@ const Services = () => {
             <CardContent className="p-12">
               <div className="grid md:grid-cols-3 gap-8">
                 <div className="text-center">
-                  <div className="text-5xl font-bold text-orange-500 mb-4">01</div>
+                  <div className="text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-[#F35A61] to-[#B85C8D] mb-4">01</div>
                   <h3 className="text-xl font-bold text-white mb-3">Design & Visualize</h3>
                   <p className="text-gray-400">
                     Meet our designers and see your home in stunning 3D
                   </p>
                 </div>
                 <div className="text-center">
-                  <div className="text-5xl font-bold text-orange-500 mb-4">02</div>
+                  <div className="text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-[#B85C8D] to-[#01B3D1] mb-4">02</div>
                   <h3 className="text-xl font-bold text-white mb-3">Select Materials</h3>
                   <p className="text-gray-400">
                     Choose from our catalog of premium materials and fittings
                   </p>
                 </div>
                 <div className="text-center">
-                  <div className="text-5xl font-bold text-orange-500 mb-4">03</div>
+                  <div className="text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-[#01B3D1] to-[#62C290] mb-4">03</div>
                   <h3 className="text-xl font-bold text-white mb-3">Installation & Handover</h3>
                   <p className="text-gray-400">
                     Professional installation and your dream home in 60 days
@@ -173,27 +173,27 @@ const Services = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-gradient-to-r from-orange-600 to-orange-800">
+      <section className="py-20 bg-gradient-to-r from-[#F35A61] via-[#B85C8D] to-[#01B3D1] shadow-2xl">
         <div className="max-w-4xl mx-auto px-6 lg:px-8 text-center">
-          <h2 className="text-4xl font-bold text-white mb-6">
+          <h2 className="text-4xl font-extrabold text-white mb-6">
             Ready to Design Your Dream Home?
           </h2>
-          <p className="text-xl text-orange-100 mb-8">
+          <p className="text-xl text-white/90 mb-8 font-light">
             Book a free consultation with our expert designers today
           </p>
           <div className="flex flex-wrap justify-center gap-4">
             <Button
               size="lg"
-              className="bg-white text-orange-600 hover:bg-gray-100 px-10 py-6 text-lg font-semibold"
+              className="bg-white text-slate-950 hover:bg-slate-100 font-bold px-10 py-6 text-lg shadow-2xl hover:scale-105 transition-all"
               onClick={() => window.location.href = '/contact'}
             >
               Schedule Consultation
-              <ArrowRight className="ml-2 h-5 w-5" />
+              <ArrowRight className="ml-2 h-5 w-5 text-[#F35A61]" />
             </Button>
             <Button
               size="lg"
               variant="outline"
-              className="border-2 border-white text-white hover:bg-white hover:text-orange-600 px-10 py-6 text-lg font-semibold"
+              className="border-2 border-white text-white hover:bg-white hover:text-slate-950 px-10 py-6 text-lg font-bold transition-all"
               onClick={() => window.location.href = '/projects'}
             >
               View Our Work

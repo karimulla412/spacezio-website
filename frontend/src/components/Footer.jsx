@@ -48,7 +48,7 @@ const Footer = () => {
                 href="https://linkedin.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center text-gray-400 hover:bg-orange-600 hover:text-white transition-all duration-300"
+                className="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center text-slate-400 hover:bg-[#F35A61] hover:text-white transition-all duration-300"
               >
                 <Linkedin className="h-5 w-5" />
               </a>
@@ -56,7 +56,7 @@ const Footer = () => {
                 href="https://twitter.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center text-gray-400 hover:bg-orange-600 hover:text-white transition-all duration-300"
+                className="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center text-slate-400 hover:bg-[#F35A61] hover:text-white transition-all duration-300"
               >
                 <Twitter className="h-5 w-5" />
               </a>
@@ -64,7 +64,7 @@ const Footer = () => {
                 href="https://facebook.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center text-gray-400 hover:bg-orange-600 hover:text-white transition-all duration-300"
+                className="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center text-slate-400 hover:bg-[#F35A61] hover:text-white transition-all duration-300"
               >
                 <Facebook className="h-5 w-5" />
               </a>
@@ -79,9 +79,9 @@ const Footer = () => {
                 <li key={link.name}>
                   <a
                     href={link.href}
-                    className="text-gray-400 hover:text-orange-500 transition-colors duration-200 flex items-center group"
+                    className="text-slate-400 hover:text-[#F35A61] transition-colors duration-200 flex items-center group"
                   >
-                    <ArrowRight className="h-4 w-4 mr-2 opacity-0 -ml-6 group-hover:opacity-100 group-hover:ml-0 transition-all duration-200" />
+                    <ArrowRight className="h-4 w-4 mr-2 opacity-0 -ml-6 group-hover:opacity-100 group-hover:ml-0 transition-all duration-200 text-[#01B3D1]" />
                     {link.name}
                   </a>
                 </li>
@@ -97,9 +97,9 @@ const Footer = () => {
                 <li key={service.name}>
                   <a
                     href={service.href}
-                    className="text-gray-400 hover:text-orange-500 transition-colors duration-200 flex items-center group"
+                    className="text-slate-400 hover:text-[#F35A61] transition-colors duration-200 flex items-center group"
                   >
-                    <ArrowRight className="h-4 w-4 mr-2 opacity-0 -ml-6 group-hover:opacity-100 group-hover:ml-0 transition-all duration-200" />
+                    <ArrowRight className="h-4 w-4 mr-2 opacity-0 -ml-6 group-hover:opacity-100 group-hover:ml-0 transition-all duration-200 text-[#01B3D1]" />
                     {service.name}
                   </a>
                 </li>
@@ -112,8 +112,8 @@ const Footer = () => {
             <h3 className="text-white font-bold text-lg mb-6">Contact Us</h3>
             <ul className="space-y-4">
               <li className="flex items-start gap-3">
-                <MapPin className="h-5 w-5 text-orange-500 flex-shrink-0 mt-1" />
-                <span className="text-gray-400 leading-relaxed">
+                <MapPin className="h-5 w-5 text-[#01B3D1] flex-shrink-0 mt-1" />
+                <span className="text-slate-400 leading-relaxed">
                   Near Abid Nagar Road,<br />
                   Abidnagar Park, Akkayyapalem,<br />
                   Visakhapatnam - 530016,<br />
@@ -121,14 +121,14 @@ const Footer = () => {
                 </span>
               </li>
               <li className="flex items-center gap-3">
-                <Phone className="h-5 w-5 text-orange-500 flex-shrink-0" />
-                <a href="tel:+919686511132" className="text-gray-400 hover:text-orange-500 transition-colors">
+                <Phone className="h-5 w-5 text-[#F35A61] flex-shrink-0" />
+                <a href="tel:+919686511132" className="text-slate-400 hover:text-[#F35A61] transition-colors">
                   +91 96865 11132
                 </a>
               </li>
               <li className="flex items-center gap-3">
-                <Mail className="h-5 w-5 text-orange-500 flex-shrink-0" />
-                <a href="mailto:hellospacexio@gmail.com" className="text-gray-400 hover:text-orange-500 transition-colors">
+                <Mail className="h-5 w-5 text-[#01B3D1] flex-shrink-0" />
+                <a href="mailto:hellospacexio@gmail.com" className="text-slate-400 hover:text-[#01B3D1] transition-colors">
                   hellospacexio@gmail.com
                 </a>
               </li>
@@ -158,13 +158,13 @@ const Footer = () => {
               © {currentYear} Spacexio. All rights reserved.
             </p>
             <div className="flex gap-6 text-sm">
-              <a href="/privacy-policy" className="text-gray-400 hover:text-orange-500 transition-colors">
+              <a href="/privacy-policy" className="text-gray-400 hover:text-[#F35A61] transition-colors">
                 Privacy Policy
               </a>
-              <a href="/terms-of-service" className="text-gray-400 hover:text-orange-500 transition-colors">
+              <a href="/terms-of-service" className="text-gray-400 hover:text-[#F35A61] transition-colors">
                 Terms of Service
               </a>
-              <a href="/sitemap" className="text-gray-400 hover:text-orange-500 transition-colors">
+              <a href="/sitemap" className="text-gray-400 hover:text-[#F35A61] transition-colors">
                 Sitemap
               </a>
             </div>

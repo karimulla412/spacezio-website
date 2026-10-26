@@ -84,22 +84,22 @@ const SiteVisitBooking = () => {
             <div className="space-y-3 text-left bg-gray-800/80 border border-gray-700 p-6 rounded-xl mb-8 text-sm">
               <p className="text-white font-bold mb-2">What happens next:</p>
               <div className="flex items-start gap-3">
-                <Check className="h-4 w-4 text-orange-400 flex-shrink-0 mt-0.5" />
+                <Check className="h-4 w-4 text-[#01B3D1] flex-shrink-0 mt-0.5" />
                 <p className="text-gray-300">Senior Civil Engineer calls to confirm inspection timing</p>
               </div>
               <div className="flex items-start gap-3">
-                <Check className="h-4 w-4 text-orange-400 flex-shrink-0 mt-0.5" />
+                <Check className="h-4 w-4 text-[#01B3D1] flex-shrink-0 mt-0.5" />
                 <p className="text-gray-300">Free physical site survey and plot boundary verification</p>
               </div>
               <div className="flex items-start gap-3">
-                <Check className="h-4 w-4 text-orange-400 flex-shrink-0 mt-0.5" />
+                <Check className="h-4 w-4 text-[#01B3D1] flex-shrink-0 mt-0.5" />
                 <p className="text-gray-300">Receive accurate BOQ quotation tailored to your plot</p>
               </div>
             </div>
             <div className="flex flex-col sm:flex-row gap-3 justify-center">
               <Button
                 onClick={() => window.location.href = '/'}
-                className="bg-orange-600 hover:bg-orange-700 text-white font-semibold py-3 px-6 rounded-lg"
+                className="bg-[#F35A61] hover:bg-[#E04850] text-white font-semibold py-3 px-6 rounded-lg shadow-lg shadow-[#F35A61]/25"
               >
                 Back to Home
               </Button>
@@ -129,7 +129,7 @@ const SiteVisitBooking = () => {
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         {/* Header */}
         <div className="text-center mb-12">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-orange-600/10 border border-orange-500/20 text-orange-400 text-xs font-semibold uppercase tracking-wider mb-4">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#FDF2F3]/10 border border-[#F35A61]/30 text-[#F35A61] text-xs font-semibold uppercase tracking-wider mb-4">
             <Calendar className="h-4 w-4" />
             Zero-Cost In-Person Consultation
           </div>
@@ -164,7 +164,7 @@ const SiteVisitBooking = () => {
                           required
                           value={formData.name}
                           onChange={handleChange}
-                          className="bg-gray-800 border-gray-700 text-white placeholder-gray-500 h-11 rounded-lg focus:border-orange-500"
+                          className="bg-gray-800 border-gray-700 text-white placeholder-gray-500 h-11 rounded-lg focus:border-[#F35A61]"
                           placeholder="e.g. Ramesh Varma"
                         />
                       </div>
@@ -180,7 +180,7 @@ const SiteVisitBooking = () => {
                           required
                           value={formData.phone}
                           onChange={handleChange}
-                          className="bg-gray-800 border-gray-700 text-white placeholder-gray-500 h-11 rounded-lg focus:border-orange-500"
+                          className="bg-gray-800 border-gray-700 text-white placeholder-gray-500 h-11 rounded-lg focus:border-[#F35A61]"
                           placeholder="+91 98480 12345"
                         />
                       </div>
@@ -195,7 +195,7 @@ const SiteVisitBooking = () => {
                           type="email"
                           value={formData.email}
                           onChange={handleChange}
-                          className="bg-gray-800 border-gray-700 text-white placeholder-gray-500 h-11 rounded-lg focus:border-orange-500"
+                          className="bg-gray-800 border-gray-700 text-white placeholder-gray-500 h-11 rounded-lg focus:border-[#F35A61]"
                           placeholder="ramesh@example.com"
                         />
                       </div>
@@ -210,7 +210,7 @@ const SiteVisitBooking = () => {
                           type="text"
                           value={formData.plotSize}
                           onChange={handleChange}
-                          className="bg-gray-800 border-gray-700 text-white placeholder-gray-500 h-11 rounded-lg focus:border-orange-500"
+                          className="bg-gray-800 border-gray-700 text-white placeholder-gray-500 h-11 rounded-lg focus:border-[#F35A61]"
                           placeholder="e.g. 200 sq.yds"
                         />
                       </div>
@@ -234,7 +234,7 @@ const SiteVisitBooking = () => {
                           required
                           value={formData.plotLocation}
                           onChange={handleChange}
-                          className="bg-gray-800 border-gray-700 text-white placeholder-gray-500 h-11 rounded-lg focus:border-orange-500"
+                          className="bg-gray-800 border-gray-700 text-white placeholder-gray-500 h-11 rounded-lg focus:border-[#F35A61]"
                           placeholder="e.g. Madhurawada Near Law College, Visakhapatnam"
                         />
                       </div>
@@ -248,7 +248,7 @@ const SiteVisitBooking = () => {
                             value={formData.packageInterest} 
                             onValueChange={(value) => setFormData({ ...formData, packageInterest: value })}
                           >
-                            <SelectTrigger className="bg-gray-800 border-gray-700 text-white h-11 rounded-lg focus:ring-2 focus:ring-orange-500">
+                            <SelectTrigger className="bg-gray-800 border-gray-700 text-white h-11 rounded-lg focus:ring-2 focus:ring-[#F35A61]/20">
                               <SelectValue placeholder="Select package" />
                             </SelectTrigger>
                             <SelectContent className="bg-gray-900 border-gray-700 text-white shadow-xl">
@@ -270,7 +270,7 @@ const SiteVisitBooking = () => {
                             type="date"
                             value={formData.preferredDate}
                             onChange={handleChange}
-                            className="bg-gray-800 border-gray-700 text-white h-11 rounded-lg focus:border-orange-500"
+                            className="bg-gray-800 border-gray-700 text-white h-11 rounded-lg focus:border-[#F35A61]"
                             min={new Date().toISOString().split('T')[0]}
                           />
                         </div>
@@ -286,7 +286,7 @@ const SiteVisitBooking = () => {
                           rows={3}
                           value={formData.message}
                           onChange={handleChange}
-                          className="bg-gray-800 border-gray-700 text-white placeholder-gray-500 resize-none rounded-lg text-sm focus:border-orange-500"
+                          className="bg-gray-800 border-gray-700 text-white placeholder-gray-500 resize-none rounded-lg text-sm focus:border-[#F35A61]"
                           placeholder="Any specific architectural desires, budget constraints, or timeline?"
                         />
                       </div>
@@ -296,7 +296,7 @@ const SiteVisitBooking = () => {
                   <Button
                     type="submit"
                     disabled={isSubmitting}
-                    className="w-full bg-orange-600 hover:bg-orange-700 text-white h-13 text-base font-semibold rounded-lg shadow-md shadow-orange-600/20 transition-all duration-200"
+                    className="w-full bg-gradient-to-r from-[#F35A61] to-[#E04850] hover:brightness-105 text-white h-13 text-base font-semibold rounded-lg shadow-lg shadow-[#F35A61]/25 transition-all duration-200"
                   >
                     {isSubmitting ? 'Confirming...' : 'Confirm Free Site Visit'}
                     <ArrowRight className="ml-2 h-5 w-5" />
@@ -343,7 +343,7 @@ const SiteVisitBooking = () => {
                     const IconComponent = item.icon;
                     return (
                       <div key={idx} className="flex items-start gap-3">
-                        <div className="p-2 bg-orange-600/10 border border-orange-500/20 rounded-lg text-orange-400 flex-shrink-0">
+                        <div className="p-2 bg-[#EFFBFC]/10 border border-[#01B3D1]/30 rounded-lg text-[#01B3D1] flex-shrink-0">
                           <IconComponent className="h-4 w-4" />
                         </div>
                         <div>
@@ -357,8 +357,8 @@ const SiteVisitBooking = () => {
               </CardContent>
             </Card>
 
-            <div className="bg-gradient-to-br from-gray-900 to-gray-800 border border-orange-500/30 rounded-2xl p-6 text-center shadow-lg">
-              <span className="inline-block px-3 py-1 bg-orange-600 text-white text-xs font-bold rounded-full mb-2 uppercase tracking-wide">
+            <div className="bg-gradient-to-br from-gray-900 to-gray-800 border border-[#F35A61]/30 rounded-2xl p-6 text-center shadow-lg">
+              <span className="inline-block px-3 py-1 bg-[#F35A61] text-white text-xs font-bold rounded-full mb-2 uppercase tracking-wide">
                 100% Complimentary
               </span>
               <h4 className="text-white font-bold text-sm mb-1">No Hidden Fees</h4>
@@ -373,9 +373,9 @@ const SiteVisitBooking = () => {
                 <div className="space-y-3 text-sm">
                   <a 
                     href="tel:+919686511132"
-                    className="flex items-center gap-3 text-gray-300 hover:text-orange-400 font-medium transition-colors"
+                    className="flex items-center gap-3 text-gray-300 hover:text-[#01B3D1] font-medium transition-colors"
                   >
-                    <Phone className="h-4 w-4 text-orange-400" />
+                    <Phone className="h-4 w-4 text-[#01B3D1]" />
                     <span>+91 96865 11132</span>
                   </a>
                   <a 

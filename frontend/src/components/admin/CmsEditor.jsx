@@ -263,14 +263,14 @@ const CmsEditor = () => {
     <div className="space-y-6">
       
       {/* CMS Header Banner */}
-      <div className="relative overflow-hidden rounded-3xl bg-gradient-to-r from-orange-600 via-orange-500 to-amber-600 p-8 text-white shadow-2xl flex flex-col sm:flex-row justify-between items-start sm:items-center gap-6">
+      <div className="relative overflow-hidden rounded-3xl bg-gradient-to-r from-[#F35A61]-600 via-[#F35A61]-500 to-amber-600 p-8 text-white shadow-2xl flex flex-col sm:flex-row justify-between items-start sm:items-center gap-6">
         <div className="relative z-10">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-black/20 backdrop-blur-sm text-white text-xs font-semibold mb-2">
             <Sparkles className="w-3.5 h-3.5" />
             Live Website Content Management System (CMS)
           </div>
           <h2 className="text-2xl lg:text-3xl font-black tracking-tight">Website Content & Media Editor</h2>
-          <p className="text-orange-100 text-xs font-light mt-1 max-w-xl leading-relaxed">
+          <p className="text-[#F35A61]-100 text-xs font-light mt-1 max-w-xl leading-relaxed">
             Modify hero headlines, update package construction rates per sq.ft, add architectural projects to your portfolio, and publish verified client reviews in real time.
           </p>
         </div>
@@ -289,7 +289,7 @@ const CmsEditor = () => {
             href="/"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-1.5 px-3.5 py-2 bg-white text-orange-600 hover:bg-orange-50 font-bold rounded-xl text-xs shadow-lg transition-all"
+            className="inline-flex items-center gap-1.5 px-3.5 py-2 bg-white text-[#F35A61]-600 hover:bg-[#F35A61]-50 font-bold rounded-xl text-xs shadow-lg transition-all"
           >
             View Live Site
             <ExternalLink className="w-3.5 h-3.5" />
@@ -307,7 +307,7 @@ const CmsEditor = () => {
               onClick={() => setActiveSection(tab.id)}
               className={`flex items-center gap-2 px-4 py-2.5 rounded-xl text-xs font-semibold whitespace-nowrap transition-all cursor-pointer ${
                 isActive
-                  ? 'bg-orange-600 text-white shadow-lg shadow-orange-600/30'
+                  ? 'bg-[#F35A61] text-white shadow-lg shadow-[#F35A61]/25'
                   : 'text-zinc-400 hover:text-zinc-200 hover:bg-zinc-900 border border-zinc-800/40'
               }`}
             >
@@ -344,7 +344,7 @@ const CmsEditor = () => {
                     type="text"
                     value={heroForm.title}
                     onChange={(e) => setHeroForm({ ...heroForm, title: e.target.value })}
-                    className="w-full px-4 py-2.5 rounded-xl bg-zinc-950 border border-zinc-800 text-sm text-zinc-100 placeholder-zinc-500 focus:border-orange-500 outline-none"
+                    className="w-full px-4 py-2.5 rounded-xl bg-zinc-950 border border-zinc-800 text-sm text-zinc-100 placeholder-zinc-500 focus:border-[#01B3D1] outline-none"
                     placeholder="e.g. Let's Build Your"
                   />
                 </div>
@@ -357,7 +357,7 @@ const CmsEditor = () => {
                     type="text"
                     value={heroForm.subtitle}
                     onChange={(e) => setHeroForm({ ...heroForm, subtitle: e.target.value })}
-                    className="w-full px-4 py-2.5 rounded-xl bg-zinc-950 border border-zinc-800 text-sm focus:border-orange-500 outline-none font-bold text-orange-500"
+                    className="w-full px-4 py-2.5 rounded-xl bg-zinc-950 border border-zinc-800 text-sm focus:border-[#01B3D1] outline-none font-bold text-[#F35A61]"
                     placeholder="e.g. Dream Home"
                   />
                 </div>
@@ -370,7 +370,7 @@ const CmsEditor = () => {
                     rows={4}
                     value={heroForm.description}
                     onChange={(e) => setHeroForm({ ...heroForm, description: e.target.value })}
-                    className="w-full px-4 py-2.5 rounded-xl bg-zinc-950 border border-zinc-800 text-sm text-zinc-100 placeholder-zinc-500 focus:border-orange-500 outline-none leading-relaxed"
+                    className="w-full px-4 py-2.5 rounded-xl bg-zinc-950 border border-zinc-800 text-sm text-zinc-100 placeholder-zinc-500 focus:border-[#01B3D1] outline-none leading-relaxed"
                     placeholder="Describe your construction company value proposition..."
                   />
                 </div>
@@ -383,7 +383,7 @@ const CmsEditor = () => {
                     type="url"
                     value={heroForm.image}
                     onChange={(e) => setHeroForm({ ...heroForm, image: e.target.value })}
-                    className="w-full px-4 py-2.5 rounded-xl bg-zinc-950 border border-zinc-800 text-sm text-zinc-100 placeholder-zinc-500 focus:border-orange-500 outline-none"
+                    className="w-full px-4 py-2.5 rounded-xl bg-zinc-950 border border-zinc-800 text-sm text-zinc-100 placeholder-zinc-500 focus:border-[#01B3D1] outline-none"
                     placeholder="https://..."
                   />
                   <p className="text-[11px] text-zinc-500 mt-1">Paste any high-resolution image URL (Unsplash, Cloudinary, AWS S3, etc.)</p>
@@ -393,12 +393,12 @@ const CmsEditor = () => {
               {/* Live Preview Card */}
               <div className="bg-zinc-950 p-6 rounded-2xl border border-zinc-800 flex flex-col justify-between">
                 <div>
-                  <span className="inline-block px-2.5 py-0.5 rounded-md bg-orange-500/10 text-orange-400 border border-orange-500/20 text-[10px] font-bold uppercase tracking-wider mb-3">
+                  <span className="inline-block px-2.5 py-0.5 rounded-md bg-[#F35A61]/10 text-[#01B3D1] border border-[#F35A61]/20 text-[10px] font-bold uppercase tracking-wider mb-3">
                     Live Hero Mockup
                   </span>
                   <h4 className="text-2xl font-black text-white leading-tight">
                     {heroForm.title || "Let's Build Your"}{' '}
-                    <span className="text-orange-500">{heroForm.subtitle || "Dream Home"}</span>
+                    <span className="text-[#F35A61]">{heroForm.subtitle || "Dream Home"}</span>
                   </h4>
                   <p className="text-xs text-zinc-400 mt-2 line-clamp-3 leading-relaxed font-light">
                     {heroForm.description || "Transforming architectural visions into enduring landmarks."}
@@ -430,7 +430,7 @@ const CmsEditor = () => {
               <Button
                 onClick={handleSaveHero}
                 disabled={saving}
-                className="bg-orange-600 hover:bg-orange-500 text-white gap-2 text-xs font-bold rounded-xl shadow-lg shadow-orange-600/30 cursor-pointer"
+                className="bg-[#F35A61] hover:bg-[#E04850] text-white gap-2 text-xs font-bold rounded-xl shadow-lg shadow-[#F35A61]/25 cursor-pointer"
               >
                 <Save className="w-4 h-4" />
                 {saving ? 'Updating...' : 'Publish Hero Changes'}
@@ -454,13 +454,13 @@ const CmsEditor = () => {
                 <div
                   key={pkg.id || index}
                   className={`p-6 rounded-2xl border transition-all ${
-                    pkg.popular ? 'border-orange-500/80 bg-orange-950/10 shadow-lg shadow-orange-950/20' : 'border-zinc-800 bg-zinc-950'
+                    pkg.popular ? 'border-[#01B3D1]/80 bg-[#F35A61]-950/10 shadow-lg shadow-[#F35A61]-950/20' : 'border-zinc-800 bg-zinc-950'
                   }`}
                 >
                   <div className="flex items-center justify-between mb-4">
                     <span className="font-black text-white text-base">{pkg.name} Package</span>
                     {pkg.popular && (
-                      <span className="text-[10px] font-bold uppercase bg-orange-600 text-white px-2 py-0.5 rounded-full">
+                      <span className="text-[10px] font-bold uppercase bg-[#F35A61] text-white px-2 py-0.5 rounded-full">
                         Popular
                       </span>
                     )}
@@ -472,7 +472,7 @@ const CmsEditor = () => {
                         Rate per Sq.Ft (₹)
                       </label>
                       <div className="relative">
-                        <span className="absolute left-3 top-1/2 -translate-y-1/2 text-orange-500 font-bold text-sm">₹</span>
+                        <span className="absolute left-3 top-1/2 -translate-y-1/2 text-[#F35A61] font-bold text-sm">₹</span>
                         <input
                           type="text"
                           value={pkg.pricePerSqft}
@@ -481,7 +481,7 @@ const CmsEditor = () => {
                             updated[index] = { ...updated[index], pricePerSqft: e.target.value };
                             setPackagesForm(updated);
                           }}
-                          className="w-full pl-8 pr-3 py-2 rounded-xl bg-zinc-900 border border-zinc-800 text-sm font-extrabold text-white focus:border-orange-500 outline-none"
+                          className="w-full pl-8 pr-3 py-2 rounded-xl bg-zinc-900 border border-zinc-800 text-sm font-extrabold text-white focus:border-[#01B3D1] outline-none"
                         />
                       </div>
                     </div>
@@ -498,7 +498,7 @@ const CmsEditor = () => {
                           updated[index] = { ...updated[index], tagline: e.target.value };
                           setPackagesForm(updated);
                         }}
-                        className="w-full px-3 py-2 rounded-xl bg-zinc-900 border border-zinc-800 text-xs text-zinc-200 focus:border-orange-500 outline-none"
+                        className="w-full px-3 py-2 rounded-xl bg-zinc-900 border border-zinc-800 text-xs text-zinc-200 focus:border-[#01B3D1] outline-none"
                       />
                     </div>
 
@@ -514,7 +514,7 @@ const CmsEditor = () => {
                           updated[index] = { ...updated[index], idealFor: e.target.value };
                           setPackagesForm(updated);
                         }}
-                        className="w-full px-3 py-2 rounded-xl bg-zinc-900 border border-zinc-800 text-xs text-zinc-200 focus:border-orange-500 outline-none"
+                        className="w-full px-3 py-2 rounded-xl bg-zinc-900 border border-zinc-800 text-xs text-zinc-200 focus:border-[#01B3D1] outline-none"
                       />
                     </div>
 
@@ -530,7 +530,7 @@ const CmsEditor = () => {
                           updated[index] = { ...updated[index], features: e.target.value.split('\n').filter(f => f.trim()) };
                           setPackagesForm(updated);
                         }}
-                        className="w-full px-3 py-2 rounded-xl bg-zinc-900 border border-zinc-800 text-xs text-zinc-200 focus:border-orange-500 outline-none font-mono"
+                        className="w-full px-3 py-2 rounded-xl bg-zinc-900 border border-zinc-800 text-xs text-zinc-200 focus:border-[#01B3D1] outline-none font-mono"
                       />
                     </div>
                   </div>
@@ -542,7 +542,7 @@ const CmsEditor = () => {
               <Button
                 onClick={handleSavePackages}
                 disabled={saving}
-                className="bg-orange-600 hover:bg-orange-500 text-white gap-2 text-xs font-bold rounded-xl shadow-lg shadow-orange-600/30 cursor-pointer"
+                className="bg-[#F35A61] hover:bg-[#E04850] text-white gap-2 text-xs font-bold rounded-xl shadow-lg shadow-[#F35A61]/25 cursor-pointer"
               >
                 <Save className="w-4 h-4" />
                 {saving ? 'Updating...' : 'Publish Packages & Pricing'}
@@ -575,7 +575,7 @@ const CmsEditor = () => {
                       updated[idx] = { ...updated[idx], value: e.target.value };
                       setStatsForm(updated);
                     }}
-                    className="w-full text-center text-3xl font-black text-orange-500 px-2 py-1.5 rounded-xl bg-zinc-900 border border-zinc-800 focus:border-orange-500 outline-none"
+                    className="w-full text-center text-3xl font-black text-[#F35A61] px-2 py-1.5 rounded-xl bg-zinc-900 border border-zinc-800 focus:border-[#01B3D1] outline-none"
                   />
                   <label className="block text-[10px] font-bold text-zinc-400 uppercase tracking-wider mt-4 mb-2">
                     Label Description
@@ -588,7 +588,7 @@ const CmsEditor = () => {
                       updated[idx] = { ...updated[idx], label: e.target.value };
                       setStatsForm(updated);
                     }}
-                    className="w-full text-center text-xs text-zinc-200 px-2 py-1.5 rounded-xl bg-zinc-900 border border-zinc-800 focus:border-orange-500 outline-none"
+                    className="w-full text-center text-xs text-zinc-200 px-2 py-1.5 rounded-xl bg-zinc-900 border border-zinc-800 focus:border-[#01B3D1] outline-none"
                   />
                 </div>
               ))}
@@ -598,7 +598,7 @@ const CmsEditor = () => {
               <Button
                 onClick={handleSaveStats}
                 disabled={saving}
-                className="bg-orange-600 hover:bg-orange-500 text-white gap-2 text-xs font-bold rounded-xl shadow-lg shadow-orange-600/30 cursor-pointer"
+                className="bg-[#F35A61] hover:bg-[#E04850] text-white gap-2 text-xs font-bold rounded-xl shadow-lg shadow-[#F35A61]/25 cursor-pointer"
               >
                 <Save className="w-4 h-4" />
                 {saving ? 'Updating...' : 'Publish Statistics'}
@@ -626,7 +626,7 @@ const CmsEditor = () => {
                     placeholder="e.g. Modern Coastal Villa"
                     value={newProject.title}
                     onChange={(e) => setNewProject({ ...newProject, title: e.target.value })}
-                    className="w-full px-3 py-2.5 rounded-xl bg-zinc-950 border border-zinc-800 text-xs text-zinc-100 focus:border-orange-500 outline-none"
+                    className="w-full px-3 py-2.5 rounded-xl bg-zinc-950 border border-zinc-800 text-xs text-zinc-100 focus:border-[#01B3D1] outline-none"
                   />
                 </div>
 
@@ -635,7 +635,7 @@ const CmsEditor = () => {
                   <select
                     value={newProject.category}
                     onChange={(e) => setNewProject({ ...newProject, category: e.target.value })}
-                    className="w-full px-3 py-2.5 rounded-xl bg-zinc-950 border border-zinc-800 text-xs text-zinc-100 focus:border-orange-500 outline-none"
+                    className="w-full px-3 py-2.5 rounded-xl bg-zinc-950 border border-zinc-800 text-xs text-zinc-100 focus:border-[#01B3D1] outline-none"
                   >
                     <option value="Residential">Residential</option>
                     <option value="Commercial">Commercial</option>
@@ -652,7 +652,7 @@ const CmsEditor = () => {
                     placeholder="e.g. Madhurawada, Visakhapatnam"
                     value={newProject.location}
                     onChange={(e) => setNewProject({ ...newProject, location: e.target.value })}
-                    className="w-full px-3 py-2.5 rounded-xl bg-zinc-950 border border-zinc-800 text-xs text-zinc-100 focus:border-orange-500 outline-none"
+                    className="w-full px-3 py-2.5 rounded-xl bg-zinc-950 border border-zinc-800 text-xs text-zinc-100 focus:border-[#01B3D1] outline-none"
                   />
                 </div>
 
@@ -663,7 +663,7 @@ const CmsEditor = () => {
                     placeholder="e.g. 4,200 sq.ft"
                     value={newProject.area}
                     onChange={(e) => setNewProject({ ...newProject, area: e.target.value })}
-                    className="w-full px-3 py-2.5 rounded-xl bg-zinc-950 border border-zinc-800 text-xs text-zinc-100 focus:border-orange-500 outline-none"
+                    className="w-full px-3 py-2.5 rounded-xl bg-zinc-950 border border-zinc-800 text-xs text-zinc-100 focus:border-[#01B3D1] outline-none"
                   />
                 </div>
 
@@ -674,7 +674,7 @@ const CmsEditor = () => {
                     placeholder="e.g. 10 Months"
                     value={newProject.duration}
                     onChange={(e) => setNewProject({ ...newProject, duration: e.target.value })}
-                    className="w-full px-3 py-2.5 rounded-xl bg-zinc-950 border border-zinc-800 text-xs text-zinc-100 focus:border-orange-500 outline-none"
+                    className="w-full px-3 py-2.5 rounded-xl bg-zinc-950 border border-zinc-800 text-xs text-zinc-100 focus:border-[#01B3D1] outline-none"
                   />
                 </div>
 
@@ -685,7 +685,7 @@ const CmsEditor = () => {
                     placeholder="https://images.unsplash..."
                     value={newProject.image}
                     onChange={(e) => setNewProject({ ...newProject, image: e.target.value })}
-                    className="w-full px-3 py-2.5 rounded-xl bg-zinc-950 border border-zinc-800 text-xs text-zinc-100 focus:border-orange-500 outline-none"
+                    className="w-full px-3 py-2.5 rounded-xl bg-zinc-950 border border-zinc-800 text-xs text-zinc-100 focus:border-[#01B3D1] outline-none"
                   />
                 </div>
 
@@ -693,7 +693,7 @@ const CmsEditor = () => {
                   <Button
                     type="submit"
                     disabled={saving}
-                    className="bg-orange-600 hover:bg-orange-500 text-white gap-2 text-xs font-bold rounded-xl shadow-lg shadow-orange-600/30 cursor-pointer"
+                    className="bg-[#F35A61] hover:bg-[#E04850] text-white gap-2 text-xs font-bold rounded-xl shadow-lg shadow-[#F35A61]/25 cursor-pointer"
                   >
                     <Plus className="w-4 h-4" />
                     Publish Project
@@ -725,7 +725,7 @@ const CmsEditor = () => {
                   <div>
                     <h4 className="font-bold text-white text-sm line-clamp-1">{project.title}</h4>
                     <p className="text-xs text-zinc-400 flex items-center gap-1 mt-1">
-                      <MapPin className="w-3 h-3 text-orange-500 flex-shrink-0" />
+                      <MapPin className="w-3 h-3 text-[#F35A61] flex-shrink-0" />
                       {project.location}
                     </p>
                     <div className="flex items-center gap-3 mt-3 text-[11px] text-zinc-400 font-mono">
@@ -769,7 +769,7 @@ const CmsEditor = () => {
                       placeholder="e.g. Rajesh & Priya Sharma"
                       value={newTestimonial.name}
                       onChange={(e) => setNewTestimonial({ ...newTestimonial, name: e.target.value })}
-                      className="w-full px-3 py-2.5 rounded-xl bg-zinc-950 border border-zinc-800 text-xs text-zinc-100 focus:border-orange-500 outline-none"
+                      className="w-full px-3 py-2.5 rounded-xl bg-zinc-950 border border-zinc-800 text-xs text-zinc-100 focus:border-[#01B3D1] outline-none"
                     />
                   </div>
 
@@ -780,7 +780,7 @@ const CmsEditor = () => {
                       placeholder="e.g. 4BHK Villa, Madhurawada"
                       value={newTestimonial.project}
                       onChange={(e) => setNewTestimonial({ ...newTestimonial, project: e.target.value })}
-                      className="w-full px-3 py-2.5 rounded-xl bg-zinc-950 border border-zinc-800 text-xs text-zinc-100 focus:border-orange-500 outline-none"
+                      className="w-full px-3 py-2.5 rounded-xl bg-zinc-950 border border-zinc-800 text-xs text-zinc-100 focus:border-[#01B3D1] outline-none"
                     />
                   </div>
 
@@ -789,7 +789,7 @@ const CmsEditor = () => {
                     <select
                       value={newTestimonial.package}
                       onChange={(e) => setNewTestimonial({ ...newTestimonial, package: e.target.value })}
-                      className="w-full px-3 py-2.5 rounded-xl bg-zinc-950 border border-zinc-800 text-xs text-zinc-100 focus:border-orange-500 outline-none"
+                      className="w-full px-3 py-2.5 rounded-xl bg-zinc-950 border border-zinc-800 text-xs text-zinc-100 focus:border-[#01B3D1] outline-none"
                     >
                       <option value="Essential">Essential Package</option>
                       <option value="Premium">Premium Package</option>
@@ -802,7 +802,7 @@ const CmsEditor = () => {
                     <select
                       value={newTestimonial.rating}
                       onChange={(e) => setNewTestimonial({ ...newTestimonial, rating: Number(e.target.value) })}
-                      className="w-full px-3 py-2.5 rounded-xl bg-zinc-950 border border-zinc-800 text-xs text-orange-400 font-bold focus:border-orange-500 outline-none"
+                      className="w-full px-3 py-2.5 rounded-xl bg-zinc-950 border border-zinc-800 text-xs text-[#01B3D1] font-bold focus:border-[#01B3D1] outline-none"
                     >
                       <option value={5}>★★★★★ (5 Stars)</option>
                       <option value={4}>★★★★☆ (4 Stars)</option>
@@ -819,7 +819,7 @@ const CmsEditor = () => {
                     placeholder="What did the client say about the quality, timeline, and experience?"
                     value={newTestimonial.content}
                     onChange={(e) => setNewTestimonial({ ...newTestimonial, content: e.target.value })}
-                    className="w-full px-3 py-2.5 rounded-xl bg-zinc-950 border border-zinc-800 text-xs text-zinc-100 focus:border-orange-500 outline-none leading-relaxed"
+                    className="w-full px-3 py-2.5 rounded-xl bg-zinc-950 border border-zinc-800 text-xs text-zinc-100 focus:border-[#01B3D1] outline-none leading-relaxed"
                   />
                 </div>
 
@@ -827,7 +827,7 @@ const CmsEditor = () => {
                   <Button
                     type="submit"
                     disabled={saving}
-                    className="bg-orange-600 hover:bg-orange-500 text-white gap-2 text-xs font-bold rounded-xl shadow-lg shadow-orange-600/30 cursor-pointer"
+                    className="bg-[#F35A61] hover:bg-[#E04850] text-white gap-2 text-xs font-bold rounded-xl shadow-lg shadow-[#F35A61]/25 cursor-pointer"
                   >
                     <Plus className="w-4 h-4" />
                     Publish Review
@@ -843,10 +843,10 @@ const CmsEditor = () => {
               <div key={t.id} className="bg-zinc-900/60 p-6 rounded-2xl border border-zinc-800 shadow-lg flex flex-col justify-between hover:border-zinc-700 transition-all">
                 <div>
                   <div className="flex items-center justify-between mb-3">
-                    <span className="text-orange-500 font-bold text-sm tracking-widest">
+                    <span className="text-[#F35A61] font-bold text-sm tracking-widest">
                       {'★'.repeat(t.rating || 5)}
                     </span>
-                    <span className="text-[10px] font-bold text-orange-400 bg-orange-500/10 border border-orange-500/20 px-2 py-0.5 rounded-full">
+                    <span className="text-[10px] font-bold text-[#01B3D1] bg-[#F35A61]/10 border border-[#F35A61]/20 px-2 py-0.5 rounded-full">
                       {t.package}
                     </span>
                   </div>
@@ -890,7 +890,7 @@ const CmsEditor = () => {
                   type="text"
                   value={businessForm.companyName}
                   onChange={(e) => setBusinessForm({ ...businessForm, companyName: e.target.value })}
-                  className="w-full px-4 py-2.5 rounded-xl bg-zinc-950 border border-zinc-800 text-sm text-zinc-100 focus:border-orange-500 outline-none"
+                  className="w-full px-4 py-2.5 rounded-xl bg-zinc-950 border border-zinc-800 text-sm text-zinc-100 focus:border-[#01B3D1] outline-none"
                 />
               </div>
 
@@ -900,7 +900,7 @@ const CmsEditor = () => {
                   type="text"
                   value={businessForm.phone}
                   onChange={(e) => setBusinessForm({ ...businessForm, phone: e.target.value })}
-                  className="w-full px-4 py-2.5 rounded-xl bg-zinc-950 border border-zinc-800 text-sm font-bold text-orange-400 focus:border-orange-500 outline-none"
+                  className="w-full px-4 py-2.5 rounded-xl bg-zinc-950 border border-zinc-800 text-sm font-bold text-[#01B3D1] focus:border-[#01B3D1] outline-none"
                 />
               </div>
 
@@ -910,7 +910,7 @@ const CmsEditor = () => {
                   type="email"
                   value={businessForm.email}
                   onChange={(e) => setBusinessForm({ ...businessForm, email: e.target.value })}
-                  className="w-full px-4 py-2.5 rounded-xl bg-zinc-950 border border-zinc-800 text-sm text-zinc-100 focus:border-orange-500 outline-none"
+                  className="w-full px-4 py-2.5 rounded-xl bg-zinc-950 border border-zinc-800 text-sm text-zinc-100 focus:border-[#01B3D1] outline-none"
                 />
               </div>
 
@@ -920,7 +920,7 @@ const CmsEditor = () => {
                   type="text"
                   value={businessForm.hours}
                   onChange={(e) => setBusinessForm({ ...businessForm, hours: e.target.value })}
-                  className="w-full px-4 py-2.5 rounded-xl bg-zinc-950 border border-zinc-800 text-sm text-zinc-100 focus:border-orange-500 outline-none"
+                  className="w-full px-4 py-2.5 rounded-xl bg-zinc-950 border border-zinc-800 text-sm text-zinc-100 focus:border-[#01B3D1] outline-none"
                 />
               </div>
 
@@ -930,14 +930,14 @@ const CmsEditor = () => {
                   type="text"
                   value={businessForm.address}
                   onChange={(e) => setBusinessForm({ ...businessForm, address: e.target.value })}
-                  className="w-full px-4 py-2.5 rounded-xl bg-zinc-950 border border-zinc-800 text-sm text-zinc-100 focus:border-orange-500 outline-none"
+                  className="w-full px-4 py-2.5 rounded-xl bg-zinc-950 border border-zinc-800 text-sm text-zinc-100 focus:border-[#01B3D1] outline-none"
                 />
               </div>
             </div>
 
-            <div className="p-5 bg-orange-950/20 border border-orange-500/30 rounded-2xl text-xs text-orange-200 space-y-1">
-              <p className="font-bold flex items-center gap-2 text-orange-400">
-                <CheckCircle2 className="w-4 h-4 text-orange-500" />
+            <div className="p-5 bg-[#F35A61]-950/20 border border-[#01B3D1]/30 rounded-2xl text-xs text-[#F35A61]-200 space-y-1">
+              <p className="font-bold flex items-center gap-2 text-[#01B3D1]">
+                <CheckCircle2 className="w-4 h-4 text-[#F35A61]" />
                 GEO & AEO Coordinates Synchronized
               </p>
               <p className="text-[11px] text-zinc-400 font-light leading-relaxed">
@@ -948,7 +948,7 @@ const CmsEditor = () => {
             <div className="flex justify-end pt-4 border-t border-zinc-800">
               <Button
                 onClick={() => toast.success('Business NAP and Schema metadata updated!')}
-                className="bg-orange-600 hover:bg-orange-500 text-white gap-2 text-xs font-bold rounded-xl shadow-lg shadow-orange-600/30 cursor-pointer"
+                className="bg-[#F35A61] hover:bg-[#E04850] text-white gap-2 text-xs font-bold rounded-xl shadow-lg shadow-[#F35A61]/25 cursor-pointer"
               >
                 <Save className="w-4 h-4" />
                 Save Business Information

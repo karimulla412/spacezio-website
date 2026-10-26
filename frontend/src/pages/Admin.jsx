@@ -330,7 +330,7 @@ const Admin = () => {
     {
       label: 'CONTENT & ASSETS',
       items: [
-        { id: 'cms', label: 'Website CMS Editor', icon: Sparkles, badge: 'LIVE', badgeColor: 'bg-orange-500/20 text-orange-400 border-orange-500/30' },
+        { id: 'cms', label: 'Website CMS Editor', icon: Sparkles, badge: 'LIVE', badgeColor: 'bg-[#F35A61]-500/20 text-[#01B3D1] border-[#01B3D1]/30' },
       ]
     },
     {
@@ -368,20 +368,20 @@ const Admin = () => {
         />
 
         {/* Ambient Orange Glow */}
-        <div className="absolute w-[600px] h-[600px] bg-orange-600/10 rounded-full blur-[140px] pointer-events-none -top-40 -left-40" />
+        <div className="absolute w-[600px] h-[600px] bg-[#F35A61]/10 rounded-full blur-[140px] pointer-events-none -top-40 -left-40" />
         <div className="absolute w-[500px] h-[500px] bg-amber-600/10 rounded-full blur-[140px] pointer-events-none -bottom-40 -right-40" />
 
-        <div className="relative w-full max-w-md bg-zinc-900/90 border border-zinc-800 rounded-3xl p-8 lg:p-10 shadow-2xl shadow-orange-950/20 backdrop-blur-xl">
+        <div className="relative w-full max-w-md bg-zinc-900/90 border border-zinc-800 rounded-3xl p-8 lg:p-10 shadow-2xl shadow-[#F35A61]-950/20 backdrop-blur-xl">
           <div className="flex flex-col items-center text-center mb-8">
-            <div className="w-14 h-14 rounded-2xl bg-gradient-to-tr from-orange-600 to-amber-500 p-0.5 shadow-lg shadow-orange-600/30 mb-5">
+            <div className="w-14 h-14 rounded-2xl bg-gradient-to-tr from-[#F35A61]-600 to-amber-500 p-0.5 shadow-lg shadow-[#F35A61]/25 mb-5">
               <div className="w-full h-full bg-zinc-950 rounded-[14px] flex items-center justify-center">
-                <Shield className="w-7 h-7 text-orange-500" />
+                <Shield className="w-7 h-7 text-[#F35A61]" />
               </div>
             </div>
 
             <div className="flex items-center gap-1.5 mb-1">
               <span className="text-2xl font-black tracking-tight text-white">SPACE</span>
-              <span className="text-2xl font-black tracking-tight text-orange-500">XIO</span>
+              <span className="text-2xl font-black tracking-tight text-[#F35A61]">XIO</span>
             </div>
 
             <p className="text-xs uppercase tracking-widest text-zinc-400 font-semibold mt-1">
@@ -405,7 +405,7 @@ const Admin = () => {
                 <input
                   type={showPassword ? 'text' : 'password'}
                   placeholder="Enter administrator passcode"
-                  className="w-full pl-10 pr-10 py-3 rounded-xl bg-zinc-950/80 border border-zinc-800 text-white placeholder-zinc-600 focus:border-orange-500 focus:ring-1 focus:ring-orange-500 outline-none text-xs transition-all tracking-wide"
+                  className="w-full pl-10 pr-10 py-3 rounded-xl bg-zinc-950/80 border border-zinc-800 text-white placeholder-zinc-600 focus:border-[#01B3D1] focus:ring-1 focus:ring-[#01B3D1] outline-none text-xs transition-all tracking-wide"
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
                   autoFocus
@@ -422,7 +422,7 @@ const Admin = () => {
 
             <button
               type="submit"
-              className="w-full bg-gradient-to-r from-orange-600 to-orange-500 hover:from-orange-500 hover:to-orange-400 text-white font-bold py-3.5 rounded-xl transition-all shadow-lg shadow-orange-600/30 text-xs tracking-wider uppercase flex items-center justify-center gap-2 group cursor-pointer"
+              className="w-full bg-gradient-to-r from-[#F35A61] to-[#E04850] hover:from-[#E04850] hover:to-[#F35A61] text-white font-bold py-3.5 rounded-xl transition-all shadow-lg shadow-[#F35A61]/25 text-xs tracking-wider uppercase flex items-center justify-center gap-2 group cursor-pointer"
             >
               <span>Authenticate & Enter Console</span>
               <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
@@ -436,7 +436,7 @@ const Admin = () => {
             </span>
             <a 
               href="/" 
-              className="hover:text-orange-400 transition-colors flex items-center gap-1"
+              className="hover:text-[#01B3D1] transition-colors flex items-center gap-1"
             >
               Back to Live Website ↗
             </a>
@@ -450,7 +450,7 @@ const Admin = () => {
   // Full-Screen Dark Enterprise SaaS Layout
   // -------------------------------------------------------------
   return (
-    <div className="fixed inset-0 w-screen h-screen overflow-hidden flex bg-zinc-950 text-zinc-100 font-sans selection:bg-orange-500/30 selection:text-orange-200">
+    <div className="fixed inset-0 w-screen h-screen overflow-hidden flex bg-zinc-950 text-zinc-100 font-sans selection:bg-[#F35A61]/30 selection:text-white">
       
       {/* ===================== FIXED LEFT SIDEBAR ===================== */}
       <aside className="w-72 flex-shrink-0 bg-zinc-950 border-r border-zinc-800/80 flex flex-col justify-between select-none z-20">
@@ -459,13 +459,13 @@ const Admin = () => {
         <div className="p-6 border-b border-zinc-800/80">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-2.5">
-              <div className="w-8 h-8 rounded-lg bg-orange-600 flex items-center justify-center font-black text-white text-base shadow-md shadow-orange-600/30">
+              <div className="w-8 h-8 rounded-lg bg-[#F35A61] flex items-center justify-center font-black text-white text-base shadow-md shadow-[#F35A61]/25">
                 S
               </div>
               <div>
                 <div className="flex items-center gap-1 text-base font-black tracking-tight leading-none">
                   <span className="text-white">SPACE</span>
-                  <span className="text-orange-500">XIO</span>
+                  <span className="text-[#F35A61]">XIO</span>
                 </div>
                 <div className="text-[10px] text-zinc-400 font-medium tracking-wide mt-0.5">
                   ENTERPRISE OS
@@ -481,7 +481,7 @@ const Admin = () => {
 
           <div className="mt-4 p-2.5 rounded-xl bg-zinc-900/60 border border-zinc-800/60 flex items-center justify-between text-[11px] text-zinc-400">
             <span className="flex items-center gap-1.5">
-              <Building2 className="w-3.5 h-3.5 text-orange-500" />
+              <Building2 className="w-3.5 h-3.5 text-[#F35A61]" />
               Visakhapatnam HQ
             </span>
             <span className="text-[10px] font-mono text-zinc-500 bg-zinc-950 px-1.5 py-0.5 rounded border border-zinc-800">
@@ -509,7 +509,7 @@ const Admin = () => {
                     }}
                     className={`w-full flex items-center justify-between px-3 py-2.5 rounded-xl text-xs font-medium transition-all ${
                       isActive
-                        ? 'bg-orange-600 text-white font-semibold shadow-lg shadow-orange-600/20'
+                        ? 'bg-[#F35A61] text-white font-semibold shadow-lg shadow-[#F35A61]/20'
                         : 'text-zinc-400 hover:text-zinc-200 hover:bg-zinc-900/60'
                     }`}
                   >
@@ -547,14 +547,14 @@ const Admin = () => {
             rel="noopener noreferrer"
             className="w-full flex items-center justify-center gap-2 py-2 px-3 rounded-xl bg-zinc-900/80 hover:bg-zinc-900 border border-zinc-800 text-zinc-300 text-xs font-semibold transition-colors"
           >
-            <Globe className="w-3.5 h-3.5 text-orange-500" />
+            <Globe className="w-3.5 h-3.5 text-[#F35A61]" />
             <span>Open Live Website</span>
             <ExternalLink className="w-3 h-3 text-zinc-500" />
           </a>
 
           <div className="flex items-center justify-between pt-1">
             <div className="flex items-center gap-2.5">
-              <div className="w-8 h-8 rounded-full bg-gradient-to-tr from-zinc-700 to-zinc-900 border border-zinc-700 flex items-center justify-center font-bold text-xs text-orange-400">
+              <div className="w-8 h-8 rounded-full bg-gradient-to-tr from-zinc-700 to-zinc-900 border border-zinc-700 flex items-center justify-center font-bold text-xs text-[#01B3D1]">
                 AD
               </div>
               <div className="text-left">
@@ -608,7 +608,7 @@ const Admin = () => {
                 placeholder="Search leads by name, phone, email, location..."
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                className="w-full pl-9 pr-4 py-1.5 bg-zinc-950/80 border border-zinc-800 rounded-xl text-xs text-zinc-200 placeholder-zinc-500 outline-none focus:border-orange-500 focus:ring-1 focus:ring-orange-500 transition-all"
+                className="w-full pl-9 pr-4 py-1.5 bg-zinc-950/80 border border-zinc-800 rounded-xl text-xs text-zinc-200 placeholder-zinc-500 outline-none focus:border-[#01B3D1] focus:ring-1 focus:ring-[#01B3D1] transition-all"
               />
               {searchQuery && (
                 <button
@@ -660,13 +660,13 @@ const Admin = () => {
               className="p-2 bg-zinc-950 hover:bg-zinc-900 border border-zinc-800 rounded-xl text-zinc-400 hover:text-zinc-200 transition-colors"
               title="Refresh Data"
             >
-              <RefreshCw className={`w-3.5 h-3.5 ${loading ? 'animate-spin text-orange-500' : ''}`} />
+              <RefreshCw className={`w-3.5 h-3.5 ${loading ? 'animate-spin text-[#F35A61]' : ''}`} />
             </button>
 
             {/* Add Walk-in Lead Button */}
             <button
               onClick={() => setShowAddModal(true)}
-              className="inline-flex items-center gap-2 px-3.5 py-1.5 bg-gradient-to-r from-orange-600 to-orange-500 hover:from-orange-500 hover:to-orange-400 text-white rounded-xl text-xs font-bold shadow-md shadow-orange-600/30 transition-all cursor-pointer"
+              className="inline-flex items-center gap-2 px-3.5 py-1.5 bg-gradient-to-r from-[#F35A61] to-[#E04850] hover:from-[#E04850] hover:to-[#F35A61] text-white rounded-xl text-xs font-bold shadow-md shadow-[#F35A61]/25 transition-all cursor-pointer"
             >
               <Plus className="w-3.5 h-3.5" />
               <span>Record Lead</span>
@@ -683,10 +683,10 @@ const Admin = () => {
               
               {/* Executive Snapshot Card */}
               <div className="relative overflow-hidden rounded-3xl bg-gradient-to-r from-zinc-900 via-zinc-900/90 to-zinc-950 border border-zinc-800 p-8 shadow-2xl">
-                <div className="absolute -right-20 -bottom-20 w-80 h-80 bg-orange-600/10 rounded-full blur-[100px] pointer-events-none" />
+                <div className="absolute -right-20 -bottom-20 w-80 h-80 bg-[#F35A61]/10 rounded-full blur-[100px] pointer-events-none" />
                 <div className="relative z-10 flex flex-col lg:flex-row justify-between items-start lg:items-center gap-6">
                   <div>
-                    <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-orange-500/10 text-orange-400 border border-orange-500/20 text-xs font-semibold mb-3">
+                    <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#F35A61]/10 text-[#01B3D1] border border-[#F35A61]/20 text-xs font-semibold mb-3">
                       <Sparkles className="w-3.5 h-3.5" />
                       Executive Command Center
                     </div>
@@ -701,7 +701,7 @@ const Admin = () => {
                   <div className="flex items-center gap-3">
                     <button
                       onClick={() => setActiveTab('visits')}
-                      className="px-4 py-2.5 rounded-xl bg-orange-600 hover:bg-orange-500 text-white text-xs font-bold shadow-lg shadow-orange-600/30 transition-all flex items-center gap-2"
+                      className="px-4 py-2.5 rounded-xl bg-[#F35A61] hover:bg-[#E04850] text-white text-xs font-bold shadow-lg shadow-[#F35A61]/25 transition-all flex items-center gap-2"
                     >
                       <Calendar className="w-4 h-4" />
                       <span>Review Site Visits</span>
@@ -710,7 +710,7 @@ const Admin = () => {
                       onClick={() => setActiveTab('cms')}
                       className="px-4 py-2.5 rounded-xl bg-zinc-900 hover:bg-zinc-800 border border-zinc-700 text-zinc-200 text-xs font-bold transition-all flex items-center gap-2"
                     >
-                      <Sparkles className="w-4 h-4 text-orange-400" />
+                      <Sparkles className="w-4 h-4 text-[#01B3D1]" />
                       <span>Edit Live Site</span>
                     </button>
                   </div>
@@ -724,7 +724,7 @@ const Admin = () => {
                 <div className="p-6 rounded-2xl bg-zinc-900/60 border border-zinc-800/80 backdrop-blur-sm relative overflow-hidden group hover:border-zinc-700 transition-all">
                   <div className="flex items-center justify-between mb-4">
                     <span className="text-[11px] font-bold uppercase tracking-wider text-zinc-400">Total Leads Captured</span>
-                    <div className="p-2.5 rounded-xl bg-orange-500/10 text-orange-400 border border-orange-500/20">
+                    <div className="p-2.5 rounded-xl bg-[#F35A61]/10 text-[#01B3D1] border border-[#F35A61]/20">
                       <Users className="w-4 h-4" />
                     </div>
                   </div>
@@ -793,48 +793,48 @@ const Admin = () => {
                 
                 <div 
                   onClick={() => setActiveTab('cms')}
-                  className="p-6 rounded-2xl bg-zinc-900/40 border border-zinc-800 hover:border-orange-500/50 hover:bg-zinc-900/80 cursor-pointer transition-all group"
+                  className="p-6 rounded-2xl bg-zinc-900/40 border border-zinc-800 hover:border-[#01B3D1]/50 hover:bg-zinc-900/80 cursor-pointer transition-all group"
                 >
-                  <Sparkles className="w-6 h-6 text-orange-500 mb-3 group-hover:scale-110 transition-transform" />
+                  <Sparkles className="w-6 h-6 text-[#F35A61] mb-3 group-hover:scale-110 transition-transform" />
                   <h4 className="font-bold text-white text-sm">Visual Website CMS</h4>
                   <p className="text-xs text-zinc-400 mt-1">Live edit hero, packages, and client portfolio</p>
-                  <div className="mt-4 flex items-center gap-1 text-[11px] text-orange-400 font-semibold">
+                  <div className="mt-4 flex items-center gap-1 text-[11px] text-[#01B3D1] font-semibold">
                     Launch CMS <ChevronRight className="w-3.5 h-3.5" />
                   </div>
                 </div>
 
                 <div 
                   onClick={() => setActiveTab('contacts')}
-                  className="p-6 rounded-2xl bg-zinc-900/40 border border-zinc-800 hover:border-orange-500/50 hover:bg-zinc-900/80 cursor-pointer transition-all group"
+                  className="p-6 rounded-2xl bg-zinc-900/40 border border-zinc-800 hover:border-[#01B3D1]/50 hover:bg-zinc-900/80 cursor-pointer transition-all group"
                 >
-                  <Users className="w-6 h-6 text-orange-500 mb-3 group-hover:scale-110 transition-transform" />
+                  <Users className="w-6 h-6 text-[#F35A61] mb-3 group-hover:scale-110 transition-transform" />
                   <h4 className="font-bold text-white text-sm">Contact Submissions</h4>
                   <p className="text-xs text-zinc-400 mt-1">{overview?.counts?.contacts || 0} general customer inquiries</p>
-                  <div className="mt-4 flex items-center gap-1 text-[11px] text-orange-400 font-semibold">
+                  <div className="mt-4 flex items-center gap-1 text-[11px] text-[#01B3D1] font-semibold">
                     View Leads <ChevronRight className="w-3.5 h-3.5" />
                   </div>
                 </div>
 
                 <div 
                   onClick={() => setActiveTab('visits')}
-                  className="p-6 rounded-2xl bg-zinc-900/40 border border-zinc-800 hover:border-orange-500/50 hover:bg-zinc-900/80 cursor-pointer transition-all group"
+                  className="p-6 rounded-2xl bg-zinc-900/40 border border-zinc-800 hover:border-[#01B3D1]/50 hover:bg-zinc-900/80 cursor-pointer transition-all group"
                 >
-                  <Calendar className="w-6 h-6 text-orange-500 mb-3 group-hover:scale-110 transition-transform" />
+                  <Calendar className="w-6 h-6 text-[#F35A61] mb-3 group-hover:scale-110 transition-transform" />
                   <h4 className="font-bold text-white text-sm">Plot Site Visits</h4>
                   <p className="text-xs text-zinc-400 mt-1">{overview?.counts?.siteVisits || 0} physical inspection requests</p>
-                  <div className="mt-4 flex items-center gap-1 text-[11px] text-orange-400 font-semibold">
+                  <div className="mt-4 flex items-center gap-1 text-[11px] text-[#01B3D1] font-semibold">
                     Schedule Visits <ChevronRight className="w-3.5 h-3.5" />
                   </div>
                 </div>
 
                 <div 
                   onClick={() => setActiveTab('chatbot')}
-                  className="p-6 rounded-2xl bg-zinc-900/40 border border-zinc-800 hover:border-orange-500/50 hover:bg-zinc-900/80 cursor-pointer transition-all group"
+                  className="p-6 rounded-2xl bg-zinc-900/40 border border-zinc-800 hover:border-[#01B3D1]/50 hover:bg-zinc-900/80 cursor-pointer transition-all group"
                 >
-                  <MessageSquare className="w-6 h-6 text-orange-500 mb-3 group-hover:scale-110 transition-transform" />
+                  <MessageSquare className="w-6 h-6 text-[#F35A61] mb-3 group-hover:scale-110 transition-transform" />
                   <h4 className="font-bold text-white text-sm">Chatbot AI Leads</h4>
                   <p className="text-xs text-zinc-400 mt-1">{overview?.counts?.chatbotLeads || 0} AI pre-qualified leads</p>
-                  <div className="mt-4 flex items-center gap-1 text-[11px] text-orange-400 font-semibold">
+                  <div className="mt-4 flex items-center gap-1 text-[11px] text-[#01B3D1] font-semibold">
                     View Transcripts <ChevronRight className="w-3.5 h-3.5" />
                   </div>
                 </div>
@@ -893,14 +893,14 @@ const Admin = () => {
                         placeholder="Enter new master passcode (min 5 characters)"
                         value={newPassword}
                         onChange={(e) => setNewPassword(e.target.value)}
-                        className="w-full pl-10 pr-4 py-2.5 rounded-xl bg-zinc-950 border border-zinc-800 text-white placeholder-zinc-600 focus:border-orange-500 outline-none text-xs"
+                        className="w-full pl-10 pr-4 py-2.5 rounded-xl bg-zinc-950 border border-zinc-800 text-white placeholder-zinc-600 focus:border-[#01B3D1] outline-none text-xs"
                       />
                     </div>
                   </div>
 
                   <button
                     type="submit"
-                    className="px-5 py-2.5 bg-orange-600 hover:bg-orange-500 text-white rounded-xl text-xs font-bold shadow-md shadow-orange-600/30 transition-all"
+                    className="px-5 py-2.5 bg-[#F35A61] hover:bg-[#E04850] text-white rounded-xl text-xs font-bold shadow-md shadow-[#F35A61]/25 transition-all"
                   >
                     Save New Passcode
                   </button>
@@ -911,7 +911,7 @@ const Admin = () => {
                     Default Credentials
                   </h4>
                   <p className="text-xs text-zinc-400">
-                    Console Passcode default: <code className="bg-zinc-950 px-2 py-1 rounded text-orange-400 font-mono">admin123</code>
+                    Console Passcode default: <code className="bg-zinc-950 px-2 py-1 rounded text-[#01B3D1] font-mono">admin123</code>
                   </p>
                 </div>
               </div>
@@ -1010,7 +1010,7 @@ const Admin = () => {
                       {loading ? (
                         <tr>
                           <td colSpan="5" className="py-16 text-center text-zinc-400">
-                            <RefreshCw className="w-6 h-6 animate-spin mx-auto mb-2 text-orange-500" />
+                            <RefreshCw className="w-6 h-6 animate-spin mx-auto mb-2 text-[#F35A61]" />
                             Querying live database records...
                           </td>
                         </tr>
@@ -1044,7 +1044,7 @@ const Admin = () => {
 
                               {/* Client Details */}
                               <td className="py-4 px-6">
-                                <div className="font-bold text-zinc-100 text-sm group-hover:text-orange-400 transition-colors">
+                                <div className="font-bold text-zinc-100 text-sm group-hover:text-[#01B3D1] transition-colors">
                                   {primaryName}
                                 </div>
                                 {primaryPhone && (
@@ -1066,7 +1066,7 @@ const Admin = () => {
                                 </div>
                                 {item.plotLocation && (
                                   <div className="text-zinc-400 flex items-center gap-1 mt-1 text-[11px]">
-                                    <MapPin className="w-3 h-3 text-orange-500 flex-shrink-0" />
+                                    <MapPin className="w-3 h-3 text-[#F35A61] flex-shrink-0" />
                                     <span>{item.plotLocation}</span>
                                     {item.plotSize && <span className="text-zinc-500 font-mono">({item.plotSize})</span>}
                                   </div>
@@ -1083,7 +1083,7 @@ const Admin = () => {
                                 <select
                                   value={(item.status || 'new').toLowerCase()}
                                   onChange={(e) => handleStatusChange(item.id, e.target.value)}
-                                  className="bg-zinc-950 border border-zinc-800 rounded-lg px-2.5 py-1 text-xs text-zinc-200 outline-none focus:border-orange-500 font-medium cursor-pointer"
+                                  className="bg-zinc-950 border border-zinc-800 rounded-lg px-2.5 py-1 text-xs text-zinc-200 outline-none focus:border-[#01B3D1] font-medium cursor-pointer"
                                 >
                                   <option value="new" className="bg-zinc-900 text-emerald-400">● New / Uncontacted</option>
                                   <option value="contacted" className="bg-zinc-900 text-blue-400">● Contacted</option>
@@ -1254,7 +1254,7 @@ const Admin = () => {
                 <select
                   value={newLead.type}
                   onChange={(e) => setNewLead({ ...newLead, type: e.target.value })}
-                  className="w-full px-3 py-2.5 bg-zinc-950 border border-zinc-800 rounded-xl text-zinc-200 outline-none focus:border-orange-500"
+                  className="w-full px-3 py-2.5 bg-zinc-950 border border-zinc-800 rounded-xl text-zinc-200 outline-none focus:border-[#01B3D1]"
                 >
                   <option value="contacts">Direct Walk-in / Phone Inquiry</option>
                   <option value="visits">Plot Site Visit Appointment</option>
@@ -1269,7 +1269,7 @@ const Admin = () => {
                   placeholder="e.g. S. K. Verma"
                   value={newLead.name}
                   onChange={(e) => setNewLead({ ...newLead, name: e.target.value })}
-                  className="w-full px-3 py-2.5 bg-zinc-950 border border-zinc-800 rounded-xl text-zinc-200 placeholder-zinc-600 outline-none focus:border-orange-500"
+                  className="w-full px-3 py-2.5 bg-zinc-950 border border-zinc-800 rounded-xl text-zinc-200 placeholder-zinc-600 outline-none focus:border-[#01B3D1]"
                 />
               </div>
 
@@ -1281,7 +1281,7 @@ const Admin = () => {
                   placeholder="+91 98480 12345"
                   value={newLead.phone}
                   onChange={(e) => setNewLead({ ...newLead, phone: e.target.value })}
-                  className="w-full px-3 py-2.5 bg-zinc-950 border border-zinc-800 rounded-xl text-zinc-200 placeholder-zinc-600 outline-none focus:border-orange-500"
+                  className="w-full px-3 py-2.5 bg-zinc-950 border border-zinc-800 rounded-xl text-zinc-200 placeholder-zinc-600 outline-none focus:border-[#01B3D1]"
                 />
               </div>
 
@@ -1292,7 +1292,7 @@ const Admin = () => {
                   placeholder="client@gmail.com"
                   value={newLead.email}
                   onChange={(e) => setNewLead({ ...newLead, email: e.target.value })}
-                  className="w-full px-3 py-2.5 bg-zinc-950 border border-zinc-800 rounded-xl text-zinc-200 placeholder-zinc-600 outline-none focus:border-orange-500"
+                  className="w-full px-3 py-2.5 bg-zinc-950 border border-zinc-800 rounded-xl text-zinc-200 placeholder-zinc-600 outline-none focus:border-[#01B3D1]"
                 />
               </div>
 
@@ -1303,7 +1303,7 @@ const Admin = () => {
                   placeholder="e.g. Rushikonda, Yendada, Madhurawada"
                   value={newLead.location}
                   onChange={(e) => setNewLead({ ...newLead, location: e.target.value })}
-                  className="w-full px-3 py-2.5 bg-zinc-950 border border-zinc-800 rounded-xl text-zinc-200 placeholder-zinc-600 outline-none focus:border-orange-500"
+                  className="w-full px-3 py-2.5 bg-zinc-950 border border-zinc-800 rounded-xl text-zinc-200 placeholder-zinc-600 outline-none focus:border-[#01B3D1]"
                 />
               </div>
 
@@ -1312,7 +1312,7 @@ const Admin = () => {
                 <select
                   value={newLead.packageInterest}
                   onChange={(e) => setNewLead({ ...newLead, packageInterest: e.target.value })}
-                  className="w-full px-3 py-2.5 bg-zinc-950 border border-zinc-800 rounded-xl text-zinc-200 outline-none focus:border-orange-500"
+                  className="w-full px-3 py-2.5 bg-zinc-950 border border-zinc-800 rounded-xl text-zinc-200 outline-none focus:border-[#01B3D1]"
                 >
                   <option value="Executive Villa (₹2,250/sq.ft)">Executive Villa (₹2,250/sq.ft)</option>
                   <option value="Standard Home (₹1,850/sq.ft)">Standard Home (₹1,850/sq.ft)</option>
@@ -1329,7 +1329,7 @@ const Admin = () => {
                   placeholder="Plot size 240 sq.yards, wants G+2 duplex villa with private terrace garden..."
                   value={newLead.notes}
                   onChange={(e) => setNewLead({ ...newLead, notes: e.target.value })}
-                  className="w-full px-3 py-2.5 bg-zinc-950 border border-zinc-800 rounded-xl text-zinc-200 placeholder-zinc-600 outline-none focus:border-orange-500 resize-none"
+                  className="w-full px-3 py-2.5 bg-zinc-950 border border-zinc-800 rounded-xl text-zinc-200 placeholder-zinc-600 outline-none focus:border-[#01B3D1] resize-none"
                 />
               </div>
 
@@ -1343,7 +1343,7 @@ const Admin = () => {
                 </button>
                 <button
                   type="submit"
-                  className="px-5 py-2 bg-orange-600 hover:bg-orange-500 text-white font-bold rounded-xl shadow-md shadow-orange-600/30 transition-all"
+                  className="px-5 py-2 bg-[#F35A61] hover:bg-[#E04850] text-white font-bold rounded-xl shadow-md shadow-[#F35A61]/25 transition-all"
                 >
                   Save to CRM Pipeline
                 </button>

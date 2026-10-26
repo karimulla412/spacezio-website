@@ -57,8 +57,8 @@ const LeadMagnet = ({ isOpen, onClose }) => {
         {!isSuccess ? (
           <>
             <div className="text-center mb-6">
-              <div className="inline-flex items-center justify-center w-16 h-16 bg-orange-100 rounded-full mb-4">
-                <Download className="h-8 w-8 text-orange-600" />
+              <div className="inline-flex items-center justify-center w-16 h-16 bg-[#FDF2F3] border border-[#FCA5A9]/50 rounded-full mb-4">
+                <Download className="h-8 w-8 text-[#F35A61]" />
               </div>
               <h3 className="text-2xl font-bold text-gray-900 mb-2">
                 Free Construction Planning Guide
@@ -76,7 +76,7 @@ const LeadMagnet = ({ isOpen, onClose }) => {
                   value={formData.name}
                   onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                   required
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent"
+                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#F35A61]/20 focus:border-[#F35A61]"
                 />
               </div>
               <div>
@@ -86,7 +86,7 @@ const LeadMagnet = ({ isOpen, onClose }) => {
                   value={formData.email}
                   onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                   required
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent"
+                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#F35A61]/20 focus:border-[#F35A61]"
                 />
               </div>
               <div>
@@ -95,14 +95,14 @@ const LeadMagnet = ({ isOpen, onClose }) => {
                   placeholder="Phone Number (Optional)"
                   value={formData.phone}
                   onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent"
+                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#F35A61]/20 focus:border-[#F35A61]"
                 />
               </div>
 
               <Button
                 type="submit"
                 disabled={isLoading}
-                className="w-full bg-orange-600 hover:bg-orange-700 text-white py-6 text-lg font-semibold rounded-lg transition-colors"
+                className="w-full bg-[#F35A61] hover:bg-[#E04850] text-white py-6 text-lg font-semibold rounded-lg shadow-lg shadow-[#F35A61]/25 transition-all"
               >
                 {isLoading ? 'Sending...' : 'Download Free Guide'}
               </Button>

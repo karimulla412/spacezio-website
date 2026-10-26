@@ -107,7 +107,7 @@ const CostCalculator = () => {
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         {/* Header */}
         <div className="text-center mb-12">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-orange-50 border border-orange-200 text-orange-600 text-xs font-semibold uppercase tracking-wider mb-4">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#FDF2F3] border border-[#FCA5A9] text-[#F35A61] text-xs font-semibold uppercase tracking-wider mb-4">
             <Calculator className="h-4 w-4" />
             Transparent Pricing Tool
           </div>
@@ -125,7 +125,7 @@ const CostCalculator = () => {
             <CardContent className="p-8">
               <h2 className="text-xl font-bold text-slate-900 mb-6 flex items-center justify-between pb-4 border-b border-slate-100">
                 <span>1. Select Project Specifications</span>
-                <span className="text-xs text-orange-600 font-semibold bg-orange-50 border border-orange-200 px-2.5 py-1 rounded-full">Step-by-step</span>
+                <span className="text-xs text-[#01B3D1] font-semibold bg-[#EFFBFC] border border-[#99E7EF] px-2.5 py-1 rounded-full">Step-by-step</span>
               </h2>
 
               <div className="space-y-6">
@@ -135,7 +135,7 @@ const CostCalculator = () => {
                     Type of Configuration *
                   </Label>
                   <Select value={formData.homeType} onValueChange={handleHomeTypeChange}>
-                    <SelectTrigger className="bg-slate-50 border-slate-300 text-slate-900 h-12 rounded-lg focus:ring-2 focus:ring-orange-500 focus:bg-white">
+                    <SelectTrigger className="bg-slate-50 border-slate-300 text-slate-900 h-12 rounded-lg focus:ring-2 focus:ring-[#F35A61]/20 focus:bg-white">
                       <SelectValue placeholder="Select home layout" />
                     </SelectTrigger>
                     <SelectContent className="bg-white border-slate-200 text-slate-900 shadow-xl">
@@ -160,7 +160,7 @@ const CostCalculator = () => {
                       value={formData.plotSize}
                       onChange={(e) => setFormData({ ...formData, plotSize: e.target.value })}
                       placeholder="e.g. 1500"
-                      className="bg-slate-50 border-slate-300 text-slate-900 placeholder-slate-400 h-12 rounded-lg focus:border-orange-500 focus:bg-white"
+                      className="bg-slate-50 border-slate-300 text-slate-900 placeholder-slate-400 h-12 rounded-lg focus:border-[#F35A61] focus:bg-white"
                       min="500"
                     />
                     <p className="text-xs text-slate-500 mt-1.5">Typical range: 600 - 4000 sq.ft</p>
@@ -172,7 +172,7 @@ const CostCalculator = () => {
                       Number of Floors *
                     </Label>
                     <Select value={formData.floors} onValueChange={(value) => setFormData({ ...formData, floors: value })}>
-                      <SelectTrigger className="bg-slate-50 border-slate-300 text-slate-900 h-12 rounded-lg focus:ring-2 focus:ring-orange-500 focus:bg-white">
+                      <SelectTrigger className="bg-slate-50 border-slate-300 text-slate-900 h-12 rounded-lg focus:ring-2 focus:ring-[#F35A61]/20 focus:bg-white">
                         <SelectValue />
                       </SelectTrigger>
                       <SelectContent className="bg-white border-slate-200 text-slate-900 shadow-xl">
@@ -200,17 +200,17 @@ const CostCalculator = () => {
                         onClick={() => setFormData({ ...formData, package: pkg.id })}
                         className={`p-4 rounded-xl border-2 cursor-pointer transition-all relative ${
                           formData.package === pkg.id
-                            ? 'border-orange-500 bg-orange-50/60 shadow-md'
+                            ? 'border-[#F35A61] bg-[#FDF2F3]/60 shadow-md ring-1 ring-[#F35A61]/30'
                             : 'border-slate-200 hover:border-slate-300 bg-slate-50'
                         }`}
                       >
                         {pkg.popular && (
-                          <span className="absolute -top-2.5 right-3 px-2 py-0.5 bg-orange-600 text-white text-[10px] font-bold rounded-full uppercase tracking-wider">
+                          <span className="absolute -top-2.5 right-3 px-2 py-0.5 bg-[#F35A61] text-white text-[10px] font-bold rounded-full uppercase tracking-wider">
                             Popular
                           </span>
                         )}
                         <p className="text-slate-900 font-bold capitalize text-sm">{pkg.label}</p>
-                        <p className="text-orange-600 font-extrabold text-base mt-1">{pkg.price}</p>
+                        <p className="text-[#F35A61] font-extrabold text-base mt-1">{pkg.price}</p>
                         <p className="text-slate-500 text-xs mt-1">{pkg.desc}</p>
                       </div>
                     ))}
@@ -219,7 +219,7 @@ const CostCalculator = () => {
 
                 <Button
                   onClick={calculateEstimate}
-                  className="w-full bg-orange-600 hover:bg-orange-700 text-white h-13 text-base font-semibold rounded-lg shadow-md hover:shadow-lg transition-all duration-200"
+                  className="w-full bg-[#F35A61] hover:bg-[#E04850] text-white h-13 text-base font-semibold rounded-lg shadow-lg shadow-[#F35A61]/25 transition-all duration-200 hover:scale-[1.01]"
                   disabled={!formData.homeType || !formData.plotSize}
                 >
                   <Calculator className="mr-2 h-5 w-5" />
@@ -234,8 +234,8 @@ const CostCalculator = () => {
             {estimate ? (
               <>
                 {/* Total Cost Card */}
-                <Card className="bg-white border-2 border-orange-500 shadow-xl rounded-2xl overflow-hidden">
-                  <div className="bg-gradient-to-r from-orange-600 to-orange-700 px-6 py-3 text-white text-xs font-bold uppercase tracking-widest flex items-center justify-between">
+                <Card className="bg-white border-2 border-[#F35A61] shadow-xl rounded-2xl overflow-hidden">
+                  <div className="bg-gradient-to-r from-[#F35A61] via-[#B85C8D] to-[#01B3D1] px-6 py-3 text-white text-xs font-bold uppercase tracking-widest flex items-center justify-between">
                     <span>Estimate Summary</span>
                     <span>10-Yr Warranty Included</span>
                   </div>
@@ -258,7 +258,7 @@ const CostCalculator = () => {
                     <div className="grid grid-cols-2 gap-3 pt-6 border-t border-slate-100">
                       <div className="text-center p-3 bg-slate-50 border border-slate-200 rounded-xl">
                         <div className="flex items-center justify-center gap-1.5 text-slate-500 text-xs mb-1">
-                          <Clock className="h-3.5 w-3.5 text-orange-600" />
+                          <Clock className="h-3.5 w-3.5 text-[#01B3D1]" />
                           <span>Timeline</span>
                         </div>
                         <p className="text-lg font-bold text-slate-900">
@@ -267,7 +267,7 @@ const CostCalculator = () => {
                       </div>
                       <div className="text-center p-3 bg-slate-50 border border-slate-200 rounded-xl">
                         <div className="flex items-center justify-center gap-1.5 text-slate-500 text-xs mb-1">
-                          <Award className="h-3.5 w-3.5 text-orange-600" />
+                          <Award className="h-3.5 w-3.5 text-[#F35A61]" />
                           <span>Base Rate</span>
                         </div>
                         <p className="text-lg font-bold text-slate-900">
@@ -304,7 +304,7 @@ const CostCalculator = () => {
                         </div>
                         <div className="flex justify-between items-center pt-1 text-base">
                           <span className="font-bold text-slate-900">Total Net Investment</span>
-                          <span className="font-extrabold text-orange-600">{formatCurrency(estimate.totalCost)}</span>
+                          <span className="font-extrabold text-[#F35A61]">{formatCurrency(estimate.totalCost)}</span>
                         </div>
                       </div>
                     </CardContent>
@@ -312,7 +312,7 @@ const CostCalculator = () => {
                 )}
 
                 {/* CTA Site Visit Booking */}
-                <div className="bg-white border border-orange-200 rounded-2xl p-6 text-center shadow-md">
+                <div className="bg-white border border-[#99E7EF] rounded-2xl p-6 text-center shadow-md">
                   <h4 className="text-base font-bold text-slate-900 mb-2">
                     Lock In This Estimate & Get a Site Survey
                   </h4>
@@ -321,7 +321,7 @@ const CostCalculator = () => {
                   </p>
                   <Button
                     onClick={() => window.location.href = '/site-visit'}
-                    className="w-full bg-orange-600 hover:bg-orange-700 text-white font-semibold py-3 rounded-lg shadow-md transition-all"
+                    className="w-full bg-[#01B3D1] hover:bg-[#009AA8] text-white font-semibold py-3 rounded-lg shadow-lg shadow-[#01B3D1]/25 transition-all hover:scale-[1.01]"
                   >
                     Book Free Site Visit
                     <ArrowRight className="ml-2 h-4 w-4" />
@@ -331,8 +331,8 @@ const CostCalculator = () => {
             ) : (
               <Card className="bg-white border border-dashed border-slate-300 shadow-sm rounded-2xl">
                 <CardContent className="p-12 text-center">
-                  <div className="w-16 h-16 bg-orange-50 border border-orange-200 rounded-full flex items-center justify-center mx-auto mb-4">
-                    <Home className="h-8 w-8 text-orange-600" />
+                  <div className="w-16 h-16 bg-[#FDF2F3] border border-[#FCA5A9]/50 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <Home className="h-8 w-8 text-[#F35A61]" />
                   </div>
                   <h3 className="text-lg font-bold text-slate-900 mb-2">Ready to Calculate?</h3>
                   <p className="text-sm text-slate-600 font-light leading-relaxed max-w-xs mx-auto">
@@ -345,7 +345,7 @@ const CostCalculator = () => {
             {/* Quality Assurance Info Card */}
             <div className="p-5 bg-white border border-slate-200 rounded-2xl shadow-sm text-xs text-slate-600 space-y-2">
               <div className="flex items-center gap-2 text-slate-900 font-semibold text-sm">
-                <ShieldCheck className="h-4 w-4 text-orange-600" />
+                <ShieldCheck className="h-4 w-4 text-[#01B3D1]" />
                 <span>The Spacexio Price Guarantee</span>
               </div>
               <p>• Milestone-based payments: You only pay as construction progress is certified.</p>

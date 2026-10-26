@@ -31,7 +31,7 @@ const Projects = () => {
       {/* Hero Section */}
       <section className="py-16 md:py-20 bg-black border-b border-gray-800">
         <div className="max-w-7xl mx-auto px-6 lg:px-8 text-center">
-          <div className="inline-block px-3 py-1 rounded-full bg-orange-600/20 border border-orange-500/30 text-orange-400 text-xs font-semibold uppercase tracking-wider mb-4">
+          <div className="inline-block px-3 py-1 rounded-full bg-[#FDF2F3]/10 border border-[#F35A61]/30 text-[#F35A61] text-xs font-semibold uppercase tracking-wider mb-4">
             Proven Track Record
           </div>
           <h1 className="text-4xl md:text-5xl font-extrabold text-white mb-4 tracking-tight">
@@ -53,7 +53,7 @@ const Projects = () => {
                   key={category}
                   value={category}
                   onClick={() => setSelectedCategory(category)}
-                  className="px-5 py-2.5 rounded-lg text-xs font-semibold data-[state=active]:bg-orange-600 data-[state=active]:text-white bg-gray-900 text-gray-300 border border-gray-800 hover:border-orange-500/50 shadow-sm transition-all"
+                  className="px-5 py-2.5 rounded-lg text-xs font-semibold data-[state=active]:bg-[#F35A61] data-[state=active]:text-white bg-gray-900 text-gray-300 border border-gray-800 hover:border-[#F35A61]/50 shadow-sm transition-all"
                 >
                   {category}
                 </TabsTrigger>
@@ -70,7 +70,7 @@ const Projects = () => {
             {filteredProjects.map((project) => (
               <Card
                 key={project.id}
-                className="bg-gradient-to-br from-gray-900 to-gray-800 border border-gray-700 hover:border-orange-500/50 rounded-2xl shadow-md hover:shadow-2xl transition-all duration-300 overflow-hidden group"
+                className="bg-gradient-to-br from-gray-900 to-gray-800 border border-gray-700 hover:border-[#01B3D1]/50 rounded-2xl shadow-md hover:shadow-2xl transition-all duration-300 overflow-hidden group"
               >
                 <div className="relative h-60 overflow-hidden bg-gray-800">
                   <img
@@ -82,13 +82,13 @@ const Projects = () => {
                     }}
                   />
                   <div className="absolute top-4 right-4">
-                    <span className="px-3 py-1 bg-black/75 backdrop-blur-md text-orange-400 border border-orange-500/30 text-xs font-bold rounded-full shadow-sm">
+                    <span className="px-3 py-1 bg-black/75 backdrop-blur-md text-[#01B3D1] border border-[#01B3D1]/30 text-xs font-bold rounded-full shadow-sm">
                       {project.category}
                     </span>
                   </div>
                 </div>
                 <CardContent className="p-6">
-                  <h3 className="text-xl font-bold text-white mb-2 group-hover:text-orange-400 transition-colors">
+                  <h3 className="text-xl font-bold text-white mb-2 group-hover:text-[#F35A61] transition-colors">
                     {project.title}
                   </h3>
                   <p className="text-gray-300 text-xs leading-relaxed mb-4 font-light line-clamp-2">
@@ -96,23 +96,23 @@ const Projects = () => {
                   </p>
                   <div className="space-y-1.5 mb-6 text-xs text-gray-400 border-t border-gray-700/60 pt-3">
                     <div className="flex items-center">
-                      <MapPin className="h-3.5 w-3.5 mr-2 text-orange-500 flex-shrink-0" />
+                      <MapPin className="h-3.5 w-3.5 mr-2 text-[#01B3D1] flex-shrink-0" />
                       <span>{project.location}</span>
                     </div>
                     <div className="flex items-center">
-                      <Maximize2 className="h-3.5 w-3.5 mr-2 text-orange-500 flex-shrink-0" />
+                      <Maximize2 className="h-3.5 w-3.5 mr-2 text-[#01B3D1] flex-shrink-0" />
                       <span>{project.area}</span>
                     </div>
                     {project.year && (
                       <div className="flex items-center">
-                        <Calendar className="h-3.5 w-3.5 mr-2 text-orange-500 flex-shrink-0" />
+                        <Calendar className="h-3.5 w-3.5 mr-2 text-[#01B3D1] flex-shrink-0" />
                         <span>Year: {project.year}</span>
                       </div>
                     )}
                   </div>
                   <Button
                     variant="outline"
-                    className="w-full border-gray-700 bg-transparent text-gray-300 hover:bg-orange-600 hover:text-white hover:border-orange-600 transition-all text-xs font-semibold rounded-lg"
+                    className="w-full border-gray-700 bg-transparent text-gray-300 hover:bg-[#F35A61] hover:text-white hover:border-[#F35A61] transition-all text-xs font-semibold rounded-lg"
                     onClick={() => window.location.href = '/contact'}
                   >
                     Inquire About Similar Project
@@ -136,19 +136,19 @@ const Projects = () => {
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             <div className="text-center">
-              <div className="text-4xl md:text-5xl font-black text-orange-500 mb-1">500+</div>
+              <div className="text-4xl md:text-5xl font-black text-[#F35A61] mb-1">500+</div>
               <div className="text-gray-400 text-xs font-medium">Projects Executed</div>
             </div>
             <div className="text-center">
-              <div className="text-4xl md:text-5xl font-black text-orange-500 mb-1">50M+</div>
+              <div className="text-4xl md:text-5xl font-black text-[#01B3D1] mb-1">50M+</div>
               <div className="text-gray-400 text-xs font-medium">Sq.Ft Designed</div>
             </div>
             <div className="text-center">
-              <div className="text-4xl md:text-5xl font-black text-orange-500 mb-1">100%</div>
+              <div className="text-4xl md:text-5xl font-black text-[#F35A61] mb-1">100%</div>
               <div className="text-gray-400 text-xs font-medium">Client Verification</div>
             </div>
             <div className="text-center">
-              <div className="text-4xl md:text-5xl font-black text-orange-500 mb-1">15+</div>
+              <div className="text-4xl md:text-5xl font-black text-[#01B3D1] mb-1">15+</div>
               <div className="text-gray-400 text-xs font-medium">Years In Construction</div>
             </div>
           </div>
@@ -167,7 +167,7 @@ const Projects = () => {
           <div className="flex flex-wrap justify-center gap-4">
             <Button
               size="lg"
-              className="bg-orange-600 hover:bg-orange-700 text-white px-8 py-6 text-base font-semibold rounded-lg shadow-lg shadow-orange-600/30"
+              className="bg-gradient-to-r from-[#F35A61] to-[#E04850] hover:brightness-105 text-white px-8 py-6 text-base font-semibold rounded-lg shadow-lg shadow-[#F35A61]/30 transition-all hover:scale-105"
               onClick={() => window.location.href = '/site-visit'}
             >
               Book Free Site Visit
@@ -176,7 +176,7 @@ const Projects = () => {
             <Button
               size="lg"
               variant="outline"
-              className="border-gray-700 text-white hover:bg-gray-800 px-8 py-6 text-base font-semibold rounded-lg"
+              className="border-gray-700 text-white hover:border-[#01B3D1] hover:text-[#01B3D1] hover:bg-gray-800 px-8 py-6 text-base font-semibold rounded-lg transition-colors"
               onClick={() => window.location.href = '/cost-calculator'}
             >
               Calculate Estimated Cost

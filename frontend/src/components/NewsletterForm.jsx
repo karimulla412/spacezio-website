@@ -54,12 +54,12 @@ const NewsletterForm = () => {
           placeholder="Enter your email"
           required
           disabled={isSubmitting}
-          className="flex-1 px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:border-orange-500 transition-colors disabled:opacity-50"
+          className="flex-1 px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:border-[#F35A61] transition-colors disabled:opacity-50"
         />
         <Button
           type="submit"
           disabled={isSubmitting}
-          className="bg-orange-600 hover:bg-orange-700 text-white font-semibold px-6 disabled:opacity-50"
+          className="bg-[#F35A61] hover:bg-[#E04850] text-white font-semibold px-6 shadow-md shadow-[#F35A61]/25 disabled:opacity-50"
         >
           {isSubmitting ? 'Subscribing...' : 'Subscribe'}
         </Button>

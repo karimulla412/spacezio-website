@@ -34,7 +34,7 @@ const Blog = () => {
       {/* Hero Section */}
       <section className="py-16 bg-black border-b border-gray-800">
         <div className="max-w-7xl mx-auto px-6 lg:px-8 text-center">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-orange-600/10 border border-orange-500/20 text-orange-400 text-xs font-semibold uppercase tracking-wider mb-4">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#FDF2F3]/10 border border-[#F35A61]/30 text-[#F35A61] text-xs font-semibold uppercase tracking-wider mb-4">
             <BookOpen className="h-3.5 w-3.5" />
             Knowledge & Industry Guides
           </div>
@@ -53,7 +53,7 @@ const Blog = () => {
               placeholder="Search guides, materials, cost tips..."
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
-              className="pl-12 pr-4 h-12 bg-gray-900 border-gray-700 text-white placeholder-gray-500 focus:border-orange-500 rounded-xl shadow-lg"
+              className="pl-12 pr-4 h-12 bg-gray-900 border-gray-700 text-white placeholder-gray-500 focus:border-[#F35A61] rounded-xl shadow-lg"
             />
           </div>
         </div>
@@ -69,8 +69,8 @@ const Blog = () => {
                 onClick={() => setSelectedCategory(category)}
                 className={`px-4 py-2 rounded-lg text-xs font-semibold transition-all ${
                   selectedCategory === category
-                    ? 'bg-orange-600 text-white shadow-md'
-                    : 'bg-gray-900 text-gray-300 border border-gray-700 hover:border-orange-500'
+                    ? 'bg-[#F35A61] text-white shadow-md'
+                    : 'bg-gray-900 text-gray-300 border border-gray-700 hover:border-[#F35A61]'
                 }`}
               >
                 {category}
@@ -84,9 +84,9 @@ const Blog = () => {
       {featuredBlog && selectedCategory === 'All' && !searchTerm && (
         <section className="py-10 bg-black">
           <div className="max-w-7xl mx-auto px-6 lg:px-8">
-            <div className="text-xs font-bold uppercase tracking-wider text-orange-400 mb-3">Featured Read</div>
+            <div className="text-xs font-bold uppercase tracking-wider text-[#01B3D1] mb-3">Featured Read</div>
             <Card 
-              className="bg-gradient-to-br from-gray-900 to-gray-800 border border-gray-700 overflow-hidden hover:border-orange-500/50 shadow-2xl transition-all duration-300 rounded-2xl group cursor-pointer" 
+              className="bg-gradient-to-br from-gray-900 to-gray-800 border border-gray-700 overflow-hidden hover:border-[#01B3D1]/50 shadow-2xl transition-all duration-300 rounded-2xl group cursor-pointer" 
               onClick={() => window.location.href = `/insights/${featuredBlog.id}`}
             >
               <div className="grid lg:grid-cols-12 gap-0">
@@ -97,13 +97,13 @@ const Blog = () => {
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                   />
                   <div className="absolute top-4 left-4">
-                    <span className="px-3 py-1 bg-black/80 backdrop-blur-md text-orange-400 text-xs font-bold rounded-full border border-orange-500/30">
+                    <span className="px-3 py-1 bg-black/80 backdrop-blur-md text-[#01B3D1] text-xs font-bold rounded-full border border-[#01B3D1]/30">
                       {featuredBlog.category}
                     </span>
                   </div>
                 </div>
                 <CardContent className="lg:col-span-6 p-8 lg:p-10 flex flex-col justify-center">
-                  <h3 className="text-2xl md:text-3xl font-extrabold text-white mb-4 group-hover:text-orange-400 transition-colors leading-tight">
+                  <h3 className="text-2xl md:text-3xl font-extrabold text-white mb-4 group-hover:text-[#F35A61] transition-colors leading-tight">
                     {featuredBlog.title}
                   </h3>
                   <p className="text-gray-400 text-sm mb-6 leading-relaxed font-light">
@@ -111,7 +111,7 @@ const Blog = () => {
                   </p>
                   <div className="flex items-center gap-6 text-gray-500 text-xs mb-6">
                     <div className="flex items-center">
-                      <Calendar className="h-3.5 w-3.5 mr-1.5 text-orange-400" />
+                      <Calendar className="h-3.5 w-3.5 mr-1.5 text-[#01B3D1]" />
                       {new Date(featuredBlog.date).toLocaleDateString('en-US', {
                         month: 'short',
                         day: 'numeric',
@@ -119,13 +119,13 @@ const Blog = () => {
                       })}
                     </div>
                     <div className="flex items-center">
-                      <Clock className="h-3.5 w-3.5 mr-1.5 text-orange-400" />
+                      <Clock className="h-3.5 w-3.5 mr-1.5 text-[#01B3D1]" />
                       {featuredBlog.readTime}
                     </div>
                   </div>
                   <Button
                     variant="outline"
-                    className="border-gray-700 text-gray-200 hover:bg-orange-600 hover:text-white hover:border-orange-600 w-fit text-xs font-semibold rounded-lg bg-gray-900"
+                    className="border-gray-700 text-gray-200 hover:bg-[#F35A61] hover:text-white hover:border-[#F35A61] w-fit text-xs font-semibold rounded-lg bg-gray-900 transition-all"
                     onClick={() => window.location.href = `/insights/${featuredBlog.id}`}
                   >
                     Read Complete Guide
@@ -145,7 +145,7 @@ const Blog = () => {
             {filteredBlogs.slice(selectedCategory === 'All' && !searchTerm ? 1 : 0).map((blog) => (
               <Card
                 key={blog.id}
-                className="bg-gradient-to-br from-gray-900 to-gray-800 border border-gray-700 hover:border-orange-500 shadow-xl transition-all duration-300 rounded-2xl overflow-hidden group cursor-pointer"
+                className="bg-gradient-to-br from-gray-900 to-gray-800 border border-gray-700 hover:border-[#01B3D1] shadow-xl transition-all duration-300 rounded-2xl overflow-hidden group cursor-pointer"
                 onClick={() => window.location.href = `/insights/${blog.id}`}
               >
                 <div className="relative h-48 overflow-hidden bg-gray-900">
@@ -155,13 +155,13 @@ const Blog = () => {
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                   />
                   <div className="absolute top-4 right-4">
-                    <span className="px-2.5 py-0.5 bg-black/80 backdrop-blur-md text-orange-400 text-xs font-bold rounded-full border border-orange-500/30">
+                    <span className="px-2.5 py-0.5 bg-black/80 backdrop-blur-md text-[#01B3D1] text-xs font-bold rounded-full border border-[#01B3D1]/30">
                       {blog.category}
                     </span>
                   </div>
                 </div>
                 <CardContent className="p-6">
-                  <h3 className="text-lg font-bold text-white mb-2 group-hover:text-orange-400 transition-colors line-clamp-2">
+                  <h3 className="text-lg font-bold text-white mb-2 group-hover:text-[#F35A61] transition-colors line-clamp-2">
                     {blog.title}
                   </h3>
                   <p className="text-gray-400 text-xs mb-4 leading-relaxed line-clamp-3 font-light">
@@ -169,13 +169,13 @@ const Blog = () => {
                   </p>
                   <div className="flex items-center justify-between text-gray-500 text-xs border-t border-gray-800 pt-3">
                     <div className="flex items-center">
-                      <Calendar className="h-3 w-3 mr-1 text-orange-400" />
+                      <Calendar className="h-3 w-3 mr-1 text-[#01B3D1]" />
                       {new Date(blog.date).toLocaleDateString('en-US', {
                         month: 'short',
                         day: 'numeric'
                       })}
                     </div>
-                    <span className="text-orange-400 font-semibold group-hover:underline flex items-center">
+                    <span className="text-[#F35A61] font-semibold group-hover:underline flex items-center">
                       Read <ArrowRight className="ml-1 h-3 w-3" />
                     </span>
                   </div>
@@ -193,27 +193,27 @@ const Blog = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-gradient-to-r from-orange-600 to-orange-700">
+      <section className="py-20 bg-gradient-to-r from-[#F35A61] via-[#B85C8D] to-[#01B3D1] shadow-2xl">
         <div className="max-w-4xl mx-auto px-6 lg:px-8 text-center">
-          <h2 className="text-3xl font-extrabold text-white mb-4 tracking-tight">
+          <h2 className="text-3xl md:text-4xl font-extrabold text-white mb-4 tracking-tight">
             Have Questions About Building Your Dream Home?
           </h2>
-          <p className="text-orange-100 mb-8 max-w-xl mx-auto font-light">
+          <p className="text-white/90 mb-8 max-w-xl mx-auto font-light">
             Our architectural engineers in Visakhapatnam are happy to review your plot and offer free guidance.
           </p>
           <div className="flex flex-wrap justify-center gap-4">
             <Button
               size="lg"
-              className="bg-black hover:bg-gray-900 text-white px-8 py-6 text-base font-semibold rounded-lg shadow-xl border border-orange-400"
+              className="bg-white hover:bg-slate-100 text-slate-950 px-8 py-6 text-base font-bold rounded-lg shadow-2xl transition-all hover:scale-105"
               onClick={() => window.location.href = '/site-visit'}
             >
               Book Free Consultation
-              <ArrowRight className="ml-2 h-5 w-5" />
+              <ArrowRight className="ml-2 h-5 w-5 text-[#F35A61]" />
             </Button>
             <Button
               size="lg"
               variant="outline"
-              className="border-white/30 text-white hover:bg-white/10 px-8 py-6 text-base font-semibold rounded-lg bg-transparent"
+              className="border-white/40 text-white hover:bg-white/10 px-8 py-6 text-base font-semibold rounded-lg bg-transparent"
               onClick={() => window.location.href = '/cost-calculator'}
             >
               Calculate Estimated Cost

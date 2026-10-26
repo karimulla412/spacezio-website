@@ -69,7 +69,7 @@ const BIM = () => {
               </p>
               <Button
                 size="lg"
-                className="bg-orange-600 hover:bg-orange-700 text-white font-semibold px-8 py-6"
+                className="bg-gradient-to-r from-[#F35A61] to-[#E04850] hover:brightness-105 text-white font-semibold px-8 py-6 shadow-lg shadow-[#F35A61]/25 transition-all hover:scale-105"
                 onClick={() => window.location.href = '/contact'}
               >
                 Request BIM Consultation
@@ -105,11 +105,11 @@ const BIM = () => {
               return (
                 <Card
                   key={index}
-                  className="bg-gradient-to-br from-gray-800 to-gray-900 border-gray-700 hover:border-orange-500/50 transition-all duration-300 group"
+                  className="bg-gradient-to-br from-gray-800 to-gray-900 border-gray-700 hover:border-[#01B3D1]/50 transition-all duration-300 group"
                 >
                   <CardContent className="p-8">
-                    <div className="inline-block p-4 bg-orange-600/10 rounded-lg mb-6 group-hover:bg-orange-600/20 transition-colors duration-300">
-                      <IconComponent className="h-10 w-10 text-orange-500" />
+                    <div className="inline-block p-4 bg-white/5 border border-white/10 rounded-lg mb-6 group-hover:border-[#01B3D1]/40 transition-colors duration-300">
+                      <IconComponent className="h-10 w-10 text-[#01B3D1]" />
                     </div>
                     <h3 className="text-2xl font-bold text-white mb-4">{service.title}</h3>
                     <p className="text-gray-400 leading-relaxed">{service.description}</p>
@@ -139,11 +139,11 @@ const BIM = () => {
               return (
                 <Card
                   key={index}
-                  className="bg-gradient-to-br from-orange-900/20 to-gray-900 border-orange-500/30 text-center"
+                  className="bg-gradient-to-br from-[#F35A61]/10 to-gray-900 border-[#F35A61]/20 text-center"
                 >
                   <CardContent className="p-10">
-                    <div className="inline-block p-4 bg-orange-600/20 rounded-full mb-6">
-                      <IconComponent className="h-12 w-12 text-orange-500" />
+                    <div className="inline-block p-4 bg-[#F35A61]/20 rounded-full mb-6">
+                      <IconComponent className="h-12 w-12 text-[#F35A61]" />
                     </div>
                     <h3 className="text-2xl font-bold text-white mb-4">{benefit.title}</h3>
                     <p className="text-gray-300 leading-relaxed">{benefit.description}</p>
@@ -171,7 +171,7 @@ const BIM = () => {
             {software.map((tool, index) => (
               <div
                 key={index}
-                className="p-6 bg-gradient-to-br from-gray-800 to-gray-900 border border-gray-700 rounded-lg text-center hover:border-orange-500/50 transition-all duration-300 hover:scale-105"
+                className="p-6 bg-gradient-to-br from-gray-800 to-gray-900 border border-gray-700 rounded-lg text-center hover:border-[#01B3D1]/50 transition-all duration-300 hover:scale-105"
               >
                 <p className="text-white font-semibold text-sm">{tool}</p>
               </div>
@@ -185,7 +185,7 @@ const BIM = () => {
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
-              <span className="px-4 py-2 bg-orange-600/20 text-orange-500 text-sm font-semibold rounded-full">
+              <span className="px-4 py-2 bg-[#EFFBFC]/10 border border-[#01B3D1]/30 text-[#01B3D1] text-sm font-semibold rounded-full">
                 Case Study
               </span>
               <h2 className="text-4xl font-bold text-white mt-6 mb-6">
@@ -196,21 +196,21 @@ const BIM = () => {
               </p>
               <div className="space-y-4 mb-8">
                 <div className="flex items-start">
-                  <CheckCircle className="h-6 w-6 text-orange-500 mr-3 flex-shrink-0 mt-0.5" />
+                  <CheckCircle className="h-6 w-6 text-[#01B3D1] mr-3 flex-shrink-0 mt-0.5" />
                   <div>
                     <div className="text-white font-semibold">18% Cost Reduction</div>
                     <div className="text-gray-400 text-sm">Through early conflict detection</div>
                   </div>
                 </div>
                 <div className="flex items-start">
-                  <CheckCircle className="h-6 w-6 text-orange-500 mr-3 flex-shrink-0 mt-0.5" />
+                  <CheckCircle className="h-6 w-6 text-[#01B3D1] mr-3 flex-shrink-0 mt-0.5" />
                   <div>
                     <div className="text-white font-semibold">3 Months Faster</div>
                     <div className="text-gray-400 text-sm">Accelerated project timeline</div>
                   </div>
                 </div>
                 <div className="flex items-start">
-                  <CheckCircle className="h-6 w-6 text-orange-500 mr-3 flex-shrink-0 mt-0.5" />
+                  <CheckCircle className="h-6 w-6 text-[#01B3D1] mr-3 flex-shrink-0 mt-0.5" />
                   <div>
                     <div className="text-white font-semibold">Zero Site Conflicts</div>
                     <div className="text-gray-400 text-sm">Seamless construction execution</div>
@@ -220,7 +220,7 @@ const BIM = () => {
               <Button
                 size="lg"
                 variant="outline"
-                className="border-2 border-orange-500 text-orange-500 hover:bg-orange-500 hover:text-white"
+                className="border-2 border-[#01B3D1] text-[#01B3D1] hover:bg-[#01B3D1] hover:text-white transition-colors"
                 onClick={() => window.location.href = '/projects'}
               >
                 View More Case Studies
@@ -239,21 +239,21 @@ const BIM = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-gradient-to-r from-orange-600 to-orange-800">
+      <section className="py-20 bg-gradient-to-r from-[#F35A61] via-[#B85C8D] to-[#01B3D1] shadow-2xl">
         <div className="max-w-4xl mx-auto px-6 lg:px-8 text-center">
-          <h2 className="text-4xl font-bold text-white mb-6">
+          <h2 className="text-4xl font-extrabold text-white mb-6">
             Transform Your Project with BIM
           </h2>
-          <p className="text-xl text-orange-100 mb-8">
+          <p className="text-xl text-white/90 mb-8 font-light">
             Get a free BIM assessment for your upcoming project
           </p>
           <Button
             size="lg"
-            className="bg-white text-orange-600 hover:bg-gray-100 px-10 py-6 text-lg font-semibold"
+            className="bg-white text-slate-950 hover:bg-slate-100 px-10 py-6 text-lg font-bold shadow-2xl hover:scale-105 transition-all"
             onClick={() => window.location.href = '/contact'}
           >
             Schedule Free BIM Audit
-            <ArrowRight className="ml-2 h-5 w-5" />
+            <ArrowRight className="ml-2 h-5 w-5 text-[#F35A61]" />
           </Button>
         </div>
       </section>

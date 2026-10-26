@@ -26,7 +26,7 @@ const Process = () => {
       {/* Hero Section */}
       <section className="py-16 bg-black border-b border-gray-800">
         <div className="max-w-7xl mx-auto px-6 lg:px-8 text-center">
-          <div className="inline-block px-3 py-1 rounded-full bg-orange-600/10 border border-orange-500/20 text-orange-400 text-xs font-semibold uppercase tracking-wider mb-4">
+          <div className="inline-block px-3 py-1 rounded-full bg-[#FDF2F3]/10 border border-[#F35A61]/30 text-[#F35A61] text-xs font-semibold uppercase tracking-wider mb-4">
             Engineering Precision
           </div>
           <h1 className="text-4xl md:text-5xl font-extrabold text-white mb-4 tracking-tight">
@@ -59,10 +59,10 @@ const Process = () => {
                   >
                     <div className={`${isEven ? 'lg:text-right' : 'lg:col-start-2'}`}>
                       <div className={`inline-block ${isEven ? 'lg:float-right' : ''}`}>
-                        <span className="text-5xl font-black text-orange-500/20 block mb-1">
+                        <span className="text-5xl font-black text-white/20 block mb-1">
                           0{step.step}
                         </span>
-                        <div className="inline-block p-3.5 bg-orange-600/10 border border-orange-500/20 rounded-xl mb-3 text-orange-400">
+                        <div className="inline-block p-3.5 bg-[#EFFBFC]/10 border border-[#01B3D1]/30 rounded-xl mb-3 text-[#01B3D1]">
                           <IconComponent className="h-8 w-8" />
                         </div>
                       </div>
@@ -76,7 +76,7 @@ const Process = () => {
                     {/* Center Circle */}
                     <div className="hidden lg:block absolute left-1/2 transform -translate-x-1/2">
                       <div className="w-14 h-14 bg-gray-900 rounded-full flex items-center justify-center border-4 border-gray-700 shadow-xl">
-                        <span className="text-orange-400 font-bold text-lg">{step.step}</span>
+                        <span className="text-[#F35A61] font-bold text-lg">{step.step}</span>
                       </div>
                     </div>
 
@@ -105,27 +105,27 @@ const Process = () => {
             <CardContent className="p-8 lg:p-10">
               <div className="grid sm:grid-cols-2 md:grid-cols-5 gap-6">
                 <div className="text-center p-4 bg-gray-800/80 border border-gray-700 rounded-xl">
-                  <div className="text-2xl font-black text-orange-400 mb-1">Week 1-2</div>
+                  <div className="text-2xl font-black text-[#01B3D1] mb-1">Week 1-2</div>
                   <div className="text-white font-bold text-sm mb-1">Site Survey</div>
                   <div className="text-gray-400 text-xs">Soil Test & Requirements</div>
                 </div>
                 <div className="text-center p-4 bg-gray-800/80 border border-gray-700 rounded-xl">
-                  <div className="text-2xl font-black text-orange-400 mb-1">Week 3-6</div>
+                  <div className="text-2xl font-black text-[#F35A61] mb-1">Week 3-6</div>
                   <div className="text-white font-bold text-sm mb-1">3D Elevation</div>
                   <div className="text-gray-400 text-xs">Architectural Drawings</div>
                 </div>
                 <div className="text-center p-4 bg-gray-800/80 border border-gray-700 rounded-xl">
-                  <div className="text-2xl font-black text-orange-400 mb-1">Week 7-8</div>
+                  <div className="text-2xl font-black text-[#01B3D1] mb-1">Week 7-8</div>
                   <div className="text-white font-bold text-sm mb-1">Approvals</div>
                   <div className="text-gray-400 text-xs">Sanction & BOQ Sign-off</div>
                 </div>
                 <div className="text-center p-4 bg-gray-800/80 border border-gray-700 rounded-xl">
-                  <div className="text-2xl font-black text-orange-400 mb-1">Month 3-7</div>
+                  <div className="text-2xl font-black text-[#F35A61] mb-1">Month 3-7</div>
                   <div className="text-white font-bold text-sm mb-1">Civil Construction</div>
                   <div className="text-gray-400 text-xs">Foundation, Slab & Brickwork</div>
                 </div>
-                <div className="text-center p-4 bg-orange-600/10 rounded-xl border border-orange-500/30">
-                  <div className="text-2xl font-black text-orange-400 mb-1">Final</div>
+                <div className="text-center p-4 bg-[#FDF2F3]/10 rounded-xl border border-[#F35A61]/30">
+                  <div className="text-2xl font-black text-[#F35A61] mb-1">Final</div>
                   <div className="text-white font-bold text-sm mb-1">Handover</div>
                   <div className="text-gray-300 text-xs">10-Yr Warranty Handover</div>
                 </div>
@@ -136,27 +136,27 @@ const Process = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-gradient-to-r from-orange-600 to-orange-700">
+      <section className="py-20 bg-gradient-to-r from-[#F35A61] via-[#B85C8D] to-[#01B3D1] shadow-2xl">
         <div className="max-w-4xl mx-auto px-6 lg:px-8 text-center">
           <h2 className="text-3xl md:text-4xl font-extrabold text-white mb-4 tracking-tight">
             Ready to Begin Your Construction Journey?
           </h2>
-          <p className="text-orange-100 mb-8 max-w-xl mx-auto font-light">
+          <p className="text-white/90 mb-8 max-w-xl mx-auto font-light">
             Book a complimentary site inspection or calculate your building estimate today.
           </p>
           <div className="flex flex-wrap justify-center gap-4">
             <Button
               size="lg"
-              className="bg-black hover:bg-gray-900 text-white px-8 py-6 text-base font-semibold rounded-lg shadow-xl border border-orange-400"
+              className="bg-white hover:bg-slate-100 text-slate-950 px-8 py-6 text-base font-bold rounded-lg shadow-2xl transition-all hover:scale-105"
               onClick={() => window.location.href = '/site-visit'}
             >
               Book Site Visit
-              <ArrowRight className="ml-2 h-5 w-5" />
+              <ArrowRight className="ml-2 h-5 w-5 text-[#F35A61]" />
             </Button>
             <Button
               size="lg"
               variant="outline"
-              className="border-white/30 text-white hover:bg-white/10 px-8 py-6 text-base font-semibold rounded-lg bg-transparent"
+              className="border-white/40 text-white hover:bg-white/10 px-8 py-6 text-base font-semibold rounded-lg bg-transparent"
               onClick={() => window.location.href = '/cost-calculator'}
             >
               Estimate Construction Cost
