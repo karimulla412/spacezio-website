@@ -990,8 +990,8 @@ const Home = () => {
         </div>
       </section>
 
-      {/* 11. STICKY QUICK CONTACT BAR */}
-      <div className="fixed bottom-4 left-1/2 -translate-x-1/2 z-40 bg-white/95 backdrop-blur-xl border border-slate-300 shadow-2xl rounded-full px-4 py-2.5 flex items-center gap-3 text-xs max-w-[92vw] sm:max-w-md">
+      {/* 11. STICKY QUICK CONTACT BAR (Desktop/Tablet) */}
+      <div className="hidden sm:flex fixed bottom-4 left-1/2 -translate-x-1/2 z-40 bg-white/95 backdrop-blur-xl border border-slate-300 shadow-2xl rounded-full px-4 py-2.5 items-center gap-3 text-xs max-w-md">
         <a 
           href="tel:+919686511132" 
           className="flex items-center gap-1.5 text-slate-800 hover:text-[#F35A61] font-bold transition-colors"
