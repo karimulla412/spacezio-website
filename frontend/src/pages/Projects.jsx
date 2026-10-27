@@ -5,10 +5,12 @@ import { Card, CardContent } from '../components/ui/card';
 import { Tabs, TabsList, TabsTrigger } from '../components/ui/tabs';
 import { projectsData as defaultProjects } from '../data/mock';
 import { useContent } from '../context/ContentContext';
+import { useInquiry } from '../context/InquiryContext';
 import SEO from '../components/SEO';
 
 const Projects = () => {
   const { content } = useContent();
+  const { openInquiry } = useInquiry();
   const projects = content?.projectsData || defaultProjects;
   const [selectedCategory, setSelectedCategory] = useState('All');
 
@@ -125,7 +127,14 @@ const Projects = () => {
                   <Button
                     variant="outline"
                     className="w-full border-slate-300 bg-white text-slate-800 hover:bg-[#F35A61] hover:text-white hover:border-[#F35A61] transition-all text-xs font-bold rounded-xl py-5 shadow-2xs cursor-pointer"
-                    onClick={() => window.location.href = '/contact'}
+                    onClick={() => openInquiry({
+                      title: project.title,
+                      category: `Project Inquiry: ${project.category}`,
+                      subtitle: `${project.location} • ${project.area}`,
+                      defaultCity: project.location?.includes(',') ? project.location.split(',')[0].trim() : 'Visakhapatnam',
+                      plotSize: project.area || '',
+                      defaultMessage: `Hi Spacexio, I am interested in building a project similar to "${project.title}" in ${project.location} (${project.area}). Please share details and a cost quotation.`
+                    })}
                   >
                     Inquire About Similar Project
                     <ArrowRight className="ml-1.5 h-3.5 w-3.5" />

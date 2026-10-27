@@ -3,9 +3,11 @@ import { Award, Shield, Users, Target, CheckCircle, ArrowRight } from 'lucide-re
 import { Button } from '../components/ui/button';
 import { Card, CardContent } from '../components/ui/card';
 import { teamData, certificationsData } from '../data/mock';
+import { useInquiry } from '../context/InquiryContext';
 import SEO from '../components/SEO';
 
 const About = () => {
+  const { openInquiry } = useInquiry();
   const values = [
     {
       icon: Shield,
@@ -191,8 +193,13 @@ const About = () => {
             <Button
               size="lg"
               variant="outline"
-              className="border-white/60 text-white hover:bg-white/15 px-8 py-6 text-base font-semibold rounded-lg bg-transparent"
-              onClick={() => window.location.href = '/contact'}
+              className="border-white/60 text-white hover:bg-white/15 px-8 py-6 text-base font-semibold rounded-lg bg-transparent cursor-pointer"
+              onClick={() => openInquiry({
+                title: 'Direct Studio Consultation',
+                category: 'Studio Consultation',
+                subtitle: 'Meet our senior architects & civil engineers',
+                defaultMessage: 'Hi Spacexio, I would like to schedule a consultation at your studio or on-site to discuss my construction project.'
+              })}
             >
               Contact Our Studio
             </Button>

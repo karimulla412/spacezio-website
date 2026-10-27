@@ -2,9 +2,11 @@ import React from 'react';
 import { Zap, Target, DollarSign, Eye, Heart, TrendingUp, ArrowRight, ShieldCheck, Check } from 'lucide-react';
 import { Button } from '../components/ui/button';
 import { Card, CardContent } from '../components/ui/card';
+import { useInquiry } from '../context/InquiryContext';
 import SEO from '../components/SEO';
 
 const WhyUs = () => {
+  const { openInquiry } = useInquiry();
   const features = [
     {
       icon: <Zap className="h-9 w-9 text-[#F35A61]" />,
@@ -231,7 +233,12 @@ const WhyUs = () => {
               <Button
                 size="lg"
                 className="bg-white hover:bg-slate-100 text-slate-950 px-8 py-6 text-sm font-bold rounded-xl shadow-xl transition-all hover:scale-105 cursor-pointer"
-                onClick={() => window.location.href = '/contact'}
+                onClick={() => openInquiry({
+                  title: 'Complimentary Architectural Consultation',
+                  category: 'Why Us Consultation',
+                  subtitle: 'Direct studio inquiry • Visakhapatnam & Hyderabad',
+                  defaultMessage: 'Hi Spacexio, I want to experience the Spacexio advantage. Please schedule a free consultation to discuss my upcoming construction project.'
+                })}
               >
                 Schedule Free Consultation
                 <ArrowRight className="ml-2 h-4 w-4 text-[#F35A61]" />

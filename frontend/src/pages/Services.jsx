@@ -3,6 +3,7 @@ import { ArrowRight, Check, Compass, Box, Home, Hammer, Sparkles } from 'lucide-
 import { Button } from '../components/ui/button';
 import { Card, CardContent } from '../components/ui/card';
 import { servicesData } from '../data/mock';
+import { useInquiry } from '../context/InquiryContext';
 import SEO from '../components/SEO';
 
 const iconMap = {
@@ -13,6 +14,7 @@ const iconMap = {
 };
 
 const Services = () => {
+  const { openInquiry } = useInquiry();
   const serviceDetails = {
     1: {
       image: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800&q=80',
@@ -120,7 +122,12 @@ const Services = () => {
                     <Button
                       size="lg"
                       className="bg-[#F35A61] hover:bg-[#E04850] text-white font-bold px-8 py-6 rounded-xl shadow-lg shadow-[#F35A61]/25 transition-all cursor-pointer"
-                      onClick={() => window.location.href = '/contact'}
+                      onClick={() => openInquiry({
+                        title: service.title,
+                        category: 'Service Consultation',
+                        subtitle: 'Expert consultation & feasibility review',
+                        defaultMessage: `Hi Spacexio, I would like to request a consultation for your ${service.title} service. Please connect me with your design & engineering team.`
+                      })}
                     >
                       Request Consultation
                       <ArrowRight className="ml-2 h-4 w-4" />
@@ -200,7 +207,12 @@ const Services = () => {
               <Button
                 size="lg"
                 className="bg-white hover:bg-slate-100 text-slate-950 font-bold px-8 py-6 text-sm rounded-xl shadow-xl hover:scale-105 transition-all cursor-pointer"
-                onClick={() => window.location.href = '/contact'}
+                onClick={() => openInquiry({
+                  title: 'Turnkey Construction & Architectural Consultation',
+                  category: 'General Consultation',
+                  subtitle: 'Direct studio inquiry • Visakhapatnam & Hyderabad',
+                  defaultMessage: 'Hi Spacexio, I am planning a construction project and would like to schedule a complimentary engineering consultation.'
+                })}
               >
                 Schedule Consultation
                 <ArrowRight className="ml-2 h-4 w-4 text-[#F35A61]" />

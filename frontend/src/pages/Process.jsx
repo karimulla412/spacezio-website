@@ -3,6 +3,7 @@ import { ArrowRight, MessageSquare, Pencil, FileText, Settings, CheckCircle, Shi
 import { Button } from '../components/ui/button';
 import { Card, CardContent } from '../components/ui/card';
 import { processData } from '../data/mock';
+import { useInquiry } from '../context/InquiryContext';
 import SEO from '../components/SEO';
 
 const iconMap = {
@@ -14,6 +15,7 @@ const iconMap = {
 };
 
 const Process = () => {
+  const { openInquiry } = useInquiry();
   return (
     <div className="min-h-screen bg-[#FCFCF7] text-slate-900 font-sans antialiased selection:bg-[#FDF2F3] selection:text-white pt-24">
       <SEO 
@@ -159,10 +161,23 @@ const Process = () => {
               <Button
                 size="lg"
                 className="bg-white hover:bg-slate-100 text-slate-950 px-8 py-6 text-sm font-bold rounded-xl shadow-xl transition-all hover:scale-105 cursor-pointer"
+                onClick={() => openInquiry({
+                  title: 'Start Your Construction Project',
+                  category: 'Process Consultation',
+                  subtitle: '5-Stage Predictable Architecture & Execution',
+                  defaultMessage: 'Hi Spacexio, I would like to learn more about your 5-stage turnkey workflow and discuss my project plans.'
+                })}
+              >
+                Send Project Query
+                <ArrowRight className="ml-2 h-4 w-4 text-[#F35A61]" />
+              </Button>
+              <Button
+                size="lg"
+                variant="outline"
+                className="border-white/40 bg-white/10 hover:bg-white/20 text-white px-8 py-6 text-sm font-bold rounded-xl transition-colors cursor-pointer"
                 onClick={() => window.location.href = '/site-visit'}
               >
-                Book Free Site Visit
-                <ArrowRight className="ml-2 h-4 w-4 text-[#F35A61]" />
+                Book Free Site Inspection
               </Button>
               <Button
                 size="lg"

@@ -3,10 +3,12 @@ import "@/App.css";
 import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 import { Toaster } from "./components/ui/sonner";
 import { ContentProvider } from "./context/ContentContext";
+import { InquiryProvider } from "./context/InquiryContext";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import ChatBot from "./components/ChatBot";
 import WhatsAppFloat from "./components/WhatsAppFloat";
+import QuickInquiryModal from "./components/QuickInquiryModal";
 import Home from "./pages/Home";
 import About from "./pages/About";
 import Services from "./pages/Services";
@@ -58,6 +60,7 @@ const AppContent = () => {
           <Footer />
           <WhatsAppFloat />
           <ChatBot />
+          <QuickInquiryModal />
         </>
       )}
       <Toaster />
@@ -69,9 +72,11 @@ function App() {
   return (
     <div className="App">
       <ContentProvider>
-        <BrowserRouter>
-          <AppContent />
-        </BrowserRouter>
+        <InquiryProvider>
+          <BrowserRouter>
+            <AppContent />
+          </BrowserRouter>
+        </InquiryProvider>
       </ContentProvider>
     </div>
   );

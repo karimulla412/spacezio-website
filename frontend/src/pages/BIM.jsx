@@ -2,9 +2,11 @@ import React from 'react';
 import { ArrowRight, CheckCircle, Layers, Box, Cpu, ShieldCheck, Zap, TrendingUp, Sparkles } from 'lucide-react';
 import { Button } from '../components/ui/button';
 import { Card, CardContent } from '../components/ui/card';
+import { useInquiry } from '../context/InquiryContext';
 import SEO from '../components/SEO';
 
 const BIM = () => {
+  const { openInquiry } = useInquiry();
   const bimServices = [
     {
       icon: Box,
@@ -92,7 +94,12 @@ const BIM = () => {
                 <Button
                   size="lg"
                   className="bg-[#F35A61] hover:bg-[#E04850] text-white font-bold px-8 py-6 rounded-xl shadow-lg shadow-[#F35A61]/25 transition-all cursor-pointer"
-                  onClick={() => window.location.href = '/contact'}
+                  onClick={() => openInquiry({
+                    title: 'BIM Precision & Clash-Free Construction',
+                    category: 'BIM Services',
+                    subtitle: 'LOD 100-500 Modeling & 3D Clash Coordination',
+                    defaultMessage: 'Hi Spacexio, I want to explore BIM modeling and clash detection for my project. Please schedule a consultation.'
+                  })}
                 >
                   Request BIM Consultation
                   <ArrowRight className="ml-2 h-4 w-4" />
@@ -145,7 +152,20 @@ const BIM = () => {
                       <IconComponent className="h-8 w-8 text-[#01B3D1]" />
                     </div>
                     <h3 className="text-xl font-bold text-slate-900 mb-3 group-hover:text-[#F35A61] transition-colors">{service.title}</h3>
-                    <p className="text-slate-600 leading-relaxed text-sm">{service.description}</p>
+                    <p className="text-slate-600 leading-relaxed text-sm mb-4">{service.description}</p>
+                    <button
+                      type="button"
+                      onClick={() => openInquiry({
+                        title: service.title,
+                        category: 'BIM Service Inquiry',
+                        subtitle: 'LOD 100-500 Coordination & Engineering',
+                        defaultMessage: `Hi Spacexio, I am interested in your ${service.title} capabilities. Please provide a scope proposal.`
+                      })}
+                      className="inline-flex items-center gap-1.5 text-xs font-bold text-[#F35A61] hover:text-[#01B3D1] transition-colors cursor-pointer group-hover:translate-x-1 duration-200"
+                    >
+                      <span>Inquire for this BIM Service</span>
+                      <ArrowRight className="h-3.5 w-3.5" />
+                    </button>
                   </CardContent>
                 </Card>
               );
@@ -286,7 +306,12 @@ const BIM = () => {
             <Button
               size="lg"
               className="bg-white text-slate-950 hover:bg-slate-100 px-8 py-6 text-sm font-bold rounded-xl shadow-xl hover:scale-105 transition-all cursor-pointer"
-              onClick={() => window.location.href = '/contact'}
+              onClick={() => openInquiry({
+                title: 'Complimentary BIM Feasibility Audit',
+                category: 'BIM Audit',
+                subtitle: 'Structural Clash Review & Quantity Takeoff',
+                defaultMessage: 'Hi Spacexio, I would like to schedule a free BIM feasibility assessment and structural clash review for my upcoming construction project.'
+              })}
             >
               Schedule Free BIM Audit
               <ArrowRight className="ml-2 h-4 w-4 text-[#F35A61]" />

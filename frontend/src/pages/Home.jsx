@@ -16,11 +16,13 @@ import {
   testimonialsData as defaultTestimonialsData, 
   faqData 
 } from '../data/mock';
+import { useInquiry } from '../context/InquiryContext';
 import SEO from '../components/SEO';
 import { useScrollReveal } from '../hooks/useScrollReveal';
 
 const Home = () => {
   useScrollReveal();
+  const { openInquiry } = useInquiry();
   const { content } = useContent();
   const packagesData = content?.constructionPackagesData || defaultPackagesData;
   const projectsData = content?.projectsData || defaultProjectsData;
@@ -617,17 +619,25 @@ const Home = () => {
                     </div>
                   </div>
 
-                  <div>
-                    <Link to="/packages">
-                      <Button
-                        className={`w-full py-5 rounded-xl font-bold text-xs uppercase tracking-wider transition-all cursor-pointer ${
-                          isPopular
-                            ? 'bg-[#F35A61] hover:bg-[#E04850] text-white shadow-md shadow-[#F35A61]/25'
-                            : 'bg-slate-100 hover:bg-slate-200 text-slate-800'
-                        }`}
-                      >
-                        Explore {pkg.name} Specs →
-                      </Button>
+                  <div className="space-y-2 pt-2">
+                    <button
+                      type="button"
+                      onClick={() => openInquiry({
+                        title: `${pkg.name} Construction Package (₹${pkg.pricePerSqft}/sq.ft)`,
+                        category: 'Package Inquiry',
+                        subtitle: `${pkg.description} • Turnkey with 10-Year Warranty`,
+                        defaultMessage: `Hi Spacexio, I am interested in the ${pkg.name} package at ₹${pkg.pricePerSqft}/sq.ft. Please share detailed specifications and quote for my plot.`
+                      })}
+                      className={`w-full py-3.5 rounded-xl font-bold text-xs uppercase tracking-wider transition-all cursor-pointer ${
+                        isPopular
+                          ? 'bg-[#F35A61] hover:bg-[#E04850] text-white shadow-md shadow-[#F35A61]/25 hover:scale-[1.01]'
+                          : 'bg-slate-900 hover:bg-slate-800 text-white'
+                      }`}
+                    >
+                      Inquire for {pkg.name} Quote →
+                    </button>
+                    <Link to="/packages" className="block text-center text-[11px] font-semibold text-slate-500 hover:text-[#01B3D1] transition-colors py-1">
+                      View 50+ Inclusions & Specs
                     </Link>
                   </div>
                 </div>
@@ -832,11 +842,26 @@ const Home = () => {
                   </div>
                 </div>
 
-                <div className="px-6 pb-6 pt-0">
+                <div className="px-6 pb-6 pt-0 space-y-3">
                   <div className="flex items-center justify-between text-xs font-mono text-slate-500 pt-3 border-t border-slate-100">
                     <span>Built-up: <b className="text-slate-900">{project.area}</b></span>
                     <span>Budget: <b className="text-[#F35A61] font-bold">{project.budget}</b></span>
                   </div>
+                  <button
+                    type="button"
+                    onClick={() => openInquiry({
+                      title: project.title,
+                      category: `Project Inquiry: ${project.category}`,
+                      subtitle: `${project.location} • ${project.area}`,
+                      defaultCity: project.location?.includes(',') ? project.location.split(',')[0].trim() : 'Visakhapatnam',
+                      plotSize: project.area || '',
+                      defaultMessage: `Hi Spacexio, I am interested in building a project similar to "${project.title}" in ${project.location} (${project.area}). Please share details and a cost quotation.`
+                    })}
+                    className="w-full py-2.5 px-3 rounded-xl border border-slate-200 hover:border-[#F35A61] text-slate-700 hover:text-[#F35A61] hover:bg-[#FDF2F3]/40 text-xs font-bold transition-all flex items-center justify-center gap-1.5 cursor-pointer"
+                  >
+                    <span>Inquire for Similar Project</span>
+                    <ArrowRight className="h-3 w-3" />
+                  </button>
                 </div>
               </div>
             ))}

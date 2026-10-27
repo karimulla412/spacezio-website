@@ -2,8 +2,10 @@ import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Menu, X, Phone, Mail, ArrowRight, Calculator, ArrowUp, MessageCircle, Calendar, MapPin, ChevronDown } from 'lucide-react';
 import { Button } from '../components/ui/button';
+import { useInquiry } from '../context/InquiryContext';
 
 const Header = () => {
+  const { openInquiry } = useInquiry();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [scrollProgress, setScrollProgress] = useState(0);
   const [isScrolled, setIsScrolled] = useState(false);
@@ -93,6 +95,19 @@ const Header = () => {
                   <Mail className="h-3.5 w-3.5 mr-1.5 text-[#F35A61]" />
                   <span>info@spacexio.com</span>
                 </a>
+                <button
+                  type="button"
+                  onClick={() => openInquiry({
+                    title: 'Direct Architectural Inquiry',
+                    category: 'Studio Consultation',
+                    subtitle: `Studio Hub: ${selectedCity}`,
+                    defaultMessage: 'Hi Spacexio, I would like to inquire about architectural design and turnkey construction.'
+                  })}
+                  className="flex items-center hover:text-[#F35A61] text-slate-700 transition-colors cursor-pointer"
+                >
+                  <span className="inline-block w-2 h-2 rounded-full bg-emerald-500 mr-1.5 animate-pulse"></span>
+                  <span className="font-semibold text-xs">Direct Query / Callback</span>
+                </button>
               </div>
               
               <div className="flex items-center gap-4">
@@ -264,12 +279,29 @@ const Header = () => {
                     className="w-full"
                   >
                     <Button
-                      className="w-full bg-[#F35A61] hover:bg-[#E04850] text-white font-bold text-xs py-5 rounded-xl shadow-md shadow-[#F35A61]/25 flex items-center justify-center"
+                      className="w-full bg-[#F35A61] hover:bg-[#E04850] text-white font-bold text-xs py-5 rounded-xl shadow-md shadow-[#F35A61]/25 flex items-center justify-center cursor-pointer"
                     >
                       Book Site Visit
                     </Button>
                   </Link>
                 </div>
+
+                <button
+                  type="button"
+                  onClick={() => {
+                    setMobileMenuOpen(false);
+                    openInquiry({
+                      title: 'Direct Architectural Inquiry',
+                      category: 'Studio Consultation',
+                      subtitle: `Studio Hub: ${selectedCity}`,
+                      defaultMessage: 'Hi Spacexio, I would like to inquire about architectural design and turnkey construction.'
+                    });
+                  }}
+                  className="w-full py-3.5 px-4 rounded-xl font-bold text-xs bg-slate-900 text-white flex items-center justify-center gap-2 shadow-xs cursor-pointer hover:bg-slate-800 transition-colors"
+                >
+                  <Mail className="h-3.5 w-3.5 text-[#F35A61]" />
+                  <span>Send Instant Project Query</span>
+                </button>
               </div>
             </div>
           )}

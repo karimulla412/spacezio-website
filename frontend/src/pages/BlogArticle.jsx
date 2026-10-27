@@ -3,11 +3,13 @@ import { useParams, useNavigate } from 'react-router-dom';
 import { Calendar, Clock, ArrowLeft, Share2, ArrowRight } from 'lucide-react';
 import { Button } from '../components/ui/button';
 import { blogData } from '../data/mock';
+import { useInquiry } from '../context/InquiryContext';
 import SEO from '../components/SEO';
 
 const BlogArticle = () => {
   const { id } = useParams();
   const navigate = useNavigate();
+  const { openInquiry } = useInquiry();
   const [article, setArticle] = useState(null);
   const [relatedArticles, setRelatedArticles] = useState([]);
 
@@ -196,7 +198,12 @@ const BlogArticle = () => {
             <Button
               size="lg"
               className="bg-white text-slate-950 hover:bg-slate-100 font-bold shadow-2xl hover:scale-105 px-8 py-6 text-sm rounded-xl cursor-pointer"
-              onClick={() => navigate('/contact')}
+              onClick={() => openInquiry({
+                title: article ? `Consultation: ${article.title}` : 'Planning a Construction Project',
+                category: 'Editorial Insight Consultation',
+                subtitle: 'Direct studio inquiry • Quick callback guaranteed',
+                defaultMessage: `Hi Spacexio, I was reading your article "${article?.title || 'Home Construction'}" and would like to schedule a consultation for my upcoming project.`
+              })}
             >
               Schedule Free Consultation
               <ArrowRight className="ml-2 h-4 w-4 text-[#F35A61]" />

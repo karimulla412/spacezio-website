@@ -5,9 +5,11 @@ import { Card, CardContent } from '../components/ui/card';
 import { Input } from '../components/ui/input';
 import { Label } from '../components/ui/label';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '../components/ui/select';
+import { useInquiry } from '../context/InquiryContext';
 import SEO from '../components/SEO';
 
 const CostCalculator = () => {
+  const { openInquiry } = useInquiry();
   const [formData, setFormData] = useState({
     homeType: '',
     plotSize: '',
@@ -320,10 +322,33 @@ const CostCalculator = () => {
                     Our structural engineers will inspect your plot, evaluate soil, and deliver an exact BOQ quotation.
                   </p>
                   <Button
-                    onClick={() => window.location.href = '/site-visit'}
-                    className="w-full bg-[#01B3D1] hover:bg-[#009AA8] text-white font-semibold py-3 rounded-lg shadow-lg shadow-[#01B3D1]/25 transition-all hover:scale-[1.01]"
+                    onClick={() => openInquiry({
+                      title: `Estimate: ₹${(estimate.totalCost/100000).toFixed(2)} Lakhs (${estimate.builtUpArea} sq.ft)`,
+                      category: 'Calculated Cost Estimate',
+                      subtitle: `${formData.package.toUpperCase()} Package • ${formData.floors} Floor(s)`,
+                      plotSize: `${estimate.builtUpArea} sq.ft`,
+                      details: {
+                        package: formData.package,
+                        floors: formData.floors,
+                        builtUpArea: estimate.builtUpArea,
+                        ratePerSqft: estimate.ratePerSqft,
+                        baseCost: estimate.baseCost,
+                        gst: estimate.gst,
+                        contingency: estimate.contingency,
+                        totalCost: estimate.totalCost
+                      },
+                      defaultMessage: `Hi Spacexio, I calculated an estimate of ₹${(estimate.totalCost/100000).toFixed(2)} Lakhs for a ${formData.floors}-floor ${estimate.builtUpArea} sq.ft home with the ${formData.package.toUpperCase()} package (₹${estimate.ratePerSqft}/sq.ft). Please review this and send me an official BOQ quotation.`
+                    })}
+                    className="w-full bg-[#F35A61] hover:bg-[#E04850] text-white font-semibold py-3 rounded-lg shadow-lg shadow-[#F35A61]/25 transition-all hover:scale-[1.01] mb-2.5 cursor-pointer"
                   >
-                    Book Free Site Visit
+                    Send Query with this Estimate →
+                  </Button>
+                  <Button
+                    onClick={() => window.location.href = '/site-visit'}
+                    variant="outline"
+                    className="w-full border-slate-300 hover:border-[#01B3D1] hover:text-[#01B3D1] hover:bg-[#EFFBFC] text-slate-800 font-semibold py-3 rounded-lg transition-all"
+                  >
+                    Book Free Site Inspection
                     <ArrowRight className="ml-2 h-4 w-4" />
                   </Button>
                 </div>

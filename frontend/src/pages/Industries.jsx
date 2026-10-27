@@ -3,9 +3,11 @@ import { ArrowRight, Check, Building2 } from 'lucide-react';
 import { Button } from '../components/ui/button';
 import { Card } from '../components/ui/card';
 import { industriesData } from '../data/mock';
+import { useInquiry } from '../context/InquiryContext';
 import SEO from '../components/SEO';
 
 const Industries = () => {
+  const { openInquiry } = useInquiry();
   return (
     <div className="min-h-screen bg-[#FCFCF7] text-slate-900 font-sans antialiased selection:bg-[#FDF2F3] selection:text-white pt-24">
       <SEO 
@@ -82,7 +84,12 @@ const Industries = () => {
                     <Button
                       size="lg"
                       className="bg-[#F35A61] hover:bg-[#E04850] text-white font-bold text-xs uppercase tracking-wider px-7 py-6 rounded-xl shadow-lg shadow-[#F35A61]/25 transition-all cursor-pointer"
-                      onClick={() => window.location.href = '/contact'}
+                      onClick={() => openInquiry({
+                        title: industry.title,
+                        category: `Sector: ${industry.title}`,
+                        subtitle: 'Custom architectural design & turnkey construction',
+                        defaultMessage: `Hi Spacexio, I am interested in building a ${industry.title}. Please provide design concepts, cost estimates, and execution timelines.`
+                      })}
                     >
                       Inquire for This Project Type
                       <ArrowRight className="ml-2 h-4 w-4" />

@@ -3,10 +3,12 @@ import { Check, X, ArrowRight, Info, Shield, Sparkles } from 'lucide-react';
 import { Button } from '../components/ui/button';
 import { Card, CardContent } from '../components/ui/card';
 import { useContent } from '../context/ContentContext';
+import { useInquiry } from '../context/InquiryContext';
 import SEO from '../components/SEO';
 
 const PackagesComparison = () => {
   const { content } = useContent();
+  const { openInquiry } = useInquiry();
   const cmsPackages = content?.constructionPackagesData;
 
   const packages = [
@@ -142,7 +144,23 @@ const PackagesComparison = () => {
                   <span className="text-3xl font-extrabold text-[#F35A61]">₹{pkg.price}</span>
                   <span className="text-xs text-slate-500">/sq.ft</span>
                 </div>
-                <p className="text-xs text-slate-500 mt-1">{pkg.idealFor}</p>
+                <p className="text-xs text-slate-500 mt-1 mb-3">{pkg.idealFor}</p>
+                <button
+                  type="button"
+                  onClick={() => openInquiry({
+                    title: `${pkg.name} Package (₹${pkg.price}/sq.ft)`,
+                    category: 'Package Inquiry',
+                    subtitle: `${pkg.tagline} • Ideal for ${pkg.idealFor}`,
+                    defaultMessage: `Hi Spacexio, I am interested in the ${pkg.name} package at ₹${pkg.price}/sq.ft. Please share detailed specifications and a customized quotation for my plot.`
+                  })}
+                  className={`w-full py-2 px-3 rounded-lg text-xs font-bold transition-all cursor-pointer ${
+                    pkg.popular
+                      ? 'bg-[#F35A61] hover:bg-[#E04850] text-white shadow-xs'
+                      : 'bg-slate-100 hover:bg-slate-200 text-slate-800'
+                  }`}
+                >
+                  Inquire for {pkg.name} →
+                </button>
               </CardContent>
             </Card>
           ))}
@@ -229,7 +247,7 @@ const PackagesComparison = () => {
           <div className="flex flex-wrap justify-center gap-4">
             <Button
               size="lg"
-              className="bg-[#F35A61] hover:bg-[#E04850] text-white px-8 py-6 text-base font-semibold rounded-lg shadow-lg shadow-[#F35A61]/25 transition-all hover:scale-105"
+              className="bg-[#F35A61] hover:bg-[#E04850] text-white px-8 py-6 text-base font-semibold rounded-lg shadow-lg shadow-[#F35A61]/25 transition-all hover:scale-105 cursor-pointer"
               onClick={() => window.location.href = '/site-visit'}
             >
               Book Free Site Visit
@@ -238,7 +256,20 @@ const PackagesComparison = () => {
             <Button
               size="lg"
               variant="outline"
-              className="border-2 border-slate-300 text-slate-800 hover:border-[#01B3D1] hover:text-[#01B3D1] hover:bg-[#EFFBFC] px-8 py-6 text-base font-semibold rounded-lg transition-colors"
+              className="border-2 border-slate-300 text-slate-800 hover:border-[#F35A61] hover:text-[#F35A61] hover:bg-[#FDF2F3] px-8 py-6 text-base font-semibold rounded-lg transition-colors cursor-pointer"
+              onClick={() => openInquiry({
+                title: 'Custom Construction Package Inquiry',
+                category: 'Package Customization',
+                subtitle: 'Tailored BOQ for your custom specifications',
+                defaultMessage: 'Hi Spacexio, I would like to discuss customizing a construction package for my plot dimensions and requirements.'
+              })}
+            >
+              Inquire for Custom Package
+            </Button>
+            <Button
+              size="lg"
+              variant="outline"
+              className="border-2 border-slate-300 text-slate-800 hover:border-[#01B3D1] hover:text-[#01B3D1] hover:bg-[#EFFBFC] px-8 py-6 text-base font-semibold rounded-lg transition-colors cursor-pointer"
               onClick={() => window.location.href = '/cost-calculator'}
             >
               Calculate Construction Cost
